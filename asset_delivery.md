@@ -39,4 +39,4 @@ Furthermore, we use Cloudflare so that the Assets are delivered via SPDY or HTTP
 
 ## Option B - TODO: Try Cloudflare Only
 
-And configure that /assets/* is always cached on Cloudflare.
+Use Cloudflare and configure that /assets/* is always cached on Cloudflare.
