@@ -11,4 +11,5 @@
 * [Auto Deploy](auto_deploy.md)
 * [GetSentry](getsentry.md)
 * [Mandrill](mandrill.md)
+* Google Analytics
 
