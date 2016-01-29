@@ -4,5 +4,5 @@
 * [First Chapter](chapter1.md)
 * [Gems](gems.md)
 * [Naming Conventions](naming_conventions.md)
-* Gitignore
+* [Gitignore](gitignore.md)
 
