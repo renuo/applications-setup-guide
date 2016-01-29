@@ -5,5 +5,5 @@
 * [Gems](gems.md)
 * [Naming Conventions](naming_conventions.md)
 * [Gitignore](gitignore.md)
-* One Simple Test
+* [One Simple Test](one_simple_test.md)
 
