@@ -28,7 +28,7 @@ vim heroku-config-script.rb
 ruby heroku-config-script.rb
 ```
 
-Write this data into the credential store of the corresponding project.
+Write this data into the credential store of the corresponding project, so that the data can be transferred to the sysadmin safely.
 
 ## Start
 
