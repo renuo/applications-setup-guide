@@ -1,0 +1,48 @@
+# Use /etc/hosts to change the dns to 127.0.0.1, see bin/setup
+APP_HOST: '<application>.dev'
+APP_PORT: '3000'
+
+# Create one new account mandrill+<application>@renuo.ch at https://mandrillapp.com/ for develop/master/testing
+# Document the credentials in the <project> specific credential store
+MAIL_USERNAME: ''
+MAIL_PASSWORD: ''
+MAIL_SENDER: <yourname>+<application>@renuo.ch
+
+# Secrets
+SECRET_KEY_BASE: 'rake secret'
+DEVISE_SECRET_KEY: 'rake secret'
+DEVISE_PEPPER: 'rake secret'
+
+# Newrelic
+NEW_RELIC_LICENSE_KEY: 'TODO'
+NEW_RELIC_APP_NAME: '<application>-<branch>'
+
+# Add 3 new projects for develop/master/testing at https://app.getsentry.com/organizations/renuo/projects/new/
+SENTRY_DSN: ''
+SENTRY_PUBLIC_DSN: ''
+
+# Use Renuo Upload instead of Amazon S3
+RENUO_UPLOAD_API_KEY: ''
+# Where the renuo-upload library gets the credentials for the upload
+RENUO_UPLOAD_SIGNING_URL: ''
+# Host where the images are available
+RENUO_UPLOAD_CDN_HOST: ''
+RENUO_UPLOAD_APP_NAME: '<application>-<branch>'
+
+# This is used to seed your database
+# Use a random password for develop/master/testing
+ADMIN_EMAIL: <yourname>+<application>@renuo.ch
+ADMIN_PASSWORD: 'developer'
+
+# Have 3 different Google Analytics key so not to mix up data from different applications
+GOOGLE_ANALYTICS_ID: ''
+
+# For the production environment on Heroku we use the DATABASE_URL. The format of it is as follows:
+# "postgres://myuser:mypass@localhost/somedatabase"
+# Note that this ENV variable is already configured by Heroku when installing the PG extension.
+# For the local environment the defaults should be ok. If you need to override the config, use the DATABASE_URL.
+
+# Try not to use Amazon S3! If you have to, name the bucket: <project-name>-<user>-<rails_env>
+# S3_BUCKET_NAME: '<application>-<branch>'
+# AWS_ACCESS_KEY_ID: ''
+# AWS_SECRET_ACCESS_KEY: ''
