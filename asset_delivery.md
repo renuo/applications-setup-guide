@@ -1,6 +1,6 @@
 # Asset Delivery
 
-## Option A - Use Cloudfront CDN and Cloudflare CDN -> the way to go!
+## Option A - Use Cloudfront CDN and Cloudflare CDN
 
 The ASSET_HOST on heroku is already configured to < appname>-< branch>-assets.renuoapp.ch
 
