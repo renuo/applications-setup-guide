@@ -8,4 +8,5 @@
 * [One Simple Test](one_simple_test.md)
 * [CI](ci.md)
 * [Initial Deployment](initial_deployment.md)
+* Auto Deploy
 
