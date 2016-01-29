@@ -2,15 +2,13 @@
 
 ## Config Prepare
 
-Prepare 3 lists with the config for each production env: develop/master/testing. Define every config which is defined in https://redmine.renuo.ch/projects/internal/wiki/Application_Configuration#configapplicationexampleyml. This should look like:
+Prepare 3 lists with the config for each production env: develop/master/testing. This should look like.
 
 ```sh
 # master
 heroku config:set MAIL_USERNAME="..."
-heroku config:set MAIL_PASSWORD="..."
 heroku config:set APP_HOST="<application>-<branch>.renuoapp.ch"
 heroku config:set APP_PORT="443"
-...
 ...
 ...
 # develop
@@ -21,11 +19,7 @@ heroku config:set APP_PORT="443"
 ...
 ```
 
-Write this data into the credential store of the corresponding project.
-
-### Script
-
-Feel free to use the following script to spare yourself some writing time. It generates the necessary Heroku commands for you (but beware: maybe you want to edit the script before you execute it: TODO: link to the config script):
+The following script will help you achieve that. It generates the necessary Heroku commands for you (beware: depending on your project, you want to edit the script before executing):
 
 ```sh
 # TODO: link to the heroku-config-script.rb
@@ -34,6 +28,8 @@ wget https://raw.githubusercontent.com/renuo/rails-application-setup-guide/maste
 vim heroku-config-script.rb
 ruby heroku-config-script.rb
 ```
+
+Write this data into the credential store of the corresponding project.
 
 ## Start
 
