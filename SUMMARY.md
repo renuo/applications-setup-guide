@@ -6,5 +6,5 @@
 * [Naming Conventions](naming_conventions.md)
 * [Gitignore](gitignore.md)
 * [One Simple Test](one_simple_test.md)
-* CI
+* [CI](ci.md)
 
