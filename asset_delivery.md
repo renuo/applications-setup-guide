@@ -11,7 +11,7 @@ For all 3 environments, execute the following two parts (Cloudfront + Cloudflare
 Go to https://console.aws.amazon.com/cloudfront/home and create a new distribution:
 
 * Select "Web"
-* Origin Domain Name = < appname>-< branch>-assets.renuoapp.ch
+* Origin Domain Name = < appname>-< branch>.herokuapp.com
 * Origin ID = < appname>-< branch>-assets
 * Origin Protocol Policy = HTTPS Only
 * Viewer Protocol Policy = HTTPS only
