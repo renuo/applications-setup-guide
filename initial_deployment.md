@@ -4,7 +4,7 @@
 
 Prepare 3 lists with the config for each production env: develop/master/testing. Define every config which is defined in https://redmine.renuo.ch/projects/internal/wiki/Application_Configuration#configapplicationexampleyml. This should look like:
 
-```
+```sh
 # master
 heroku config:set MAIL_USERNAME="..."
 heroku config:set MAIL_PASSWORD="..."
@@ -27,10 +27,10 @@ Write this data into the credential store of the corresponding project.
 
 Feel free to use the following script to spare yourself some writing time. It generates the necessary Heroku commands for you (but beware: maybe you want to edit the script before you execute it: TODO: link to the config script):
 
-```
+```sh
 # TODO: link to the heroku-config-script.rb
 cd /tmp
-wget https://github.com/ ... /heroku-config-script.rb
+wget https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/scripts/heroku-config-script.rb
 vim heroku-config-script.rb
 ruby heroku-config-script.rb
 ```
@@ -41,7 +41,7 @@ Ask someone with access (the "sysadmin") to help setup the app. Tell him the <ap
 
 Then do (with the one who has access)
 
-```
+```sh
 # for rails apps
 ssh to the rails deployment server
 # for JS apps
@@ -56,7 +56,7 @@ This command generates a list of commands which should be executed. *Execute the
 
 After having set up the heroku apps in the step before you now can configure the heroku environments. You should have a list with commands like "heroku config:set MAIL_USERNAME='mandrill+<app_name>@renuo.ch'" for all three environments. These shall now be executed on the ssh remote host
 
-```
+```sh
 cd ~/deployments/<application>-master
 # execute the commands from your list (only for master)
 ```
@@ -65,7 +65,7 @@ cd ~/deployments/<application>-master
 
 Once these commands are generated, run
 
-```
+```sh
 cd ~/deployments/<application>-master
 git push heroku master
 ```
@@ -76,7 +76,7 @@ This will init the initial deployment. If there are no errors, you're good to go
 
 This is only about configuration and not yet about deployment. Auto-deployments won't work for other branches than master because they don't exist yet.
 
-```
+```sh
 cd ~/deployments/<application>-develop
 # execute the deployment config for develop
 cd ~/deployments/<application>-testing
