@@ -2,7 +2,7 @@
 
 Run
 
-```
+```sh
 rspec
 ```
 
@@ -10,7 +10,7 @@ It should be green.
 
 ## spec/requests/home_spec.rb
 
-```
+```ruby
 require 'rails_helper'
 
 RSpec.describe 'Home', type: :request do
@@ -26,13 +26,13 @@ end
 
 Run
 
-```
+```sh
 bin/check
 ```
 
 It should be red (because of rspec).
 
-```
+```ruby
 rails g controller home index check
 rm app/views/home/check.html.erb
 rm -rf test
@@ -40,7 +40,7 @@ rm app/assets/javascripts/home.coffee
 rm app/assets/stylesheets/home.scss
 ```
 
-```
+```ruby
 # config/routes.rb
 get 'home/check'
 
@@ -58,7 +58,7 @@ end
 
 Run
 
-```
+```sh
 bin/check
 ```
 
