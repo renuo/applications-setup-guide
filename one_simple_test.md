@@ -32,7 +32,7 @@ bin/check
 
 It should be red (because of rspec).
 
-```ruby
+```sh
 rails g controller home index check
 rm app/views/home/check.html.erb
 rm -rf test
