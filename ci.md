@@ -33,8 +33,8 @@ notifications:
 
 ## ~~GiltabCI [Deprecated, don't use it anymore!]~~
 
-Simply log into the renuo CI and add the project. Once you have added it, click on it, go to settings, and paste the
-following code in the build steps field:
+~~Simply log into the renuo CI and add the project. Once you have added it, click on it, go to settings, and paste the
+following code in the build steps field:~~
 
 ```sh
 cp config/database.ci.yml config/database.yml
@@ -50,9 +50,9 @@ RAILS_ENV=test bundle exec rake db:create
 RAILS_ENV=test bundle exec rspec
 ```
 
-After that put under @project settings > Make tabs for the following branches@ the following two branches: _master_, _develop_
+~~After that put under @project settings > Make tabs for the following branches@ the following two branches: _master_, _develop_~~
 
-If you're not able to run the script because there is no commit visible, then you can push an empty dummy commit with the following commands:
+~~If you're not able to run the script because there is no commit visible, then you can push an empty dummy commit with the following commands:~~
 
 ```sh
 git commit --allow-empty
