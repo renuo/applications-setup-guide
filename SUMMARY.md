@@ -10,5 +10,5 @@
 * [Initial Deployment](initial_deployment.md)
 * [Auto Deploy](auto_deploy.md)
 * [GetSentry](getsentry.md)
-* Mandrill
+* [Mandrill](mandrill.md)
 
