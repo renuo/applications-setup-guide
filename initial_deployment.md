@@ -22,7 +22,6 @@ heroku config:set APP_PORT="443"
 The following script will help you achieve that. It generates the necessary Heroku commands for you (beware: depending on your project, you want to edit the script before executing):
 
 ```sh
-# TODO: link to the heroku-config-script.rb
 cd /tmp
 wget https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/scripts/heroku-config-script.rb
 vim heroku-config-script.rb
