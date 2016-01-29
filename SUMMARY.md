@@ -11,5 +11,5 @@
 * [GetSentry](getsentry.md)
 * [Mandrill](mandrill.md)
 * [Google Analytics](google_analytics.md)
-* After Deployment Tasks
+* [After Deployment Tasks](after_deployment_tasks.md)
 
