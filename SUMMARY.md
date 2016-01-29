@@ -9,5 +9,5 @@
 * [CI](ci.md)
 * [Initial Deployment](initial_deployment.md)
 * [Auto Deploy](auto_deploy.md)
-* GetSentry
+* [GetSentry](getsentry.md)
 
