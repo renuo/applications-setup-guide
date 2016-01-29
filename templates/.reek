@@ -1,0 +1,18 @@
+---
+IrresponsibleModule:
+  enabled: false
+Attribute:
+  enabled: false
+"app/helpers":
+  UtilityFunction:
+    enabled: false
+
+exclude_paths:
+  - tmp
+  - spec
+  - vendor
+  - log
+  - coverage
+  - config
+  - bin
+  - db/migrate
