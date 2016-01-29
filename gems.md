@@ -43,9 +43,9 @@ Use the following gems if you need them:
 * https://github.com/balexand/email_validator
 * https://github.com/rails/rails/tree/master/activejob
 * https://github.com/meskyanichi/backup
-* -https://github.com/Edicy/wysihtml5 or https://github.com/Nerian/bootstrap-wysihtml5-rails (https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg)-
+* ~~https://github.com/Edicy/wysihtml5 or https://github.com/Nerian/bootstrap-wysihtml5-rails (https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg)~~
 * https://github.com/nathanvda/cocoon
-* -https://github.com/carrierwaveuploader/carrierwave or https://github.com/thoughtbot/paperclip-
+* ~~https://github.com/carrierwaveuploader/carrierwave or https://github.com/thoughtbot/paperclip~~
 * https://github.com/ricardochimal/taps (very old)
 * https://github.com/rroblak/seed_dump
 * https://github.com/tolk/tolk
