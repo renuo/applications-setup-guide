@@ -21,6 +21,6 @@
 * .coffeelint.json
 * bin/setup
 * bin/check
-  * You want your code to be of a certain quality. Your code is linted, tested, does not contain security bugs, etc. Depending on your definition of done, you don't want the code to contain console.logs, etc. To ensure this on every commit, you can link bin/check to the pre_commit git hook.
+  * You want your code to be of a certain quality. Your code is linted, tested, does not contain security bugs, etc. Depending on your definition of done, you don't want the code to contain console.logs, etc. Use this file to call all this stuff. To ensure this on every commit, you can link bin/check to the pre_commit git hook.
 * README.example.md
   * This is an example readme. If you like it, move it to README.md
