@@ -21,3 +21,5 @@
 * .coffeelint.json
 * bin/setup
 * bin/check
+* README.example.md
+  * This is an example readme. If you like it, move it to README.md
