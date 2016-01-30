@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-* [Gems](gems.md)
 * [Naming Conventions](naming_conventions.md)
+* [Gems](gems.md)
 * [Gitignore](gitignore.md)
 * [One Simple Test](one_simple_test.md)
 * [CI](ci.md)
