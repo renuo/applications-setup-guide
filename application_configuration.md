@@ -240,7 +240,7 @@ git push origin master
 
 --
 
-## database.yml examples for other databases (sqlite and mysql)
+## Legacy
 
 ### legacy: SQLite
 
@@ -250,9 +250,9 @@ https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/tem
 
 https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/database.mysql.example.yml
 
-## legacy: unicorn
+### Legacy: unicorn
 
-Your app should be thread safe and you have to use Puma
+Your app should be thread safe so you can use Puma.
 
 See also: https://devcenter.heroku.com/articles/getting-started-with-ruby#prepare-the-app which points to https://github.com/heroku/ruby-getting-started
 
@@ -260,10 +260,5 @@ For existing apps which *are not thread safe* (they should be): fall back to uni
 
 So, if you have to use unicorn:
 
-legacy: Procfile:
-
-https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Procfile.unicorn
-
-legacy: config/unicorn.rb:
-
-https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/unicorn.rb
+* legacy: Procfile: https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Procfile.unicorn
+* legacy: config/unicorn.rb: https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/unicorn.rb
