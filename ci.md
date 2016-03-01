@@ -31,6 +31,17 @@ notifications:
     on_failure: always
 ```
 
+### TSD / TypeScript Typings
+
+The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate limit. To overcome this, do the following:
+
+1. Go to https://github.com/settings/tokens and generate a new token without any permissions
+2. ```gem install travis```
+3. ```travis encrypt TSDRC_TOKEN=yourGeneratedToken --add```
+4. Add the following line to the before_script section: ```  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc```
+5. ```echo ".tsdrc" >> .gitignore```
+6. Commit
+
 ## ~~GiltabCI [Deprecated, don't use it anymore!]~~
 
 ~~Simply log into the renuo CI and add the project. Once you have added it, click on it, go to settings, and paste the
