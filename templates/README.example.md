@@ -53,7 +53,7 @@ rspec
 ## Run
 
 ```sh
-rails s -b <appname>.dev
+bin/run
 ```
 
 ## Copyright
