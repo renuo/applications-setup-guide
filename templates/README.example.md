@@ -1,4 +1,4 @@
-[![Dependency Status](https://gemnasium.com/TODO.svg)](https://gemnasium.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=TODO&branch=master)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=TODO&branch=develop)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=TODO&branch=testing)](https://travis-ci.com/renuo/<appname>)
+[![Dependency Status](https://gemnasium.com/ADD_GEMNASIUM_TOKEN.svg)](https://gemnasium.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=master)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=develop)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=testing)](https://travis-ci.com/renuo/<appname>)
 
 # <appname>
 
@@ -36,7 +36,7 @@ bin/check
 
 This runs
 
-* keyword check (console.log, TODO, puts, ...)
+* keyword check (console.log, T0D0, puts, ...)
 * rubocop
 * scsslint
 * tslint
