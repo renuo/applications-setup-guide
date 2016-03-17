@@ -4,6 +4,8 @@
 
 If you need typescript, uncomment the tsd line.
 
+Then navigate to https://travis-ci.com/profile/renuo and add the new project (you may have to refresh the repos manually).
+
 ### TSD / TypeScript Typings
 
 The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate limit. To overcome this, do the following:
@@ -14,6 +16,10 @@ The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate li
 4. Uncomment / add the following line to the before_script section: ```  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc```
 5. ```cat .gitignore | grep ".tsdrc" || echo ".tsdrc" >> .gitignore```
 6. Commit
+
+## Readme.md
+
+Setup the badges correctly.
 
 ## ~~GiltabCI [Deprecated, don't use it anymore!]~~
 
