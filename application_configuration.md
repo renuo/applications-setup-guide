@@ -41,27 +41,7 @@ It will copy the files you want from the templates listed here: https://www.gitb
  (Until this is implemented, here is the file list):
 
 * https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/secret_key_base.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/application.example.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/database.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/newrelic.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/mail.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/raven.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.ruby-version
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Gemfile.local.example.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/timeout.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/spec/spec_helper.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/spec/rails_helper.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/puma.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Procfile
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.rspec
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.editorconfig
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.rubocop.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.scss-lint.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/tslint.json
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.coffeelint.json
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/bin/setup
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/bin/check
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/README.example.md
+* etc.
 
 ```sh
 git add .
@@ -106,12 +86,15 @@ gem 'devise-i18n'
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'goldiloader'
+gem 'http_accept_language'
+gem 'i18n-docs'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'pg'
 gem 'rack-google-analytics'
 gem 'rails'
 gem 'rails-i18n'
+gem 'rails_real_favicon'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'slim-rails'
@@ -124,6 +107,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'web-console'
 end
 
