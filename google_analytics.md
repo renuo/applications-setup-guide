@@ -34,4 +34,4 @@ ga('send', 'pageview');
 ```
 8. Write down the tracking ID (the string in the snippet with all caps and starting with an UX-XXX....) and note it - you will need it for the heroku config
 
-Do this for all 3 branches.
+Do this for all 3 branches, but instead of adding an account, add a property for the second and the third branch.
