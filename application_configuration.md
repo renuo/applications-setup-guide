@@ -76,6 +76,10 @@ ruby File.read('.ruby-version').strip
 Add these gems. If you want to skip some gems and you know what you're doing, then go for it. Order the Gems alphabetically.
 
 ```rb
+source 'https://rubygems.org'
+
+ruby File.read('.ruby-version').strip
+
 gem 'autoprefixer-rails'
 gem 'awesome_print'
 gem 'bcrypt'
