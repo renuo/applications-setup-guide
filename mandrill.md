@@ -1,6 +1,6 @@
 # Mandrill
 
-Only needed when you need mail.
+Only needed when you need to send mails.
 
 There should only be one mandrill account per project. That means, that the master, develop & testing all use the same one.
 
