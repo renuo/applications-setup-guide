@@ -2,34 +2,7 @@
 
 ## .travis.yml
 
-```yml
-addons:
-  apt:
-    packages:
-    - zsh
-  postgresql: '9.4'
-language: ruby
-services:
-  - postgresql
-bundler_args: --without production development --deployment --jobs=3 --retry=3
-cache:
-  bundler: true
-  apt: true
-  directories:
-    - coverage
-before_install:
-  - export TZ=Europe/Zurich
-before_script:
-  - bin/setup
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-script: bin/check
-notifications:
-  email:
-    on_success: change
-    on_failure: always
-```
+See templates.
 
 ### TSD / TypeScript Typings
 
