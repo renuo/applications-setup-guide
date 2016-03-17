@@ -1,5 +1,7 @@
 # Mandrill
 
+Only needed when you need mail.
+
 There should only be one mandrill account per project. That means, that the master, develop & testing all use the same one.
 
 1. Go to https://mandrill.com/signup/ and create a *new* account
