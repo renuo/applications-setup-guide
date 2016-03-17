@@ -17,6 +17,10 @@ The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate li
 5. ```cat .gitignore | grep ".tsdrc" || echo ".tsdrc" >> .gitignore```
 6. Commit
 
+## Readme.md
+
+Setup the badges correctly.
+
 ## ~~GiltabCI [Deprecated, don't use it anymore!]~~
 
 ~~Simply log into the renuo CI and add the project. Once you have added it, click on it, go to settings, and paste the
