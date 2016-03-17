@@ -34,7 +34,7 @@ It should be red (because of rspec).
 
 ```sh
 rails g controller home index check
-rm app/views/home/check.html.erb
+rm app/views/home/check.html.slim
 rm -rf test
 rm app/assets/javascripts/home.coffee
 rm app/assets/stylesheets/home.scss
@@ -43,6 +43,7 @@ rm app/assets/stylesheets/home.scss
 ```ruby
 # config/routes.rb
 get 'home/check'
+get 'home/index'
 
 # app/controllers/home_controller.rb
 class HomeController < ApplicationController
@@ -54,6 +55,9 @@ class HomeController < ApplicationController
     render text: "1+2=#{val}"
   end
 end
+
+# sepc/spec_helper.rb
+SimpleCov.minimum_coverage 100
 ```
 
 Run
