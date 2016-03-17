@@ -180,7 +180,7 @@ git commit -v
 bin/setup
 ```
 
-If something went wrong, fix it and run bin/setup again.
+If something went wrong, fix it and run bin/setup again. Comment the coverage requirement, so the tests pass.
 
 ## Commit
 
