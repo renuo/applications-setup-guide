@@ -1,6 +1,7 @@
 # Add a .gitignore
 
 ```
+/.env
 /.bundle
 /log/*
 !/log/.keep
@@ -10,5 +11,12 @@
 /config/application.yml
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/gemfile.local.rb
+/public/assets
+/Gemfile.local.rb
+/coverage
+.byebug_history
+/bin/endless-rspec
+/app/assets/javascripts/**/*.js.map
+/app/assets/javascripts/**/*.js
+.tsdrc
 ```
