@@ -19,6 +19,7 @@
 * .scss-lint.yml
 * tslint.json
 * .coffeelint.json
+* bin/run
 * bin/setup
   * This file should be the first thing executed after cloning the project. It checks and installs all dependencies, sets up the database, and runs bin/check.
 * bin/check
