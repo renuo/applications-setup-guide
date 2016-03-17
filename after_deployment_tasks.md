@@ -77,7 +77,7 @@ On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsent
 
 ## Gemnasium
 
-Go to Gemnasium and enable it for the project.
+Check if Gemnasium is added and enabled the project. Also check that the icon in the Readme.md is linked correctly.
 
 ## Generate and Integrate Favicons
 
