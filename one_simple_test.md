@@ -55,6 +55,9 @@ class HomeController < ApplicationController
     render text: "1+2=#{val}"
   end
 end
+
+# sepc/spec_helper.rb
+SimpleCov.minimum_coverage 100
 ```
 
 Run
