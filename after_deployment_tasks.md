@@ -13,6 +13,14 @@ Check that you now
 
 * see "1+2=3" in each app.
 * have been redirected to https
+
+Setup cloudflare: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
+
+* Now open
+  * < application>-master.renuoapp.ch/home/check
+  * < application>-develop.renuoapp.ch/home/check
+  * < applicaiton>-testing.renuoapp.ch/home/check
+* have been redirected to https
   * if you get a redirect loop, set SSL to "Full SSL" here: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
 
 ## GitHub
