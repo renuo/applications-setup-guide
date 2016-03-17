@@ -81,6 +81,8 @@ Check if Gemnasium is added and enabled the project. Also check that the icon in
 
 ## Generate and Integrate Favicons
 
+Add the following thing to the product backlog. You can use the gem real-favicon-rails for easy integration.
+
 Real Favicon Generator (http://realfavicongenerator.net/) is a service that allows us to generate favicons for all formats and devices.
 
 If the Website is live already you can check the state and compatibility of its favicons by scrolling to the bottom of the page and checking an URL.
