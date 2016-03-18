@@ -52,7 +52,7 @@ Use the following gems if you need them:
 * https://github.com/thoughtbot/high_voltage
 * https://github.com/rsantamaria/papercrop
 
-To be tested (but we probably should always use them!):
+To be tested (but we probably should always use them?):
 
 * https://github.com/xinminlabs/synvert
 * https://github.com/activerecord-hackery/squeel
