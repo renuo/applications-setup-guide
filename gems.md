@@ -18,11 +18,12 @@ These gems are already in use everywhere (and that's perfect!):
 * https://github.com/bbatsov/rubocop
 * https://github.com/presidentbeef/brakeman
 * https://github.com/troessner/reek
+* https://github.com/typescript-ruby/typescript-rails
 
 (Almost) Always use the following gems:
 
 * https://github.com/MiniProfiler/rack-mini-profiler (only in development + test)
-* https://github.com/yuki24/did_you_mean
+* (not needed since ruby 2.3.0) https://github.com/yuki24/did_you_mean
 * https://github.com/airblade/paper_trail
 * https://github.com/grosser/parallel_tests
 * https://github.com/salsify/goldiloader (automatic) or https://github.com/flyerhzm/bullet (manually)
@@ -52,7 +53,7 @@ Use the following gems if you need them:
 * https://github.com/thoughtbot/high_voltage
 * https://github.com/rsantamaria/papercrop
 
-To be tested (but we probably should always use them!):
+To be tested (but we probably should always use them?):
 
 * https://github.com/xinminlabs/synvert
 * https://github.com/activerecord-hackery/squeel
@@ -61,7 +62,6 @@ To be tested (but we probably should always use them!):
 
 Try the following gems:
 
-* https://github.com/typescript-ruby/typescript-rails
 * https://github.com/vcr/vcr
 * https://github.com/mozbrick/brick
 * https://github.com/Compass/compass

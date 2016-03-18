@@ -13,6 +13,14 @@ Check that you now
 
 * see "1+2=3" in each app.
 * have been redirected to https
+
+Setup cloudflare: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
+
+* Now open
+  * < application>-master.renuoapp.ch/home/check
+  * < application>-develop.renuoapp.ch/home/check
+  * < applicaiton>-testing.renuoapp.ch/home/check
+* have been redirected to https
   * if you get a redirect loop, set SSL to "Full SSL" here: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
 
 ## GitHub
@@ -69,9 +77,11 @@ On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsent
 
 ## Gemnasium
 
-Go to Gemnasium and enable it for the project.
+Check if Gemnasium is added and enabled the project. Also check that the icon in the Readme.md is linked correctly.
 
 ## Generate and Integrate Favicons
+
+Add the following thing to the product backlog. You can use the gem real-favicon-rails for easy integration. Note that the customer can generate the icons, and then he can send you the JSON code which is displayed in the RoR tab.
 
 Real Favicon Generator (http://realfavicongenerator.net/) is a service that allows us to generate favicons for all formats and devices.
 

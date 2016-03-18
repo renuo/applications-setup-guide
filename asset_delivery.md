@@ -1,6 +1,10 @@
 # Asset Delivery
 
-## Option A - Use Cloudfront CDN and Cloudflare CDN
+## Option A - Use Cloudfront Directly
+
+Since Cloudfront offers simple SSL certs, this now is an option.
+
+## Option B - Use Cloudfront CDN and Cloudflare CDN
 
 The ASSET_HOST on heroku is already configured to < appname>-< branch>-assets.renuoapp.ch
 
@@ -37,6 +41,6 @@ More info about how to setup cloudfront with Rails and why it is a good idea can
 
 Furthermore, we use Cloudflare so that the Assets are delivered via SPDY or HTTP2, so the assets load faster and sprites are not necessary.
 
-## Option B - TODO: Try Cloudflare Only
+## Option C - TODO: Try Cloudflare Only
 
 Use Cloudflare and configure that /assets/* is always cached on Cloudflare.
