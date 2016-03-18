@@ -6,6 +6,8 @@ If you need typescript, uncomment the tsd line.
 
 Then navigate to https://travis-ci.com/profile/renuo and add the new project (you may have to refresh the repos manually).
 
+See also https://github.com/renuo/rails-application-setup-guide/blob/master/templates/.travis.yml
+
 ### TSD / TypeScript Typings
 
 The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate limit. To overcome this, do the following:
