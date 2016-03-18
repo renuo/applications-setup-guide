@@ -59,7 +59,7 @@ Dir.chdir APP_ROOT do
   end
 
   run('Setting dev host in /etc/hosts') do
-    system 'grep \'bankentracker.dev\' /etc/hosts || echo \'127.0.0.1 bankentracker.dev\' | sudo tee -a /etc/hosts'
+    system 'grep \'<appname>.dev\' /etc/hosts || echo \'127.0.0.1 <appname>.dev\' | sudo tee -a /etc/hosts'
   end
 
   run('Running checks') { abort('bin/check failed') unless system('bin/check') }
