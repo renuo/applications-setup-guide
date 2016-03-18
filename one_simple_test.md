@@ -56,7 +56,7 @@ class HomeController < ApplicationController
   end
 end
 
-# sepc/spec_helper.rb
+# spec/spec_helper.rb
 SimpleCov.minimum_coverage 100
 ```
 
