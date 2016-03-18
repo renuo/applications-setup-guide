@@ -160,7 +160,7 @@ config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID']
 
 Also set the default language, and set the time_zone (most of the times this will be "Bern")
 
-## SCSS / Coffeescript Files
+## SCSS / TypeScript Files
 
 ```sh
 mkdir app/assets/stylesheets/general

@@ -1,22 +1,3 @@
 # Add a .gitignore
 
-```
-/.env
-/.bundle
-/log/*
-!/log/.keep
-/tmp
-/.idea
-.DS_Store
-/config/application.yml
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/assets
-/Gemfile.local.rb
-/coverage
-.byebug_history
-/bin/endless-rspec
-/app/assets/javascripts/**/*.js.map
-/app/assets/javascripts/**/*.js
-.tsdrc
-```
+See https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.gitignore
