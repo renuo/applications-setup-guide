@@ -18,6 +18,7 @@ These gems are already in use everywhere (and that's perfect!):
 * https://github.com/bbatsov/rubocop
 * https://github.com/presidentbeef/brakeman
 * https://github.com/troessner/reek
+* https://github.com/typescript-ruby/typescript-rails
 
 (Almost) Always use the following gems:
 
@@ -61,7 +62,6 @@ To be tested (but we probably should always use them?):
 
 Try the following gems:
 
-* https://github.com/typescript-ruby/typescript-rails
 * https://github.com/vcr/vcr
 * https://github.com/mozbrick/brick
 * https://github.com/Compass/compass
