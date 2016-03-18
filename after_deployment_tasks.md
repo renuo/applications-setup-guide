@@ -14,7 +14,7 @@ Check that you now
 * see "1+2=3" in each app.
 * have been redirected to https
 
-Setup cloudflare: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
+Setup cloudflare: https://www.cloudflare.com/a/dns/renuoapp.ch
 
 * Now open
   * < application>-master.renuoapp.ch/home/check
