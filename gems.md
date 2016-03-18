@@ -22,7 +22,7 @@ These gems are already in use everywhere (and that's perfect!):
 (Almost) Always use the following gems:
 
 * https://github.com/MiniProfiler/rack-mini-profiler (only in development + test)
-* https://github.com/yuki24/did_you_mean
+* (not needed since ruby 2.3.0) https://github.com/yuki24/did_you_mean
 * https://github.com/airblade/paper_trail
 * https://github.com/grosser/parallel_tests
 * https://github.com/salsify/goldiloader (automatic) or https://github.com/flyerhzm/bullet (manually)
