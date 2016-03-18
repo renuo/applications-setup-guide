@@ -197,7 +197,7 @@ git commit -v
 
 ## Devise
 
-Skip this if you will not use devise.lo
+Skip this if you will not use devise.
 
 Once you have run bundle you have to run the following command to generate the devise configuration (*don't do anything else yet*):
 
