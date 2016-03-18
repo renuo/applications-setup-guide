@@ -7,7 +7,7 @@ The ones you forget easily...
 * Open the three apps
   * < application>-master.herokuapp.com/home/check
   * < application>-develop.herokuapp.com/home/check
-  * < applicaiton>-testing.herokuapp.com/home/check
+  * < application>-testing.herokuapp.com/home/check
 
 Check that you now
 
@@ -19,7 +19,7 @@ Setup cloudflare: https://www.cloudflare.com/a/dns/renuoapp.ch
 * Now open
   * < application>-master.renuoapp.ch/home/check
   * < application>-develop.renuoapp.ch/home/check
-  * < applicaiton>-testing.renuoapp.ch/home/check
+  * < application>-testing.renuoapp.ch/home/check
 * have been redirected to https
   * if you get a redirect loop, set SSL to "Full SSL" here: https://www.cloudflare.com/cloudflare-settings?z=renuoapp.ch
 
