@@ -41,27 +41,7 @@ It will copy the files you want from the templates listed here: https://www.gitb
  (Until this is implemented, here is the file list):
 
 * https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/secret_key_base.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/application.example.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/database.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/newrelic.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/mail.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/raven.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.ruby-version
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Gemfile.local.example.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/timeout.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/spec/spec_helper.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/spec/rails_helper.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/puma.rb
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/Procfile
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.rspec
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.editorconfig
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.rubocop.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.scss-lint.yml
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/tslint.json
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.coffeelint.json
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/bin/setup
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/bin/check
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/README.example.md
+* etc.
 
 ```sh
 git add .
@@ -96,6 +76,10 @@ ruby File.read('.ruby-version').strip
 Add these gems. If you want to skip some gems and you know what you're doing, then go for it. Order the Gems alphabetically.
 
 ```rb
+source 'https://rubygems.org'
+
+ruby File.read('.ruby-version').strip
+
 gem 'autoprefixer-rails'
 gem 'awesome_print'
 gem 'bcrypt'
@@ -106,12 +90,14 @@ gem 'devise-i18n'
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'goldiloader'
+gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'pg'
 gem 'rack-google-analytics'
 gem 'rails'
 gem 'rails-i18n'
+gem 'rails_real_favicon'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'slim-rails'
@@ -122,8 +108,10 @@ gem 'uglifier'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'i18n-docs'
   gem 'letter_opener'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'web-console'
 end
 
@@ -146,6 +134,7 @@ group :production do
   gem 'lograge'
   gem 'newrelic_rpm'
   gem 'puma'
+  gem 'rack-cors', require: 'rack/cors'
   gem 'rack-timeout'
   gem 'rails_12factor'
   gem 'sentry-raven'
@@ -167,12 +156,23 @@ eval_gemfile('Gemfile.local.rb') if File.exist?('Gemfile.local.rb')
 Add this line:
 
 ```rb
-config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] if Rails.env.production?
+if Rails.env.production?
+  config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] 
+  
+  allow do
+    origins '*'
+    resource '/assets/*', headers: :any, methods: %i(get options)
+  end
+end
+
+config.generators do |g|
+  g.test_framework :rspec
+end
 ```
 
 Also set the default language, and set the time_zone (most of the times this will be "Bern")
 
-## SCSS / Coffeescript Files
+## SCSS / TypeScript Files
 
 ```sh
 mkdir app/assets/stylesheets/general
@@ -196,7 +196,7 @@ git commit -v
 bin/setup
 ```
 
-If something went wrong, fix it and run bin/setup again.
+If something went wrong, fix it and run bin/setup again. Comment the coverage requirement (see spec/spec_helper.rb), so the tests pass.
 
 ## Commit
 
@@ -208,6 +208,8 @@ git commit -v
 ```
 
 ## Devise
+
+Skip this if you will not use devise.
 
 Once you have run bundle you have to run the following command to generate the devise configuration (*don't do anything else yet*):
 

@@ -14,7 +14,7 @@ DEVISE_SECRET_KEY: 'rake secret'
 DEVISE_PEPPER: 'rake secret'
 
 # Newrelic
-NEW_RELIC_LICENSE_KEY: 'TODO'
+NEW_RELIC_LICENSE_KEY: 'TO DO'
 NEW_RELIC_APP_NAME: '<application>-<branch>'
 
 # Add 3 new projects for develop/master/testing at https://app.getsentry.com/organizations/renuo/projects/new/

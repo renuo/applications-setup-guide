@@ -4,16 +4,16 @@ The page lists obligatory rules for our naming conventions. Please stick to it. 
 
 ## 1 Project Name
 
-The project name <project-name> consists of <base-project>-<sub-project>, and only uses [a-z0-9] and dash -. No underline _.
+The project name [project-name] consists of [base-project]-[sub-project], and only uses [a-z0-9] and dash -. No underline _.
 
-### 1.1 Extended Use:
+### 1.1 Extended Use
 
-Use <project-name> for project names and services which are branch-independent.
-Use <project-name>-<branch> for deployed projects (<branch> means the gitflow branch and *not* RAILS_ENV).
-Use <project-name>-<branch>-<purpose> for deployed projects (*not* RAILS_ENV, e.g. kingschair-master-assets).
-Use <project-name>-local-<user>-<rails_env> for local names which interact with online services (e.g. S3).
+Use [project-name] for project names and services which are branch-independent.
+Use [project-name]-[branch] for deployed projects ([branch] means the gitflow branch and *not* RAILS_ENV).
+Use [project-name]-[branch]-[purpose] for deployed projects (*not* RAILS_ENV, e.g. kingschair-master-assets).
+Use [project-name]-local-[user]-[rails_env] for local names which interact with online services (e.g. S3).
 
-### 1.2 Examples:
+### 1.2 Examples
 
 * food-calendar, food-calendar-develop, food-calendar-develop-assets
 * food-calendar-api, food-calendar-api-develop, food-calendar-api-develop-assets

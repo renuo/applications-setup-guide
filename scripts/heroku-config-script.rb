@@ -25,7 +25,7 @@ mail_password=gets
 puts 'Please enter the AWS_ACCESS_KEY_ID (leave blank if you don\'t plan to use s3): '
 aws_access_key_id=gets
 
-unless aws_access_key_id.blank?
+unless aws_access_key_id.empty?
   puts 'Please enter the AWS_SECRET_ACCESS_KEY: '
   aws_secret_access_key=gets
 end
@@ -77,7 +77,7 @@ puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_master.strip}' \\"
 puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+master@renuo.ch' \\"
 puts "  ADMIN_PASSWORD='#{master_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_master.strip}' \\"
-unless aws_access_key_id.blank?
+unless aws_access_key_id.empty?
   puts "  S3_BUCKET_NAME='#{app_name.strip}-master' \\"
   puts "  S3_HOST_NAME='#{s3_host_name.strip}' \\"
   puts "  AWS_ACCESS_KEY_ID='#{aws_access_key_id.strip}' \\"
@@ -104,7 +104,7 @@ puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_develop.strip}' \\"
 puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+develop@renuo.ch' \\"
 puts "  ADMIN_PASSWORD='#{develop_testing_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_develop.strip}' \\"
-unless aws_access_key_id.blank?
+unless aws_access_key_id.empty?
   puts "  S3_BUCKET_NAME='#{app_name.strip}-develop' \\"
   puts "  S3_HOST_NAME='#{s3_host_name.strip}' \\"
   puts "  AWS_ACCESS_KEY_ID='#{aws_access_key_id.strip}' \\"
@@ -131,7 +131,7 @@ puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_testing.strip}' \\"
 puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+testing@renuo.ch' \\"
 puts "  ADMIN_PASSWORD='#{develop_testing_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_testing.strip}' \\"
-unless aws_access_key_id.blank?
+unless aws_access_key_id.empty?
   puts "  S3_BUCKET_NAME='#{app_name.strip}-testing' \\"
   puts "  S3_HOST_NAME='#{s3_host_name.strip}' \\"
   puts "  AWS_ACCESS_KEY_ID='#{aws_access_key_id.strip}' \\"

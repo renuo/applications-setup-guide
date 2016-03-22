@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+source ~/.zshrc
+
+(sleep 4 && open 'http://<appname>.dev:3000') &
+bin/rails s -b <appname>.dev

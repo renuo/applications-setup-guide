@@ -73,7 +73,7 @@ This is only about configuration and not yet about deployment. Auto-deployments 
 
 ```sh
 cd ~/deployments/<application>-develop
-# execute the deployment config for develop
+# execute the deployment config for develop and push to heroku
 cd ~/deployments/<application>-testing
-# execute the deployment config for testing
+# execute the deployment config for testing and push to heroku
 ```

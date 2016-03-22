@@ -2,34 +2,11 @@
 
 ## .travis.yml
 
-```yml
-addons:
-  apt:
-    packages:
-    - zsh
-  postgresql: '9.4'
-language: ruby
-services:
-  - postgresql
-bundler_args: --without production development --deployment --jobs=3 --retry=3
-cache:
-  bundler: true
-  apt: true
-  directories:
-    - coverage
-before_install:
-  - export TZ=Europe/Zurich
-before_script:
-  - bin/setup
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-script: bin/check
-notifications:
-  email:
-    on_success: change
-    on_failure: always
-```
+If you need typescript, uncomment the tsd line.
+
+Then navigate to https://travis-ci.com/profile/renuo and add the new project (you may have to refresh the repos manually).
+
+See also https://github.com/renuo/rails-application-setup-guide/blob/master/templates/.travis.yml
 
 ### TSD / TypeScript Typings
 
@@ -38,9 +15,13 @@ The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate li
 1. Go to https://github.com/settings/tokens and generate a new token without any permissions
 2. ```gem install travis```
 3. ```travis encrypt TSDRC_TOKEN=yourGeneratedToken --add```
-4. Add the following line to the before_script section: ```  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc```
-5. ```echo ".tsdrc" >> .gitignore```
+4. Uncomment / add the following line to the before_script section: ```  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc```
+5. ```cat .gitignore | grep ".tsdrc" || echo ".tsdrc" >> .gitignore```
 6. Commit
+
+## Readme.md
+
+Setup the badges correctly.
 
 ## ~~GiltabCI [Deprecated, don't use it anymore!]~~
 

@@ -21,6 +21,7 @@ before_install:
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+# if you need tsd  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc
 script: bin/setup
 notifications:
   email:
