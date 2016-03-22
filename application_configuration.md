@@ -134,6 +134,7 @@ group :production do
   gem 'lograge'
   gem 'newrelic_rpm'
   gem 'puma'
+  gem 'rack-cors', require: 'rack/cors'
   gem 'rack-timeout'
   gem 'rails_12factor'
   gem 'sentry-raven'
@@ -155,7 +156,18 @@ eval_gemfile('Gemfile.local.rb') if File.exist?('Gemfile.local.rb')
 Add this line:
 
 ```rb
-config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] if Rails.env.production?
+if Rails.env.production?
+  config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] 
+  
+  allow do
+    origins '*'
+    resource '/assets/*', headers: :any, methods: %i(get options)
+  end
+end
+
+config.generators do |g|
+  g.test_framework :rspec
+end
 ```
 
 Also set the default language, and set the time_zone (most of the times this will be "Bern")
