@@ -17,11 +17,11 @@ develop_testing_password=gets
 puts 'Please enter the devise password for master: '
 master_password=gets
 
-#mandrill configuration
+# sparkpost configuration
 puts 'Please enter the Mail Password (MAIL_PASSWORD): '
 mail_password=gets
 
-#s3 configuration
+# s3 configuration
 puts 'Please enter the AWS_ACCESS_KEY_ID (leave blank if you don\'t plan to use s3): '
 aws_access_key_id=gets
 
@@ -30,7 +30,7 @@ unless aws_access_key_id.empty?
   aws_secret_access_key=gets
 end
 
-#monitoring configuration
+# monitoring configuration
 puts 'Please enter the Google Analytics ID for the master here: '
 ga_id_master=gets
 
@@ -57,13 +57,14 @@ sentry_public_dsn_testing=gets
 
 s3_host_name = ''
 
-#output
+# output
 puts
 puts 'Configuration for master env: '
 puts '================================='
-puts "heroku config:set MAIL_USERNAME='mandrill+#{app_name.strip}@renuo.ch' \\"
+puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
+puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='mandrill+#{app_name.strip}+master@renuo.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+master@renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-master-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-master.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -74,7 +75,7 @@ puts "  NEW_RELIC_LICENSE_KEY='#{new_relic_license_key}' \\"
 puts "  NEW_RELIC_APP_NAME='#{app_name.strip}-master' \\"
 puts "  SENTRY_DSN='#{sentry_dsn_master.strip}' \\"
 puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_master.strip}' \\"
-puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+master@renuo.ch' \\"
+puts "  ADMIN_EMAIL='sparkpost+#{app_name.strip}+master@renuoapp.ch' \\"
 puts "  ADMIN_PASSWORD='#{master_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_master.strip}' \\"
 unless aws_access_key_id.empty?
@@ -88,9 +89,10 @@ puts "  BUNDLE_WITHOUT='development:test:lint'"
 puts
 puts 'Configuration for develop env: '
 puts '================================='
-puts "heroku config:set MAIL_USERNAME='mandrill+#{app_name.strip}@renuo.ch' \\"
+puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
+puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='mandrill+#{app_name.strip}+develop@renuo.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+develop@renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-develop-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-develop.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -101,7 +103,7 @@ puts "  NEW_RELIC_LICENSE_KEY='#{new_relic_license_key}' \\"
 puts "  NEW_RELIC_APP_NAME='#{app_name.strip}-develop' \\"
 puts "  SENTRY_DSN='#{sentry_dsn_develop.strip}' \\"
 puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_develop.strip}' \\"
-puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+develop@renuo.ch' \\"
+puts "  ADMIN_EMAIL='sparkpost+#{app_name.strip}+develop@renuoapp.ch' \\"
 puts "  ADMIN_PASSWORD='#{develop_testing_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_develop.strip}' \\"
 unless aws_access_key_id.empty?
@@ -115,9 +117,10 @@ puts "  BUNDLE_WITHOUT='development:test:lint'"
 puts
 puts 'Configuration for testing env: '
 puts '================================='
-puts "heroku config:set MAIL_USERNAME='mandrill+#{app_name.strip}@renuo.ch' \\"
+puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
+puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='mandrill+#{app_name.strip}+testing@renuo.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+testing@renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-testing-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-testing.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -128,7 +131,7 @@ puts "  NEW_RELIC_LICENSE_KEY='#{new_relic_license_key}' \\"
 puts "  NEW_RELIC_APP_NAME='#{app_name.strip}-testing' \\"
 puts "  SENTRY_DSN='#{sentry_dsn_testing.strip}' \\"
 puts "  SENTRY_PUBLIC_DSN='#{sentry_public_dsn_testing.strip}' \\"
-puts "  ADMIN_EMAIL='mandrill+#{app_name.strip}+testing@renuo.ch' \\"
+puts "  ADMIN_EMAIL='sparkpost+#{app_name.strip}+testing@renuoapp.ch' \\"
 puts "  ADMIN_PASSWORD='#{develop_testing_password.strip}' \\"
 puts "  GOOGLE_ANALYTICS_ID='#{ga_id_testing.strip}' \\"
 unless aws_access_key_id.empty?

@@ -49,7 +49,7 @@ This command generates a list of commands which should be executed. *Execute the
 
 ## Config Execution on *master*
 
-After having set up the heroku apps in the step before you now can configure the heroku environments. You should have a list with commands like "heroku config:set MAIL_USERNAME='mandrill+<app_name>@renuo.ch'" for all three environments. These shall now be executed on the ssh remote host
+After having set up the heroku apps in the step before you now can configure the heroku environments. You should have a list with commands like "heroku config:set MAIL_USERNAME='sparkpost+<app_name>@renuo.ch'" for all three environments. These shall now be executed on the ssh remote host
 
 ```sh
 cd ~/deployments/<application>-master

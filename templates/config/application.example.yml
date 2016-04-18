@@ -2,8 +2,9 @@
 APP_HOST: '<application>.dev'
 APP_PORT: '3000'
 
-# Create one new account mandrill+<application>@renuo.ch at https://mandrillapp.com/ for develop/master/testing
+# Create only one new account sparkpost+<application>@renuo.ch for each project
 # Document the credentials in the <project> specific credential store
+MAIL_HOST: ''
 MAIL_USERNAME: ''
 MAIL_PASSWORD: ''
 MAIL_SENDER: <yourname>+<application>@renuo.ch
