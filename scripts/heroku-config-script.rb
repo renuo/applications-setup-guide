@@ -17,11 +17,11 @@ develop_testing_password=gets
 puts 'Please enter the devise password for master: '
 master_password=gets
 
-#sparkpost configuration
+# sparkpost configuration
 puts 'Please enter the Mail Password (MAIL_PASSWORD): '
 mail_password=gets
 
-#s3 configuration
+# s3 configuration
 puts 'Please enter the AWS_ACCESS_KEY_ID (leave blank if you don\'t plan to use s3): '
 aws_access_key_id=gets
 
@@ -30,7 +30,7 @@ unless aws_access_key_id.empty?
   aws_secret_access_key=gets
 end
 
-#monitoring configuration
+# monitoring configuration
 puts 'Please enter the Google Analytics ID for the master here: '
 ga_id_master=gets
 
@@ -57,7 +57,7 @@ sentry_public_dsn_testing=gets
 
 s3_host_name = ''
 
-#output
+# output
 puts
 puts 'Configuration for master env: '
 puts '================================='
