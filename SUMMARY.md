@@ -15,5 +15,4 @@
 * [Asset Delivery](asset_delivery.md)
 * [Go Live](go_live.md)
 * [Application Configuration](application_configuration.md)
-   * Go Live
 
