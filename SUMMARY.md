@@ -13,6 +13,7 @@
 * [Google Analytics](google_analytics.md)
 * [After Deployment Tasks](after_deployment_tasks.md)
 * [Asset Delivery](asset_delivery.md)
+* Go Live
 * [Application Configuration](application_configuration.md)
    * Go Live
 
