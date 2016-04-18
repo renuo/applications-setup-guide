@@ -14,4 +14,5 @@
 * [After Deployment Tasks](after_deployment_tasks.md)
 * [Asset Delivery](asset_delivery.md)
 * [Application Configuration](application_configuration.md)
+   * Go Live
 
