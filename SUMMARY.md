@@ -12,7 +12,7 @@
 * [SparkPost](sparkpost.md)
 * [Google Analytics](google_analytics.md)
 * [After Deployment Tasks](after_deployment_tasks.md)
-* [Application Configuration](application_configuration.md)
 * [Asset Delivery](asset_delivery.md)
+* [Application Configuration](application_configuration.md)
 * [Go Live](go_live.md)
 
