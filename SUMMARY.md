@@ -9,7 +9,7 @@
 * [Initial Deployment](initial_deployment.md)
 * [Auto Deploy](auto_deploy.md)
 * [GetSentry](getsentry.md)
-* [Mandrill](mandrill.md)
+* [SparkPost](sparkpost.md)
 * [Google Analytics](google_analytics.md)
 * [After Deployment Tasks](after_deployment_tasks.md)
 * [Asset Delivery](asset_delivery.md)

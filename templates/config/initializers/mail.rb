@@ -6,7 +6,7 @@ ActionMailer::Base.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP
 
 if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.mandrillapp.com',
+    address: ENV['MAIL_HOST'],
     port: 587,
     enable_starttls_auto: true,
     user_name: ENV['MAIL_USERNAME'],
