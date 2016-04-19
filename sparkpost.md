@@ -3,11 +3,11 @@
 Only needed when you need to send mails.
 
 There are two options to set up SparkPost:
-* With a domain for the project
-* Without an exisiting domain ==> via renuoapp.ch subdomain
 
-**Note:**  
-With the second option, you are only able to send mails from %app_name%.renuoapp.ch
+* With a domain for the project (preferred, if possible)
+* Without an exisiting domain ==> via %app_name%.renuoapp.ch subdomain
+
+**Note:** With the second option, you are only able to send mails from %app_name%.renuoapp.ch
 
 *There should only be one sparkpost account per project. That means, that the master, develop & testing all use the same one.*
 
@@ -19,6 +19,5 @@ With the second option, you are only able to send mails from %app_name%.renuoapp
 4. You can check your key under: https://app.sparkpost.com/account/credentials
 5. Validate your sending domain under https://app.sparkpost.com/account/sending-domains  
 (SPF text record recommended)
-
 
 For DNS setup see [Go Live](go_live.md)
