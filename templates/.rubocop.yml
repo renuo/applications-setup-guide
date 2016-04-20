@@ -1,5 +1,5 @@
-AllCops:
-  RunRailsCops: true
+Rails:
+  Enabled: true
 
 Metrics/LineLength:
   Max: 120
@@ -15,7 +15,11 @@ Style/FileName:
   - 'Gemfile.local.rb'
   - 'Gemfile.local.example.rb'
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 AllCops:
+  TargetRubyVersion: 2.3
   Include:
     - '**/Rakefile'
     - '**/config.ru'
