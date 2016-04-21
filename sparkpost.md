@@ -17,7 +17,6 @@ There are two options to set up SparkPost:
 4. Fill in the domain you plan to use, otherwise fill in %app_name%.renuoapp.ch
 5. Note down the API-key, because it's only shown once!
 4. You can check your key under: https://app.sparkpost.com/account/credentials
-5. Validate your sending domain under https://app.sparkpost.com/account/sending-domains  
-(SPF text record recommended)
+5. Validate your sending domain under https://app.sparkpost.com/account/sending-domains
 
 For DNS setup see [Go Live](go_live.md)
