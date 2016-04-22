@@ -2,8 +2,7 @@
 APP_HOST: '<application>.dev'
 APP_PORT: '3000'
 
-# Create only one new account sparkpost+<application>@renuo.ch for each project
-# Document the credentials in the <project> specific credential store
+# Mail config
 MAIL_HOST: ''
 MAIL_USERNAME: ''
 MAIL_PASSWORD: ''
