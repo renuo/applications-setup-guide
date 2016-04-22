@@ -64,7 +64,7 @@ puts '================================='
 puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
 puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+master@renuoapp.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+master@#{app_name.strip}.renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-master-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-master.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -92,7 +92,7 @@ puts '================================='
 puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
 puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+develop@renuoapp.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+develop@#{app_name.strip}.renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-develop-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-develop.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -120,7 +120,7 @@ puts '================================='
 puts "heroku config:set MAIL_USERNAME='SMTP_Injection' \\"
 puts "  MAIL_HOST='smtp.sparkpostmail.com' \\"
 puts "  MAIL_PASSWORD='#{mail_password.strip}' \\"
-puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+testing@renuoapp.ch' \\"
+puts "  MAIL_SENDER='sparkpost+#{app_name.strip}+testing@#{app_name.strip}.renuoapp.ch' \\"
 puts "  ASSET_HOST='#{app_name.strip}-testing-assets.renuoapp.ch' \\"
 puts "  APP_HOST='#{app_name.strip}-testing.renuoapp.ch' \\"
 puts "  APP_PORT='443' \\"
@@ -144,4 +144,3 @@ puts "  BUNDLE_WITHOUT='development:test:lint'"
 
 puts
 puts 'Be sure to review the information above for potential TODOs and mistakes that need correcting before sending you document on.'
-
