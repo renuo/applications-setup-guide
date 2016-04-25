@@ -14,9 +14,12 @@ There are two options to set up SparkPost:
 1. Go to https://app.sparkpost.com/sign-up/ and create a *new* account
 2. Use the email sparkpost+%app_name%@renuo.ch
 3. Use ```renuo generate-password``` to generate a secure password
-4. Fill in the domain you plan to use, otherwise fill in %app_name%.renuoapp.ch
-5. Note down the API-key, because it's only shown once!
-4. You can check your key under: https://app.sparkpost.com/account/credentials
-5. Validate your sending domain under https://app.sparkpost.com/account/sending-domains (SPF & DKIM method recommended)
+4. Copy the credentials  to the wiki
+5. Fill in the domain you plan to use, otherwise fill in %app_name%.renuoapp.ch (you can add others also afterwards)
+6. Confirm your account (sent to sparkpost@renuo.ch)
+7. Note down the API-key, because it's only shown once!
+8. You can check your key under: https://app.sparkpost.com/account/credentials
+9. Validate your sending domain under https://app.sparkpost.com/account/sending-domains  
+(SPF DKIM method recommended)
 
 For DNS setup see [Go Live](go_live.md)
