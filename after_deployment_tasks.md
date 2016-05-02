@@ -79,19 +79,6 @@ Below the raven.min.js, add the following to your application layout:
 javascript: #{raven_js}
 ```
 
-Also add the following helper:
-
-```rb
-# app/helpers/raven_helper.rb
-module RavenHelper
-  def raven_js
-    # :nocov:
-    "Raven.config('#{ENV['SENTRY_PUBLIC_DSN']}').install();".html_safe if Rails.env.production?
-    # :nocov:
-  end
-end
-```
-
 ### Test Setup
 
 For each heroku app, connect to the rails console:
