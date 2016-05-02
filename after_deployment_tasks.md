@@ -55,7 +55,33 @@ TODO: update this since NewRelic has a newer way to do uptime monitoring.
 * ~~Uncheck Redirect box~~
 
 
-## Test GetSentry Setup
+## CDNs for JS
+
+Remove jQuery and Bootstrap from your JS pipeline, and replace them with the latest cdn versions. Add these after the stylesheets, and before the application JS.
+
+* https://www.jsdelivr.com/?query=jquery
+* https://www.jsdelivr.com/?query=bootstrap
+* https://www.jsdelivr.com/?query=raven
+
+```slim
+script src='https://cdn.jsdelivr.net/jquery/XXX/jquery.min.js'
+script src='https://cdn.jsdelivr.net/bootstrap/XXX/js/bootstrap.min.js'
+script src='https://cdn.jsdelivr.net/raven/XXX/raven.min.js'
+```
+
+## GetSentry Setup
+
+### JS Sentry Setup
+
+Below the raven.min.js, add the following to your application layout:
+
+```slim
+javascript: #{raven_js}
+```
+
+### Test Setup
+
+#### Ruby
 
 For each heroku app, connect to the rails console:
 
@@ -74,6 +100,16 @@ end
 ```
 
 On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsentry.com/renuo/< app_name>-< branch>/) you should find the exception of the ZeroDivisionError.
+
+#### JS
+
+Open the dev console in chrome, and run
+
+```js
+throw new Error('test raven js');
+```
+
+On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsentry.com/renuo/< app_name>-< branch>/) you should something like "Uncaught Error: test raven js".
 
 ## Gemnasium
 
