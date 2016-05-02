@@ -59,9 +59,9 @@ TODO: update this since NewRelic has a newer way to do uptime monitoring.
 
 Remove jQuery and Bootstrap from your JS pipeline, and replace them with the latest cdn versions. Add these after the stylesheets, and before the application JS.
 
-https://www.jsdelivr.com/?query=jquery
-https://www.jsdelivr.com/?query=bootstrap
-https://www.jsdelivr.com/?query=raven
+* https://www.jsdelivr.com/?query=jquery
+* https://www.jsdelivr.com/?query=bootstrap
+* https://www.jsdelivr.com/?query=raven
 
 ```slim
 script src='https://cdn.jsdelivr.net/jquery/XXX/jquery.min.js'
