@@ -12,6 +12,7 @@
 * spec/spec_helper.rb
 * spec/rails_helper.rb
 * config/puma.rb
+* app/helpers/raven_helper.rb
 * Procfile
 * .rspec
 * .editorconfig
