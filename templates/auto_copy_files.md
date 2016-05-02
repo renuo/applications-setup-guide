@@ -4,7 +4,7 @@
 * config/database.yml
 * config/newrelic.yml
 * config/initializers/mail.rb
-* config/raven.rb
+* config/initializers/sentry.rb
 * .ruby-version
   * Set the latest stable ruby version.
 * Gemfile.local.example.rb
