@@ -81,6 +81,8 @@ javascript: #{raven_js}
 
 ### Test Setup
 
+#### Ruby
+
 For each heroku app, connect to the rails console:
 
 ```
@@ -98,6 +100,16 @@ end
 ```
 
 On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsentry.com/renuo/< app_name>-< branch>/) you should find the exception of the ZeroDivisionError.
+
+#### JS
+
+Open the dev console in chrome, and run
+
+```js
+throw new Error('test raven js');
+```
+
+On [https://app.getsentry.com/renuo/ < app_name>-< branch>/](https://app.getsentry.com/renuo/< app_name>-< branch>/) you should something like "Uncaught Error: test raven js".
 
 ## Gemnasium
 
