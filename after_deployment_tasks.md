@@ -73,11 +73,23 @@ script src='https://cdn.jsdelivr.net/raven/XXX/raven.min.js'
 
 ### JS Sentry Setup
 
-Add the following to your application layout:
+Below the raven.min.js, add the following to your application layout:
 
 ```slim
-script src='https://cdn.jsdelivr.net/raven/2.3.0/raven.min.js'
 javascript: #{raven_js}
+```
+
+Also add the following helper:
+
+```rb
+# app/helpers/raven_helper.rb
+module RavenHelper
+  def raven_js
+    # :nocov:
+    "Raven.config('#{ENV['SENTRY_PUBLIC_DSN']}').install();".html_safe if Rails.env.production?
+    # :nocov:
+  end
+end
 ```
 
 ### Test Setup
