@@ -17,6 +17,7 @@ There are two options to set up SparkPost:
 4. Copy the credentials  to the wiki
 5. Fill in the domain you plan to use, otherwise fill in %app_name%.renuoapp.ch (you can add others also afterwards)
 6. Confirm your account (sent to sparkpost@renuo.ch)
+  7. See https://groups.google.com/a/renuo.ch/forum/#!topic/mandrill
 7. Note down the API-key, because it's only shown once!
 8. You can check your key under: https://app.sparkpost.com/account/credentials
 9. Validate your sending domain under https://app.sparkpost.com/account/sending-domains  
