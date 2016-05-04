@@ -34,6 +34,7 @@ To help you with that, there is a renuo-cli command. It will help you setting up
 
 ```sh
 gem install renuo-cli
+mkdir spec
 renuo application-setup-auto-config
 ```
 
