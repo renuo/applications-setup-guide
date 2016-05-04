@@ -15,6 +15,7 @@
 * app/helpers/raven_helper.rb
 * Procfile
 * .rspec
+* .reek
 * .editorconfig
 * .rubocop.yml
 * .scss-lint.yml
