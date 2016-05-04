@@ -17,6 +17,7 @@
 * .rspec
 * .gitignore
 * .reek
+* .travis.yml
 * .editorconfig
 * .rubocop.yml
 * .scss-lint.yml
