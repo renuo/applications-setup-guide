@@ -40,6 +40,7 @@ renuo application-setup-auto-config
 
 It will copy the files you want from the templates listed here: https://www.gitbook.com/book/renuo/rails-application-setup-guide/edit#/edit/master/templates/auto_copy_files.md
 
+After downloading them, review / update them (e.g. insert project name, remove unnecessary checks, etc. After that:
 
 ```sh
 git add .
