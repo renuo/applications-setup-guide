@@ -39,10 +39,6 @@ renuo application-setup-auto-config
 
 It will copy the files you want from the templates listed here: https://www.gitbook.com/book/renuo/rails-application-setup-guide/edit#/edit/master/templates/auto_copy_files.md
 
- (Until this is implemented, here is the file list):
-
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/secret_key_base.rb
-* etc.
 
 ```sh
 git add .
