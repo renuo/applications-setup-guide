@@ -21,6 +21,7 @@ All our secrets will be in ENV variables, so we don't need secrets.yml. We also 
 rm config/secrets.yml
 rm -rf test
 rm config/database.yml
+rm README.rdoc
 git add .
 git commit -m 'delete unused files'
 ```
