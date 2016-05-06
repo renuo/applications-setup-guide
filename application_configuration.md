@@ -158,9 +158,11 @@ Add this line:
 if Rails.env.production?
   config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] 
   
-  allow do
-    origins '*'
-    resource '/assets/*', headers: :any, methods: %i(get options)
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '/assets/*', headers: :any, methods: %i(get options)
+    end
   end
 end
 
