@@ -21,6 +21,6 @@ There are two options to set up SparkPost:
 7. Note down the API-key, because it's only shown once!
 8. You can check your key under: https://app.sparkpost.com/account/credentials
 9. Validate your sending domain under https://app.sparkpost.com/account/sending-domains  
-(SPF DKIM method recommended)
+(Set up SPF & DKIM with TXT DNS records)
 
 For DNS setup see [Go Live](go_live.md)
