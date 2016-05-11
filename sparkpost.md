@@ -25,7 +25,7 @@ There are two options to set up SparkPost:
 8. You can check your key under: https://app.sparkpost.com/account/credentials
 9. Validate your sending domain [here](https://app.sparkpost.com/account/sending-domains), or add it if not already done (Set up SPF & DKIM with TXT DNS records)
 10. Credentials for SMTP setup on your app can be found [here](https://app.sparkpost.com/account/smtp), password is your generated API-key
-11. Set up your ENV-variables and test if the mails are working. Manual mails can be send via the following command in the rails console: `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!` (disable letter opener temporarily!)
+11. Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!`
 
 For DNS setup also see [Go Live](go_live.md)
 
@@ -45,7 +45,7 @@ MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
 3. Create [a new API-Key for your subaccount](https://app.sparkpost.com/account/credentials), with the following permissions: *Send via SMTP, Sending Domains: Read/Write*
 4. Write down the API-key in the credential store, because it's only showed once!
 5. Credentials for SMTP setup on your app can be found [here](https://app.sparkpost.com/account/smtp), password is your generated API-key
-6. Set up your ENV-variables and test if the mails are working. Manual mails can be send via the following command in the rails console: `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!` (disable letter opener temporarily!)
+6. Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!`
 
 ##### Example ENV-variables
 
