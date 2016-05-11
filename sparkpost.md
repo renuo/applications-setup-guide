@@ -11,6 +11,7 @@ There are two options to set up SparkPost:
 
 
 ### First Option
+
 *There should only be one sparkpost account per project. That means, that the master, develop & testing all use the same one.*
 
 1. Go to https://app.sparkpost.com/sign-up/ and create a *new* account
@@ -38,6 +39,7 @@ MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
 ```
 
 ### Second Option
+
 1. Go to https://app.sparkpost.com/auth and log in with the credentials found in the credential store
 2. Create [one new subaccount](https://app.sparkpost.com/account/subaccounts) and name it like your project
 3. Create [a new API-Key for your subaccount](https://app.sparkpost.com/account/credentials), with the following permissions: *Send via SMTP, Sending Domains: Read/Write*
