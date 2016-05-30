@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
 fi
 
 
-grep -i -r 'console.log' app spec
+grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
 if [ $? -eq 0 ]; then
   echo 'console.log found. Please fix them and try again, commit aborted'
   exit 1
