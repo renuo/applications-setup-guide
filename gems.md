@@ -1,9 +1,7 @@
 # Gems
 
-These gems are already in use everywhere (and that's perfect!):
+These gems are already in use everywhere (and that's perfect!). If you don't want to use these gems, you should know what you are doing:
 
-* https://redmine.renuo.ch/projects/internal/wiki/Application_Configuration#Gemfile
-  * If you don't want to use these gems, you should know what you are doing
 * https://github.com/rspec/rspec
 * https://github.com/jnicklas/capybara
 * https://github.com/amatsuda/kaminari (do not use https://github.com/mislav/will_paginate)
