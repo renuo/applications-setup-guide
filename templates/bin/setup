@@ -37,6 +37,7 @@ Dir.chdir APP_ROOT do
     system 'which coffeelint || npm install -g coffeelint'
     system 'which tsc || npm install -g typescript'
     system 'which tslint || npm install -g tslint'
+    system 'which csscomb || npm install -g csscomb'
   end
 
   run 'Copying config/application.yml', 'config/application.yml' do
