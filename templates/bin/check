@@ -61,6 +61,12 @@ if [ ! $? -eq 0 ]; then
 fi
 
 csscomb -v app/assets/stylesheets/**/*.scss
+git diff --quiet
+if [ ! $? -eq 0 ]; then
+  echo 'csscomb has rearranged some of your css that has to be reviewed manually, commit aborted'
+  exit 1
+fi
+
 scss-lint app/assets/stylesheets/**/*.scss
 if [ ! $? -eq 0 ]; then
   echo 'scss-lint detected issues, commit aborted'
