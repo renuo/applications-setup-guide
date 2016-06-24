@@ -60,7 +60,7 @@ if [ ! $? -eq 0 ]; then
   exit 1
 fi
 
-csscomb app/assets/stylesheets/**/*.scss
+csscomb -v app/assets/stylesheets/**/*.scss
 scss-lint app/assets/stylesheets/**/*.scss
 if [ ! $? -eq 0 ]; then
   echo 'scss-lint detected issues, commit aborted'
