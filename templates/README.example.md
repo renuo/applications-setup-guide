@@ -58,4 +58,4 @@ bin/run
 
 ## Copyright
 
-Coypright 2016 [Renuo GmbH](https://www.renuo.ch/).
+Coypright 2016 [Renuo AG](https://www.renuo.ch/).
