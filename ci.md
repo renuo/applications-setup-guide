@@ -8,17 +8,6 @@ Then navigate to https://travis-ci.com/profile/renuo and add the new project (yo
 
 See also https://github.com/renuo/rails-application-setup-guide/blob/master/templates/.travis.yml
 
-### TSD / TypeScript Typings
-
-The typings are checked in with the project.
-
-1. Go to https://github.com/settings/tokens and generate a new token without any permissions
-2. ```gem install travis```
-3. ```travis encrypt TSDRC_TOKEN=yourGeneratedToken --add```
-4. Uncomment / add the following line to the before_script section: ```  - echo {\"token\":\"$TSDRC_TOKEN\"} > .tsdrc```
-5. ```cat .gitignore | grep ".tsdrc" || echo ".tsdrc" >> .gitignore```
-6. Commit
-
 ## Readme.md
 
 Setup the badges correctly.
