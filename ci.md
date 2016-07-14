@@ -10,7 +10,7 @@ See also https://github.com/renuo/rails-application-setup-guide/blob/master/temp
 
 ### TSD / TypeScript Typings
 
-The typings are loaded directly from GitHub. Unfortunately, GitHub has a rate limit. To overcome this, do the following:
+The typings are checked in with the project.
 
 1. Go to https://github.com/settings/tokens and generate a new token without any permissions
 2. ```gem install travis```
