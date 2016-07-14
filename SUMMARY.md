@@ -15,4 +15,5 @@
 * [Asset Delivery](asset_delivery.md)
 * [Application Configuration](application_configuration.md)
 * [Go Live](go_live.md)
+* Typings
 
