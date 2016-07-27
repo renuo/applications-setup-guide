@@ -6,7 +6,7 @@ APP_PORT: '3000'
 MAIL_HOST: ''
 MAIL_USERNAME: ''
 MAIL_PASSWORD: ''
-MAIL_SENDER: <yourname>+<application>@renuo.ch
+MAIL_SENDER: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
 
 # Secrets
 SECRET_KEY_BASE: 'rake secret'
@@ -36,7 +36,7 @@ RENUO_UPLOAD_APP_NAME: '<application>-<branch>'
 
 # This is used to seed your database
 # Use a random password for develop/master/testing
-ADMIN_EMAIL: <yourname>+<application>@renuo.ch
+ADMIN_EMAIL: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
 ADMIN_PASSWORD: 'developer'
 
 # Have 3 different Google Analytics key so not to mix up data from different applications
