@@ -2,7 +2,7 @@
 
 Only needed when you need to send mails.
 
-> **IMPORTANT:** Never ever set up a *.renuoapp.ch*-Domain as sending domain to a new created account as sending domain. **This will block the account**. If you need this, chose second option.
+> **IMPORTANT:** Never ever set up a *renuoapp.ch* as a sending domain to a new created account. **This will block the account!**. If you need this, chose second option.
 
 There are two options to set up SparkPost:
 
