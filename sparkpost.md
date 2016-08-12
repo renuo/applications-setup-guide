@@ -2,6 +2,8 @@
 
 Only needed when you need to send mails.
 
+> **IMPORTANT:** Never ever set up a *renuoapp.ch* as a sending domain to a new created account. **This will block the account!**. If you need this, chose second option.
+
 There are two options to set up SparkPost:
 
 * With a domain for the project and a separate SparkPost account (preferred, if possible)
