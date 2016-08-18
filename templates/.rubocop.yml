@@ -1,3 +1,6 @@
+inherit_from:
+  - https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/.rubocop_base.yml
+
 Rails:
   Enabled: true
 
