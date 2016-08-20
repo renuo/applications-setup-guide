@@ -15,4 +15,3 @@
 /bin/endless-rspec
 /app/assets/javascripts/**/*.js.map
 /app/assets/javascripts/**/*.js
-.tsdrc

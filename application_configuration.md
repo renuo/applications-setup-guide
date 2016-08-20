@@ -181,6 +181,9 @@ touch app/assets/stylesheets/general/layout.scss
 mkdir app/assets/javascripts/general
 touch app/assets/javascripts/general/init.ts
 ```
+## TypeScript Linting
+
+See https://renuo.gitbooks.io/rails-application-setup-guide/content/typings.html
 
 ## Commit
 
