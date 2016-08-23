@@ -60,13 +60,12 @@ if [ ! $? -eq 0 ]; then
   exit 1
 fi
 
-echo -n $STRING | shasum -a 256
-
 DIFF_BEFORE=`git diff | shasum -a 256`
-csscomb -v app/assets/stylesheets/**/*.scss
+csscomb -v src/app/**/*.scss
 DIFF_AFTER=`git diff | shasum -a 256`
-if [ ! $DIFF_BEFORE == $DIFF_AFTER ]; then
+if [[ ! $DIFF_BEFORE == $DIFF_AFTER ]]; then
   echo 'csscomb has rearranged some of your css that has to be reviewed manually, commit aborted'
+  exit 1
 fi
 
 scss-lint app/assets/stylesheets/**/*.scss
