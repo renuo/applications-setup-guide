@@ -26,9 +26,9 @@
     "space-between-declarations": "\n",
     "strip-spaces": true,
     "unitless-zero": true,
-    "vendor-prefix-align": false,
+    "vendor-prefix-align": true,
     "sort-order-fallback": "abc",
-    "tab-size": true,
+    "tab-size": 2,
     "sort-order": [
         [
             "$include"
