@@ -16,3 +16,4 @@
 /app/assets/javascripts/**/*.js.map
 /app/assets/javascripts/**/*.js
 .tsdrc
+.rubocop-https---raw-githubusercontent-com-renuo-rails-application-setup-guide-master-templates--rubocop-base-yml
