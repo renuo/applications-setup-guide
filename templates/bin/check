@@ -15,7 +15,6 @@ if [ $? -eq 0 ]; then
   exit 1
 fi
 
-
 grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
 if [ $? -eq 0 ]; then
   echo 'console.log found. Please fix them and try again, commit aborted'
@@ -43,6 +42,12 @@ fi
 grep -i -r '  p(' app spec
 if [ $? -eq 0 ]; then
   echo 'p found. Please fix them and try again, commit aborted'
+  exit 1
+fi
+
+mdl .
+if [ ! $? -eq 0 ]; then
+  echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md , commit aborted'
   exit 1
 fi
 
