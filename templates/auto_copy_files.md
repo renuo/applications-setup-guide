@@ -14,6 +14,7 @@
 * config/puma.rb
 * app/helpers/raven_helper.rb
 * Procfile
+* .mdlrc
 * .rspec
 * .gitignore
 * .reek
