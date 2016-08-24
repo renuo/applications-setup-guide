@@ -141,6 +141,7 @@ end
 
 group :lint do
   gem 'brakeman', require: false
+  gem 'mdl', require: false
   gem 'reek', require: false
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
