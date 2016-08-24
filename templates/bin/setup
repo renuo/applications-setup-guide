@@ -24,13 +24,9 @@ Dir.chdir APP_ROOT do
   run 'Installing dependencies' do
     system 'gem install bundler --conservative'
     system 'bundle check || bundle install --jobs=3 --retry=3'
-    install_or_update_gem('pry')
-    install_or_update_gem('rubocop')
-    install_or_update_gem('reek')
-    install_or_update_gem('slim_lint')
-    install_or_update_gem('scss_lint')
-    install_or_update_gem('brakeman')
-    install_or_update_gem('filewatcher')
+    %w(pry rubocop reek slim_lint scss_lint brakeman filewatcher mdl).each do |name|
+      install_or_update_gem name
+    end
   end
 
   run 'Installing JS dependencies' do
