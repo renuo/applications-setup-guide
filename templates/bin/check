@@ -45,7 +45,7 @@ if [ $? -eq 0 ]; then
   exit 1
 fi
 
-mdl -g .
+mdl .
 if [ ! $? -eq 0 ]; then
   echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
   exit 1
