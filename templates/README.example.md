@@ -37,6 +37,7 @@ bin/check
 This runs
 
 * keyword check (console.log, T0D0, puts, ...)
+* mdl
 * rubocop
 * scsslint
 * tslint
