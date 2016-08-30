@@ -41,7 +41,7 @@ Dir.chdir APP_ROOT do
   end
 
   run('Preparing database') do
-    system 'bin/rake db:version >> /dev/null 2>&1 || bin/rake db:create:all && bin/rake db:setup'
+    system 'bin/rake db:version >> /dev/null 2>&1 || (bin/rake db:create:all && bin/rake db:setup)'
   end
 
   run('Creating local gemfile', 'Gemfile.local.rb') { system 'touch Gemfile.local.rb' }
