@@ -10,6 +10,10 @@ Style/Documentation:
 Style/NonNilCheck:
   IncludeSemanticChanges: true
 
+Metrics/BlockLength:
+  Exclude:
+  - config/initializers/simple_form_bootstrap.rb
+
 Style/FileName:
   Exclude:
   - 'Gemfile.local.rb'
@@ -32,4 +36,3 @@ AllCops:
     - 'config/unicorn.rb'
     - 'db/**/*'
     - 'vendor/bundle/**/*'
-    
