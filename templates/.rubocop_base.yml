@@ -13,6 +13,10 @@ Style/NonNilCheck:
 Metrics/BlockLength:
   Exclude:
   - config/initializers/simple_form_bootstrap.rb
+  - 'Rakefile'
+  - '**/*.rake'
+  - 'spec/**/*.rb'
+
 
 Style/FileName:
   Exclude:
