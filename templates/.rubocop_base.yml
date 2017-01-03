@@ -10,6 +10,10 @@ Style/Documentation:
 Style/NonNilCheck:
   IncludeSemanticChanges: true
 
+Style/PredicateName:
+  Exclude:
+    - 'app/serializers/**/*'
+
 Metrics/BlockLength:
   Exclude:
   - config/initializers/simple_form_bootstrap.rb
