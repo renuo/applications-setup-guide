@@ -35,7 +35,6 @@ Dependencies
 
 ### Tests / Checks
 
-
 ```sh
 bin/check
 ```
@@ -46,3 +45,4 @@ special stuff
 ## Copyright
 
 Coypright 2017 [Renuo AG](https://www.renuo.ch/).
+

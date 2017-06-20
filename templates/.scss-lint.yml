@@ -7,3 +7,6 @@ linters:
   Indentation:
     severity: warning
     width: 2
+    
+  PropertySortOrder:
+    enabled: false

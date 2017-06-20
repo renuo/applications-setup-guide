@@ -6,7 +6,7 @@ APP_PORT: '3000'
 MAIL_HOST: ''
 MAIL_USERNAME: ''
 MAIL_PASSWORD: ''
-MAIL_SENDER: <yourname>+<application>@renuo.ch
+MAIL_SENDER: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
 
 # Secrets
 SECRET_KEY_BASE: 'rake secret'
@@ -21,6 +21,11 @@ NEW_RELIC_APP_NAME: '<application>-<branch>'
 SENTRY_DSN: ''
 SENTRY_PUBLIC_DSN: ''
 
+# Use Renuo CMS instead of configuring / implementing your own WYSIWYG editor
+RENUO_CMS_API_HOST: ''
+RENUO_CMS_API_KEY: ''
+RENUO_CMS_PRIVATE_API_KEY: ''
+
 # Use Renuo Upload instead of Amazon S3
 RENUO_UPLOAD_API_KEY: ''
 # Where the renuo-upload library gets the credentials for the upload
@@ -31,7 +36,7 @@ RENUO_UPLOAD_APP_NAME: '<application>-<branch>'
 
 # This is used to seed your database
 # Use a random password for develop/master/testing
-ADMIN_EMAIL: <yourname>+<application>@renuo.ch
+ADMIN_EMAIL: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
 ADMIN_PASSWORD: 'developer'
 
 # Have 3 different Google Analytics key so not to mix up data from different applications
