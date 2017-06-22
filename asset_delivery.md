@@ -25,6 +25,10 @@ Go to https://console.aws.amazon.com/cloudfront/home and create a new distributi
 
 Write down the domain name (this is something like oawiejfqjg9q.cloudfront.net). We call this the cloudfront domain name.
 
+After you created the distribution, open its detail view and go to the tab "Tags". Add the following tag:
+
+Key: `redmine_project`
+Value: `<redmine-project-slug>`
 
 ### Cloudflare
 

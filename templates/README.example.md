@@ -1,16 +1,22 @@
-[![Dependency Status](https://gemnasium.com/ADD_GEMNASIUM_TOKEN.svg)](https://gemnasium.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=master)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=develop)](https://travis-ci.com/renuo/<appname>) [![Build Status](https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=testing)](https://travis-ci.com/renuo/<appname>)
+# Project Title
+Short project description
 
-# <appname>
+## Environments
 
-## Important Links
+| Branch  | Domain                                | Deployment | CI                                      |
+| ------- | ------------------------------------- | ---------- | --------------------------------------- |
+| develop | https://<appname>-develop.renuoapp.ch | auto       | [![Build Status][ci-develop-badge]][ci] |
+| testing | https://<appname>-testing.renuoapp.ch | auto       | [![Build Status][ci-testing-badge]][ci] |
+| master  | https://<appname>-master.renuoapp.ch  | release    | [![Build Status][ci-master-badge]][ci]  |
 
-* TODO: link to issue tracker, wiki, important resources, etc.
-* https://github.com/renuo/<appname>
-* https://<appname>-master.renuoapp.ch
-* https://<appname>-develop.renuoapp.ch
-* https://<appname>-testing.renuoapp.ch
+[ci]: https://travis-ci.com/renuo/<appname>
+[ci-develop-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=develop
+[ci-testing-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=testing
+[ci-master-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=master
 
-## Installation
+[![Dependency Status](https://gemnasium.com/ADD_GEMNASIUM_TOKEN.svg)](https://gemnasium.com/renuo/<appname>)
+
+## Setup
 
 ```sh
 git clone git@github.com:renuo/<appname>.git
@@ -20,43 +26,23 @@ bin/setup
 
 ### Configuration
 
-```sh
-bin/setup
-```
-
 * config/application.yml
+* config/database.yml
 
-## Tests / Code Linting / Vulnerability Check
 
-### Everything
+### Dependency
+Dependencies
+
+### Tests / Checks
 
 ```sh
 bin/check
 ```
 
-This runs
-
-* keyword check (console.log, T0D0, puts, ...)
-* mdl
-* rubocop
-* scsslint
-* tslint
-* coffeelint
-* brakeman
-* rspec
-
-### Rspec Only
-
-```sh
-rspec
-```
-
-## Run
-
-```sh
-bin/run
-```
+## Other
+special stuff
 
 ## Copyright
 
-Copyright 2016 [Renuo AG](https://www.renuo.ch/).
+Coypright 2017 [Renuo AG](https://www.renuo.ch/).
+
