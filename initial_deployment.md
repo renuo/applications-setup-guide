@@ -34,18 +34,41 @@ Write this data into the credential store of the corresponding project, so that 
 
 Ask someone with access (the "sysadmin") to help setup the app. Tell him the <application> name. He already has your config.
 
-Then do (with the one who has access)
+Then create the Heroku application with commands that look like the following:
 
 ```sh
-# for rails apps
-ssh to the rails deployment server
-# for JS apps
-ssh to the js deployment server
-cd ~/deployments
-PROJECT=<application> ./generate-init-script.rb
+heroku apps:create --region eu example-master
+heroku domains:add example-master.renuoapp.ch --app example-master
+heroku addons:create heroku-postgresql --version=9.5 --app example-master
+heroku pg:backups:schedule --app example-master
+heroku addons:create papertrail
+# Now you should add the users to the project
+# heroku access:add name.lastname@renuo.ch --app example-master
+heroku apps:create --region eu example-develop
+heroku domains:add example-develop.renuoapp.ch --app example-develop
+heroku addons:create heroku-postgresql --version=9.5 --app example-develop
+heroku pg:backups:schedule --app example-develop
+heroku addons:create papertrail
+# Now you should add the users to the project
+# heroku access:add name.lastname@renuo.ch --app example-develop
+heroku apps:create --region eu example-testing
+heroku domains:add example-testing.renuoapp.ch --app example-testing
+heroku addons:create heroku-postgresql --version=9.5 --app example-testing
+heroku pg:backups:schedule --app example-testing
+heroku addons:create papertrail
+# Now you should add the users to the project
+# heroku access:add name.lastname@renuo.ch --app example-testing
 ```
 
-This command generates a list of commands which should be executed. *Execute them one by one, so you can abort if there is an error.*
+You can generate the commands for your specific application with a script:
+
+```sh
+wget https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/scripts/generate-init-script.rb
+PROJECT=projectname ruby generate-init-script.rb
+
+# Project that don't need a DB can be generated with this command:
+PROJECT=projectwithoutdb NO_DB=true ruby generate-init-script.rb
+```
 
 ## Config Execution on *master*
 
