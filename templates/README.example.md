@@ -3,22 +3,22 @@ Short project description
 
 ## Environments
 
-| Branch  | Domain                          | Deployment | CI                                      |
-| ------- | ------------------------------- | ---------- | --------------------------------------- |
-| develop | https://                        | auto       | [![Build Status][ci-develop-badge]][ci] |
-| testing | https://                        | auto       | [![Build Status][ci-testing-badge]][ci] |
-| master  | https://                        | release    | [![Build Status][ci-master-badge]][ci]  |
+| Branch  | Domain                                | Deployment | CI                                      |
+| ------- | ------------------------------------- | ---------- | --------------------------------------- |
+| develop | https://<appname>-develop.renuoapp.ch | auto       | [![Build Status][ci-develop-badge]][ci] |
+| testing | https://<appname>-testing.renuoapp.ch | auto       | [![Build Status][ci-testing-badge]][ci] |
+| master  | https://<appname>-master.renuoapp.ch  | release    | [![Build Status][ci-master-badge]][ci]  |
 
 [ci]: https://travis-ci.com/renuo/<appname>
-[ci-develop-badge]: https://travis-ci.com/renuo/<url>
-[ci-testing-badge]: https://travis-ci.com/renuo/<url>
-[ci-master-badge]: https://travis-ci.com/renuo/<url>
+[ci-develop-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=develop
+[ci-testing-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=testing
+[ci-master-badge]: https://travis-ci.com/renuo/<appname>.svg?token=ADD_TRAVIS_TOKEN&branch=master
 
 [![Dependency Status](https://gemnasium.com/ADD_GEMNASIUM_TOKEN.svg)](https://gemnasium.com/renuo/<appname>)
 
 ## Setup
 
-```
+```sh
 git clone git@github.com:renuo/<appname>.git
 cd <appname>
 bin/setup
