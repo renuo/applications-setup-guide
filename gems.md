@@ -1,9 +1,7 @@
 # Gems
 
-These gems are already in use everywhere (and that's perfect!):
+These gems are already in use everywhere (and that's perfect!). If you don't want to use these gems, you should know what you are doing:
 
-* https://redmine.renuo.ch/projects/internal/wiki/Application_Configuration#Gemfile
-  * If you don't want to use these gems, you should know what you are doing
 * https://github.com/rspec/rspec
 * https://github.com/jnicklas/capybara
 * https://github.com/amatsuda/kaminari (do not use https://github.com/mislav/will_paginate)
@@ -22,6 +20,7 @@ These gems are already in use everywhere (and that's perfect!):
 
 (Almost) Always use the following gems:
 
+* https://github.com/renuo/renuo-cms-rails
 * https://github.com/MiniProfiler/rack-mini-profiler (only in development + test)
 * (not needed since ruby 2.3.0) https://github.com/yuki24/did_you_mean
 * https://github.com/airblade/paper_trail

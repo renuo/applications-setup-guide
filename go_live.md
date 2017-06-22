@@ -4,8 +4,8 @@
 
 * Go to https://www.cloudflare.com/ and add your site, if not already done
 * Set up your DNS records (e.g CNAMES to heroku, TXT records for SparkPost, ...)
-* Verify that [SparkPost mails are working](https://app.sparkpost.com/account/sending-domains), if used
-  * if not: go to SPF Text Record > Settings and copy the TXT Record to cloudflare
+* If SparkPost has been set up with the renuoapp.ch domain and the project has its own domain now, set up SparkPost again with its own domain
+* Verify that SparkPost mails are working and the [sending domain is validated](https://app.sparkpost.com/account/sending-domains).
 * Verify that SSL is working correctly
 
 ## Heroku

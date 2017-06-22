@@ -11,11 +11,11 @@ default: &default
 
 development:
   <<: *default
-  database: <%= "<application>_development" %>
+  database: <application>_development
 
 test:
   <<: *default
-  database:  <%= "<application>_test" %>
+  database: <application>_test
 
 production:
   <<: *default

@@ -21,6 +21,7 @@ All our secrets will be in ENV variables, so we don't need secrets.yml. We also 
 rm config/secrets.yml
 rm -rf test
 rm config/database.yml
+rm README.rdoc
 git add .
 git commit -m 'delete unused files'
 ```
@@ -33,15 +34,13 @@ To help you with that, there is a renuo-cli command. It will help you setting up
 
 ```sh
 gem install renuo-cli
+mkdir spec
 renuo application-setup-auto-config
 ```
 
 It will copy the files you want from the templates listed here: https://www.gitbook.com/book/renuo/rails-application-setup-guide/edit#/edit/master/templates/auto_copy_files.md
 
- (Until this is implemented, here is the file list):
-
-* https://raw.githubusercontent.com/renuo/rails-application-setup-guide/master/templates/config/initializers/secret_key_base.rb
-* etc.
+After downloading them, review / update them (e.g. insert project name, remove unnecessary checks, etc. After that:
 
 ```sh
 git add .
@@ -142,6 +141,7 @@ end
 
 group :lint do
   gem 'brakeman', require: false
+  gem 'mdl', require: false
   gem 'reek', require: false
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
@@ -159,9 +159,11 @@ Add this line:
 if Rails.env.production?
   config.middleware.use Rack::GoogleAnalytics, tracker: ENV['GOOGLE_ANALYTICS_ID'] 
   
-  allow do
-    origins '*'
-    resource '/assets/*', headers: :any, methods: %i(get options)
+  config.middleware.insert_before 0, 'Rack::Cors' do
+    allow do
+      origins '*'
+      resource '/assets/*', headers: :any, methods: %i(get options)
+    end
   end
 end
 
