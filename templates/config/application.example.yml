@@ -1,5 +1,4 @@
-# Use /etc/hosts to change the dns to 127.0.0.1, see bin/setup
-APP_HOST: '<application>.dev'
+APP_HOST: 'localhost'
 APP_PORT: '3000'
 
 # Mail config
