@@ -1,5 +1,5 @@
-# Use /etc/hosts to change the dns to 127.0.0.1, see bin/setup
-APP_HOST: '<application>.dev'
+# Edit /etc/hosts to let your DNS resolve to 127.0.0.1 or use puma-dev
+APP_HOST: '<application>.localhost'
 APP_PORT: '3000'
 
 # Mail config
