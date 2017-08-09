@@ -1,4 +1,48 @@
-# Renuo Rails Application Setup Guide
+# Renuo Applications Setup Guide
 
-Read here: https://renuo.gitbooks.io/rails-application-setup-guide/content/
-Edit here: https://www.gitbook.com/book/renuo/rails-application-setup-guide/edit#/edit/develop/README.md
+## Introduction
+
+If you are reading this document it means that you have to setup a new application. 
+A new project started and is now time to set everything up so that **everyone**, in your team, **can start working on it**. 
+
+This document will try to be as minimalist as possible and provide you all the steps to setup the application as fast as possible. 
+There are things, in Renuo projects, which are mandatory, other that are suggested.
+
+The basic things that need to be ready before the team can start working on a project are:
+* An existing git repository containing the project
+* Two main branches: master, develop
+* A README with essential information about the application
+* Convenience-scripts: `bin/setup`, `bin/check`, `bin/fast-check`, `bin/run`
+* One running, green test
+* Continuous Integration ready, running and green for the main branches
+* Continuous deployment ready and running for the main branches
+* The application deployed for the main branches
+
+As an appendix you'll find a [checklist](checklist.md) you can use to follow the guide.
+
+The guide consists of Generic Paragraphs that will be referenced from the specific application types (e.g. How to configure the CI will be referenced from both Rails and Angular setup guides)
+
+Again: the purpose of this guide is to have your project setup as fast as possible so that the rest of the team can start working on the project with you.
+Before starting to follow this guide you should also have clear in mind, what is the architecture of your system and if you are going to build a monolithic Rails Application, a two layers app, a native app, etc…
+
+One more, important, final note: do not blindly follow this guide, think always about what you are doing and why.
+If you think something is wrong or simply outdated, Improve this guide with a Pull Request.
+
+We want you to know exactly the reason behind each single step of this guide.
+
+Thank you for your work and have fun! :tada:
+
+## Sections
+
+1. [GitFlow](gitflow.md)
+
+2. [Naming conventions](naming_conventions.md)
+
+###  [Ruby On Rails 5.1](ruby_on_rails/ruby_on_rails_5_1.md)
+
+### [Ruby On Rails API Only](ruby_on_rails/ruby_on_rails_api.md)
+
+### [Monorepo]
+
+### [Angular]
+
