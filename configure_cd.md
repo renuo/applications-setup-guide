@@ -1,11 +1,11 @@
-# Configure CD
+# Configure a Continuous Deployment (CD)
 
-You can configure continuous Deployment on SemaphoreCI.
+You can configure continuous deployment on *SemaphoreCI*.
 
-Configure an automatic deployment to each Heroku application (`[project-name]-master`,`[project-name]-develop`,`[project-name]-testing`)
+Configure an automatic deployment to each *Heroku* application (`[project-name]-master`,`[project-name]-develop`,`[project-name]-testing`)
 and execute the following script:
 
-```bash
+```shell
 git push --force heroku $BRANCH_NAME:master
 heroku run -x "rails db:migrate || rails db:setup"
 ```
