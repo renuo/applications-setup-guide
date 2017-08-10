@@ -66,15 +66,21 @@ end
 
 ## Configurations
 
+* Update `config/application.rb` and set the default language and timezone
+```ruby
+config.time_zone = 'Bern'
+config.i18n.default_locale = :de
+```
+
 * Update your `config/environments/production.rb` settings:
 ```ruby
-config.force_ssl = true (uncomment)
-config.log_level = :warn (change)
+config.force_ssl = true # uncomment
+config.log_level = :warn # change
 ```
 
 * Update `config/environments/test.rb` settings:
 ```ruby
-config.action_view.raise_on_missing_translations = true (uncomment)
+config.action_view.raise_on_missing_translations = true # uncomment
 ```
 
 * Commit all your changes in the master branch.

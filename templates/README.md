@@ -14,8 +14,6 @@ Short project description
 [ci-testing-badge]: https://semaphoreci.com/renuo/`[project-name]`.svg?token=ADD_TRAVIS_TOKEN&branch=testing
 [ci-master-badge]: https://semaphoreci.com/renuo/`[project-name]`.svg?token=ADD_TRAVIS_TOKEN&branch=master
 
-[![Dependency Status](https://gemnasium.com/ADD_GEMNASIUM_TOKEN.svg)](https://gemnasium.com/renuo/`[project-name]`)
-
 ## Setup
 
 ```sh
@@ -26,12 +24,13 @@ bin/setup
 
 ### Configuration
 
+Configure the following:
 * config/application.yml
-* config/database.yml
 
 
 ### Dependency
-Dependencies
+
+Dependencies list
 
 ### Tests / Checks
 
@@ -45,4 +44,3 @@ special stuff
 ## Copyright
 
 Coypright 2017 [Renuo AG](https://www.renuo.ch/).
-

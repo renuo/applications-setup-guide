@@ -9,7 +9,7 @@ To add a new project to the GA account go to https://www.google.com/analytics an
 3. Fill out the Data based on your project. (Only select the upper two check-boxes in the end)
 4. In Property Management, make sure you have activated the option "Enable Demographics and Interest Reports"/"Berichte zur Leistung nach demografischen Merkmalen und Interesse aktivieren"
 5. Once you saved the Account you will see the tracking snippet. 
-6. If you are using rack-google-analytics then add the advertising: true option
+6. **deprecated**: If you are using rack-google-analytics then add the advertising: true option
 ```
 config.middleware.use Rack::GoogleAnalytics, anonymize_ip: true, advertising: true, tracker: ENV['GOOGLE_ANALYTICS_ID']  if Rails.env.production?
 ```

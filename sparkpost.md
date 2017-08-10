@@ -1,8 +1,9 @@
 # SparkPost
 
-Only needed when you need to send mails.
 
-> **IMPORTANT:** Never ever set up a *renuoapp.ch* as a sending domain to a new created account. **This will block the account!**. If you need this, chose second option.
+:warning:
+**Never ever set up a *renuoapp.ch* as a sending domain to a new created account. This will block the account on SparkPost.
+If you need this, chose second option.** :warning:
 
 There are two options to set up SparkPost:
 
@@ -14,15 +15,15 @@ There are two options to set up SparkPost:
 
 ### First Option
 
-*There should only be one sparkpost account per project. That means, that the master, develop & testing all use the same one.*
+There should only be one sparkpost account per project. That means, that the master, develop and testing use the same one.
 
 1. Go to https://app.sparkpost.com/sign-up/ and create a *new* account
-2. Use the email ```sparkpost+%app_name%@renuo.ch``` as your username
+2. Use the email ```sparkpost+[project-name]@renuo.ch``` as your username
 3. Use ```renuo generate-password``` to generate a secure password
 4. Copy the credentials into the credential store
 5. Fill in the domain you plan to use
 6. Confirm your email address (sent to sparkpost@renuo.ch)
-  1. Hint: https://groups.google.com/a/renuo.ch/forum/#!topic/mandrill
+   1. Hint: https://groups.google.com/a/renuo.ch/forum/#!topic/mandrill
 7. Write down the API-key in the credential store, because it's only shown once!
 8. You can check your key under: https://app.sparkpost.com/account/credentials
 9. Validate your sending domain [here](https://app.sparkpost.com/account/sending-domains), or add it if not already done (Set up SPF & DKIM with TXT DNS records)

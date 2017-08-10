@@ -8,5 +8,14 @@
 - [ ] Server created			            ___________
 - [ ] CD configured				            ___________
 - [ ] App running				            ___________
+- [ ] Linting tools				            ___________
+- [ ] RSpec		        		            ___________
+- [ ] Suggested gems included               ___________
+- [ ] GetSentry 				            ___________
+- [ ] Cloudflare 				            ___________
+- [ ] README	    			            ___________
+- [ ] NewRelic  				            ___________
+- [ ] Uptime Monitor    		            ___________
+- [ ] Gemnasium 				            ___________
 
 

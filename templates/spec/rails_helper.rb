@@ -3,8 +3,13 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter do |source_file|
+    source_file.lines.count < 5
+  end
+end
 SimpleCov.minimum_coverage 100
+
 
 require 'rspec/rails'
 require 'capybara/rspec'
@@ -25,8 +30,6 @@ Capybara.register_driver :headless_chrome do |app|
 end
 
 Capybara.javascript_driver = :headless_chrome
-b
-
 
 ActiveRecord::Migration.maintain_test_schema!
 

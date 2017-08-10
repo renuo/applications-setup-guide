@@ -23,7 +23,7 @@ Dir.chdir APP_ROOT do
   end
 
   run('Preparing database') do
-    system 'bin/rake db:version >> /dev/null 2>&1 || (bin/rake db:create:all && bin/rake db:setup)'
+    system('bin/rails db:version >> /dev/null 2>&1') || system!('bin/rails db:create:all && bin/rails db:setup')
   end
 
   run 'Removing old logs and tempfiles' do
