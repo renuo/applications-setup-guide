@@ -1,4 +1,4 @@
-# Configure Continuous Deployment
+# Configure a Continuous Deployment (CD)
 
 You can configure continuous deployment on *SemaphoreCI*.
 
