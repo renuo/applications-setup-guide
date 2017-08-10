@@ -1,4 +1,4 @@
-# Suggested gems
+# Suggested gems :gem:
 
 Here is an up-to-date version of gems which we strongly suggest to include in your project.
 Please include them or give a good reason not to.

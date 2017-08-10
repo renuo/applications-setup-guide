@@ -38,12 +38,12 @@ Thank you for your work and have fun! :tada:
 
 2. [Naming conventions](naming_conventions.md)
 
-###  [Ruby On Rails 5.1](ruby_on_rails/ruby_on_rails_5_1.md)
+###  [Ruby On Rails 5.1](ruby_on_rails/README.md)
 
-### [Ruby On Rails API Only](ruby_on_rails/ruby_on_rails_api.md)
+### [Ruby On Rails API Only](ruby_on_rails_api/README.md)
 
-### [Monorepo]
+### [Monorepo](monorepo/README.md)
 
-### [Angular]
+### [Angular](angular/README.md)
 
 ### [Go Live! :tada:](go_live.md)

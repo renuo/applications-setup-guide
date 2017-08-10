@@ -5,7 +5,7 @@ This is the most frequent type of application we have at Renuo and probably also
 The application (and relative github repo) will be named after the `[project-name]` you chose before.
 
 **Be careful: this guide explains how to configure a Rails Application and not a Rails API Application!**
-If you have to setup an API-Only application follow the [relative guide](ruby_on_rails_api.md).
+If you have to setup an API-Only application follow the [relative guide](../ruby_on_rails_api/README.md).
 
 1. [Initialise the Rails App](app_initialisation.md)
 1. [Push to Git Repository](first_git_push.md)
@@ -20,7 +20,7 @@ It's now time to introduce some more tools which will help you and the team to k
 
 1. [Linting and automatic checks](linting_and_automatic_check.md)
 2. [RSpec](rspec.md)
-3. [Gems](../suggested_gems.md)
+3. [Gems :gem:](../suggested_gems.md)
 4. [GetSentry](getsentry.md)
 5. [Cloudflare](cloudflare.md)
 6. [README](compile_readme.md)
