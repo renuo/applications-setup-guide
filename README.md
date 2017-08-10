@@ -15,7 +15,7 @@ The basic things that need to be ready before the team can start working on a pr
 * Convenience-scripts: `bin/setup`, `bin/check`, `bin/fast-check`, `bin/run`
 * One running, green test
 * Continuous integration (*CI*) ready, running and green for the main branches
-* Continuous deployment ready and running for the main branches
+* Continuous deployment (*CD*) ready and running for the main branches
 * The application deployed for the main branches
 
 As an appendix you'll find a [checklist](checklist.md) you can use to follow the guide.
