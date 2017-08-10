@@ -4,7 +4,7 @@
 
 * Start a new Rails project using the usual `rails new -d postgresql [project-name]` where the `project-name` is exactly the one you chose before.
 You may want to choose a different database from Postgres, but most of the time that will be your choice.
-If you do not need a DB you may rethink the fact that you may not need Rails at all :)
+If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
 * Add `.idea` to the `.gitignore` file since many of us use RubyMine.
 
@@ -17,7 +17,7 @@ This will be [used by rbenv to check which version of ruby to use](https://githu
 
 This is the file to start our project.
 
-* Add an empty `bin/fastcheck` file and make it executable (`chmod +x bin/check`)
+* Add an empty `bin/fastcheck` file and make it executable (`chmod +x bin/fastcheck`)
 
 This will be used as a hook before pushing to quickly check for linting issues.
 
@@ -68,8 +68,8 @@ end
 
 * Update `config/application.rb` and set the default language and timezone
 ```ruby
-config.time_zone = 'Bern'
-config.i18n.default_locale = :de
+config.time_zone = 'Bern' # may vary
+config.i18n.default_locale = :de # may vary
 ```
 
 * Update your `config/environments/production.rb` settings:

@@ -21,18 +21,18 @@ It's now time to introduce some more tools which will help you and the team to k
 1. [Linting and automatic checks](linting_and_automatic_check.md)
 2. [RSpec](rspec.md)
 3. [Gems :gem:](../suggested_gems.md)
-4. [GetSentry](getsentry.md)
-5. [Cloudflare](cloudflare.md)
-6. [README](compile_readme.md)
+4. [Cloudflare](cloudflare.md)
+5. [README](compile_readme.md)
 
 :tada: Finally you are ready to start working on you new project! :tada:
 
 While everyone starts working there are some more things which you should setup.
 They are not optional, but the rest of the team can start working even if those are not in place yet.
 
-7. [NewRelic](newrelic.md)
-7. [Uptime Monitor](uptime.md)
-7. [Gemnasium](gemnasium.md)
+1. [GetSentry](getsentry.md)
+2. [NewRelic](newrelic.md)
+3. [Uptime Monitor](uptime.md)
+4. [Gemnasium](gemnasium.md)
 
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often:
@@ -40,19 +40,21 @@ Here you will find a series of chapters and guides on how to setup some of the g
 1. [Send emails](send_emails.md)
 2. [Devise](devise.md)
 3. capybara tests
-4. paperclip
-5. amazon s3 and cloudfront
-6. sparkpost
-7. awesome_print `gem 'awesome_print'`
-8. bootstrap `gem 'bootstrap', '~> 4.0.0.alpha6'`
-9. devise `gem 'devise'`
-10. font awesome `gem 'font-awesome-rails'`
-11. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
-12. JQuery `gem 'jquery-rails'`
-13. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
-14. [Typescript](https://github.com/typescript-ruby/typescript-rails)
-15. [Favicons](favicons.md)
-16. Setup papertrail
-17. SEO
+4. paperclip / carrierwave
+5. cucumber
+6. amazon s3 and cloudfront
+7. sparkpost
+8. awesome_print `gem 'awesome_print'`
+9. bootstrap `gem 'bootstrap', '~> 4.0.0.alpha6'`
+10. devise `gem 'devise'`
+11. font awesome `gem 'font-awesome-rails'`
+12. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
+13. JQuery `gem 'jquery-rails'`
+14. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
+15. [Typescript](https://github.com/typescript-ruby/typescript-rails)
+16. Favicons
+17. Setup papertrail
+18. [Rack CORS](../ruby_on_rails_api/rack_cors.md)
+19. SEO
     * redirect non-www to www
     * Header tags

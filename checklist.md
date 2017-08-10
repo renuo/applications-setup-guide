@@ -1,21 +1,18 @@
 # Checklist
 
-- [ ] Do we use a testing branch?           ___________
-- [ ] What is the application name? 	    ___________
-- [ ] Rails Application Created		        ___________
-- [ ] Git Repository created and configured	___________
-- [ ] CI configured				            ___________
-- [ ] Server created			            ___________
-- [ ] CD configured				            ___________
-- [ ] App running				            ___________
-- [ ] Linting tools				            ___________
-- [ ] RSpec		        		            ___________
-- [ ] Suggested gems included               ___________
-- [ ] GetSentry 				            ___________
-- [ ] Cloudflare 				            ___________
-- [ ] README	    			            ___________
-- [ ] NewRelic  				            ___________
-- [ ] Uptime Monitor    		            ___________
-- [ ] Gemnasium 				            ___________
-
-
+- [ ] What is the application name?
+- [ ] Rails Application Created
+- [ ] Git Repository created and configured
+- [ ] CI configured
+- [ ] Server created
+- [ ] CD configured
+- [ ] App running
+- [ ] Linting tools
+- [ ] RSpec
+- [ ] Suggested gems included
+- [ ] GetSentry
+- [ ] Cloudflare
+- [ ] README
+- [ ] NewRelic
+- [ ] Uptime Monitor
+- [ ] Gemnasium

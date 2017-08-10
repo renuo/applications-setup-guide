@@ -5,9 +5,6 @@ Please check it out and read how it works if you don’t know it yet.
 It’s very important that you know how gitflow works to work at Renuo.
 
 Since we follow gitflow, we have two main branches connected, via CD, to two servers, we call "master" and "develop".
-In addition to these two branches we ~~often~~always add a "testing" branch (and connected server) where developers can merge their features without waiting for a code review.
-
-**Decide if you want to set up also a testing branch, together with develop and branch.
-This is highly recommended because you may need it urgently once.**
+In addition to these two branches we always add a "testing" branch (and connected server) where developers can merge their features without waiting for a code review.
 
 ![gitflow](images/gitflow.png)

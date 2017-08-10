@@ -8,6 +8,7 @@
 So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
 * Once you have created an entry, you will see the `dsn key` and the `public dsn key` which you'll need in your config variables on Heroku. Note them.
+The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
 
 ![getsentry_dsn](../images/getsentry.png)
 
@@ -23,9 +24,9 @@ end
 * Set the variable in all three Heroku environments
 * Add a Sentry initializer in `config/initializers` folder. [sentry](../templates/config/initializers/sentry.rb)
 
-* Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.slim) in your header.
+* Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
 
-**:warning: The template uses slim and the sentry version gets outdated pretty fast so double check it. :warning:**
+**:warning: The the sentry version gets outdated pretty fast so double check it. :warning:**
 
 ## Verify the installation
 

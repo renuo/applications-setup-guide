@@ -10,9 +10,9 @@ Short project description
 | master  | https://`[project-name]`-master.renuoapp.ch  | release    | [![Build Status][ci-master-badge]][ci]  |
 
 [ci]: https://semaphoreci.com/renuo/`[project-name`]
-[ci-develop-badge]: https://semaphoreci.com/renuo/`[project-name]`.svg?token=ADD_TRAVIS_TOKEN&branch=develop
-[ci-testing-badge]: https://semaphoreci.com/renuo/`[project-name]`.svg?token=ADD_TRAVIS_TOKEN&branch=testing
-[ci-master-badge]: https://semaphoreci.com/renuo/`[project-name]`.svg?token=ADD_TRAVIS_TOKEN&branch=master
+[ci-develop-badge]: FETCH FROM SEMAPHORECI
+[ci-testing-badge]: FETCH FROM SEMAPHORECI
+[ci-master-badge]: FETCH FROM SEMAPHORECI
 
 ## Setup
 
@@ -26,6 +26,12 @@ bin/setup
 
 Configure the following:
 * config/application.yml
+
+### Run
+
+```sh
+bin/run
+```
 
 
 ### Dependency

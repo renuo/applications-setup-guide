@@ -1,4 +1,0 @@
-- if Rails.env.production?
-  script src="https://cdn.ravenjs.com/3.17.0/raven.min.js"
-  javascript:
-    Raven.config('#{ENV['SENTRY_PUBLIC_DSN']}').install();

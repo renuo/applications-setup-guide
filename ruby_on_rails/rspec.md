@@ -1,6 +1,6 @@
-# Use Rspec
+# Use RSpec
 
-Rspec is a *de-facto* standard and is used in all our projects.
+RSpec is a *de-facto* standard and is used in all our projects.
 We love rspec and we strongly suggest you to use it as well.
 Even if is not mandatory, we believe you should discuss with your team the decision of not using it.
 
@@ -104,11 +104,9 @@ Commit and push your changes! :tada:
 ## Verify
 
 * Open the three apps
-  * http://`[project-name]`-master.herokuapp.com/home/check
-  * http://`[project-name]`-develop.herokuapp.com/home/check
-  * http://`[project-name]`-testing.herokuapp.com/home/check
+  * https://`[project-name]`-master.herokuapp.com/home/check
+  * https://`[project-name]`-develop.herokuapp.com/home/check
+  * https://`[project-name]`-testing.herokuapp.com/home/check
 
-Check that you:
-* see "1+2=3" in each app.
-* have been redirected to https
+Check that you see `1+2=3` in each app.
 
