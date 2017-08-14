@@ -1,6 +1,5 @@
 # SparkPost
 
-
 :warning:
 **Never ever set up a *\*.renuoapp.ch* as a sending domain to a new created account. This will block the account on SparkPost.
 If you need this, choose the second option.** :warning:
@@ -12,8 +11,7 @@ There are two options to set up SparkPost:
 
 **Note:** With the second option, you are only able to send mails with **\*@renuoapp.ch** as your mail sender.
 
-
-### First Option
+## First Option
 
 There should only be one SparkPost account per project. This means, that *master*, *develop* and *testing* use the same one.
 
@@ -32,7 +30,7 @@ There should only be one SparkPost account per project. This means, that *master
 
 For DNS setup also see [Go Live](go_live.md)
 
-##### Example ENV-variables
+### Example ENV-variables
 
 ```
 MAIL_USERNAME: 'SMTP_Injection'
@@ -41,7 +39,7 @@ MAIL_HOST: 'smtp.sparkpostmail.com'
 MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
 ```
 
-### Second Option
+## Second Option
 
 1. Go to https://app.sparkpost.com/auth and log in with the credentials found in the credential store
 2. Create [one new subaccount](https://app.sparkpost.com/account/subaccounts) and name it like your project
@@ -50,7 +48,7 @@ MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
 5. Credentials for SMTP setup on your app can be found [here](https://app.sparkpost.com/account/smtp), password is your generated API-key
 6. Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!`
 
-##### Example ENV-variables
+### Example ENV-variables
 
 ```
 MAIL_USERNAME: 'SMTP_Injection'

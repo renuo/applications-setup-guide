@@ -1,4 +1,4 @@
-# Suggested gems :gem:
+# :gem: Suggested gems
 
 Here is an up-to-date version of gems which we strongly suggest to include in your project.
 Please include them or give a good reason not to.
@@ -10,16 +10,16 @@ gem 'slim-rails'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller'  
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'pry-rails'  
+  gem 'pry-rails'
 end
 
 group :production do
-  gem 'lograge'  
+  gem 'lograge'
 end
 ```
 

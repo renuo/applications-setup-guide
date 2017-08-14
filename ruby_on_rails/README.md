@@ -1,6 +1,6 @@
 ## Ruby On Rails 5.1
 
-This setup will cover a pure, monolithic, Rails Applications.
+This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
 The application (and relative github repo) will be named after the `[project-name]` you chose before.
 
@@ -14,7 +14,7 @@ If you have to setup an API-Only application follow the [relative guide](../ruby
 1. [Create an Application Server](create_application_server.md)
 1. [Configure Continuous Deployment](configure_cd.md)
 
-Once here your app should be up and running on all three environments.
+Once here, your app should be up and running on all three environments.
 
 It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.
 

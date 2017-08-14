@@ -1,4 +1,5 @@
 # Project Title
+
 Short project description
 
 ## Environments
@@ -25,6 +26,7 @@ bin/setup
 ### Configuration
 
 Configure the following:
+
 * config/application.yml
 
 ### Run
@@ -32,7 +34,6 @@ Configure the following:
 ```sh
 bin/run
 ```
-
 
 ### Dependency
 
@@ -45,6 +46,7 @@ bin/check
 ```
 
 ## Other
+
 special stuff
 
 ## Copyright

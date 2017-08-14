@@ -3,7 +3,7 @@
 At Renuo we **always** use a CI (Continuous Integration) system to test our applications. 
 It's essential to guarantee that all the tests pass before building and releasing a new version through our CD system.
 Our private projects use SemaphoreCI, while OpenSource ones use TravisCI.
-We try to avoid having many different systems so we'd like if you can configure one of them and, preferably, SemaphoreCI, since is, at the moment, our fastest and most reliable system.
+We try to avoid having many different systems so we'd like if you can configure one of them and preferably SemaphoreCI, since is, at the moment, our fastest and most reliable system.
 
 Before configuring the CI, you should already have a Git Repository with the code, a `[test command]` to execute, and the main branches already pushed (at least develop and master) and ready to be tested.
 

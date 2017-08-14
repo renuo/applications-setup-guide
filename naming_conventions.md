@@ -1,11 +1,13 @@
 # Naming Conventions
 
-Naming the project properly is very important and even more important is doing it from the beginning. We choose carefully the names for our projects and we always stick to the following conventions so you are asked to do the same.
-
+Naming the project properly is very important and even more important is doing it from the beginning.
+We carefully choose the names for our projects and we always stick to the following conventions so you are
+asked to do the same.
 
 ## Project Name
 
-The project name `[project-name]` consists of `[base-project]-[sub-project]`, and only uses `[a-z0-9]` and dash `-`. No underline `_`.
+The project name `[project-name]` consists of `[base-project]-[sub-project]`, and only uses `[a-z0-9]` and dash `-`.
+No underscore `_`.
 
 ## Extended Use
 
