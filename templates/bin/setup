@@ -12,28 +12,10 @@ def run(name, file_which_must_not_exist = nil)
   end
 end
 
-def install_or_update_gem(gem)
-  if ENV['UPDATE']
-    system "gem install #{gem}"
-  else
-    system "which #{gem.gsub('_', '-')} || gem install #{gem}"
-  end
-end
-
 Dir.chdir APP_ROOT do
   run 'Installing dependencies' do
     system 'gem install bundler --conservative'
     system 'bundle check || bundle install --jobs=3 --retry=3'
-    %w(pry rubocop reek slim_lint scss_lint brakeman filewatcher mdl).each do |name|
-      install_or_update_gem name
-    end
-  end
-
-  run 'Installing JS dependencies' do
-    system 'which coffeelint || npm install -g coffeelint'
-    system 'which tsc || npm install -g typescript'
-    system 'which tslint || npm install -g tslint'
-    system 'which csscomb || npm install -g csscomb'
   end
 
   run 'Copying config/application.yml', 'config/application.yml' do
@@ -41,17 +23,15 @@ Dir.chdir APP_ROOT do
   end
 
   run('Preparing database') do
-    system 'bin/rake db:version >> /dev/null 2>&1 || (bin/rake db:create:all && bin/rake db:setup)'
+    system('bin/rails db:version >> /dev/null 2>&1') || system!('bin/rails db:create:all && bin/rails db:setup')
   end
-
-  run('Creating local gemfile', 'Gemfile.local.rb') { system 'touch Gemfile.local.rb' }
 
   run 'Removing old logs and tempfiles' do
     system 'rm -f log/*'
     system 'rm -rf tmp/cache'
   end
 
-  run 'Creating pre-commit hook link', '.git/hooks/pre-commit' do
-    system 'ln -s ../../bin/check .git/hooks/pre-commit'
+  run 'Creating pre-push hook link', '.git/hooks/pre-push' do
+    system 'ln -s ../../bin/fastcheck .git/hooks/pre-push'
   end
 end

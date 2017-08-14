@@ -1,47 +1,8 @@
-#!/bin/zsh
-
-source ~/.zshrc
-
-grep 'rack-mini-profiler' Gemfile.lock >> /dev/null
-if [ $? -eq 0 ]; then
-  echo 'rack-mini-profiler detected in Gemfile.lock.'
-  echo 'Please remove rack-mini-profiler from your Gemfile(.local), run bundle and commit again, commit aborted'
-  exit 1
-fi
-
-grep -i -r 'TODO' app spec config db Rakefile README.md Gemfile
-if [ $? -eq 0 ]; then
-  echo 'TODOs found. Please fix them and try again, commit aborted'
-  exit 1
-fi
+#!/bin/sh
 
 grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
 if [ $? -eq 0 ]; then
   echo 'console.log found. Please fix them and try again, commit aborted'
-  exit 1
-fi
-
-grep -i -r '  puts ' app spec
-if [ $? -eq 0 ]; then
-  echo 'puts found. Please fix them and try again, commit aborted'
-  exit 1
-fi
-
-grep -i -r '  puts(' app spec
-if [ $? -eq 0 ]; then
-  echo 'puts found. Please fix them and try again, commit aborted'
-  exit 1
-fi
-
-grep -i -r '(  pp? [^=])|(= pp? )' app spec
-if [ $? -eq 0 ]; then
-  echo 'p found. Please fix them and try again, commit aborted'
-  exit 1
-fi
-
-grep -i -r '  p(' app spec
-if [ $? -eq 0 ]; then
-  echo 'p found. Please fix them and try again, commit aborted'
   exit 1
 fi
 

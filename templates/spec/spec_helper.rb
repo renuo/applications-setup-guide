@@ -1,7 +1,3 @@
-require 'simplecov'
-SimpleCov.start 'rails'
-SimpleCov.minimum_coverage 100
-
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 RSpec.configure do |config|
