@@ -13,7 +13,7 @@ If you think that the script is outdated please open a Pull Request.
 ### Transferring Ownership of the application
 
 After creating a Heroku app, you have to transfer the ownership to `admin@renuo.ch`. This step may already be required
-to execute certain commands (like setting a `renuoapp.ch` subdomain) on the Heruoku CLI.
+to execute certain commands (like setting a `renuoapp.ch` subdomain) on the Heroku CLI.
 
 Transfer the ownership as follows:
 
