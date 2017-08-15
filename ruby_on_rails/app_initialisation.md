@@ -39,8 +39,13 @@ We use a script for that so that we can change the commands for tests in a PR, w
 
 ## figaro (or dotenv)
 
-* Add `figaro` to Gemfile and create `config/application.example.yml` where you will specify the only environment variable you need for now: `SECRET_KEY_BASE`.
-Check the gem homepage to see how to install the gem (usually `bundle exec figaro install` is enough)
+* Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
+(usually `bundle exec figaro install` is enough)
+
+*  and create `config/application.example.yml` where you will specify the only environment variable you need for now:
+`SECRET_KEY_BASE`.
+
+* Add `/config/application.yml` to your `.gitignore`
 
 ## bin/setup
 
