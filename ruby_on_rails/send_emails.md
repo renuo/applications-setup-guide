@@ -16,12 +16,12 @@ end
 * add the following to `config/application.example.yml`
 
 ```yml
-APP_HOST='[project-name].dev'
-APP_PORT='3000'
-MAIL_SENDER='yourname+<application>@example.com'
-MAIL_HOST=''
-MAIL_USERNAME=''
-MAIL_PASSWORD=''
+APP_HOST: '[project-name].dev'
+APP_PORT: '3000'
+MAIL_SENDER: 'yourname+<application>@example.com'
+MAIL_HOST: ''
+MAIL_USERNAME: ''
+MAIL_PASSWORD: ''
 ```
 
 * update `app/mailers/application_mailer.rb`
