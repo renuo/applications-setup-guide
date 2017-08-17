@@ -1,7 +1,7 @@
 #!/bin/sh
 
 bundle exec rubocop -D -c .rubocop.yml --fail-fast
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'rubocop detected issues!'
   bundle exec rubocop -a -D -c .rubocop.yml
   echo 'Tried to auto correct the issues, but must be reviewed manually, commit aborted'
@@ -9,31 +9,31 @@ if [ ! $? -eq 0 ]; then
 fi
 
 bundle exec brakeman -q -z --no-summary
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'Brakeman has detected one or more security vulnerabilities, please review them and re-commit your changes, commit aborted'
   exit 1
 fi
 
 bundle exec mdl ./
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
   exit 1
 fi
 
 bundle exec reek .
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'reek detected code smells, commit aborted'
   exit 1
 fi
 
 bundle exec scss-lint `find app/assets/stylesheets/ -name "*.scss"`
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'scss-lint detected issues, commit aborted'
   exit 1
 fi
 
 bundle exec slim-lint app/views/ -c .slim-lint.yml
-if [ ! $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   echo 'slim-lint detected issues, commit aborted'
   exit 1
 fi
