@@ -45,7 +45,7 @@ Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
 * Inside `spec/rails_helper` we suggest to uncomment/enable the following:
 
-  * before `require 'rspec/rails'`
+* before `require 'rspec/rails'`
 
 ```ruby
 require 'simplecov'
@@ -59,7 +59,7 @@ SimpleCov.minimum_coverage 100
 
 to run code coverage and exclude files with less then 5 lines of code.
 
-  * after `require 'rspec/rails'`
+* after `require 'rspec/rails'`
 
 ```ruby
 require 'capybara/rspec'
@@ -89,7 +89,7 @@ Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * replace `bundle exec rake test` with `bundle exec rspec` in `bin/check`
 
-## Our first (green) test :white_check_mark:
+## :white_check_mark: Our first (green) test
 
 We are now going to write a first test to ensure that the whole configuration is working:
 
@@ -105,9 +105,9 @@ Commit and push your changes! :tada:
 ## Verify
 
 * Open the three apps
-  * https://`[project-name]`-master.herokuapp.com/home/check
-  * https://`[project-name]`-develop.herokuapp.com/home/check
-  * https://`[project-name]`-testing.herokuapp.com/home/check
+  * <https://[project-name]-master.herokuapp.com/home/check>
+  * <https://[project-name]-develop.herokuapp.com/home/check>
+  * <https://[project-name]-testing.herokuapp.com/home/check>
 
 Check that you see `1+2=3` in each app.
 

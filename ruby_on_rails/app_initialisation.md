@@ -42,8 +42,8 @@ We use a script for that so that we can change the commands for tests in a PR, w
 * Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
 (usually `bundle exec figaro install` is enough)
 
-*  and create `config/application.example.yml` where you will specify the only environment variable you need for now:
-`SECRET_KEY_BASE`.
+* and create `config/application.example.yml` where you will specify the only environment variable you need for now:
+  `SECRET_KEY_BASE`.
 
 * Add `/config/application.yml` to your `.gitignore`
 
@@ -52,7 +52,7 @@ We use a script for that so that we can change the commands for tests in a PR, w
 * Add the following to the `bin/setup` script so that the application.yml is created when the project is setup:
 
 ```ruby
-unless File.exist?('config/application.yml') 
+unless File.exist?('config/application.yml')
   cp 'config/application.example.yml', 'config/application.yml'
 end
 ```
@@ -72,18 +72,21 @@ end
 ## Configurations
 
 * Update `config/application.rb` and set the default language and timezone
+
 ```ruby
 config.time_zone = 'Bern' # may vary
 config.i18n.default_locale = :de # may vary
 ```
 
 * Update your `config/environments/production.rb` settings:
+
 ```ruby
 config.force_ssl = true # uncomment
 config.log_level = :warn # change
 ```
 
 * Update `config/environments/test.rb` settings:
+
 ```ruby
 config.action_view.raise_on_missing_translations = true # uncomment
 ```

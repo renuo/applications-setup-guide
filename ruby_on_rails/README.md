@@ -1,4 +1,4 @@
-## Ruby On Rails 5.1
+# Ruby On Rails 5.1
 
 This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
@@ -19,10 +19,10 @@ Once here, your app should be up and running on all three environments.
 It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.
 
 1. [Linting and automatic checks](linting_and_automatic_check.md)
-2. [RSpec](rspec.md)
-3. [Gems :gem:](../suggested_gems.md)
-4. [Cloudflare](cloudflare.md)
-5. [README](compile_readme.md)
+1. [RSpec](rspec.md)
+1. [Gems :gem:](../suggested_gems.md)
+1. [Cloudflare](cloudflare.md)
+1. [README](compile_readme.md)
 
 :tada: Finally you are ready to start working on you new project! :tada:
 
@@ -30,31 +30,30 @@ While everyone starts working there are some more things which you should setup.
 They are not optional, but the rest of the team can start working even if those are not in place yet.
 
 1. [GetSentry](getsentry.md)
-2. [NewRelic](newrelic.md)
-3. [Uptime Monitor](uptime.md)
-4. [Gemnasium](gemnasium.md)
-
+1. [NewRelic](newrelic.md)
+1. [Uptime Monitor](uptime.md)
+1. [Gemnasium](gemnasium.md)
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often:
 
 1. [Send emails](send_emails.md)
-2. [Devise](devise.md)
-3. capybara tests
-4. paperclip / carrierwave
-5. cucumber
-6. amazon s3 and cloudfront
-7. sparkpost
-8. awesome_print `gem 'awesome_print'`
-9. bootstrap `gem 'bootstrap', '~> 4.0.0.alpha6'`
-10. devise `gem 'devise'`
-11. font awesome `gem 'font-awesome-rails'`
-12. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
-13. JQuery `gem 'jquery-rails'`
-14. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
-15. [Typescript](https://github.com/typescript-ruby/typescript-rails)
-16. Favicons
-17. Setup papertrail
-18. [Rack CORS](../ruby_on_rails_api/rack_cors.md)
-19. SEO
+1. [Devise](devise.md)
+1. capybara tests
+1. paperclip / carrierwave
+1. cucumber
+1. amazon s3 and cloudfront
+1. sparkpost
+1. awesome_print `gem 'awesome_print'`
+1. bootstrap `gem 'bootstrap', '~> 4.0.0.alpha6'`
+1. devise `gem 'devise'`
+1. font awesome `gem 'font-awesome-rails'`
+1. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
+1. JQuery `gem 'jquery-rails'`
+1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
+1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
+1. Favicons
+1. Setup papertrail
+1. [Rack CORS](../ruby_on_rails_api/rack_cors.md)
+1. SEO
     * redirect non-www to www
     * Header tags

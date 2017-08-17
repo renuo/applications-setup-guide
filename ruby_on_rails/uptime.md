@@ -5,7 +5,7 @@ sends a request to the application and checks whether the returned response is c
 This check is only applied to the `master` environment only, since it would drain the free hours on Heroku
 if we would do this for all environments.
 
-* Go to the *Uptime* account: https://uptime.com/
+* Go to the *Uptime* account: <https://uptime.com/>
 * Go to [Monitoring](https://uptime.com/devices/services)
 * Click "Add Check"
   * Name: `[project-name]-master: app/check`
