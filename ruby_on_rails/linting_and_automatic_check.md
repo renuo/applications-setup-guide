@@ -5,7 +5,6 @@ Every linter consists of a gem (usually) and a command to add to our `bin/fastch
 
 Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the final version of it.
 
-
 ## Rubocop :cop:
 
 ```ruby
@@ -69,7 +68,8 @@ end
 ```
 
 ## Slim lint
-###### only if you'll use slim templates
+
+> only if you'll use slim templates
 
 ```ruby
 group :development, :test do
@@ -78,4 +78,5 @@ end
 ```
 
 ## All Good!
+
 Now your `bin/fastcheck` is not that fast anymore :smile:

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mdl .
+if [ $? -ne 0 ]; then
+  echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
+  exit 1
+fi

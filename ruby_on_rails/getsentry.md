@@ -5,9 +5,11 @@
 * Go to www.getsentry.com and login as the renuo monitor.
 
 * Create an entry for each Heroku app (`master`, `develop`, `testing`). Your applications on Sentry should follow the same naming convention as everywhere else.
+
 So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
 * Once you have created an entry, you will see the `dsn key` and the `public dsn key` which you'll need in your config variables on Heroku. Note them.
+
 The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
 
 ![getsentry_dsn](../images/getsentry.png)
