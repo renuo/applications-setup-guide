@@ -7,7 +7,7 @@ group :production do
 end
 ```
 
-* add a NewRelic configuration file inside `config` folder. You can use the [temlate](../templates/config/newrelic.yml).
+* add a NewRelic configuration file inside `config` folder. You can use the [template](../templates/config/newrelic.yml).
 
 * add the new variables to your Heroku environments:
 ```yml
