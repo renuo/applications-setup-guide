@@ -15,7 +15,7 @@ The basic things that need to be ready before the team can start working on a pr
 * An existing *git* repository containing the project
 * Three main branches: *master*, *develop*, *testing*
 * A README with essential information about the application
-* Convenience-scripts: `bin/setup`, `bin/check`, `bin/fast-check`, `bin/run`
+* Convenience-scripts: `bin/setup`, `bin/check`, `bin/fastcheck`, `bin/run`
 * One running, green test
 * Continuous integration (*CI*) ready, running and green for the main branches
 * Continuous deployment (*CD*) ready and running for the main branches
