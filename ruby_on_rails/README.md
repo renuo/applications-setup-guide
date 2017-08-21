@@ -44,7 +44,7 @@ Here you will find a series of chapters and guides on how to setup some of the g
 1. amazon s3 and cloudfront
 1. sparkpost
 1. awesome_print `gem 'awesome_print'`
-1. bootstrap `gem 'bootstrap', '~> 4.0.0.alpha6'`
+1. [bootstrap](bootstrap.md) `gem 'bootstrap'`
 1. devise `gem 'devise'`
 1. font awesome `gem 'font-awesome-rails'`
 1. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
