@@ -7,7 +7,7 @@ You are, for sure, already a member of slack.
 
 ## Project Channel
 
-You can create a project-dedicated channel on slack naming it `#project-[project-name]` (e.g. `#project-valcora`,
+You can create a project-dedicated channel on slack naming it `#project-[project-name]` (e.g. `#project-bookshelf`,
 `#project-gifcoins`, etc..).
 
 Invite all team members involved in the project to the channel.
