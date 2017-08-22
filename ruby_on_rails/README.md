@@ -34,17 +34,18 @@ They are not optional, but the rest of the team can start working even if those 
 1. [Uptime Monitor](uptime.md)
 1. [Gemnasium](gemnasium.md)
 
-Here you will find a series of chapters and guides on how to setup some of the gems we use most often:
+Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
+useful services:
 
+1. [Slack and Project Notifications](../slack_and_notifications.md)
 1. [Send emails](send_emails.md)
+1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
-1. capybara tests
-1. paperclip / carrierwave
-1. cucumber
-1. amazon s3 and cloudfront
-1. sparkpost
+1. Paperclip / Carrierwave / Renuo Upload
+1. Cucumber
+7. Amazon S3 and Cloudfront
 1. awesome_print `gem 'awesome_print'`
-1. [bootstrap](bootstrap.md) `gem 'bootstrap'`
+1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
 1. font awesome `gem 'font-awesome-rails'`
 1. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
