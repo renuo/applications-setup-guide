@@ -1,5 +1,7 @@
 # Bootstrap
 
+`gem 'bootstrap'`
+
 Link to the gem: <https://github.com/twbs/bootstrap-rubygem>
 
 To install the gem, follow the README of the repository.
