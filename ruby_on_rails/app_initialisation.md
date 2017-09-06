@@ -26,8 +26,8 @@ This will be used as a hook before pushing to quickly check for linting issues.
 ```sh
 #!/bin/sh
 
-bin/fastcheck
-if [ $? -ne 0 ]; then
+if ! bin/fastcheck
+then
   exit 1
 fi
 
