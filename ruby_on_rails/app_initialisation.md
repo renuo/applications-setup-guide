@@ -67,7 +67,7 @@ end
 
 * Change also  `system!('bundle install')` to `system!('bundle install --jobs=3 --retry=3')`
 
-* check if `bin/setup` works properly
+* Run `bin/setup`. If it fails run `rails db:migrate`, then run `bin/setup` again. Now it should work.
 
 ## Configurations
 
