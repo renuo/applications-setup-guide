@@ -1,27 +1,27 @@
 #!/bin/sh
 
-grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
-if [ $? -eq 0 ]; then
+if ! grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
+then
   echo 'console.log found. Please fix them and try again, commit aborted'
   exit 1
 fi
 
-mdl .
-if [ $? -ne 0 ]; then
+if ! mdl .
+then
   echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
   exit 1
 fi
 
-bundle exec rubocop -D -c .rubocop.yml --fail-fast
-if [ $? -ne 0 ]; then
+if ! bundle exec rubocop -D -c .rubocop.yml --fail-fast
+then
   echo 'rubocop detected issues!'
   bundle exec rubocop -a -D -c .rubocop.yml
   echo 'Tried to auto correct the issues, but must be reviewed manually, commit aborted'
   exit 1
 fi
 
-bundle exec slim-lint app/views/ -c .slim-lint.yml
-if [ $? -ne 0 ]; then
+if ! bundle exec slim-lint app/views/ -c .slim-lint.yml
+then
   echo 'slim-lint detected issues, commit aborted'
   exit 1
 fi
@@ -34,42 +34,43 @@ if [ $DIFF_BEFORE -ne $DIFF_AFTER ]; then
   exit 1
 fi
 
-scss-lint app/assets/stylesheets/**/*.scss
-if [ $? -ne 0 ]; then
+if ! scss-lint app/assets/stylesheets/**/*.scss
+then
   echo 'scss-lint detected issues, commit aborted'
   exit 1
 fi
 
 # for typescript
 
-tslint -c tslint.json app/assets/javascripts/**/*.ts
-if [ $? -ne 0 ]; then
+if ! tslint -c tslint.json app/assets/javascripts/**/*.ts
+then
   echo 'tslint detected issues, commit aborted'
   exit 1
 fi
 
 # for coffeescript
 
-coffeelint -f .coffeelint.json app/assets/javascripts/**/*.coffee
-if [ $? -ne 0 ]; then
+if ! coffeelint -f .coffeelint.json app/assets/javascripts/**/*.coffee
+then
   echo 'coffeelint detected issues, commit aborted!'
   exit 1
 fi
 
-bundle exec brakeman -q -z --summary > /dev/null
-if [ $? -ne 0 ]; then
+if ! bundle exec brakeman -q -z --summary > /dev/null
+then
   echo 'Brakeman has detected one or more security vulnerabilities, please review them and re-commit your changes, commit aborted'
   exit 1
 fi
 
-bundle exec reek
-if [ $? -ne 0 ]; then
+if ! bundle exec reek
+then
   echo 'reek detected code smells, commit aborted'
   exit 1
 fi
 
-bundle exec rspec
-if [ $? -ne 0 ]; then
+if ! bundle exec rspec
+then
   echo 'rspec did not run successfully, commit aborted'
   exit 1
 fi
+
