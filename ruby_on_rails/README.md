@@ -58,3 +58,4 @@ useful services:
 1. SEO
     * redirect non-www to www
     * Header tags
+1. [Send SMS](send_sms.md)
