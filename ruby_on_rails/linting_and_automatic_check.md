@@ -59,6 +59,8 @@ group :development, :test do
 end
 ```
 
+Use the [reek configuration provided](../templates/.reek) adding a `.reek` file in the root of the project.
+
 ## SCSS lint
 
 ```ruby
