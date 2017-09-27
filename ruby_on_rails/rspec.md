@@ -38,6 +38,7 @@ end
 end
 SimpleCov.minimum_coverage 100
 ```
+
 to run code coverage and exclude files with less then 5 lines of code.
 
 * Inside `spec/spec_helper` we suggest you to uncomment/enable the following:
