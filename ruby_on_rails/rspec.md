@@ -41,23 +41,23 @@ config.order = :random
 Kernel.srand config.seed
 ```
 
-Please check the [spec_helper template](../templates/spec/spec_helper.rb)
-
-* Inside `spec/rails_helper` we suggest to uncomment/enable the following:
-
-* At the top of the file
+* At the top of the `spec/spec_helper`
 
 ```ruby
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter do |source_file|
-    source_file.lines.count < 5
-  end
+add_filter do |source_file|
+source_file.lines.count < 5
+end
 end
 SimpleCov.minimum_coverage 100
 ```
 
 to run code coverage and exclude files with less then 5 lines of code.
+
+Please check the [spec_helper template](../templates/spec/spec_helper.rb)
+
+* Inside `spec/rails_helper` we suggest to uncomment/enable the following:
 
 * after `require 'rspec/rails'`
 

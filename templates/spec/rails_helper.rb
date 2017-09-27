@@ -1,11 +1,3 @@
-require 'simplecov'
-SimpleCov.start 'rails' do
-    add_filter do |source_file|
-        source_file.lines.count < 5
-    end
-end
-SimpleCov.minimum_coverage 100
-
 ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
