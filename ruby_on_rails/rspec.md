@@ -45,7 +45,7 @@ Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
 * Inside `spec/rails_helper` we suggest to uncomment/enable the following:
 
-* before `require 'rspec/rails'`
+* At the top of the file
 
 ```ruby
 require 'simplecov'
