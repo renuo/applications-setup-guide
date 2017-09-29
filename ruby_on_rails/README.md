@@ -32,7 +32,11 @@ They are not optional, but the rest of the team can start working even if those 
 
 1. [GetSentry](getsentry.md)
 1. [NewRelic](newrelic.md)
-1. [Uptime Monitor](uptime.md)
+1. [GitHub Security Checks](github_security_checks.md)
+
+Some services should be enabled only if the customer pays for the monitoring package:
+
+1. [Uptime](uptime.md)
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
