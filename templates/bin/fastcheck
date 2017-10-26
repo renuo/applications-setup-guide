@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-if ! bundle exec brakeman -q -z --no-summary
+if ! bundle exec brakeman -q -z --no-summary --no-pager
 then
   echo 'Brakeman has detected one or more security vulnerabilities, please review them and re-commit your changes, commit aborted'
   exit 1
