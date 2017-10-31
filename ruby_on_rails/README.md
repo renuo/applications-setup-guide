@@ -41,6 +41,7 @@ useful services:
 1. [Send emails](send_emails.md)
 1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
+1. [Sidekiq](sidekiq.md)
 1. Paperclip / Carrierwave / Renuo Upload
 1. Cucumber
 7. Amazon S3 and Cloudfront
