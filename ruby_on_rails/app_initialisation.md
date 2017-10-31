@@ -11,6 +11,10 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
 * Create a `.ruby-version` file in the project's root folder and specify the [latest version of ruby](https://www.ruby-lang.org/en/downloads/).
 This will be [used by rbenv to check which version of ruby to use](https://github.com/rbenv/rbenv#choosing-the-ruby-version).
 
+* Run `rbenv install -s` to make sure you have the latest version of Ruby installed. Follow the instructions on screen to eventually install it.
+
+* Run `gem install bundler` to install Bundler. You may have it already installed, but this command will make sure that you have the latest version.
+
 ## bin scripts
 
 * Add a `bin/run` file which runs `bundle exec puma` and make it executable (`chmod +x bin/run`)
@@ -67,7 +71,8 @@ end
 
 * Change also  `system!('bundle install')` to `system!('bundle install --jobs=3 --retry=3')`
 
-* check if `bin/setup` works properly
+* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file
+* Run `bin/setup`.
 
 ## Configurations
 
