@@ -27,6 +27,20 @@ you should know exactly why you are adding each one of them, why is necessary
 
 * delete the `test` folder
 
+* At the top of the `spec/spec_helper`
+
+```ruby
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter do |source_file|
+    source_file.lines.count < 5
+  end
+end
+SimpleCov.minimum_coverage 100
+```
+
+to run code coverage and exclude files with less then 5 lines of code.
+
 * Inside `spec/spec_helper` we suggest you to uncomment/enable the following:
 
 ```ruby
@@ -44,20 +58,6 @@ Kernel.srand config.seed
 Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
 * Inside `spec/rails_helper` we suggest to uncomment/enable the following:
-
-* before `require 'rspec/rails'`
-
-```ruby
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter do |source_file|
-    source_file.lines.count < 5
-  end
-end
-SimpleCov.minimum_coverage 100
-```
-
-to run code coverage and exclude files with less then 5 lines of code.
 
 * after `require 'rspec/rails'`
 
