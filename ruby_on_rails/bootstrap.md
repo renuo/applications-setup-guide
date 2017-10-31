@@ -58,7 +58,7 @@ For the styling of the pull down date selectors or checkboxes, you need to write
 to the input element.
 It is best to create a separate config file for this.
 
-Once the issue <https://github.com/plataformatec/simple_form/pull/1337> is done, you can also configure simple form 
+Once the issue <https://github.com/plataformatec/simple_form/pull/1337> is done, you can also configure simple form
 with the command `rails generate simple_form:install --bootstrap4`.
 
 ```ruby
@@ -83,7 +83,7 @@ SimpleForm.setup do |config|
       ba.use :hint, wrap_with: { tag: 'p', class: 'help-block' }
     end
   end
-  
+
   config.wrapper_mappings = {
     check_boxes: :inline_checkbox,
     date: :inline_date,
