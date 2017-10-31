@@ -41,18 +41,18 @@ config.active_job.queue_adapter = :test
 ```
 
 * on Heroku you need to:
-    * Add the Heroku [Redis addon](https://elements.heroku.com/addons/heroku-redis)
-    * Add env variable `REDIS_PROVIDER` = `REDIS_URL`
-    * And to start it turn on the worker
-    
-* to run it locally you need to:
-    * Install Redis `brew install redis`
-    * Start Redis `redis-server`
-    * Start Sidekiq `bundle exec sidekiq -C config/sidekiq.yml`   
-    * Start your server
+  * Add the Heroku [Redis addon](https://elements.heroku.com/addons/heroku-redis)
+  * Add env variable `REDIS_PROVIDER` = `REDIS_URL`
+  * And to start it turn on the worker
 
+* to run it locally you need to:
+  * Install Redis `brew install redis`
+  * Start Redis `redis-server`
+  * Start Sidekiq `bundle exec sidekiq -C config/sidekiq.yml`
+  * Start your server
 
 ## Sidekiq cron
+
 If the Heroku scheduler doesn't fit your needs, you can add extended capabilities
 with the Sidekiq cron gem
 
