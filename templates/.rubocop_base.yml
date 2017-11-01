@@ -21,7 +21,7 @@ Metrics/BlockLength:
   - '**/*.rake'
   - 'spec/**/*.rb'
 
-Style/FileName:
+Naming/FileName:
   Exclude:
   - 'Gemfile.local.rb'
   - 'Gemfile.local.example.rb'
