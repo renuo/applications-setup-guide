@@ -11,6 +11,9 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
 * Create a `.ruby-version` file in the project's root folder and specify the [latest version of ruby](https://www.ruby-lang.org/en/downloads/).
 This will be [used by rbenv to check which version of ruby to use](https://github.com/rbenv/rbenv#choosing-the-ruby-version).
 
+* Also specify the ruby version in the projects `Gemfile` by adding a line like `ruby '2.4.1'`.
+[This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
+
 * Run `rbenv install -s` to make sure you have the latest version of Ruby installed. Follow the instructions on screen to eventually install it.
 
 * Run `gem install bundler` to install Bundler. You may have it already installed, but this command will make sure that you have the latest version.
