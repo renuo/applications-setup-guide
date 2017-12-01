@@ -53,7 +53,11 @@ On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should fin
 Open the dev console in chrome, and run
 
 ```js
-throw new Error('test raven js');
+try {
+    throw new Error('test raven js');
+} catch(e) {
+    Raven.captureException(e)
+}
 ```
 
 On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
