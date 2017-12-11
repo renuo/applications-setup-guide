@@ -16,7 +16,7 @@ end
 * add the following to `config/application.example.yml`
 
 ```yml
-APP_HOST: '[project-name].dev'
+APP_HOST: '[project-name].localhost'
 APP_PORT: '3000'
 MAIL_SENDER: 'yourname+<application>@example.com'
 MAIL_HOST: ''
