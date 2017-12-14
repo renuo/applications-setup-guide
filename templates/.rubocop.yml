@@ -28,6 +28,9 @@ Naming/FileName:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Rails/LexicallyScopedActionFilter:
+  Enabled: false  
+
 AllCops:
   TargetRailsVersion: 5.1
   TargetRubyVersion: 2.4
