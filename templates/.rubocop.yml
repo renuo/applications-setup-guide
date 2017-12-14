@@ -31,6 +31,9 @@ Style/FrozenStringLiteralComment:
 Style/FormatStringToken:
   Enabled: false  
 
+Rails/LexicallyScopedActionFilter:
+  Enabled: false  
+
 AllCops:
   TargetRailsVersion: 5.1
   TargetRubyVersion: 2.4
