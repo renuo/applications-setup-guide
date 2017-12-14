@@ -1,4 +1,4 @@
-# Google analytics
+# Google Analytics
 
 We want to setup google analytics separately for each of our heroku apps (master, develop, testing).
 
