@@ -27,6 +27,9 @@ Naming/FileName:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+  
+Style/FormatStringToken:
+  Enabled: false  
 
 AllCops:
   TargetRailsVersion: 5.1
