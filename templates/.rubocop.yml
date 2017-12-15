@@ -27,6 +27,9 @@ Naming/FileName:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+  
+Style/FormatStringToken:
+  Enabled: false  
 
 Rails/LexicallyScopedActionFilter:
   Enabled: false  
