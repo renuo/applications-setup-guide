@@ -11,6 +11,6 @@ if we would do this for all environments.
   * Name: `[project-name]-master: app/check`
   * Contact: Choose corresponding contact (e.g. your team)
   * Check type: "Website HTTP(S)"
-  * URL: `https:[project-name]-master.renuoapp.ch/home/check`
+  * URL: `https://[project-name]-master.renuoapp.ch/home/check`
   * String to expect: "1+2=3"
 * Click Save. The Check should appear in the list of checks.
