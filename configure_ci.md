@@ -13,7 +13,7 @@ That's not a problem, you can configure it anyway and ask wg-operations to trans
 
 * Configure your CI to prepare and run your tests, depending on the application you are making the setup of.
 
-![semaphoreci_1](images/semaphoreci_1.png)
+<img src="images/semaphoreci_1.png" width="600px">
 
 * Reconfigure until your build is green
 * Run the build for all your branches: `master`, `develop` and `testing`
@@ -23,4 +23,4 @@ That's not a problem, you can configure it anyway and ask wg-operations to trans
 
 Once all builds are green you finished the configuration of the CI.
 
-![semaphoreci_2](images/semaphoreci_2.png)
+<img src="images/semaphoreci_2.png">
