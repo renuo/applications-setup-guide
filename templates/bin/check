@@ -6,7 +6,7 @@ then
   exit 1
 fi
 
-if ! mdl .
+if ! bundle exec mdl ./
 then
   echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
   exit 1
@@ -34,7 +34,7 @@ if [ $DIFF_BEFORE -ne $DIFF_AFTER ]; then
   exit 1
 fi
 
-if ! scss-lint app/assets/stylesheets/**/*.scss
+if ! bundle exec scss-lint app/assets/stylesheets/**/*.scss
 then
   echo 'scss-lint detected issues, commit aborted'
   exit 1
