@@ -43,8 +43,8 @@ useful services:
 1. [Devise](devise.md)
 1. [Sidekiq](sidekiq.md)
 1. Paperclip / Carrierwave / Renuo Upload
-1. Cucumber
-7. Amazon S3 and Cloudfront
+1. [Cucumber](cucumber.md)
+1. Amazon S3 and Cloudfront
 1. awesome_print `gem 'awesome_print'`
 1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
