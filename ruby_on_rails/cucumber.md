@@ -10,7 +10,7 @@ The installation process of `cucumber-rails` is also documented on its
 [Github page](https://github.com/cucumber/cucumber-rails).
 
 To install `cucumber-rails`, add the following gems to your Gemfile:
- 
+
 ```rb
 group :test do
     gem 'capybara', require: false
@@ -53,7 +53,7 @@ Now, you can run Cucumber in your terminal:
 cucumber
 ```
 
-You can also run specific Cucumber tests from RubyMine by hitting <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>
+You can also run specific Cucumber tests from RubyMine by hitting *Control* + *Shift* + *R*
 inside the `.feature` file.
 
 You may get a couple of deprecation warnings. There is currently an
