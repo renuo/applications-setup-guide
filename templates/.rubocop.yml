@@ -30,7 +30,11 @@ Style/FrozenStringLiteralComment:
   
 Style/FormatStringToken:
   Enabled: false  
-
+  
+Style/MixinUsage:
+  Exclude:
+    - 'spec/factories/**'
+    
 Rails/LexicallyScopedActionFilter:
   Enabled: false  
 
