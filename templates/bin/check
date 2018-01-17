@@ -74,3 +74,10 @@ then
   exit 1
 fi
 
+# for Cucumber
+
+NO_COVERAGE=true bundle exec cucumber --format progress
+if [ $? -ne 0 ]; then
+  echo 'Cucumber did not run successfully, commit aborted'
+  exit 1
+fi
