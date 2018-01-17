@@ -1,8 +1,7 @@
 # Cucumber
 
 [Cucumber](https://cucumber.io) is a testing framework which allows us to specify feature tests using plain language.
-In our projects, we use Cucumber for e2e tests. We integrate it using the
-`cucumber-rails` gem.
+We use Cucumber for e2e tests in some of our projects. We integrate it using the `cucumber-rails` gem.
 
 ## Installing `cucumber-rails`
 
@@ -18,8 +17,6 @@ group :test do
     gem 'database-cleaner'
 end
 ```
-
-Note that `capybara` and `database-cleaner` are optional. Most probably, you are going to need them.
 
 Run `bundle install` to install the gems.
 
@@ -40,6 +37,8 @@ AllCops:
 
 ## Running your first Cucumber test
 
+If you add Cucumber to an existing project, test a real page instead of using the given example test.
+
 Add the following files:
 
 * [`app/controllers/home_controller.rb`](../templates/app/controllers/home_controller.rb) (If you haven't done so
@@ -52,9 +51,6 @@ Now, you can run Cucumber in your terminal:
 ```sh
 cucumber
 ```
-
-You can also run specific Cucumber tests from RubyMine by hitting *Control* + *Shift* + *R*
-inside the `.feature` file.
 
 You may get a couple of deprecation warnings. There is currently an
 [issue](https://github.com/cucumber/cucumber-rails/issues/346) about them on the Github page of `rspec-rails`
