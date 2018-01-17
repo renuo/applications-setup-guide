@@ -30,7 +30,7 @@ Style/FrozenStringLiteralComment:
   
 Style/FormatStringToken:
   Enabled: false  
-    
+
 Rails/LexicallyScopedActionFilter:
   Enabled: false  
 
