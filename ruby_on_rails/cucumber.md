@@ -26,8 +26,8 @@ Finally, set up Cucumber with
 rails generate cucumber:install
 ```
 
-At this point, it might be a good idea to inspect the generated files and commit. At least, ckeck if you run into any
-rubocop issues. Probably, you have to add an exception in `.rubocop.yml`:
+At this time, it is recommended to inspect the generated files and commit. Before committing, make sure, Rubocop does
+not raise any issues. Therefore, you will have to add the following exception to `.rubocop.yml`:
 
 ```yaml
 AllCops:
