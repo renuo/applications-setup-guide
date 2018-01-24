@@ -8,6 +8,9 @@ NilCheck:
     enabled: false
   UtilityFunction:
     enabled: false
+"app/validators":
+  UtilityFunction:
+    enabled: false    
 "app/controllers":
   IrresponsibleModule:
     enabled: false
