@@ -53,6 +53,8 @@ Thank you for your work and have fun! :tada:
 
 ### [Angular](angular/README.md)
 
+### [Simple JS App](js/README.md)
+
 ### [Go Live! :tada:](go_live.md)
 
 ## License
