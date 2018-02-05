@@ -25,4 +25,4 @@ The rest is done in these three files:
 
 ## Complex JS app
 
-Use eighter React or [Angular](../angular/README.md).
+Use either React or [Angular](../angular/README.md).
