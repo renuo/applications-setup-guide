@@ -8,7 +8,7 @@ and CDNs.
 ## Simple JS app
 
 If you need a really simple JavaScript application and you need more than just an *index.html*, you can checkout this template:
-<https://github.com/renuo/tamedia-altersheime/tree/0a5fc447bc7fdae9b81bbe0918ca64c864c58354>
+<https://github.com/renuo/tamedia-altersheime/tree/dab2bb6f1bb4c7776e965d227de5b63e06240624>
 
 It contains a very simple *webpack* configuration (production ready) featuring:
 
