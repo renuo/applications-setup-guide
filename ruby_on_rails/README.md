@@ -37,6 +37,7 @@ They are not optional, but the rest of the team can start working even if those 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
 
+1. [Pull Requests Template](../pull_requests_template.md)
 1. [Slack and Project Notifications](../slack_and_notifications.md)
 1. [Send emails](send_emails.md)
 1. [Sparkpost](../sparkpost.md)
