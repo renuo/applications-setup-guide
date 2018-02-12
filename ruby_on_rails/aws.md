@@ -7,8 +7,9 @@ files.
 
 ## Amazon CloudFront
 
-CloudFront is a large scale, global, and feature rich CDN. We mostly use it together with S3, since fetching data from S3 is only
-possible together with CloudFront. You could also host a Single Page Application (SPA), but for that, we most often use Google Firebase.
+CloudFront is a large scale, global, and feature rich CDN. We mostly use it together with S3, since fetching
+data from S3 is only possible together with CloudFront. You could also host a Single Page Application (SPA),
+but for that, we most often use Google Firebase.
 
 ## Setup
 
@@ -22,8 +23,8 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 ### Start the Setup
 
-The following command will guide you through a setup to be able to run all the commands, you
-will receive, to set up aws (and CloudFront)
+The following command will create command-line-commands to set up S3 and CloudFlare. Before that, the command makes sure,
+you have the aws-profile and the aws-cli set up, so you have the necessary rights to run the commands.
 
 1. Run `renuo create-aws-project`
 1. Follow the steps and answer the questions
