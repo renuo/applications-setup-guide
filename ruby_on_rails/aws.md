@@ -3,7 +3,7 @@
 ## Amazon S3
 
 S3 is Amazon's Simple Cloud Storage Service‎, and used in most of your projects to store images and
-files
+files.
 
 ## Amazon CloudFront
 
