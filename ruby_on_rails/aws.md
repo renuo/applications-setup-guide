@@ -1,44 +1,42 @@
-# Amazon S3
+# Amazon Services
+
+## Amazon S3
 
 S3 is Amazon's Simple Cloud Storage Service‎, and used in most of your projects to store images and
 files
 
-## Preconditions
+## Amazon CloudFront
 
-### Renuo-CLI is set up
-
-`gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
-
-### AWS-CLI is set up
-
-You have set up the `awscli` via `brew install awscli`
-
-### AWS Profile `renuo-app-setup`
-
-You have set up a local profile `renuo-app-setup`:
-
-1. run `aws configure --profile renuo-app-setup`
-1. Enter the data (credentials can be found in the credential store)
-
-```sh
-AWS Access Key ID [None]: ****
-AWS Secret Access Key [None]: ****
-Default region name [None]: eu-central-1
-Default output format [None]: json
-```
+CloudFront is a large scale, global, and feature rich CDN. We mostly use it together with S3, since fetching data from S3 is only
+possible together with CloudFront. You could also host a Single Page Application (SPA), but for that, we most often use Google Firebase.
 
 ## Setup
 
+### Preconditions
+
+You will need Renuo-CLI to be set up and at the newest version:
+
+`gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
+
+Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-cli/tags)
+
+### Start the Setup
+
+The following command will guide you through a setup to be able to run all the commands, you
+will receive, to set up aws (and CloudFront)
+
 1. Run `renuo create-aws-project`
-1. Follow the guides
+1. Follow the steps and answer the questions
 1. Now it will print you out a series of commands e.g.:
 
 ```sh
-# master:
+# AWS master
+
       aws --profile renuo-app-setup iam create-user --user-name <<your-project>>
-      ...
-# develop:
-...
+      [...]
+
+# AWS develop
+[...]
 ```
 
 1. Copy and run the commands environment per environment. After each environment,
@@ -58,10 +56,5 @@ your credentials store:
 ```
 
 1. Repeat the previous step for all environments
-
-# Amazon Cloudfront
-
-As soon as you start fetching data from s3, and not just to store it (very likely)
-you must have set up Cloudfront.
-
-  
+1. (Only if using CloudFront) Make sure, you know also the Domain name of your CloudFront-Distribution to access your s3 files
+(e.g. ***.cloudfront.net or the Alias, if using an Alias).
