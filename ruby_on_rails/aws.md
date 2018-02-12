@@ -58,3 +58,10 @@ your credentials store:
 ```
 
 1. Repeat the previous step for all environments
+
+# Amazon Cloudfront
+
+As soon as you start fetching data from s3, and not just to store it (very likely)
+you must have set up Cloudfront.
+
+  
