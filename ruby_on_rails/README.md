@@ -40,7 +40,6 @@ useful services:
 1. [Pull Requests Template](../pull_requests_template.md)
 1. [Slack and Project Notifications](../slack_and_notifications.md)
 1. [Send emails](send_emails.md)
-1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
 1. [Sidekiq](sidekiq.md)
 1. Paperclip / Carrierwave / Renuo Upload
