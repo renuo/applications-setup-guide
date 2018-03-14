@@ -23,6 +23,18 @@ The rest is done in these three files:
 * index.css
 * index.js
 
+## Vue.js
+
+An alternative to the JS app mentioned above is a setup with Vue.js.
+It provides a scalable foundation for your app and it's easy to understand.
+
+To get started, install the [vue-cli](https://github.com/vuejs/vue-cli) by running `npm install -g @vue/cli`.
+Then run `vue create [app-name]` to generate a vue app.
+This creates a minimal setup with some default configurations and
+if you wish, with some testing frameworks included like [Cypress](https://www.cypress.io) or [Jest](https://facebook.github.io/jest/).
+
+An example Vue.js application can be found [here](https://github.com/renuo/tamedia-altersheime).
+
 ## Complex JS app
 
 Use either React or [Angular](../angular/README.md).
