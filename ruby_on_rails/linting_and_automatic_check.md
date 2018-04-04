@@ -27,12 +27,10 @@ Once all issues are fixed add the check to our `bin/fastcheck` and create a PR. 
 ```bash
 #!/bin/sh
 
+set -e
+
 echo "Executing rubocop"
-if ! bundle exec rubocop -D
-then
-  echo 'rubocop detected issues!'
-  exit 1
-fi
+bundle exec rubocop -D
 ```
 
 ## Brakeman
