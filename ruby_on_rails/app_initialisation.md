@@ -33,10 +33,9 @@ This will be used as a hook before pushing to quickly check for linting issues.
 ```sh
 #!/bin/sh
 
-if ! bin/fastcheck
-then
-  exit 1
-fi
+set -e
+
+bin/fastcheck
 
 bundle exec rake test
 ```
