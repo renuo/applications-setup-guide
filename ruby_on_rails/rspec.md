@@ -19,14 +19,13 @@ group :test do
 end
 ```
 
-you should know exactly why you are adding each one of them, why is necessary
+You should know exactly why you are adding each one of them, why is necessary
 
 ## Configuration
 
+* Add `config.generators { |g| g.test_framework :rspec }` to your `environments/development.rb`
 * Install rspec via `rails generate rspec:install`
-
 * delete the `test` folder
-
 * At the top of the `spec/spec_helper`
 
 ```ruby
