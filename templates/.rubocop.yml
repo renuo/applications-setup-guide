@@ -16,7 +16,7 @@ Naming/PredicateName:
 
 Metrics/BlockLength:
   Exclude:
-  - config/initializers/simple_form_bootstrap.rb
+  - 'config/**/*'
   - 'Rakefile'
   - '**/*.rake'
   - 'spec/**/*.rb'
