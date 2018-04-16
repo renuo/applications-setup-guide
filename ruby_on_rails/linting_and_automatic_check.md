@@ -8,7 +8,7 @@ Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the fi
 ## Rubocop :cop:
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'rubocop', require: false
 end
 ```
@@ -36,7 +36,7 @@ bundle exec rubocop -D
 ## Brakeman
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'brakeman', require: false
 end
 ```
@@ -44,7 +44,7 @@ end
 ## Mdl
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'mdl', require: false
 end
 ```
@@ -52,7 +52,7 @@ end
 ## Reek
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'reek', require: false
 end
 ```
@@ -62,7 +62,7 @@ Use the [provided reek configuration](../templates/.reek) by adding a `.reek` fi
 ## SCSS lint
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'scss_lint', require: false
 end
 ```
@@ -72,7 +72,7 @@ end
 > only if you'll use slim templates
 
 ```ruby
-group :development, :test do
+group :development do
   gem 'slim_lint', require: false
 end
 ```
