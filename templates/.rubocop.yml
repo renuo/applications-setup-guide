@@ -29,10 +29,14 @@ Style/FrozenStringLiteralComment:
   Enabled: false
   
 Style/FormatStringToken:
-  Enabled: false  
+  Enabled: false
 
 Rails/LexicallyScopedActionFilter:
-  Enabled: false  
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'spec/**.*.rb'
 
 AllCops:
   TargetRailsVersion: 5.1
