@@ -3,6 +3,9 @@ Attribute:
   enabled: false
 NilCheck:
   enabled: false
+DuplicateMethodCall:
+  max_calls: 2
+
 "app/helpers":
   IrresponsibleModule:
     enabled: false
