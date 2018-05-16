@@ -43,7 +43,7 @@ useful services:
 1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
 1. [Sidekiq](sidekiq.md)
-1. Paperclip / Carrierwave / Renuo Upload
+1. Renuo Upload
 1. [Cucumber](cucumber.md)
 1. [Amazon S3 and Cloudfront](aws.md)
 1. awesome_print `gem 'awesome_print'`
