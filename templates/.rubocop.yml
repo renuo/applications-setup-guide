@@ -7,50 +7,14 @@ Metrics/LineLength:
 Style/Documentation:
   Enabled: false
 
-Style/NonNilCheck:
-  IncludeSemanticChanges: true
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
-Naming/PredicateName:
+Style/MixinUsage:
   Exclude:
-    - 'app/serializers/**/*'
+  - 'bin/setup'
+  - 'bin/update'
 
 Metrics/BlockLength:
   Exclude:
-  - config/initializers/simple_form_bootstrap.rb
-  - 'Rakefile'
-  - '**/*.rake'
   - 'spec/**/*.rb'
-
-Naming/FileName:
-  Exclude:
-  - 'Gemfile'
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-  
-Style/FormatStringToken:
-  Enabled: false
-
-Rails/LexicallyScopedActionFilter:
-  Enabled: false
-
-Rails/SkipsModelValidations:
-  Exclude:
-    - 'spec/**/*.rb'
-
-AllCops:
-  TargetRailsVersion: 5.2
-  TargetRubyVersion: 2.5
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
-  Exclude:
-    - 'bin/**/*'
-    - 'script/**/*'
-    - 'log/**/*'
-    - 'public/**/*'
-    - 'tmp/**/*'
-    - 'config/unicorn.rb'
-    - 'db/**/*'
-    - 'vendor/bundle/**/*'
-    - 'node_modules/**/*'
