@@ -23,6 +23,6 @@ group :production do
 end
 ```
 
-:exclamation: Please follow the guide of each of those gems to know how to properly install it.
+:exclamation: Please follow the guide of each of those gems to know how to properly install it. :exclamation:
 
-**Note:** Do you know all of them? Do you know why we'd like them to be included?
+**:bulb:** Do you know all of them? Do you know why we'd like them to be included?
