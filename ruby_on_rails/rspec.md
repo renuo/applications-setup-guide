@@ -7,26 +7,27 @@ Even if is not mandatory, we believe you should discuss with your team the decis
 * Add the following gems to your Gemfile
 
 ```ruby
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
 ```
 
-you should know exactly why you are adding each one of them, why is necessary
+You should know exactly why you are adding each one of them, why is necessary
 
 ## Configuration
 
 * Install rspec via `rails generate rspec:install`
-
 * delete the `test` folder
-
 * At the top of the `spec/spec_helper`
 
 ```ruby

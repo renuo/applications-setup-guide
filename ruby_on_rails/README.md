@@ -10,6 +10,7 @@ If you have to setup an API-Only application follow the [relative guide](../ruby
 1. [Initialise the Rails App](app_initialisation.md)
 1. [Push to Git Repository](first_git_push.md)
 1. [Initialise Gitflow](initialise_gitflow.md)
+1. [Configure Git Repository](../configure_git_repository.md)
 1. [Configure the CI](configure_ci.md)
 1. [Create an Application Server](create_application_server.md)
 1. [Configure Continuous Deployment](configure_cd.md)
@@ -32,7 +33,6 @@ They are not optional, but the rest of the team can start working even if those 
 1. [GetSentry](getsentry.md)
 1. [NewRelic](newrelic.md)
 1. [Uptime Monitor](uptime.md)
-1. [Gemnasium](gemnasium.md)
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
@@ -43,7 +43,7 @@ useful services:
 1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
 1. [Sidekiq](sidekiq.md)
-1. Paperclip / Carrierwave / Renuo Upload
+1. Renuo Upload
 1. [Cucumber](cucumber.md)
 1. [Amazon S3 and Cloudfront](aws.md)
 1. awesome_print `gem 'awesome_print'`
