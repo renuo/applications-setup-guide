@@ -8,6 +8,8 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
 
 * Add `.idea` to the `.gitignore` file since many of us use RubyMine.
 
+* Add `tags` to the `.gitignore` file since many of us use CTags.
+
 * Create a `.ruby-version` file in the project's root folder and specify the [latest version of ruby](https://www.ruby-lang.org/en/downloads/).
 This will be [used by rbenv to check which version of ruby to use](https://github.com/rbenv/rbenv#choosing-the-ruby-version).
 
