@@ -52,16 +52,18 @@ We use a script for that so that we can change the commands for tests in a PR, w
 * and create `config/application.example.yml` where you will specify the only environment variable you need for now:
   `SECRET_KEY_BASE`.
 * Add `/config/application.yml` to your `.gitignore`
-* Add the following section to your `bin/setup` script
+* Add the following section to your `bin/setup` script so that the application.yml is created when the project is setup:
 
+```ruby
     puts "\n== Copying sample files =="
     unless File.exist?('config/application.yml')
       system! 'cp config/application.example.yml config/application.yml'
     end
+```
 
 ## bin/setup
 
-Add the `pre-push` hooks:
+Add the `pre-push` hooks that will run the linters before you push the code to the remote repository:
 
 ```ruby
 unless File.exist?('.git/hooks/pre-push')
