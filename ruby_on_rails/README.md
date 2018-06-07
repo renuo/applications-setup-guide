@@ -12,6 +12,7 @@ If you have to setup an API-Only application follow the [relative guide](../ruby
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)
 1. [Configure the CI](configure_ci.md)
+1. [Configure the percy.io](configure_percy.md)
 1. [Create an Application Server](create_application_server.md)
 1. [Configure Continuous Deployment](configure_cd.md)
 
