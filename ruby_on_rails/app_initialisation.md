@@ -67,7 +67,15 @@ Add the `pre-push` hooks that will run the linters before you push the code to t
 
 ```ruby
 unless File.exist?('.git/hooks/pre-push')
-  system 'ln -s bin/fastcheck .git/hooks/pre-push'
+  system 'ln -s ../../bin/fastcheck .git/hooks/pre-push'
+end
+```
+
+* And the `commit-msg` hooks:
+
+```ruby
+unless File.exist?('.git/hooks/commit-msg')
+  system 'ln -s ../../bin/commit-msg .git/hooks/commit-msg'
 end
 ```
 
