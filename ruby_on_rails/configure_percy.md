@@ -17,7 +17,7 @@ They can be found under `https://percy.io/renuo/[project-name]/settings`.
 
 1. Add the gem `percy-capybara` to the test group in the Gemfile and run `bundle install`.
 1. Follow the setup instructions [here](https://percy.io/docs/clients/ruby/capybara-rails#setup)
-1. If the application uses the gem `vcr`, 
+1. If the application uses the gem `vcr`,
 follow the instructions [here](https://percy.io/docs/clients/ruby/capybara-rails#_web-mock/vcr-users).
 
 ## Start using Percy
@@ -28,5 +28,5 @@ Create a snapshot in any capybara spec by adding the following line:
 
 ## When to add screenshots
 
-Usually it's enough to add one screenshot for each view. 
+Usually it's enough to add one screenshot for each view.
 In special cases you may want to add more screenshots.
