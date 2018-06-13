@@ -1,8 +1,5 @@
 # GetSentry
 
-GetSentry helps us to identify and debug issues on our applications.
-This service collects all the errors and list/group them in a proper way.
-
 ## Setup Monitoring Services
 
 * Go to www.getsentry.com and login as the renuo monitor.
@@ -30,7 +27,8 @@ end
 * Add a Sentry initializer in `config/initializers` folder. [sentry](../templates/config/initializers/sentry.rb)
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
-Replace `<VERSION>` with the latest version you can find [here](https://docs.sentry.io/clients/javascript/)
+
+**:warning: The the sentry version gets outdated pretty fast so double check it. :warning:**
 
 ## Verify the installation
 
@@ -63,11 +61,3 @@ try {
 ```
 
 On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
-
-## Monitoring
-
-With Sentry we can identify issues in production very fast. Since this is very useful for the developer, we always isntall it in all our projects.
-But Sentry raises also alerts and send notifications about errors and those errors are monitored by our team for paying customers.
-If the customer doesn't pay for monitoring on his/her project we must mute the notifications so that the team doesn't receive any alert.
-
-**TODO** How to disable alerts for everyone on a specific project (request open on Sentry team)

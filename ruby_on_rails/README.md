@@ -32,7 +32,6 @@ They are not optional, but the rest of the team can start working even if those 
 
 1. [GetSentry](getsentry.md)
 1. [NewRelic](newrelic.md)
-1. [GitHub Security Checks](github_security_checks.md)
 
 Some services should be enabled only if the customer pays for the monitoring package:
 
