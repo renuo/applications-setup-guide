@@ -30,3 +30,8 @@ Create a snapshot in any capybara spec by adding the following line:
 
 Usually it's enough to add one screenshot for each view.
 In special cases you may want to add more screenshots.
+
+## Encoding
+
+For Percy to render all characters correctly, every page that has a screenshot needs to have
+the header `<meta charset="utf-8">`.
