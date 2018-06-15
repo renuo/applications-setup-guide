@@ -30,12 +30,17 @@ It's now time to introduce some more tools which will help you and the team to k
 While everyone starts working there are some more things which you should setup.
 They are not optional, but the rest of the team can start working even if those are not in place yet.
 
-1. [GetSentry](getsentry.md)
+1. [Sentry](sentry.md)
 1. [NewRelic](newrelic.md)
 
-Some services should be enabled only if the customer pays for the monitoring package:
+Some services should be configured accordingly to the packages bought by the customer.
+Once the new application is created, please add the project to the
+[monitoring list](https://docs.google.com/spreadsheets/d/1FY4jqByO-aI5sDan0hD7ULu6a2-eLsmO6kgdCFlPmuY/edit#gid=0)
+and discuss with the PO how the service should be configured.
 
 1. [Uptime](uptime.md)
+1. Depending on the monitoring list, also Sentry notifications need to be configured.
+1. Depfu <-- TODO
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:

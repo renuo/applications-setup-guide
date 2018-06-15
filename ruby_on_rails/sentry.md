@@ -1,8 +1,8 @@
-# GetSentry
+# Sentry
 
 ## Setup Monitoring Services
 
-* Go to www.getsentry.com and login as the renuo monitor.
+* Go to https://sentry.io/welcome/ and login as the renuo monitor.
 
 * Create an entry for each Heroku app (`master`, `develop`, `testing`). Your applications on Sentry should follow the same naming convention as everywhere else.
 
@@ -12,7 +12,7 @@ So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
 The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
 
-![getsentry_dsn](../images/getsentry.png)
+![sentry_dsn](../images/sentry.png)
 
 * Add sentry gem to the project:
 
@@ -46,7 +46,7 @@ rescue ZeroDivisionError => exception
 end
 ```
 
-On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find the exception of the ZeroDivisionError.
+On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find the exception of the ZeroDivisionError.
 
 ### Javascript
 
@@ -60,4 +60,4 @@ try {
 }
 ```
 
-On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
+On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
