@@ -77,6 +77,26 @@ group :development, :test do
 end
 ```
 
+## ESLint
+
+> only if you'll use `es6` javascript.
+
+```
+yarn add eslint
+eslint --init (Use a popular style guide -> Airbnb)
+```
+
+then extend the `bin/check` script with:
+
+```
+echo "\n== ESLint =="
+yarn eslint app/assets/javascripts/**/*.es6
+if [ $? -ne 0 ]; then
+  echo 'ESLint detected issues.'
+  exit 1
+fi
+```
+
 ## All Good!
 
 Now your `bin/fastcheck` is not that fast anymore :smile:
