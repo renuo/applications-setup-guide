@@ -106,4 +106,22 @@ config.log_level = :warn # change
 config.action_view.raise_on_missing_translations = true # uncomment
 ```
 
+* Enable the default Content Security Policies in `config/initializers/content_security_policy.rb`:
+
+```ruby
+Rails.application.config.content_security_policy do |policy|
+  policy.default_src :self, :https
+  policy.font_src    :self, :https, :data
+  policy.img_src     :self, :https, :data
+  policy.object_src  :none
+  policy.script_src  :self, :https
+  policy.style_src   :self, :https
+
+  policy.report_uri ENV['CSP_REPORT_URI']
+end
+```
+
+Don't forget to add `CSP_REPORT_URI` variable to `application.example.yml` and add it to Heroku.
+You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI` 
+
 * Commit all your changes in the master branch.
