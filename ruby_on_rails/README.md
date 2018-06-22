@@ -31,7 +31,7 @@ It's now time to introduce some more tools which will help you and the team to k
 While everyone starts working there are some more things which you should setup.
 They are not optional, but the rest of the team can start working even if those are not in place yet.
 
-1. [GetSentry](getsentry.md)
+1. [Sentry](sentry.md)
 1. [NewRelic](newrelic.md)
 1. [Uptime Monitor](uptime.md)
 

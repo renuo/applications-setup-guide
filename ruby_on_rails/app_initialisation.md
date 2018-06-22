@@ -116,12 +116,9 @@ Rails.application.config.content_security_policy do |policy|
   policy.object_src  :none
   policy.script_src  :self, :https
   policy.style_src   :self, :https
-
-  policy.report_uri ENV['CSP_REPORT_URI']
 end
 ```
 
-Don't forget to add `CSP_REPORT_URI` variable to `application.example.yml` and add it to Heroku.
-You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI` 
+The report URI will be set later in the step of Sentry configuration.
 
 * Commit all your changes in the master branch.

@@ -1,8 +1,8 @@
-# GetSentry
+# Sentry
 
 ## Setup Monitoring Services
 
-* Go to www.getsentry.com and login as the renuo monitor.
+* Go to www.sentry.io and login as the renuo monitor.
 
 * Create an entry for each Heroku app (`master`, `develop`, `testing`). Your applications on Sentry should follow the same naming convention as everywhere else.
 
@@ -12,7 +12,7 @@ So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
 The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
 
-![getsentry_dsn](../images/getsentry.png)
+![sentry_dsn](../images/sentry.png)
 
 * Add sentry gem to the project:
 
@@ -23,7 +23,18 @@ end
 ```
 
 * Add `SENTRY_DSN` and `SENTRY_PUBLIC_DSN` to `application.example.yml`
-* Set the variable in all three Heroku environments
+* Add `CSP_REPORT_URI` to `application.example.yml`
+* Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
+```ruby
+Rails.application.config.content_security_policy do |policy|
+  ...
+
+  policy.report_uri ENV['CSP_REPORT_URI']
+end
+```
+You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
+
+* Set the variables in all three Heroku environments
 * Add a Sentry initializer in `config/initializers` folder. [sentry](../templates/config/initializers/sentry.rb)
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
@@ -46,7 +57,7 @@ rescue ZeroDivisionError => exception
 end
 ```
 
-On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find the exception of the ZeroDivisionError.
+On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find the exception of the ZeroDivisionError.
 
 ### Javascript
 
@@ -60,4 +71,4 @@ try {
 }
 ```
 
-On `https://app.getsentry.com/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
+On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
