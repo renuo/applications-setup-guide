@@ -43,7 +43,7 @@ ga('send', 'pageview');
 
 ## Ruby rack-tracker
 
-There's a gem which can be used for a lot of trackers: https://github.com/railslove/rack-tracker#installation
+There's a gem which can be used for a lot of trackers: <https://github.com/railslove/rack-tracker#installation>
 
 ```ruby
 config.middleware.use(Rack::Tracker) do
