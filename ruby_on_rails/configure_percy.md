@@ -12,6 +12,8 @@ Percy is a service that recognizes UI changes between pull requests. Read more a
 
 1. Add the PERCY_TOKEN and PERCY_PROJECT env variables to the CI.
 They can be found under `https://percy.io/renuo/[project-name]/settings`.
+1. Also add PERCY_TARGET_BRANCH and set it to `develop`. Like that Percy always compares the screenshots 
+to the develop branch.
 
 ## Setup the Rails application
 
