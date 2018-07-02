@@ -106,4 +106,8 @@ config.log_level = :warn # change
 config.action_view.raise_on_missing_translations = true # uncomment
 ```
 
+* Enable the default Content Security Policies in `config/initializers/content_security_policy.rb`.
+
+The report URI will be set later in the step of Sentry configuration.
+
 * Commit all your changes in the master branch.
