@@ -25,6 +25,7 @@ end
 * Add `SENTRY_DSN` and `SENTRY_PUBLIC_DSN` to `application.example.yml`
 * Add `CSP_REPORT_URI` to `application.example.yml`
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
+
 ```ruby
 Rails.application.config.content_security_policy do |policy|
   ...
@@ -32,6 +33,7 @@ Rails.application.config.content_security_policy do |policy|
   policy.report_uri ENV['CSP_REPORT_URI']
 end
 ```
+
 You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
 
 * Set the variables in all three Heroku environments
