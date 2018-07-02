@@ -10,7 +10,7 @@ Short project description
 | testing | https://`[project-name]`-testing.renuoapp.ch | auto       | [![Build Status][ci-testing-badge]][ci] |
 | master  | https://`[project-name]`-master.renuoapp.ch  | release    | [![Build Status][ci-master-badge]][ci]  |
 
-[ci]: https://semaphoreci.com/renuo/`[project-name`]
+[ci]: https://semaphoreci.com/renuo/`[project-name]`
 [ci-develop-badge]: FETCH FROM SEMAPHORECI
 [ci-testing-badge]: FETCH FROM SEMAPHORECI
 [ci-master-badge]: FETCH FROM SEMAPHORECI
