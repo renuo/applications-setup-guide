@@ -2,7 +2,7 @@
 
 ## Setup Monitoring Services
 
-* Go to www.sentry.io and login as the renuo monitor.
+* Go to https://www.sentry.io and login as the renuo monitor.
 
 * Create an entry for each Heroku app (`master`, `develop`, `testing`). Your applications on Sentry should follow the same naming convention as everywhere else.
 

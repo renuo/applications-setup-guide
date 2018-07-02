@@ -33,7 +33,15 @@ They are not optional, but the rest of the team can start working even if those 
 
 1. [Sentry](sentry.md)
 1. [NewRelic](newrelic.md)
-1. [Uptime Monitor](uptime.md)
+
+Some services should be configured accordingly to the packages bought by the customer.
+Once the new application is created, please add the project to the
+[monitoring list](https://docs.google.com/spreadsheets/d/1FY4jqByO-aI5sDan0hD7ULu6a2-eLsmO6kgdCFlPmuY/edit#gid=0)
+and discuss with the PO how the service should be configured.
+
+1. [Uptime](uptime.md)
+1. Depending on the monitoring list, also Sentry notifications need to be configured.
+1. Depfu <-- TODO
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
@@ -51,7 +59,7 @@ useful services:
 1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
 1. font awesome `gem 'font-awesome-rails'`
-1. goldiloader / bullet `gem 'goldiloader'`, `gem 'bullet'`
+1. bullet `gem 'bullet'`
 1. JQuery `gem 'jquery-rails'`
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)

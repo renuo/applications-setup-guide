@@ -15,4 +15,3 @@
 - [ ] README written and complete
 - [ ] NewRelic configured
 - [ ] Uptime Monitor configured
-- [ ] Gemnasium configured
