@@ -32,8 +32,3 @@ config.after_initialize do
   Bullet.raise = true
 end
 ```
-
-
-
-
-
