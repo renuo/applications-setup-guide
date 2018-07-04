@@ -59,7 +59,7 @@ useful services:
 1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
 1. font awesome `gem 'font-awesome-rails'`
-1. bullet `gem 'bullet'`
+1. [bullet](bullet.md) `gem 'bullet'`
 1. JQuery `gem 'jquery-rails'`
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
