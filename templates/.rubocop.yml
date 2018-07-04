@@ -21,3 +21,13 @@ Style/NonNilCheck:
 Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'script/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
