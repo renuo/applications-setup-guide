@@ -11,6 +11,7 @@ Please add the gem to both `development` and `test` group of the Gemfile since w
 Those are our favourite configurations:
 
 * in development we enable it and we see the issues both a footer in the page and also in the logs
+
 ```ruby
 # config/environments/development.rb
 
