@@ -7,6 +7,21 @@
 * Verify that SparkPost mails are working and the [sending domain is validated](https://app.sparkpost.com/account/sending-domains).
 * Verify that SSL is working correctly
 
+If the final domain isn't already in use, you can configure it also already:
+Add a CNAME DNS record pointing to the app (`[project-name]-master.renuoapp.ch`).
+
+### URL rewriting on Cloudflare
+
+For user comfort we redirect HTTP calls to <https://example.com> to <https://www.example.com>.
+This is done via page rules in Cloudflare.
+
+1. Add a new page rule
+1. Enter `example.com/*`
+1. Choose "Forwarding URL"
+1. Choose "301 - Permanent Redirect"
+1. Enter `https://www.example.com/$1`
+1. Click "Save and Deploy"
+
 ## Heroku
 
 * Check the size and amount of dynos on heroku
