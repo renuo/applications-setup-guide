@@ -1,6 +1,10 @@
 Rails:
   Enabled: true
 
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'spec/**/*.rb'
+
 Metrics/LineLength:
   Max: 120
 
