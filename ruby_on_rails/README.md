@@ -33,6 +33,7 @@ They are not optional, but the rest of the team can start working even if those 
 
 1. [Sentry](sentry.md)
 1. [NewRelic](newrelic.md)
+1. [robots.txt](robots_txt.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
 Once the new application is created, please add the project to the

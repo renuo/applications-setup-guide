@@ -15,3 +15,4 @@
 - [ ] README written and complete
 - [ ] NewRelic configured
 - [ ] Uptime Monitor configured
+- [ ] robots.txt configured
