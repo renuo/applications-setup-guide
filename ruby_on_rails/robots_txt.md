@@ -15,7 +15,7 @@ Create the following file:
 
 ```ruby
 # app/middleware/robots_txt.rb
- 
+
 class RobotsTxt
   def initialize(app)
     @app = app
@@ -38,6 +38,7 @@ config.middleware.insert_before Rack::Sendfile, 'RobotsTxt' if ENV['BLOCK_ROBOTS
 ```
 
 Add the variable `BLOCK_ROBOTS=true` in your develop and testing environment on Heroku
+
 ```sh
 heroku config:add BLOCK_ROBOTS=true --app [project-name]-testing
 heroku config:add BLOCK_ROBOTS=true --app [project-name]-develop
