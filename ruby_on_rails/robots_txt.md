@@ -1,15 +1,10 @@
 # robots.txt
 
-It is time to configure the robots.txt file properly, to avoid crawlers to find our develop and testing environments.
-Since we have three environments, we want to allow only one to be reachable.
+It is time to configure the `robots.txt` file properly, to avoid crawlers to find our develop and testing environments.
+The master environment should be the only one searchable in the end.
 
-Rails creates automatically a `robots.txt` file in the public folder.
-If the project doesn't have one, add it with an empty content.
-This will be the file used in the `master` branch, and it allows the website to be accessed entirely.
-When we want to adapt the robots.txt for our production environment, we will manipulate this file.
-
-For the other environments we will respond to a call to `robots.txt` through a middleware, that will be enabled through
-an environment variable, and that will override our original `robots.txt` file.
+Make sure that there is a `robots.txt` file in the public folder or your project (Rails should have created it).
+This file will only be used in environments where the `BLOCK_ROBOTS` environment variable is not set. If it is set then a custom middleware catches calls to `/robots.txt`
 
 Create the following file:
 
@@ -37,7 +32,7 @@ Add the following to `config/application.rb`:
 config.middleware.insert_before Rack::Sendfile, 'RobotsTxt' if ENV['BLOCK_ROBOTS'].present?
 ```
 
-Add the variable `BLOCK_ROBOTS=true` in your develop and testing environment on Heroku
+Add the variable `BLOCK_ROBOTS=true` in your develop and testing environment on Heroku:
 
 ```sh
 heroku config:add BLOCK_ROBOTS=true --app [project-name]-testing
