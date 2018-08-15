@@ -14,7 +14,7 @@ By default, it adds no layout, you you may want to add a layout:
 * Use the method to add stylesheets : `wicked_pdf_stylesheet_link_tag 'pdf', media: 'all'`
 * Use the method `wicked_pdf_image_tag` to insert images to the layout.
 
-*Usage:* 
+*Usage:*
 
 ```rb
 render pdf: <<filename>>, print_media_type: true, layout: 'pdf', disposition: 'attachment'
