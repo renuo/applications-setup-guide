@@ -70,3 +70,4 @@ useful services:
 1. SEO
     * redirect non-www to www
     * Header tags
+1. [wicked pdf](wicked_pdf.md) `gem wicked_pdf`
