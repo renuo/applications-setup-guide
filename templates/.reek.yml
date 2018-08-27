@@ -6,11 +6,11 @@ detectors:
       enabled: false
     DuplicateMethodCall:
       max_calls: 2
+    IrresponsibleModule:
+      enabled: false
 
 directories:
     "app/helpers":
-      IrresponsibleModule:
-        enabled: false
       UtilityFunction:
         enabled: false
     "app/validators":
