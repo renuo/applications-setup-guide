@@ -1,4 +1,4 @@
-# Ruby On Rails 5.1
+# Ruby On Rails 5.2
 
 This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
