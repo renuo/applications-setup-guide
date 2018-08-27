@@ -13,7 +13,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-selenium'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
@@ -57,6 +58,8 @@ Kernel.srand config.seed
 
 Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
+* Inside `spec/rails_helper` we suggest to uncomment/enable the following:
+
 * after `require 'rspec/rails'`
 
 ```ruby
@@ -64,17 +67,21 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
 
-RSpec.configure do |config|
- # other configs
-
- config.before(:each, type: :system) do
-   driven_by :rack_test
- end
-
- config.before(:each, type: :system, js: true) do
-   driven_by :selenium_chrome_headless
- end
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
+Capybara.register_driver :headless_chrome do |app|
+  # The doc states, that the disable-gpu flag will some day not be necessary any more:
+  # https://developers.google.com/web/updates/2017/04/headless-chrome
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w[headless disable-gpu] }
+  )
+
+  Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
+end
+
+Capybara.javascript_driver = :headless_chrome
 ```
 
 to use headless chrome for system tests.
