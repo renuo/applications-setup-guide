@@ -57,7 +57,7 @@ group :development, :test do
 end
 ```
 
-Use the [provided reek configuration](../templates/.reek) by adding a `.reek` file in the root of the project.
+Use the [provided reek configuration](../templates/.reek.yml) by adding a `.reek.yml` file in the root of the project.
 
 ## SCSS lint
 
