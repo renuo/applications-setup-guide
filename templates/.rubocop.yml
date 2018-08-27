@@ -33,11 +33,6 @@ RSpec/MultipleExpectations:
     - 'spec/system/**/*'
     - 'spec/requests/**/*'
 
-RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/system/**/*'
-    - 'spec/requests/**/*'
-
 RSpec/ExampleLength:
   Exclude:
     - 'spec/system/**/*'
