@@ -1,0 +1,40 @@
+---
+detectors:
+    Attribute:
+      enabled: false
+    NilCheck:
+      enabled: false
+    DuplicateMethodCall:
+      max_calls: 2
+
+directories:
+    "app/helpers":
+      IrresponsibleModule:
+        enabled: false
+      UtilityFunction:
+        enabled: false
+    "app/validators":
+      UtilityFunction:
+        enabled: false
+    "app/controllers":
+      IrresponsibleModule:
+        enabled: false
+      NestedIterators:
+        max_allowed_nesting: 2
+      UnusedPrivateMethod:
+        enabled: false
+      InstanceVariableAssumption:
+        enabled: false
+    "app/mailers":
+      InstanceVariableAssumption:
+        enabled: false
+
+exclude_paths:
+    - tmp
+    - spec
+    - vendor
+    - log
+    - coverage
+    - config
+    - bin
+    - db/migrate
