@@ -15,4 +15,4 @@ heroku run -x "rails db:migrate || rails db:setup"
 
 this will deploy the code and migrate the database to the latest version.
 
-Name each server with the `[branch-name]` you are deploying.
+Name each server with the `[project-name]-[branch-name]` you are deploying.
