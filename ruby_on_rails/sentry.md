@@ -22,7 +22,7 @@ group :production do
 end
 ```
 
-* Add `SENTRY_DSN` and `SENTRY_PUBLIC_DSN` to `application.example.yml`
+* Add `SENTRY_DSN` to `application.example.yml`
 * Add `CSP_REPORT_URI` to `application.example.yml`
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
 
