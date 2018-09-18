@@ -41,7 +41,7 @@ You can find the correct value in `Sentry -> Project Settings -> Security Header
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
 
-**:warning: The the sentry version gets outdated pretty fast so double check it. :warning:**
+**:warning: The sentry version gets outdated pretty fast so double check it. :warning:**
 
 ## Verify the installation
 
