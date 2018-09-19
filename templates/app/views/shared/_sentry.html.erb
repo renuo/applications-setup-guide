@@ -2,6 +2,6 @@
   <%= javascript_include_tag 'https://cdn.renuo.ch/raven.min.js', crossorigin: 'anonymous' %>
   <%= javascript_include_tag 'https://cdn.renuo.ch/raven-ignore.min.js', crossorigin: 'anonymous' %>
   <script type="text/javascript">
-    Raven.config('<%= ENV['SENTRY_PUBLIC_DSN']%>', RenuoSentryList).install();
+    Raven.config('<%= ENV['SENTRY_DSN']%>', RenuoSentryList).install();
   </script>
 <% end %>
