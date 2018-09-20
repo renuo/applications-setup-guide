@@ -8,9 +8,7 @@
 
 So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
-* Once you have created an entry, you will see the `dsn key` and the `public dsn key` which you'll need in your config variables on Heroku. Note them.
-
-The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
+* Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note them.
 
 ![sentry_dsn](../images/sentry_new.png)
 
