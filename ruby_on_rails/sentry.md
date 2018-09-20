@@ -22,7 +22,7 @@ group :production do
 end
 ```
 
-* Add `SENTRY_DSN` and `SENTRY_PUBLIC_DSN` to `application.example.yml`
+* Add `SENTRY_DSN` to `application.example.yml`
 * Add `CSP_REPORT_URI` to `application.example.yml`
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
 
@@ -41,7 +41,7 @@ You can find the correct value in `Sentry -> Project Settings -> Security Header
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
 
-**:warning: The the sentry version gets outdated pretty fast so double check it. :warning:**
+**:warning: The sentry version gets outdated pretty fast so double check it. :warning:**
 
 ## Verify the installation
 
