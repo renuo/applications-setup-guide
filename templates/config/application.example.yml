@@ -19,7 +19,6 @@ NEW_RELIC_APP_NAME: '<application>-<branch>'
 
 # Add 3 new projects for develop/master/testing at https://sentry.io/organizations/renuo/projects/new
 SENTRY_DSN: ''
-SENTRY_PUBLIC_DSN: ''
 
 # Use Renuo CMS instead of configuring / implementing your own WYSIWYG editor
 RENUO_CMS_API_HOST: ''
