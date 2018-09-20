@@ -8,7 +8,7 @@
 
 So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
-* Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note them.
+* Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note it.
 
 ![sentry_dsn](../images/sentry_new.png)
 
