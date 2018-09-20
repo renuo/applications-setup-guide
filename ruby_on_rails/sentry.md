@@ -12,7 +12,7 @@ So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
 The DSN Key is a secret key and must be used server-side and never published, while the Public version can be used also client side.
 
-![sentry_dsn](../images/sentry.png)
+![sentry_dsn](../images/sentry_new.png)
 
 * Add sentry gem to the project:
 
