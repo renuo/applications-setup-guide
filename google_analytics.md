@@ -40,6 +40,7 @@ ga('set', 'anonymizeIp', true);
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 ```
+Make sure you insert this script in the <head> of the page (not in the <body>)
 
 ## Ruby rack-tracker
 
@@ -52,3 +53,5 @@ config.middleware.use(Rack::Tracker) do
   end
 end
 ```
+
+Make sure you insert this script in the <head> of the page (not in the <body>)
