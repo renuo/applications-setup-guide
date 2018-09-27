@@ -41,6 +41,8 @@ ga('require', 'displayfeatures');
 ga('send', 'pageview');
 ```
 
+Make sure you insert this script at the end of the <head> tag of the page (not in the <body>).
+
 ## Ruby rack-tracker
 
 There's a gem which can be used for a lot of trackers: <https://github.com/railslove/rack-tracker#installation>
