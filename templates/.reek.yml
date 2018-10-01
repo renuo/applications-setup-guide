@@ -18,8 +18,6 @@ directories:
     "app/jobs":
       UtilityFunction:
         enabled: false
-      InstanceVariableAssumption:
-        enabled: false
     "app/services":
       UtilityFunction:
         enabled: false
