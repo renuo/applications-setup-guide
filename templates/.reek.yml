@@ -13,6 +13,16 @@ directories:
     "app/helpers":
       UtilityFunction:
         enabled: false
+      FeatureEnvy:
+        enabled: false
+    "app/jobs":
+      UtilityFunction:
+        enabled: false
+      InstanceVariableAssumption:
+        enabled: false
+    "app/services":
+      UtilityFunction:
+        enabled: false
     "app/validators":
       UtilityFunction:
         enabled: false
@@ -25,8 +35,13 @@ directories:
         enabled: false
       InstanceVariableAssumption:
         enabled: false
+    "app/models":
+      InstanceVariableAssumption:
+        enabled: false
     "app/mailers":
       InstanceVariableAssumption:
+        enabled: false
+      FeatureEnvy:
         enabled: false
 
 exclude_paths:
