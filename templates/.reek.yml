@@ -33,9 +33,6 @@ directories:
         enabled: false
       InstanceVariableAssumption:
         enabled: false
-    "app/models":
-      InstanceVariableAssumption:
-        enabled: false
     "app/mailers":
       InstanceVariableAssumption:
         enabled: false
