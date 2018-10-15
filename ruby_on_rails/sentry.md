@@ -27,8 +27,7 @@ end
 ```ruby
 Rails.application.config.content_security_policy do |policy|
   ...
-
-  policy.report_uri ENV['CSP_REPORT_URI']
+  policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
 end
 ```
 
