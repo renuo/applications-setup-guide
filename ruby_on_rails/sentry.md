@@ -25,11 +25,9 @@ end
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
 
 ```ruby
-if Rails.env.production?
-  Rails.application.config.content_security_policy do |policy|
-    ...
-    policy.report_uri ENV['CSP_REPORT_URI']
-  end
+Rails.application.config.content_security_policy do |policy|
+  ...
+  policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
 end
 ```
 
