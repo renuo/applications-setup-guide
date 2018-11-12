@@ -38,6 +38,9 @@ RSpec/ExampleLength:
     - 'spec/system/**/*'
     - 'spec/requests/**/*'
 
+RSpec/NestedGroups:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'bin/**/*'
