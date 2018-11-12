@@ -26,7 +26,7 @@ You should know exactly why you are adding each one of them and why is necessary
 ## Configuration
 
 * Install rspec via `rails generate rspec:install`
-* Create a bin stub ith `bundle binstubs rspec-core`
+* Create a bin stub with `bundle binstubs rspec-core`
 * delete the `test` folder
 * At the top of the `spec/spec_helper`
 
