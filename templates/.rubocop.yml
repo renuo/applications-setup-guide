@@ -26,9 +26,7 @@ Metrics/BlockLength:
   - 'spec/**/*.rb'
 
 RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/system/**/*'
-    - 'spec/requests/**/*'
+  Enabled: false
 
 RSpec/ExampleLength:
   Exclude:
