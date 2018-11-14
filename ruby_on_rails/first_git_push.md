@@ -12,6 +12,7 @@ git remote add origin git@github.com:renuo/[project-name].git
 and push using:
 
 ```sh
+git add .
 git commit -m "first commit"
 git push -u origin master
 ```
