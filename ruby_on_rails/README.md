@@ -12,7 +12,6 @@ If you have to setup an API-Only application follow the [relative guide](../ruby
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)
 1. [Configure the CI](configure_ci.md)
-1. [Configure Percy](configure_percy.md)
 1. [Create an Application Server](create_application_server.md)
 1. [Configure Continuous Deployment](configure_cd.md)
 
@@ -32,8 +31,9 @@ While everyone starts working there are some more things which you should setup.
 They are not optional, but the rest of the team can start working even if those are not in place yet.
 
 1. [Sentry](sentry.md)
-1. [NewRelic](newrelic.md)
-1. [robots.txt](robots_txt.md)
+2. [NewRelic](newrelic.md)
+3. [robots.txt](robots_txt.md)
+4. [Percy](configure_percy.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
 Once the new application is created, please add the project to the
