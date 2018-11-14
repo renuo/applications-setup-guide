@@ -93,7 +93,7 @@ then extend the `bin/check` script with:
 yarn eslint app/webpack spec/javascripts
 ```
 
-The tempaltes folder contains a template for the eslint configuration.
+The templates folder contains a template for the eslint configuration.
 
 ## All Good!
 
