@@ -19,9 +19,8 @@ Once here, your app should be up and running on all three environments.
 
 It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.
 
-1. [Linting and automatic checks](linting_and_automatic_check.md)
 1. [RSpec](rspec.md)
-1. [Suggested Libraries :gem:](../suggested_libraries.md)
+1. [Linting and automatic checks](linting_and_automatic_check.md)
 1. [Cloudflare](cloudflare.md)
 1. [README](compile_readme.md)
 

@@ -26,14 +26,15 @@ Metrics/BlockLength:
   - 'spec/**/*.rb'
 
 RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/system/**/*'
-    - 'spec/requests/**/*'
+  Enabled: false
 
 RSpec/ExampleLength:
   Exclude:
     - 'spec/system/**/*'
     - 'spec/requests/**/*'
+
+RSpec/NestedGroups:
+  MaxNesting: 5
 
 AllCops:
   Exclude:
