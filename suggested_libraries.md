@@ -4,7 +4,6 @@ Here is an up-to-date version of gems which we strongly suggest to include in yo
 Please include them or give a good reason not to.
 
 ```rb
-gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'slim-rails'
 
