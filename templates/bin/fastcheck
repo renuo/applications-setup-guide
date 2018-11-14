@@ -18,15 +18,15 @@ bundle exec reek .
 bundle exec scss-lint `find app/assets/stylesheets/ -name "*.scss"`
 
 # new SASS linter
-sass-lint -v --no-exit app/webpack/**.*.scss
+sass-lint -v --no-exit app/javascripts/**.*.scss
 
 bundle exec slim-lint app/views/ -c .slim-lint.yml
 
 # for typescript
-tslint -c tslint.json app/assets/javascripts/**/*.ts
+tslint -c tslint.json app/javascripts/**/*.ts
 
 # for coffeescript
-coffeelint -f .coffeelint.json app/assets/javascripts/**/*.coffee
+coffeelint -f .coffeelint.json app/javascripts/**/*.coffee
 
 # for javascript
-yarn eslint app/webpack spec/javascripts
+yarn eslint app/javascripts spec/javascripts
