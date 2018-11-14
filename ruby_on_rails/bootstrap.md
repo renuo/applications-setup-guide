@@ -1,14 +1,12 @@
 # Bootstrap
 
-`gem 'bootstrap'`
+You can use the npm package of the latest version of Bootstrap:
 
-Link to the gem: <https://github.com/twbs/bootstrap-rubygem>
+`yarn add bootstrap`
 
-To install the gem, follow the README of the repository.
+and configure it for both stylesheets and javascript.
 
 ## Simple Form
-
-### Bootstrap version 4.0.0.beta
 
 If you use the gem [Simple Form](https://github.com/plataformatec/simple_form),
 you need to adjust the configuration in the `config/initializers/simple_form.rb` file.

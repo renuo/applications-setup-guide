@@ -1,7 +1,13 @@
-# :gem: Suggested gems
+# Suggested Libraries
 
-Here is an up-to-date version of gems which we strongly suggest to include in your project.
+Here is an up-to-date version of libraries which we strongly suggest to include in your project.
 Please include them or give a good reason not to.
+
+:exclamation: Please follow the guide of each of these libraries to know how to properly install them. :exclamation:
+
+**:bulb:** Do you know all of them? Do you know why we'd like them to be included?
+
+## :gem: Suggested gems
 
 ```rb
 gem 'simple_form'
@@ -22,6 +28,9 @@ group :production do
 end
 ```
 
-:exclamation: Please follow the guide of each of those gems to know how to properly install it. :exclamation:
+## :gem: Suggested NPM packages
 
-**:bulb:** Do you know all of them? Do you know why we'd like them to be included?
+```
+yarn add rails-ujs turbolinks
+```
+
