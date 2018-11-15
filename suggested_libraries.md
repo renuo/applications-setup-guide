@@ -30,9 +30,8 @@ end
 
 ## :gem: Suggested NPM packages
 
-
 ```
-yarn add rails-ujs turbolinks autoprefixer
+yarn add rails-ujs turbolinks
 ```
 
 To configure `rails-ujs` add the following to `application.js`:
@@ -48,5 +47,3 @@ To configure `turbolinks` add the following to `application.js`:
 import Turbolinks from 'turbolinks';
 Turbolinks.start();
 ```
-
-To configure `autoprefixer` add the following to `environment.js`:

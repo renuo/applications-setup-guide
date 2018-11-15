@@ -14,13 +14,15 @@ the organisation afterwards (you have 100 free builds)
 
 ## Rails specific setup
 
+Check the `[LATEST_NODE_VERSION]` available on https://semaphoreci.com/docs/languages/javascript/javascript-support-on-semaphore.html.
+
 *Setup Job:*
 
     git checkout -- .ruby-version
     export RAILS_ENV=test
     export TZ=Europe/Zurich
     bundle install --without production development --deployment --jobs 3 --retry 3
-    nvm use 10.10
+    nvm use [LATEST_NODE_VERSION]
     bin/yarn install
     cp config/application.example.yml config/application.yml
     bin/rails db:create db:schema:load
