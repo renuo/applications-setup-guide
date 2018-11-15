@@ -62,11 +62,12 @@ Use the [provided reek configuration](../templates/.reek.yml) by adding a `.reek
 
 ## SCSS lint
 
-```ruby
-group :development, :test do
-  gem 'scss_lint', require: false
-end
-```
+To lint the SASS/SCSS files in our project we are going to use the `sass-lint` npm package.
+
+`bin/yarn add sass-lint`
+
+Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
+template to see the command to execute the SCSS linting.
 
 ## Slim lint
 
@@ -80,8 +81,6 @@ end
 
 ## ESLint
 
-> only if you'll use `es6` javascript.
-
 ```
 yarn add eslint
 eslint --init (Use a popular style guide -> Airbnb)
@@ -90,13 +89,10 @@ eslint --init (Use a popular style guide -> Airbnb)
 then extend the `bin/check` script with:
 
 ```
-echo "\n== ESLint =="
-yarn eslint app/assets/javascripts/**/*.es6
-if [ $? -ne 0 ]; then
-  echo 'ESLint detected issues.'
-  exit 1
-fi
+yarn eslint app/webpack spec/javascripts
 ```
+
+The templates folder contains a template for the eslint configuration.
 
 ## All Good!
 

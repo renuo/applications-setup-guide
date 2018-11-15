@@ -1,14 +1,37 @@
 # Bootstrap
 
-`gem 'bootstrap'`
+You can use the npm package of the latest version of Bootstrap.
 
-Link to the gem: <https://github.com/twbs/bootstrap-rubygem>
+`yarn add bootstrap`
 
-To install the gem, follow the README of the repository.
+and include it in your stylesheet pack with:
+
+```scss
+@import '~bootstrap/scss/bootstrap';
+```
+
+If you want to use also the javascript part of Bootstrap you need both popper.js and jquery.
+Add them with:
+
+`yarn add jquery popper.js`
+
+and configure them in `environment.js`:
+
+```js
+environment.plugins.append('Provide', new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery',
+  Popper: ['popper.js', 'default']
+}));
+```
+
+finally, import bootstrap library in `application.js` with
+
+```js
+import 'bootstrap/dist/js/bootstrap';
+```
 
 ## Simple Form
-
-### Bootstrap version 4.0.0.beta
 
 If you use the gem [Simple Form](https://github.com/plataformatec/simple_form),
 you need to adjust the configuration in the `config/initializers/simple_form.rb` file.
