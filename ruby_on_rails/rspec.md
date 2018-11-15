@@ -21,11 +21,12 @@ group :test do
 end
 ```
 
-You should know exactly why you are adding each one of them, why is necessary
+You should know exactly why you are adding each one of them and why is necessary.
 
 ## Configuration
 
 * Install rspec via `rails generate rspec:install`
+* Create a bin stub with `bundle binstubs rspec-core`
 * delete the `test` folder
 * At the top of the `spec/spec_helper`
 
@@ -53,6 +54,10 @@ config.profile_examples = 5
 config.order = :random
 
 Kernel.srand config.seed
+
+config.define_derived_metadata do |meta|
+  meta[:aggregate_failures] = true
+end
 ```
 
 Please check the [spec_helper template](../templates/spec/spec_helper.rb)
@@ -78,6 +83,27 @@ end
 ```
 
 to use headless chrome for system tests.
+
+### Optional: catch javascript errors
+
+If you want to catch Javascript errors in your system tests, you can add the following to the `rails_helper.rb`:
+
+```ruby
+config.after(:each, type: :system, js: true) do
+  errors = page.driver.browser.manage.logs.get(:browser)
+  if errors.present?
+    aggregate_failures 'javascript errors' do
+      errors.each do |error|
+        expect(error.level).not_to eq('SEVERE'), error.message
+        next unless error.level == 'WARNING'
+
+        STDERR.puts 'WARN: javascript warning'
+        STDERR.puts error.message
+      end
+    end
+  end
+end
+```
 
 Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
