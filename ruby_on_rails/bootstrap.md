@@ -1,10 +1,35 @@
 # Bootstrap
 
-You can use the npm package of the latest version of Bootstrap:
+You can use the npm package of the latest version of Bootstrap.
 
 `yarn add bootstrap`
 
-and configure it for both stylesheets and javascript.
+and include it in your stylesheet pack with:
+
+```scss
+@import '~bootstrap/scss/bootstrap';
+```
+
+If you want to use also the javascript part of Bootstrap you need both popper.js and jquery.
+Add them with:
+
+`yarn add jquery popper.js`
+
+and configure them in `environment.js`:
+
+```js
+environment.plugins.append('Provide', new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery',
+  Popper: ['popper.js', 'default']
+}));
+```
+
+finally, import bootstrap library in `application.js` with
+
+```js
+import 'bootstrap/dist/js/bootstrap';
+```
 
 ## Simple Form
 

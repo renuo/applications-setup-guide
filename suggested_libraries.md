@@ -30,7 +30,23 @@ end
 
 ## :gem: Suggested NPM packages
 
+
 ```
-yarn add rails-ujs turbolinks
+yarn add rails-ujs turbolinks autoprefixer
 ```
 
+To configure `rails-ujs` add the following to `application.js`:
+
+```js
+import Rails from 'rails-ujs';
+Rails.start();
+```
+
+To configure `turbolinks` add the following to `application.js`:
+
+```js
+import Turbolinks from 'turbolinks';
+Turbolinks.start();
+```
+
+To configure `autoprefixer` add the following to `environment.js`:

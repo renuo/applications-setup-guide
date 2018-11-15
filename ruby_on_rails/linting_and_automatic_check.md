@@ -63,11 +63,12 @@ Use the [provided reek configuration](../templates/.reek.yml) by adding a `.reek
 ## SCSS lint
 
 To lint the SASS/SCSS files in our project we are going to use the `sass-lint` npm package.
-You should have it installed in your machine, if not, you can do so by running `bin/yarn add global sass-lint`.
+
+`bin/yarn add sass-lint`
+
+
 Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
 template to see the command to execute the SCSS linting.
-
-When you add this linter, remember to add also `npm install -g sass-lint` in the list of setup commands on SemaphoreCI.
 
 ## Slim lint
 
@@ -80,7 +81,6 @@ end
 ```
 
 ## ESLint
-
 
 ```
 yarn add eslint

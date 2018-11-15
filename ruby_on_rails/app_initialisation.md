@@ -1,7 +1,7 @@
 # Initialise the Rails App
 
 * Check if you are using the latest version of ruby supported by SemahoreCI and Heroku with `ruby -v` and update it if you are not.
-Run `rbenv install -s` to check your installed ruby versions.
+Run `rbenv versions` to check your installed ruby versions.
 Follow the instructions on screen to eventually install it.
 
 * Run `gem install bundler` to install Bundler.
@@ -34,7 +34,7 @@ This will be the file to start our project.
 * Add an empty `bin/fastcheck` file and make it executable:
 
 ```sh
-touch bin/fastcheck
+echo "#\!/bin/sh\n" >> bin/fastcheck
 chmod +x bin/fastcheck
 ```
 
@@ -83,7 +83,7 @@ end
 * Change also  `system!('bundle install')` to `system!('bundle install --jobs=3 --retry=3')`
 and uncomment the installation of yarn dependencies with `system('bin/yarn')`
 
-* Run `bundle exec rails db:create db:migrate` to generate an empty `schema.rb` file
+* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file
 * Run `bin/setup`.
 
 ## Configurations

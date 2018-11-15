@@ -18,7 +18,7 @@ bundle exec reek .
 bundle exec scss-lint `find app/assets/stylesheets/ -name "*.scss"`
 
 # new SASS linter
-sass-lint -v --no-exit app/javascripts/**.*.scss
+yarn sass-lint -v --no-exit app/javascripts/**.*.scss
 
 bundle exec slim-lint app/views/ -c .slim-lint.yml
 
