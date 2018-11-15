@@ -66,7 +66,6 @@ To lint the SASS/SCSS files in our project we are going to use the `sass-lint` n
 
 `bin/yarn add sass-lint`
 
-
 Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
 template to see the command to execute the SCSS linting.
 

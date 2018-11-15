@@ -18,18 +18,22 @@ Check the `[LATEST_NODE_VERSION]` available on https://semaphoreci.com/docs/lang
 
 *Setup Job:*
 
-    git checkout -- .ruby-version
-    export RAILS_ENV=test
-    export TZ=Europe/Zurich
-    bundle install --without production development --deployment --jobs 3 --retry 3
-    nvm use [LATEST_NODE_VERSION]
-    bin/yarn install
-    cp config/application.example.yml config/application.yml
-    bin/rails db:create db:schema:load
+```
+git checkout -- .ruby-version
+export RAILS_ENV=test
+export TZ=Europe/Zurich
+bundle install --without production development --deployment --jobs 3 --retry 3
+nvm use [LATEST_NODE_VERSION]
+bin/yarn install
+cp config/application.example.yml config/application.yml
+bin/rails db:create db:schema:load
+```
 
 *bin/check Job*
 
-    bin/check
+```
+bin/check
+```
 
 * Reconfigure until your build is green
 * Run the build for all your branches: `master`, `develop` and `testing`
