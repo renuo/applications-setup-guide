@@ -53,6 +53,8 @@ Thank you for your work and have fun! :tada:
 
 ### [Frontend apps (JS)](js/README.md)
 
+### [Google APIs](google_apis.md)
+
 ### [Go Live! :tada:](go_live.md)
 
 ## License
