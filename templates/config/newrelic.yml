@@ -1,4 +1,4 @@
-common: &default_settings
+production:
   license_key: <%= ENV['NEW_RELIC_LICENSE_KEY'] %>
   app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
   monitor_mode: true
@@ -19,16 +19,3 @@ common: &default_settings
   error_collector:
     enabled: true
     ignore_errors: "ActionController::RoutingError,Sinatra::NotFound"
-
-development:
-  <<: *default_settings
-  monitor_mode: false
-  developer_mode: true
-
-test:
-  <<: *default_settings
-  monitor_mode: false
-
-production:
-  <<: *default_settings
-  monitor_mode: true
