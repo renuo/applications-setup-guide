@@ -34,7 +34,7 @@ RSpec/ExampleLength:
     - 'spec/requests/**/*'
 
 RSpec/NestedGroups:
-  MaxNesting: 5
+  Max: 5
 
 AllCops:
   Exclude:
