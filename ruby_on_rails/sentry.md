@@ -8,6 +8,8 @@
 
 So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
+* Add the `master` to the #renuo team, `testing` and `develop` to the #no-notification team. We are interested to receive notifications only regarding the `master` environment, but to log errors also in other environments.
+
 * Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note it.
 
 ![sentry_dsn](../images/sentry.png)
