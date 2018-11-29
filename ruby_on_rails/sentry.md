@@ -22,10 +22,12 @@ end
 
 * Add `SENTRY_DSN` to `application.example.yml`
 * Add `CSP_REPORT_URI` to `application.example.yml`
-* Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb`:
+* Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
 
 ```ruby
 Rails.application.config.content_security_policy do |policy|
+  ...
+  policy.script_src  :self, :https, :unsafe_inline
   ...
   policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
 end
