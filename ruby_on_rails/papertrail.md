@@ -12,11 +12,14 @@
 
 * Select the papertrail add-on and wait until you get redirected.
 
+![papertrail add-on](../images/papertrail_addon.png)
+
 * Advance to the `Alerts` section.
 
 ![papertrail menu](../images/papertrail_menu.png)
 
 You should see this prompt:
+
 ![papertrail prompt](../images/papertrail_prompt.png)
 
 * Enter the email adress `operations@renuo.ch` and click `Create Alert`.
@@ -24,6 +27,7 @@ You should see this prompt:
 * Click on the newly created email alert for additional configuration.
 
 Click the litte pen above the query to edit it:
+
 ![papertrail config](../images/config.png)
 
 * Name the search `Response time and memory usage`.
@@ -41,3 +45,8 @@ After you saw the message that the search was saved successfully, you can click 
 * Set `Send events with timestamps in` to our timezone _(GMT+01:00)Bern_.
 
 * Click on `save changes`.
+
+This is what the final config should look like:
+
+![papertrail finished config](../images/papertrail_finished_config.png)
+
