@@ -16,7 +16,7 @@
 
 * Advance to the `Alerts` section.
 
-![papertrail menu](../images/papertrail_menu.png)
+![papertrail events](../images/papertrail_events.png)
 
 You should see this prompt:
 
@@ -28,13 +28,15 @@ You should see this prompt:
 
 Click the litte pen above the query to edit it:
 
-![papertrail config](../images/config.png)
+![papertrail config](../images/papertrail_config.png)
 
 * Name the search `Response time and memory usage`.
 
 * Add the query `code=H12 OR code=R14`.
 
 * Click the `Update Search` button.
+
+![papertrail query config](../images/papertrail_query_config.png)
 
 After you saw the message that the search was saved successfully, you can click on the newly created email alert to get back to the configuration view from before.
 
