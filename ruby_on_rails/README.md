@@ -33,6 +33,7 @@ They are not optional, but the rest of the team can start working even if those 
 2. [NewRelic](newrelic.md)
 3. [robots.txt](robots_txt.md)
 4. [Percy](configure_percy.md)
+5. [Papertrail](papertrail.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
 Once the new application is created, please add the project to the
@@ -40,9 +41,9 @@ Once the new application is created, please add the project to the
 and discuss with the PO how the service should be configured.
 
 1. [Uptime](uptime.md)
-1. Depending on the monitoring list, also Sentry notifications need to be configured.
+1. Depending on the monitoring list, also [Sentry notifications](sentry.md) need to be configured.
 1. [Depfu security monitoring](depfu.md)
-1. [Papertrail monitoring](papertrail.md)
+1. Depending on the monitoring list, also [Papertrail alerts](papertrail.md) need to be configured.
 
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
