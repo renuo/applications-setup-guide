@@ -13,8 +13,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  gem 'capybara-selenium'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
@@ -22,11 +21,12 @@ group :test do
 end
 ```
 
-You should know exactly why you are adding each one of them, why is necessary
+You should know exactly why you are adding each one of them and why is necessary.
 
 ## Configuration
 
 * Install rspec via `rails generate rspec:install`
+* Create a bin stub with `bundle binstubs rspec-core`
 * delete the `test` folder
 * At the top of the `spec/spec_helper`
 
@@ -54,11 +54,13 @@ config.profile_examples = 5
 config.order = :random
 
 Kernel.srand config.seed
+
+config.define_derived_metadata do |meta|
+  meta[:aggregate_failures] = true
+end
 ```
 
 Please check the [spec_helper template](../templates/spec/spec_helper.rb)
-
-* Inside `spec/rails_helper` we suggest to uncomment/enable the following:
 
 * after `require 'rspec/rails'`
 
@@ -67,24 +69,41 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+RSpec.configure do |config|
+ # other configs
+
+ config.before(:each, type: :system) do
+   driven_by :rack_test
+ end
+
+ config.before(:each, type: :system, js: true) do
+   driven_by :selenium_chrome_headless
+ end
 end
-
-Capybara.register_driver :headless_chrome do |app|
-  # The doc states, that the disable-gpu flag will some day not be necessary any more:
-  # https://developers.google.com/web/updates/2017/04/headless-chrome
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu] }
-  )
-
-  Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
-end
-
-Capybara.javascript_driver = :headless_chrome
 ```
 
 to use headless chrome for system tests.
+
+### Optional: catch javascript errors
+
+If you want to catch Javascript errors in your system tests, you can add the following to the `rails_helper.rb`:
+
+```ruby
+config.after(:each, type: :system, js: true) do
+  errors = page.driver.browser.manage.logs.get(:browser)
+  if errors.present?
+    aggregate_failures 'javascript errors' do
+      errors.each do |error|
+        expect(error.level).not_to eq('SEVERE'), error.message
+        next unless error.level == 'WARNING'
+
+        STDERR.puts 'WARN: javascript warning'
+        STDERR.puts error.message
+      end
+    end
+  end
+end
+```
 
 Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 

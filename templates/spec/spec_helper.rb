@@ -6,8 +6,6 @@ SimpleCov.start 'rails' do
 end
 SimpleCov.minimum_coverage 100
 
-Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
-
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -28,4 +26,8 @@ RSpec.configure do |config|
   config.order = :random
 
   Kernel.srand config.seed
+
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
 end

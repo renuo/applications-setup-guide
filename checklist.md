@@ -10,9 +10,9 @@
 - [ ] Linting tools installed
 - [ ] RSpec installed
 - [ ] Suggested gems included
-- [ ] GetSentry configured
+- [ ] Sentry configured
 - [ ] Cloudflare configured
 - [ ] README written and complete
 - [ ] NewRelic configured
 - [ ] Uptime Monitor configured
-- [ ] Gemnasium configured
+- [ ] robots.txt configured

@@ -16,10 +16,3 @@ end
 NEW_RELIC_LICENSE_KEY='from newrelic'
 NEW_RELIC_APP_NAME='[project-name]-[branch-name]'
 ```
-
-* Go to the newrelic account: <https://rpm.newrelic.com/>
-
-* For each app:
-  * Navigate to Settings > Application
-  * Click on button "move configuration to new relic"
-  * Check settings, adjust them if needed.

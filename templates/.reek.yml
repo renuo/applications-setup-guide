@@ -1,0 +1,50 @@
+---
+detectors:
+    Attribute:
+      enabled: false
+    NilCheck:
+      enabled: false
+    DuplicateMethodCall:
+      max_calls: 2
+    IrresponsibleModule:
+      enabled: false
+
+directories:
+    "app/helpers":
+      UtilityFunction:
+        enabled: false
+      FeatureEnvy:
+        enabled: false
+    "app/jobs":
+      UtilityFunction:
+        enabled: false
+    "app/services":
+      UtilityFunction:
+        enabled: false
+    "app/validators":
+      UtilityFunction:
+        enabled: false
+    "app/controllers":
+      IrresponsibleModule:
+        enabled: false
+      NestedIterators:
+        max_allowed_nesting: 2
+      UnusedPrivateMethod:
+        enabled: false
+      InstanceVariableAssumption:
+        enabled: false
+    "app/mailers":
+      InstanceVariableAssumption:
+        enabled: false
+      FeatureEnvy:
+        enabled: false
+
+exclude_paths:
+    - tmp
+    - spec
+    - vendor
+    - log
+    - coverage
+    - config
+    - bin
+    - db/migrate
