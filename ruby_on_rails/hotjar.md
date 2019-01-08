@@ -1,4 +1,4 @@
-# Hotjar
+# :fire: Hotjar
 
 * Add a new site on the Hotjar dashboard using the Renuo Hotjar account
 (credentials are in Passwork). Note the site ID of the generated site.
