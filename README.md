@@ -45,15 +45,15 @@ Thank you for your work and have fun! :tada:
 
 2. [Naming conventions](naming_conventions.md)
 
-### [Ruby On Rails 5.1](ruby_on_rails/README.md)
+### [Ruby On Rails 5.2](ruby_on_rails/README.md)
 
 ### [Ruby On Rails API Only](ruby_on_rails_api/README.md)
-
-### [Monorepo](monorepo/README.md)
 
 ### [Angular](angular/README.md)
 
 ### [Frontend apps (JS)](js/README.md)
+
+### [Google APIs](google_apis.md)
 
 ### [Go Live! :tada:](go_live.md)
 

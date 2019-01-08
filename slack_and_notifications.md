@@ -18,7 +18,7 @@ One notification you may want to receive on this channel is about when a new dep
 order to do that you must be an admin of the Renuo Slack Organisation. If you are not an admin, ask wg-operations to do
 it for you communicating the `[project-name]`.
 
-:warning: **You must have already setup [Automatic Deployment through SemaphoreCI](configure_cd.md)** :warning:
+:warning: **You must have already setup [Automatic Deployment through SemaphoreCI](ruby_on_rails/configure_cd.md)** :warning:
 
 On Slack:
 1. Create a new Custom Integration --> Incoming Webhook

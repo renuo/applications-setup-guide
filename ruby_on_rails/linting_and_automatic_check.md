@@ -10,10 +10,11 @@ Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the fi
 ```ruby
 group :development, :test do
   gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
 end
 ```
 
-Please add it to every Rails project and use the [rubocop configuration provided](../templates/.rubocop.yml) adding a `.rubocop.yml` file in the root of the project.
+Please add them to every Rails project and use the [rubocop configuration provided](../templates/.rubocop.yml) adding a `.rubocop.yml` file in the root of the project.
 
 **This file may get outdated quickly**. Please update it if necessary with a PR.
 If you need to change it in a specific project you may want to consider to change this template as well for the future.
@@ -57,15 +58,16 @@ group :development, :test do
 end
 ```
 
-Use the [provided reek configuration](../templates/.reek) by adding a `.reek` file in the root of the project.
+Use the [provided reek configuration](../templates/.reek.yml) by adding a `.reek.yml` file in the root of the project.
 
 ## SCSS lint
 
-```ruby
-group :development, :test do
-  gem 'scss_lint', require: false
-end
-```
+To lint the SASS/SCSS files in our project we are going to use the `sass-lint` npm package.
+
+`bin/yarn add sass-lint`
+
+Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
+template to see the command to execute the SCSS linting.
 
 ## Slim lint
 
@@ -79,8 +81,6 @@ end
 
 ## ESLint
 
-> only if you'll use `es6` javascript.
-
 ```
 yarn add eslint
 eslint --init (Use a popular style guide -> Airbnb)
@@ -89,13 +89,10 @@ eslint --init (Use a popular style guide -> Airbnb)
 then extend the `bin/check` script with:
 
 ```
-echo "\n== ESLint =="
-yarn eslint app/assets/javascripts/**/*.es6
-if [ $? -ne 0 ]; then
-  echo 'ESLint detected issues.'
-  exit 1
-fi
+yarn eslint app/webpack spec/javascripts
 ```
+
+The templates folder contains a template for the eslint configuration.
 
 ## All Good!
 

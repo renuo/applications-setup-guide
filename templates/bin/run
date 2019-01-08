@@ -1,4 +1,3 @@
 #!/bin/sh
 
-(sleep 4 && open 'http://<appname>.localhost:3000') &
 bin/rails s

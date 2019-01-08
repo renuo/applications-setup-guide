@@ -1,13 +1,16 @@
+require: rubocop-rspec
+
 Rails:
   Enabled: true
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'spec/**/*.rb'
 
 Metrics/LineLength:
   Max: 120
 
 Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/MixinUsage:
@@ -21,3 +24,24 @@ Style/NonNilCheck:
 Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/system/**/*'
+    - 'spec/requests/**/*'
+
+RSpec/NestedGroups:
+  Max: 5
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'script/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
