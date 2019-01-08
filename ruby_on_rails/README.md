@@ -68,7 +68,7 @@ useful services:
 1. Favicons
 1. Setup papertrail
 1. [Rack CORS](../ruby_on_rails_api/rack_cors.md)
-1. [Hotjar](hotjar.md)
+1. [:fire: Hotjar](hotjar.md)
 1. SEO
     * redirect non-www to www
     * Header tags
