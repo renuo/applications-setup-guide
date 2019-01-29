@@ -13,7 +13,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-selenium'
+  gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
