@@ -12,8 +12,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
