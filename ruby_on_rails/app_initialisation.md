@@ -70,6 +70,13 @@ We use a script for that so that we can change the commands for tests in a PR, w
     end
 ```
 
+* To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
+create the initializer for figaro in `config/initializers/figaro.rb`:
+
+```ruby
+Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
+```
+
 ## bin/setup
 
 Add the `pre-push` hooks that will run the linters before you push the code to the remote repository:
