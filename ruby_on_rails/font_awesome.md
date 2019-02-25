@@ -24,7 +24,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 ```
 
-## Useage
+## Usage
 
 1. Navigate to the [font-awesome gallery list](https://fontawesome.com/icons?d=gallery)
 1. Search for the icon that you wish to include and copy paste the `<i>` tag into your application:
