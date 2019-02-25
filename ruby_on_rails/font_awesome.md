@@ -1,6 +1,6 @@
 # Font-Awesome
 
-You can either include font-awesome through their CDN or install it via npm/yarn. 
+You can either include font-awesome through their CDN or install it via npm/yarn.
 
 ## Installation with yarn
 
