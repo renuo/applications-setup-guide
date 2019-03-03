@@ -60,6 +60,7 @@ useful services:
 1. awesome_print `gem 'awesome_print'`
 1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
+1. [font-awesome](font_awesome.md)
 1. [bullet](bullet.md) `gem 'bullet'`
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
