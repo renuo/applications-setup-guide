@@ -48,13 +48,13 @@ and discuss with the PO how the service should be configured.
 Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
 useful services:
 
+1. [Run Javascript tests with Jest](jest.md)
 1. [Pull Requests Template](../pull_requests_template.md)
 1. [Slack and Project Notifications](../slack_and_notifications.md)
 1. [Send emails](send_emails.md)
 1. [Sparkpost](../sparkpost.md)
 1. [Devise](devise.md)
 1. [Sidekiq](sidekiq.md)
-1. Renuo Upload
 1. [Cucumber](cucumber.md)
 1. [Amazon S3 and Cloudfront](aws.md)
 1. awesome_print `gem 'awesome_print'`
@@ -62,7 +62,6 @@ useful services:
 1. devise `gem 'devise'`
 1. [font-awesome](font_awesome.md)
 1. [bullet](bullet.md) `gem 'bullet'`
-1. JQuery `gem 'jquery-rails'`
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
 1. Favicons
