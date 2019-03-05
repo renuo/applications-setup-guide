@@ -32,7 +32,7 @@ Click the litte pen above the query to edit it:
 
 * Name the search `Response time and memory usage`.
 
-* Add the query `code=H12 OR code=R14`.
+* Add the query `"Error R14" OR "code=H12"`.
 
 * Click the `Update Search` button.
 
