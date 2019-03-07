@@ -65,7 +65,6 @@ useful services:
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
 1. Favicons
-1. Setup papertrail
 1. [Rack CORS](../ruby_on_rails_api/rack_cors.md)
 1. [:fire: Hotjar](hotjar.md)
 1. SEO
