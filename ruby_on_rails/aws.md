@@ -23,7 +23,7 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 ### Start the Setup
 
-The following command will create command-line-commands to set up S3 and CloudFlare. Before that, the command makes sure,
+The following command will create command-line-commands to set up S3 and CloudFront. Before that, the command makes sure,
 you have the aws-profile and the aws-cli set up, so you have the necessary rights to run the commands.
 If you don't, follow the [AWS CLI Setup Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
 
