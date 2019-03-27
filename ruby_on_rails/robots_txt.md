@@ -29,7 +29,9 @@ end
 Add the following to `config/application.rb`:
 
 ```ruby
-config.middleware.insert_before Rack::Sendfile, 'RobotsTxt' if ENV['BLOCK_ROBOTS'].present?
+require_relative '../app/middleware/robots_txt'
+# [rest of the code]
+config.middleware.insert_before Rack::Sendfile, RobotsTxt if ENV['BLOCK_ROBOTS'].present?
 ```
 
 Add the variable `BLOCK_ROBOTS=true` in your develop and testing environment on Heroku:
