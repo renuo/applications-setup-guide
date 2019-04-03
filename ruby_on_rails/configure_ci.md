@@ -39,8 +39,8 @@ Add two jobs to the configuration:
   bin/check
   ```
 
-Make sure that the build is green before you proceed. Then setup the `develop` branch like you
-just did for the `master`.
+Make sure that the build is green before you proceed. Then setup the `develop` by clicking the very hidden plus sign
+right above the now running `master` build.
 
 Afterwards, configure your project and select in the *Branches* section:
   * Cancel queued and started builds
