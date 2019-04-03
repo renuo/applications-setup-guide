@@ -26,12 +26,16 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
   [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
 
 * Run `bin/setup`
+* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file
 * Then check your default Rails setup by running `rails s` and visiting `localhost:3000`.
   You should be on Rails now, yay!
 
 ## Adjustments
 
 ### Convenience scripts (`bin/*`)
+
+The following scripts are standardized tools for more convenience at Renuo.
+They are always idempotent (runnable multiple times).
 
 * Add a `bin/run` file. It will be used to start our project.
 
@@ -68,55 +72,56 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
   Also change `system!('bundle install')` to `system!('bundle install --jobs=3 --retry=3')`
   and uncomment the installation of yarn dependencies with `system('bin/yarn')`
 
-* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file
-* Run `bin/setup`.
-
 ### ENV variables with Figaro
 
 * Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
-(usually `bundle exec figaro install` is enough)
+(usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`.
 * and create `config/application.example.yml` where you will specify the only environment variable you need for now:
   `SECRET_KEY_BASE`.
 * Add the following section to your `bin/setup` script so that the application.yml is created when the project is setup:
 
-```ruby
-    puts "\n== Copying sample files =="
-    unless File.exist?('config/application.yml')
-      system! 'cp config/application.example.yml config/application.yml'
-    end
-```
+  ```ruby
+  puts "\n== Copying sample files =="
+  unless File.exist?('config/application.yml')
+    system! 'cp config/application.example.yml config/application.yml'
+  end
+  ```
 
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
 create the initializer for figaro in `config/initializers/figaro.rb`:
 
-```ruby
-Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
-```
+  ```ruby
+  Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
+  ```
+
+* Run `bin/setup` again.
 
 ### Configuration customisation
 
 * Update `config/application.rb` and set the default language and timezone
 
-```ruby
-config.time_zone = 'Bern' # may vary
-config.i18n.default_locale = :de # may vary
-```
+  ```ruby
+  config.time_zone = 'Zurich' # may vary
+  config.i18n.default_locale = :de # may vary
+  ```
 
 * Update your `config/environments/production.rb` settings:
 
-```ruby
-config.force_ssl = true # uncomment
-config.log_level = :warn # change
-```
+  ```ruby
+  config.force_ssl = true # uncomment
+  config.log_level = :warn # change
+  ```
 
 * Update `config/environments/test.rb` settings:
 
-```ruby
-config.action_view.raise_on_missing_translations = true # uncomment
-```
+  ```ruby
+  config.action_view.raise_on_missing_translations = true # uncomment
+  ```
 
 * Enable the default Content Security Policies in `config/initializers/content_security_policy.rb`.
+  The report URI will be set later in the step of Sentry configuration.
 
-The report URI will be set later in the step of Sentry configuration.
+## Finalising
 
-* Commit all your changes in the master branch.
+* Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/run`
+* If they do, commit all your changes to the master branch with Git.
