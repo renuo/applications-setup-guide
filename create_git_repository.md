@@ -10,6 +10,8 @@ To create a new GitHub project you can use the tool you prefer but it should hav
 
 Use the command `hub create -p renuo/[project-name]` to create the repo and add it to the origin of the current folder.
 
+## Public repos need a license
+
 If your repository is public, ensure that it contains a license. We usually use the [MIT](https://choosealicense.com/licenses/mit/) license if possible or a [CreativeCommons](https://creativecommons.org/licenses/) license for documentation-only repositories (such as the application setup guide 🙂).
 You can add a license directly on GitHub while initializing a repository by selecting a license template in the "Add a license" dropdown.
 However, if the repository is already initialized, you're still able to add a license using a template:
