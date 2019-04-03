@@ -7,7 +7,7 @@ and update it if you are not. Run `rbenv versions` to check your installed ruby 
 Follow the instructions on screen to eventually install it.
 
 * Switch the global Ruby version to the newest one with `rbenv global <ruby-version>` so that the latter commands
-run in the correct context.
+run in the correct context. You don't need to, if you've a `.ruby-version` in your projects containment folder.
 
 * Run `gem install bundler` to install Bundler.
 You may have it already installed, but this command will make sure that you have the latest version.
@@ -19,7 +19,7 @@ You can do this with `gem update rails`. Beware of beta versions.
 You may want to choose a different database from Postgres, but most of the time that will be your choice.
 If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
-* Update the Ruby version in `.ruby-version` and load it in the fresh project's `Gemfile` like this
+* Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
 
   ```ruby File.read(File.join(__dir__, '.ruby-version'))```
 
