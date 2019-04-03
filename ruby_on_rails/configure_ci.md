@@ -23,7 +23,7 @@ Add two jobs to the configuration:
   ```sh
   cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
   git checkout -- .ruby-version && rbenv install
-  gem install bundler --no-ri --no-rdoc
+  gem install bundler --no-document
 
   export RAILS_ENV=test
   export TZ=Europe/Zurich
