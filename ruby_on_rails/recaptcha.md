@@ -74,5 +74,5 @@ If you still have some trouble implementing it, you can find even more inspirati
 - [Germann](https://github.com/renuo/germann/pull/314)
 
 ## Testing
-In order to test it, you can add `localhost` as a domain in the [reCAPTCHA admin panel](www.google.com/recaptcha/admin) and providing the required keys in the `application.yml`. If your integration worked, then you will see a small container in the bottom right corner of your chosen page, something like this:
+In order to test it, you can add `localhost` as a domain in the [reCAPTCHA admin panel](www.google.com/recaptcha/admin) and provide the required keys in the `application.yml`. If your integration worked, then you will see a small container in the bottom right corner of your chosen page, something like this:
 <img width="1425" alt="reCAPTCHA demonstration" src="https://user-images.githubusercontent.com/31915276/55479133-ae4f8c80-561d-11e9-9df2-d94cbc5f92d3.png">
