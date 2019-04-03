@@ -13,6 +13,6 @@ and push using:
 
 ```sh
 git add .
-git commit -m "first commit"
+git commit -m "Initial commit"
 git push -u origin master
 ```
