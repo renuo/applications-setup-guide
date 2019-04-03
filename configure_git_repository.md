@@ -3,24 +3,21 @@
 These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.
 
-Proceed to the **Insights** of the project and configure the following:
-* **Dependency graph**:
-  * Allow access
-
-Proceed to the **Settings** of the project and adjust the following:
-* **Options**:
-  * You can disable Wikis, Issues and Projects features from configuration
-* **Collaborators & Teams**:
+* Options
+  * Features: Remove *Wikis*, *Issues* and *Projects*
+  * Data services: Enable *Dependency graph* and *Vulnerability alerts*
+  * Merge button: Disable *Merge commits*
+* Collaborators & teams
   * Add Renuo team as a collaborator with Admin access
   * Add Security team as collaborator with Write access
-* **Branches**:
-  * Default branch: `develop`
-  * Protect the branches develop and master checking:
+* Branches
+  * Default branch: `develop`. Click *update*
+  * Add these rules for the two branches `develop` and `master`:
     * Require pull request reviews before merging
     * Require status checks to pass before merging
     * Require branches to be up to date before merging
-* **Alerts**:
-  * Add Security team
+* Alerts
+  * Add team `renuo/security`
 
 ## Responsibility Tag
 
