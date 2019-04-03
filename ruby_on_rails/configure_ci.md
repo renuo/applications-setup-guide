@@ -11,7 +11,7 @@ and the main branches already pushed and ready to be tested.
 You should already be part of the Renuo organisation but you may not have permissions to add a project to
 the organisation. That's not a problem, you can configure it anyway and ask wg-operations to transfer it to
 the organisation afterwards (you have 100 free builds)
-* Create a project here: <https://semaphoreci.com/organizations/renuo/projects/new>
+* Create a project here for the two branches `master` and `develop`: <https://semaphoreci.com/organizations/renuo/projects/new>
 
 ## Rails specific setup
 
