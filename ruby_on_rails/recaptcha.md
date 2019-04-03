@@ -11,7 +11,7 @@ Before you start, consider checking which page you would like to protect against
 After you've decided, you can go to the [reCAPTCHA admin panel](www.google.com/recaptcha/admin) and register a new site. Make sure you're using the Renuo admin account.
 
 To register the site, you can follow these steps:
-1. Choose a label for the site, the project name should suffice.
+1. Use `[project-name]` as a label for the site.
 1. Choose reCAPTCHA v3
 1. Add all the domains on which reCAPTCHA should work (`renuoapp.ch` should also be included for the `develop` and `testing` environments)
 
