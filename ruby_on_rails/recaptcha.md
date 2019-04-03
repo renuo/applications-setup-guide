@@ -21,59 +21,11 @@ After you've provided all the necessary data, you will be forwarded to a page wh
 
 For the frontend implementation, you can follow [these steps](https://developers.google.com/recaptcha/docs/v3) and integrate reCAPTCHA into the chosen view.
 
-An example to help you out:
-```javascript
-if (typeof(RecaptchaKey) !== 'undefined') {
-    $('[data-recaptcha]').submit(function (event) {
-        grecaptcha.ready(function () {
-            grecaptcha.execute(RecaptchaKey, { action: 'new_contact' })
-                .then(function (token) {
-                    var hiddenTag = $('<input type="hidden" name="recaptcha">');
-                    hiddenTag.val(token);
-                    $(event.target).append(hiddenTag);
-                    event.target.submit();
-                });
-        });
-        return false;
-    });
-}
-```
-
-... and for the view (slim):
-```slim
-- content_for :head
-    - if ENV['RECAPTCHA_SITE_KEY']
-        script src="https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY']}"
-        javascript:
-            var RecaptchaKey = '#{ENV['RECAPTCHA_SITE_KEY']}';
-```
-
 ### Backend implementation
 
 For the validation to work, you will also need some backend code which will call the reCAPTCHA verification API, which then returns a score based on which it will be decided if the request (to your site) was normal or suspicious. You can follow [these steps](https://developers.google.com/recaptcha/docs/verify) to do it.
 
-Again, an example to help you out:
-```ruby
-module Recaptcha
-  DEFAULT_THRESHOLD = 0.5
-
-  def recaptcha_valid?(token)
-    return true unless recaptcha_enabled?
-
-    uri = URI("https://www.google.com/recaptcha/api/siteverify?secret=#{ENV['RECAPTCHA_SECRET_KEY']}&response=#{token}")
-    result = JSON.parse(Net::HTTP.get(uri))
-    result['success'] && result['score'] >= DEFAULT_THRESHOLD
-  rescue StandardError
-    true
-  end
-
-  def recaptcha_enabled?
-    [ENV['RECAPTCHA_SITE_KEY'], ENV['RECAPTCHA_SECRET_KEY']].all?(&:present?)
-  end
-end
-```
-
-If you still have some trouble implementing it, you can find even more inspiration by checking out one of these pull requests:
+If you have trouble integrating reCAPTCHA, you can find some inspiration by checking out one of these pull requests:
 1. [Kingschair](https://github.com/renuo/kingschair2/pull/182)
 1. [Germann](https://github.com/renuo/germann/pull/314)
 
