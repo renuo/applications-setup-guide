@@ -38,4 +38,4 @@ Some examples:
 
 If you have doubts, look at the other projects of Renuo.
 
-**There should never be more then one responsibility tag per project.**
+**There should never be more than one responsibility tag per project.**
