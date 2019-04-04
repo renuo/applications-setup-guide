@@ -1,4 +1,4 @@
-# Use RSpec
+# Setup RSpec
 
 RSpec is a *de-facto* standard and is used in all our projects.
 We love rspec and we strongly suggest you to use it as well.
