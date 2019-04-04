@@ -36,7 +36,7 @@ You should know exactly why you are adding each one of them and why is necessary
   end
   SimpleCov.minimum_coverage 100
   ```
-  
+
   to run code coverage and exclude files with less then 5 lines of code.
 
 * Inside `spec/spec_helper.rb` we suggest you to uncomment/enable the following:
@@ -57,7 +57,7 @@ You should know exactly why you are adding each one of them and why is necessary
   end
   ```
 
-Please check the [spec_helper template](../templates/spec/spec_helper.rb)
+  Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
 * Inside `spec/rails_helper.rb` after `require 'rspec/rails'` add the following system test configurations:
 
