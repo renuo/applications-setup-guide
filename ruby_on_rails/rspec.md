@@ -43,13 +43,9 @@ You should know exactly why you are adding each one of them and why is necessary
 
   ```ruby
   config.disable_monkey_patching!
-  
   config.default_formatter = 'doc' if config.files_to_run.one?
-  
   config.profile_examples = 5
-  
   config.order = :random
-  
   Kernel.srand config.seed
   
   config.define_derived_metadata do |meta|
