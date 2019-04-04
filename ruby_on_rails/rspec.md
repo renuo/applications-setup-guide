@@ -6,18 +6,18 @@ Even if is not mandatory, we believe you should discuss with your team the decis
 
 * Add the following gems to your Gemfile
 
-```ruby
-group :development, :test do
-  gem 'rspec-rails'
-end
-
-group :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-end
-```
+  ```ruby
+  group :development, :test do
+    gem 'rspec-rails'
+  end
+  
+  group :test do
+    gem 'factory_bot_rails'
+    gem 'faker'
+    gem 'shoulda-matchers'
+    gem 'simplecov', require: false
+  end
+  ```
 
 You should know exactly why you are adding each one of them and why is necessary.
 
@@ -28,82 +28,60 @@ You should know exactly why you are adding each one of them and why is necessary
 * delete the `test` folder
 * At the top of the `spec/spec_helper.rb`
 
-```ruby
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter do |source_file|
-    source_file.lines.count < 5
+  ```ruby
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_filter do |source_file|
+      source_file.lines.count < 5
+    end
   end
-end
-SimpleCov.minimum_coverage 100
-```
-
-to run code coverage and exclude files with less then 5 lines of code.
+  SimpleCov.minimum_coverage 100
+  ```
+  
+  to run code coverage and exclude files with less then 5 lines of code.
 
 * Inside `spec/spec_helper.rb` we suggest you to uncomment/enable the following:
 
-```ruby
-config.disable_monkey_patching!
-
-config.default_formatter = 'doc' if config.files_to_run.one?
-
-config.profile_examples = 5
-
-config.order = :random
-
-Kernel.srand config.seed
-
-config.define_derived_metadata do |meta|
-  meta[:aggregate_failures] = true
-end
-```
+  ```ruby
+  config.disable_monkey_patching!
+  
+  config.default_formatter = 'doc' if config.files_to_run.one?
+  
+  config.profile_examples = 5
+  
+  config.order = :random
+  
+  Kernel.srand config.seed
+  
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+  ```
 
 Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
-* after `require 'rspec/rails'`
+* Inside `spec/rails_helper.rb` after `require 'rspec/rails'` add the following system test configurations:
 
-```ruby
-require 'capybara/rspec'
-require 'capybara/rails'
-require 'selenium/webdriver'
-
-RSpec.configure do |config|
- # other configs
-
- config.before(:each, type: :system) do
-   driven_by :rack_test
- end
-
- config.before(:each, type: :system, js: true) do
-   driven_by :selenium_chrome_headless
- end
-end
-```
-
-to use headless chrome for system tests.
-
-### Optional: catch javascript errors
-
-If you want to catch Javascript errors in your system tests, you can add the following to the `rails_helper.rb`:
-
-```ruby
-config.after(:each, type: :system, js: true) do
-  errors = page.driver.browser.manage.logs.get(:browser)
-  if errors.present?
-    aggregate_failures 'javascript errors' do
-      errors.each do |error|
-        expect(error.level).not_to eq('SEVERE'), error.message
-        next unless error.level == 'WARNING'
-
-        STDERR.puts 'WARN: javascript warning'
-        STDERR.puts error.message
-      end
-    end
+  ```ruby
+  require 'capybara/rspec'
+  require 'capybara/rails'
+  require 'selenium/webdriver'
+  
+  RSpec.configure do |config|
+   # other configs
+  
+   config.before(:each, type: :system) do
+     driven_by :rack_test
+   end
+  
+   config.before(:each, type: :system, js: true) do
+     driven_by :selenium_chrome_headless
+   end
   end
-end
-```
+  ```
+  
+  Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
-Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * replace `bundle exec rake test` with `bundle exec rspec` in `bin/check`
 
@@ -129,3 +107,23 @@ Commit and push your changes! :tada:
 
 Check that you see `1+2=3` in each app.
 
+## Optional: catch javascript errors
+
+If you want to catch Javascript errors in your system tests, you can add the following to the `rails_helper.rb`:
+
+```ruby
+config.after(:each, type: :system, js: true) do
+  errors = page.driver.browser.manage.logs.get(:browser)
+  if errors.present?
+    aggregate_failures 'javascript errors' do
+      errors.each do |error|
+        expect(error.level).not_to eq('SEVERE'), error.message
+        next unless error.level == 'WARNING'
+
+        STDERR.puts 'WARN: javascript warning'
+        STDERR.puts error.message
+      end
+    end
+  end
+end
+```
