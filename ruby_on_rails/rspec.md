@@ -12,9 +12,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
 end
 ```
