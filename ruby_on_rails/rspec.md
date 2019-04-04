@@ -78,11 +78,10 @@ Please check the [spec_helper template](../templates/spec/spec_helper.rb)
    end
   end
   ```
-  
+
   Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
-
-* replace `bundle exec rake test` with `bundle exec rspec` in `bin/check`
+* Add the line `bundle exec rspec` to `bin/check`
 
 ## :white_check_mark: Our first (green) test
 
