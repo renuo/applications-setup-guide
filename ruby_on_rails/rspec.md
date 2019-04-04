@@ -48,7 +48,7 @@ Also add `/coverage/` to your `.gitignore` file.
   config.profile_examples = 5
   config.order = :random
   Kernel.srand config.seed
-  
+
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true
   end
@@ -62,14 +62,14 @@ Also add `/coverage/` to your `.gitignore` file.
   require 'capybara/rspec'
   require 'capybara/rails'
   require 'selenium/webdriver'
-  
+
   RSpec.configure do |config|
     # other configs
-  
+
     config.before(:each, type: :system) do
       driven_by :rack_test
     end
-  
+
     config.before(:each, type: :system, js: true) do
       driven_by :selenium_chrome_headless
     end
