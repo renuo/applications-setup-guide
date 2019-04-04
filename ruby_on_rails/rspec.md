@@ -84,11 +84,11 @@ You should know exactly why you are adding each one of them and why is necessary
 We are now going to write a first test to ensure that the whole configuration is working:
 
 * `bin/check` should be green :white_check_mark:
-* Write the test `spec/system/health_spec.rb` [health_spec.rb](../templates/spec/system/health_spec.rb):
-* write the controller `app/controllers/home_controller.rb` [home](../templates/app/controllers/home_controller.rb)
-* add `get 'home/check'` to `config/routes.rb`
+* Write the test [`spec/system/health_spec.rb`](../templates/spec/system/health_spec.rb)
+* Write the controller [`app/controllers/home_controller.rb`](../templates/app/controllers/home_controller.rb)
+* Add `get 'home/check'` to `config/routes.rb`
 
-* run `bin/check` and the test should pass and coverage is 100%.
+* Run `bin/check` and the test should pass and coverage is 100%.
 
 Commit and push your changes! :tada:
 
