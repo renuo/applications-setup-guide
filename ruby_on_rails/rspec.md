@@ -63,15 +63,15 @@ You should know exactly why you are adding each one of them and why is necessary
   require 'selenium/webdriver'
   
   RSpec.configure do |config|
-   # other configs
+    # other configs
   
-   config.before(:each, type: :system) do
-     driven_by :rack_test
-   end
+    config.before(:each, type: :system) do
+      driven_by :rack_test
+    end
   
-   config.before(:each, type: :system, js: true) do
-     driven_by :selenium_chrome_headless
-   end
+    config.before(:each, type: :system, js: true) do
+      driven_by :selenium_chrome_headless
+    end
   end
   ```
 
