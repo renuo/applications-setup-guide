@@ -4,20 +4,20 @@ RSpec is a *de-facto* standard and is used in all our projects.
 We love rspec and we strongly suggest you to use it as well.
 Even if is not mandatory, we believe you should discuss with your team the decision of not using it.
 
-* Add the following gems to your Gemfile
+Add the following gems to your Gemfile:
 
-  ```ruby
-  group :development, :test do
-    gem 'rspec-rails'
-  end
-  
-  group :test do
-    gem 'factory_bot_rails'
-    gem 'faker'
-    gem 'shoulda-matchers'
-    gem 'simplecov', require: false
-  end
-  ```
+```ruby
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+end
+```
 
 You should know exactly why you are adding each one of them and why is necessary.
 
