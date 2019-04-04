@@ -22,6 +22,7 @@ end
 ```
 
 You should know exactly why you are adding each one of them and why is necessary.
+Also add `/coverage/` to your `.gitignore` file.
 
 ## Configuration
 
@@ -49,7 +50,7 @@ You should know exactly why you are adding each one of them and why is necessary
   config.profile_examples = 5
   config.order = :random
   Kernel.srand config.seed
-  
+
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true
   end
@@ -63,14 +64,14 @@ You should know exactly why you are adding each one of them and why is necessary
   require 'capybara/rspec'
   require 'capybara/rails'
   require 'selenium/webdriver'
-  
+
   RSpec.configure do |config|
     # other configs
-  
+
     config.before(:each, type: :system) do
       driven_by :rack_test
     end
-  
+
     config.before(:each, type: :system, js: true) do
       driven_by :selenium_chrome_headless
     end
