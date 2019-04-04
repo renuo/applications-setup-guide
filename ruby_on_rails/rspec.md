@@ -20,6 +20,7 @@ end
 ```
 
 You should know exactly why you are adding each one of them and why is necessary.
+Also add `/coverage/` to your `.gitignore` file.
 
 ## Configuration
 
