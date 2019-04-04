@@ -20,7 +20,9 @@ end
 ```
 
 You should know exactly why you are adding each one of them and why is necessary.
-Also add `/coverage/` to your `.gitignore` file.
+
+* Also add `/coverage/` to your `.gitignore` file.
+* Remove the `test` folder from your project (there will be one called `spec` later).
 
 ## Configuration
 
