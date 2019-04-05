@@ -12,9 +12,9 @@ NewRelic is a service to monitor app performance.
 
 * Add a NewRelic configuration file [`config/newrelic.yml`](../templates/config/newrelic.yml) folder.
 
-* Add the new variables to your Heroku environments:
+* Add the new variables to your Heroku environments and `config/application.yml`:
 
   ```yml
-  NEW_RELIC_LICENSE_KEY='from newrelic'
-  NEW_RELIC_APP_NAME='[project-name]-[branch-name]'
+  NEW_RELIC_LICENSE_KEY: "from newrelic"
+  NEW_RELIC_APP_NAME: "[project-name]-[branch-name]"
   ```
