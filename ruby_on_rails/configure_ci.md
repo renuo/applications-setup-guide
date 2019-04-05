@@ -21,10 +21,10 @@ Add two jobs to the configuration:
 * Setup Job
 
   ```sh
-  cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
-  git checkout -- .ruby-version && rbenv install
-  gem install bundler --no-document
-
+  mkdir -p $SEMAPHORE_CACHE_DIR/rbenv_versions && rm -rf ~/.rbenv/versions && ln -s $SEMAPHORE_CACHE_DIR/rbenv_versions ~/.rbenv/versions
+  git -C ~/.rbenv/plugins/ruby-build pull
+  git checkout -- .ruby-version
+  rbenv install --skip-existing && gem install bundler --no-document
   export RAILS_ENV=test
   export TZ=Europe/Zurich
   bundle install --without production development --deployment --jobs 3 --retry 3
