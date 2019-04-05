@@ -40,8 +40,6 @@
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
 
-**:warning: The sentry version gets outdated pretty fast so double check it. :warning:**
-
 ## Verify the installation
 
 ### Ruby
