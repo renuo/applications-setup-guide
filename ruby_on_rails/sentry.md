@@ -33,7 +33,7 @@
   end
   ```
 
-You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
+  You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
 
 * Set the variables in all three Heroku environments
 * Add a Sentry initializer in `config/initializers` folder. [sentry](../templates/config/initializers/sentry.rb)
