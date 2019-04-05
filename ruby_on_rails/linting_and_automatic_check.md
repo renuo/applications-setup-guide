@@ -86,7 +86,7 @@ yarn add eslint
 yarn eslint --init (Use a popular style guide -> Airbnb)
 ```
 
-then extend the `bin/check` script with: 
+then extend the `bin/check` script with:
 
 ```
 yarn eslint app/javascript
