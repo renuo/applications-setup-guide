@@ -28,7 +28,6 @@ Metrics/BlockLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
-
 RSpec/DescribeClass:
   Exclude:
     - 'spec/system/**/*'
