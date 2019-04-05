@@ -28,6 +28,10 @@ Metrics/BlockLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/system/**/*'
+
 RSpec/ExampleLength:
   Exclude:
     - 'spec/system/**/*'
@@ -45,3 +49,4 @@ AllCops:
     - 'tmp/**/*'
     - 'db/**/*'
     - 'vendor/**/*'
+    - 'node_modules/**/*'
