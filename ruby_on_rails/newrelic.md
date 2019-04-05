@@ -16,5 +16,4 @@ NewRelic is a service to monitor app performance.
 
   ```yml
   NEW_RELIC_LICENSE_KEY: "from newrelic"
-  NEW_RELIC_APP_NAME: "[project-name]-[branch-name]"
   ```
