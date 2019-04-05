@@ -36,7 +36,7 @@
   You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
 
 * Set the variables in all three Heroku environments
-* Add a Sentry initializer in `config/initializers` folder. [sentry](../templates/config/initializers/sentry.rb)
+* Add a Sentry initializer to your project [`config/initializers/sentry.rb`](../templates/config/initializers/sentry.rb).
 
 * Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
 
