@@ -83,7 +83,7 @@ end
 
 ```
 yarn add eslint
-eslint --init (Use a popular style guide -> Airbnb)
+yarn eslint --init (Use a popular style guide -> Airbnb)
 ```
 
 then extend the `bin/check` script with:
