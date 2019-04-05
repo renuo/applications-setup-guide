@@ -4,36 +4,34 @@
 
 * Go to https://www.sentry.io and login as the renuo monitor.
 
-* Create an entry for each Heroku app (`master`, `develop`, `testing`). Your applications on Sentry should follow the same naming convention as everywhere else.
+* Create a project for each environment (`master`, `develop`, `testing`). So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
 
-So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
-
-* Add the `master` to the #renuo team, `testing` and `develop` to the #no-notification team. We are interested to receive notifications only regarding the `master` environment, but to log errors also in other environments.
+* Add the `master` to the *#renuo* team, `testing` and `develop` to the *#no-notification* team. We are interested to receive notifications only regarding the `master` environment, but to log errors also in other environments.
 
 * Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note it.
 
-![sentry_dsn](../images/sentry.png)
+  ![sentry_dsn](../images/sentry.png)
 
 * Add sentry gem to the project:
 
-```ruby
-group :production do
-  gem 'sentry-raven'
-end
-```
+  ```ruby
+  group :production do
+    gem 'sentry-raven'
+  end
+  ```
 
 * Add `SENTRY_DSN` to `application.example.yml`
 * Add `CSP_REPORT_URI` to `application.example.yml`
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
 
-```ruby
-Rails.application.config.content_security_policy do |policy|
-  ...
-  policy.script_src  :self, :https, :unsafe_inline
-  ...
-  policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
-end
-```
+  ```ruby
+  Rails.application.config.content_security_policy do |policy|
+    ...
+    policy.script_src  :self, :https, :unsafe_inline
+    ...
+    policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
+  end
+  ```
 
 You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
 
@@ -48,9 +46,7 @@ You can find the correct value in `Sentry -> Project Settings -> Security Header
 
 ### Ruby
 
-For each Heroku app, connect to the `heroku run rails console --app [project-name]-[branch-name]`:
-
-Once connected, raise an exception and capture it using Sentry:
+For each Heroku app, connect to the `heroku run rails console --app [project-name]-[branch-name]` and raise an exception using Sentry:
 
 ```
 begin
