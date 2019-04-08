@@ -14,7 +14,7 @@ You will need Renuo-CLI to be set up and at the newest version:
 `gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
 
 1. Run the command `renuo setup-uptimerobot [url] [scope]`
-   * Where `url` is the address that you want to setup monitoring for
+   * Where `url` is the address you want to monitor. e.g. `https://[project-name]-master.renuoapp.ch/home/check` or `https://customdomain/home/check`
    * Where `scope` is the scope you want the application for.
      * This can either be "internal" for an internal renuo project (like _gifcoins_ or _redmine_)
      * Or "clients", where it refers to a client project (like _germann_ or _schuler_)
