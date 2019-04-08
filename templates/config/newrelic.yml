@@ -1,6 +1,6 @@
 production:
   license_key: <%= ENV['NEW_RELIC_LICENSE_KEY'] %>
-  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
+  app_name: <%= ENV['HEROKU_APP_NAME'] %>
   monitor_mode: true
   developer_mode: false
   log_level: info
