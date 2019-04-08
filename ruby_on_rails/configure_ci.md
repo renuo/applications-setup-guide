@@ -11,34 +11,38 @@ and the main branches already pushed and ready to be tested.
 You should already be part of the Renuo organisation but you may not have permissions to add a project to
 the organisation. That's not a problem, you can configure it anyway and ask wg-operations to transfer it to
 the organisation afterwards (you have 100 free builds)
-* Create a project here for the two branches `master` and `develop`: <https://semaphoreci.com/organizations/renuo/projects/new>
+* Create a project here for the branch `master`: <https://semaphoreci.com/organizations/renuo/projects/new>
+* Skip the automated project analysis and choose `JavaScript` as *Language* with the newest version available.
 
-## Rails specific setup
+## Rails specific configuration
 
-Check the `[LATEST_NODE_VERSION]` available on https://semaphoreci.com/docs/languages/javascript/javascript-support-on-semaphore.html.
+Add two jobs to the configuration:
 
-*Setup Job:*
+* Setup Job
 
-```
-git checkout -- .ruby-version
-export RAILS_ENV=test
-export TZ=Europe/Zurich
-bundle install --without production development --deployment --jobs 3 --retry 3
-nvm use [LATEST_NODE_VERSION]
-bin/yarn install
-cp config/application.example.yml config/application.yml
-bin/rails db:create db:schema:load
-```
+  ```sh
+  mkdir -p $SEMAPHORE_CACHE_DIR/rbenv_versions && rm -rf ~/.rbenv/versions && ln -s $SEMAPHORE_CACHE_DIR/rbenv_versions ~/.rbenv/versions
+  git -C ~/.rbenv/plugins/ruby-build pull
+  git checkout -- .ruby-version
+  rbenv install --skip-existing && gem install bundler --no-document
+  export RAILS_ENV=test
+  export TZ=Europe/Zurich
+  bundle install --without production development --deployment --jobs 3 --retry 3
+  bin/yarn install
+  cp config/application.example.yml config/application.yml
+  bin/rails db:create db:schema:load
+  ```
 
-*bin/check Job*
+* Tests Job
 
-```
-bin/check
-```
+  ```sh
+  bin/check
+  ```
 
-* Reconfigure until your build is green
-* Run the build for all your branches: `master`, `develop` and `testing`
-* Configure your project and in the "Branches" section select:
+Make sure that the build is green before you proceed. Then setup the `develop` by clicking the very hidden plus sign
+right above the now running `master` build.
+
+Afterwards, configure your project and select in the *Branches* section:
   * Cancel queued and started builds
   * Priority branches: master, develop, testing (one per line)
 
