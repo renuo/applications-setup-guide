@@ -40,7 +40,7 @@ Once the new application is created, please add the project to the
 [monitoring list](https://docs.google.com/spreadsheets/d/1FY4jqByO-aI5sDan0hD7ULu6a2-eLsmO6kgdCFlPmuY/edit#gid=0)
 and discuss with the PO how the service should be configured.
 
-1. [Uptime](uptime.md)
+1. [Uptimerobot](uptimerobot.md)
 1. Depending on the monitoring list, also [Sentry notifications](sentry.md) need to be configured.
 1. [Depfu security monitoring](depfu.md)
 1. Depending on the monitoring list, also [Papertrail alerts](papertrail.md) need to be configured.
