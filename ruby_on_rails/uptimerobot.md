@@ -13,7 +13,7 @@ dyno.
 You will need Renuo-CLI to be set up and at the newest version:
 `gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
 
-1. Run the command `renuo-cli setup-uptimerobot [url] [scope]`
+1. Run the command `renuo setup-uptimerobot [url] [scope]`
    * Where `url` is the address that you want to setup monitoring for
    * Where `scope` is the scope you want the application for.
      * This can either be "internal" for an internal renuo project (like _gifcoins_ or _redmine_)
@@ -29,5 +29,5 @@ The command will setup the project in a paused state. You can start it once your
 
 ## Examples
 
-* `renuo-cli setup-uptimerobot https://germann.ch clients`
-* `renuo-cli setup-uptimerobot https://redmine.ch internal`
+* `renuo setup-uptimerobot https://germann.ch clients`
+* `renuo setup-uptimerobot https://redmine.ch internal`
