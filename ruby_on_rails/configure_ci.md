@@ -36,7 +36,7 @@ Add two jobs to the configuration:
 * Tests Job
 
   ```sh
-  bin/check
+  if [ $BRANCH_NAME != "testing" ]; then bin/check; else echo "tests skipped"; fi
   ```
 
 Make sure that the build is green before you proceed. Then setup the `develop` by clicking the very hidden plus sign
