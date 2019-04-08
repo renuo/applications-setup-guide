@@ -17,7 +17,7 @@ You will need Renuo-CLI to be set up and at the newest version:
    * Where `url` is the address that you want to setup monitoring for
    * Where `scope` is the scope you want the application for.
      * This can either be "internal" for an internal renuo project (like _gifcoins_ or _redmine_)
-     * Or "clients", where it refers to a client project(like _germann_ or _schuler_)
+     * Or "clients", where it refers to a client project (like _germann_ or _schuler_)
 
    This is used for the mail-addresses and slack channels that get contacted if the website of your project goes down.
 1. The app will ask for the `api-key` for uptimerobot. It can be found at the companies' password manager.
