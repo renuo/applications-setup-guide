@@ -18,6 +18,7 @@ Add them with:
 and configure them in `environment.js`:
 
 ```js
+const webpack = require('webpack')
 environment.plugins.append('Provide', new webpack.ProvidePlugin({
   $: 'jquery',
   jQuery: 'jquery',
