@@ -13,13 +13,9 @@ dyno.
 You will need Renuo-CLI to be set up and at the newest version:
 `gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
 
-1. Run the command `renuo setup-uptimerobot [url] [scope]`
+1. Run the command `renuo setup-uptimerobot [url]`
    * Where `url` is the address you want to monitor. e.g. `https://[project-name]-master.renuoapp.ch/home/check` or `https://customdomain/home/check`
-   * Where `scope` is the scope you want the application for.
-     * This can either be "internal" for an internal renuo project (like _gifcoins_ or _redmine_)
-     * Or "clients", where it refers to a client project (like _germann_ or _schuler_)
 
-   This is used for the mail-addresses and slack channels that get contacted if the website of your project goes down.
 1. The app will ask for the `api-key` for uptimerobot. It can be found at the companies' password manager.
     Paste it and press enter to continue.
 
@@ -29,5 +25,4 @@ The command will setup the project in a paused state. You can start it once your
 
 ## Examples
 
-* `renuo setup-uptimerobot https://germann.ch clients`
-* `renuo setup-uptimerobot https://redmine.ch internal`
+* `renuo setup-uptimerobot https://germann.ch/home/check`
