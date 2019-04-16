@@ -11,7 +11,7 @@ NewRelic is a service to monitor app performance.
   ```
 
 * Add a NewRelic configuration file [`config/newrelic.yml`](../templates/config/newrelic.yml) folder.
-  (**Note:** If are not using Heroku, adjust the app name to something else than `HEROKU_APP_NAME`)
+  (**Note:** If you are not using Heroku, adjust the app name to something else than `HEROKU_APP_NAME`)
 
 * Add the new variables to your Heroku environments and `config/application.yml`:
 
