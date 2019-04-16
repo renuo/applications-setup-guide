@@ -10,7 +10,9 @@ If it is set then a custom middleware catches calls to `/robots.txt`
 Add the following gem:
 
 ```ruby
-gem 'norobots'
+group :production do
+  gem 'norobots'
+end
 ```
 
 Add the variable `BLOCK_ROBOTS=true` in your develop and testing environments on Heroku:
