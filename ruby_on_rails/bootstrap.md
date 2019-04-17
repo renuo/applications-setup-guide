@@ -26,7 +26,9 @@ environment.plugins.append('Provide', new webpack.ProvidePlugin({
 }));
 ```
 
-finally, import bootstrap library in `application.js` with
+Change `extract_css: false` to `extract_css: true` in `config/webpacker.yml`
+
+and finally, import bootstrap library in `application.js` with
 
 ```js
 import 'bootstrap/dist/js/bootstrap';
