@@ -26,6 +26,7 @@ Style/NonNilCheck:
 Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
+  - 'config/environments/**/*.rb'
 
 RSpec/MultipleExpectations:
   Enabled: false
