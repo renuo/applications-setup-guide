@@ -31,10 +31,11 @@ Metrics/BlockLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
-RSpec/DescribeClass:
+RSpec/DescribedClass:
   Exclude:
     - 'spec/system/**/*'
     - 'spec/views/**/*'
+  SkipBlocks: true
 
 RSpec/ExampleLength:
   Exclude:
