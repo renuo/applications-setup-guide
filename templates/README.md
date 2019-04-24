@@ -51,4 +51,4 @@ special stuff
 
 ## Copyright
 
-Coypright 2019 [Renuo AG](https://www.renuo.ch/).
+Copyright 2019 [Renuo AG](https://www.renuo.ch/).
