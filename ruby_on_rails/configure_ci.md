@@ -13,6 +13,8 @@ the organisation. That's not a problem, you can configure it anyway and ask wg-o
 the organisation afterwards (you have 100 free builds)
 * Create a project here for the branch `master`: <https://semaphoreci.com/organizations/renuo/projects/new>
 * Skip the automated project analysis and choose `JavaScript` as *Language* with the newest version available.
+* Add the Renuo team to the collaborators, so that everyone can see the build statuses on SemaphoreCI.
+![image](../images/semaphoreci_team.png)
 
 ## Rails specific configuration
 
