@@ -51,16 +51,6 @@ group :development, :test do
 end
 ```
 
-## Reek
-
-```ruby
-group :development, :test do
-  gem 'reek', require: false
-end
-```
-
-Use the [provided reek configuration](../templates/.reek.yml) by adding a `.reek.yml` file in the root of the project.
-
 ## SCSS lint
 
 To lint the SASS/SCSS files in our project we are going to use the `sass-lint` npm package.
