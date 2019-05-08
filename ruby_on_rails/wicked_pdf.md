@@ -21,3 +21,12 @@ render pdf: <<filename>>, print_media_type: true, layout: 'pdf', disposition: 'a
 ```
 
 :warning: Consider using a job-runner to not block the server during creation of PDFs.
+
+## Heroku
+
+Ensure that fonts are installed on Heroku, otherwise the PDF will look different compared to the one generated locally. The fonts need to be installed with a buildpack and put in the `~/.fonts` folder.
+If you need Arial, you can add the following buildpack on Heroku:
+
+`https://github.com/propertybase/heroku-buildpack-fonts`
+
+:warning: Make sure you add this as a first buildpack before `heroku/ruby`!
