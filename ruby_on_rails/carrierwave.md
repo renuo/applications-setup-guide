@@ -57,6 +57,20 @@ module UploaderBasepath
 end
 ```
 
+And also we want to clear the folder after the tests run in a `spec/support/carrierwave.rb`
+
+```rb
+# frozen_string_literal: true
+
+uploads_test_path = Rails.root.join('public', 'tmp')
+
+RSpec.configure do |config|
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir[uploads_test_path])
+  end
+end
+```
+
 6. The `SecurelyUploadable` makes sure, that your path is not guessable:
 
 ```rb
