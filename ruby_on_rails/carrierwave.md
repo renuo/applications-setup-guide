@@ -5,6 +5,7 @@ Carrierwave is used to upload files to S3.
 1. Add `gem 'carrierwave'` and `gem 'fog-aws'`
 2. In `environment.rb` add `require 'carrierwave/orm/activerecord'`
 3. Add to your `application.example.yml`:
+
 ```
 #CARRIERWAVE_SALT: 'rake secret'
 #S3_ACCESS_KEY_ID: ''
@@ -12,7 +13,9 @@ Carrierwave is used to upload files to S3.
 #S3_BUCKET_NAME: ''
 #S3_SECRET_ACCESS_KEY: ''
 ```
+
 4. Add `initializers/carrierwave.rb`
+
 ```rb
 CarrierWave.configure do |config|
   if Rails.env.test?
@@ -35,9 +38,11 @@ CarrierWave.configure do |config|
     config.storage = :file
   end
 end
-``
-5. The `UploaderBasepath` is used, so we don't polute the `public/uploader` folder in tests. Therefore you have to add this:
 ```
+
+5. The `UploaderBasepath` is used, so we don't polute the `public/uploader` folder in tests. Therefore you have to add this:
+
+```rb
 module UploaderBasepath
   extend ActiveSupport::Concern
 
@@ -73,7 +78,9 @@ module SecurelyUploadable
   end
 end
 ```
+
 7. Implement an uploader e.g.
+
 ```rb
 class PictureUploader < CarrierWave::Uploader::Base
   include SecurelyUploadable
