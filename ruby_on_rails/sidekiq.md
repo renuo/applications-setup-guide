@@ -50,7 +50,6 @@ you may need to limit your concurrency to not exceed the connection limit.
 
 * on Heroku you need to:
   * Add the Heroku [Redis addon](https://elements.heroku.com/addons/heroku-redis)
-  * Add env variable `REDIS_PROVIDER` = `REDIS_URL`
   * And to start it turn on the worker
 
 * to run it locally you need to:
