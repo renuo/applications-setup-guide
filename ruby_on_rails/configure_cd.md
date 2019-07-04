@@ -8,29 +8,16 @@ Semaphore.
 
 * Heroku API key of `admin@renuo.ch` (*wg-operations* can help with that)
 
-## Setup `master` and `develop`
+## Setup `master`, `develop` and `testing`
 
-Add two servers (very tiny plus button) and name them `[project-name]-master`
-and `[project-name]-develop`.
+Add three servers (very tiny plus button) and name them `master`
+and `develop` and `testing`.
 
 Then edit the deploy commands to be the following:
 
 ```shell
 git push --force heroku $BRANCH_NAME:master
 ```
-
-## Setup `testing`
-
-Add another server called `[project-name]-testing` and edit its deploy
-commands to be the following.
-
-```shell
-git push --force heroku $BRANCH_NAME:master
-heroku pg:reset DATABASE_URL --confirm one11-testing
-heroku run -x "rails db:schema:load db:seed"
-```
-
-This setup differs in that we reset the database with each deployment.
 
 ## Conclusion
 
