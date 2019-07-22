@@ -11,6 +11,7 @@ Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the fi
 group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end
 ```
