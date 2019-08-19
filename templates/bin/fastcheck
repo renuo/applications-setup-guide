@@ -19,8 +19,6 @@ bundle exec scss-lint `find app/assets/stylesheets/ -name "*.scss"`
 # new SASS linter
 yarn sass-lint -v --no-exit app/javascripts/**.*.scss
 
-bundle exec slim-lint app/views/ -c .slim-lint.yml
-
 # for typescript
 tslint -c tslint.json app/javascripts/**/*.ts
 
