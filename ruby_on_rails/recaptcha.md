@@ -8,7 +8,7 @@ Before you start, consider checking which page you would like to protect against
 
 ### Site registration
 
-After you've decided, you can go to the [reCAPTCHA admin panel](www.google.com/recaptcha/admin) and register a new site. Make sure you're using the Renuo admin account.
+After you've decided, you can go to the [reCAPTCHA admin panel](https://www.google.com/recaptcha/admin) and register a new site. Make sure you're using the Renuo admin account.
 
 To register the site, you can follow these steps:
 1. Use `[project-name]` as a label for the site.
