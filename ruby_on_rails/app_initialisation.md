@@ -109,7 +109,7 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 
   ```ruby
   config.force_ssl = true # uncomment
-  config.log_level = :warn # change
+  config.log_level = ENV['RAILS_LOG_LEVEL']&.to_sym || :warn # change
   ```
 
 * Update `config/environments/test.rb` settings:
