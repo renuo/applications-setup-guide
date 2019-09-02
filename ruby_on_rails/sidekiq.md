@@ -42,7 +42,7 @@ Note: if you are on the free Redis plan
 you may need to limit your concurrency to not exceed the connection limit.
 
 ```yml
-:concurrency: 3
+:concurrency: <%= ENV["SIDEKIQ_CONCURRENCY"] || 5 %>
 :queues:
  - [mailers, 1]
  - [default, 1]
