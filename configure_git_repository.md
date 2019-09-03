@@ -7,6 +7,7 @@ Please stick to it unless you have special needs.
   * Features: Remove *Wikis*, *Issues* and *Projects*
   * Data services: Enable *Dependency graph* and *Vulnerability alerts*
   * ~Merge button: Disable *Merge commits*~
+  * Merge button: Automatically delete head branches
 * Collaborators & teams
   * Add Renuo team as a collaborator with Admin access
   * Add Security team as collaborator with Write access
