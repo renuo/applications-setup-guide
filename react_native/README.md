@@ -1,5 +1,7 @@
 # React Native
 
+Old guide: <https://docs.google.com/document/d/13figkCUjysQCC1XoRNznp4PMMY-lG4ieLlINY-C9MRk>
+
 ## Release
 
 ### iOS
