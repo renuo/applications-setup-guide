@@ -39,13 +39,15 @@ We want you to know exactly the reason behind each single step of this guide.
 
 Thank you for your work and have fun! :tada:
 
-## General
+## Guides
+
+### General
 
 * [GitFlow](gitflow.md)
 * [Go Live! :tada:](go_live.md)
 * [Naming conventions](naming_conventions.md)
 
-## Frameworks, languages and services
+### Frameworks, languages and services
 
 * [Angular](angular/README.md)
 * [Frontend apps (JS)](js/README.md)
