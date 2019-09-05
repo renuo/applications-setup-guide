@@ -17,7 +17,7 @@
 
 ### Android
 
-Prepare your repo like in this commit: <https://github.com/renuo/citymessenger/pull/182/commits/a4a5c430aa0d81416b098683b904dc3dbca35b2e>
+Prepare your repo like in this commit: <https://github.com/renuo/citymessenger/pull/182/commits/5b7bdc7d2137ffd885ed8fa8f56be1aa3ee550e2>
 
 Prepare three new passwords and add them to *1password*:
 
