@@ -39,23 +39,22 @@ We want you to know exactly the reason behind each single step of this guide.
 
 Thank you for your work and have fun! :tada:
 
-## Sections
+## Guides
 
-1. [GitFlow](gitflow.md)
+### General
 
-2. [Naming conventions](naming_conventions.md)
+* [GitFlow](gitflow.md)
+* [Go Live! :tada:](go_live.md)
+* [Naming conventions](naming_conventions.md)
 
-### [Ruby On Rails 5.2](ruby_on_rails/README.md)
+### Frameworks, languages and services
 
-### [Ruby On Rails API Only](ruby_on_rails_api/README.md)
-
-### [Angular](angular/README.md)
-
-### [Frontend apps (JS)](js/README.md)
-
-### [Google APIs](google_apis.md)
-
-### [Go Live! :tada:](go_live.md)
+* [Angular](angular/README.md)
+* [Frontend apps (JS)](js/README.md)
+* [Google APIs](google_apis.md)
+* [React Native](react_native/README.md)
+* **[Ruby On Rails 5.2](ruby_on_rails/README.md)**
+* [Ruby On Rails API Only](ruby_on_rails_api/README.md)
 
 ## License
 
