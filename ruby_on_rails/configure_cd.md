@@ -14,7 +14,7 @@ Semaphore.
 and `develop` and `testing`.
 * Select Heroku
 * Choose automatic deployment
-* Enter Heroku API key of `admin@renuo.ch` 
+* Enter Heroku API key of `admin@renuo.ch`
 * Select your application
 * Change server name to your branch
 * Enter the server URL `https://projectname-branch.renuoapp.ch`
