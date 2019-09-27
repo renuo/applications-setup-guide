@@ -10,10 +10,16 @@ Semaphore.
 
 ## Setup `master`, `develop` and `testing`
 
-Add three servers (very tiny plus button) and name them `master`
+* Add three servers (very tiny plus button) and name them `master`
 and `develop` and `testing`.
+* Select Heroku
+* Choose automatic deployment
+* Enter Heroku API key of `admin@renuo.ch`
+* Select your application
+* Change server name to your branch
+* Enter the server URL `https://projectname-branch.renuoapp.ch`
 
-Then edit the deploy commands to be the following:
+Then make sure the deploy commands equals the following:
 
 ```shell
 git push --force heroku $BRANCH_NAME:master
