@@ -3,8 +3,8 @@
 Carrierwave is used to upload files to S3.
 
 1. Add `gem 'carrierwave'` and `gem 'fog-aws'`
-2. In `environment.rb` add `require 'carrierwave/orm/activerecord'`
-3. Add to your `application.example.yml`:
+1. In `environment.rb` add `require 'carrierwave/orm/activerecord'`
+1. Add to your `application.example.yml`:
 
 ```
 #CARRIERWAVE_SALT: 'rake secret'
@@ -98,5 +98,121 @@ end
 ```rb
 class PictureUploader < CarrierWave::Uploader::Base
   include SecurelyUploadable
+
+  # add different sizes like that:
+  # version :preview do
+  #   process resize_to_fill: [100, 100]
+  # end
 end
 ```
+
+8. We recommend to not run the image processing for all kind of specs, since it's slow. Therefore the initializer sets it to `false`. But for system specs we want to enable it.
+
+* seeds_spec.rb: Not really relevant, but also often a system spec
+
+```rb
+  around do |example|
+    described_class.enable_processing = false
+    example.run
+    described_class.enable_processing = true
+  end
+```
+
+* all specs except `system` specs: 
+
+```rb
+config.before(:all, type: :system) do
+  PictureUploader.enable_processing = true
+end
+
+
+config.after(:all, type: :system) do
+  PictureUploader.enable_processing = false
+end
+```
+
+## Some further use cases
+
+### One image per model
+
+This case is well documented in the [carrierwave docs](https://github.com/carrierwaveuploader/carrierwave)
+
+### Multiple images per model
+
+1. Add a model with the image instance:
+
+```rb
+class YourModelPicture < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+  belongs_to :your_model, inverse_of: :your_model_pictures
+
+end
+```
+
+2. Let the model accept nested attributes:
+
+```rb
+class YourModel < ApplicationRecord
+  has_many :your_model_pictures, inverse_of: :your_model, dependent: :destroy
+  accepts_nested_attributes_for :your_model_pictures, allow_destroy: true
+
+  # use a short cut so you don't have to call ``your_model.your_model_pictures.first.picture` every time
+  def pictures
+    your_model_pictures.map(&:picture)
+  end
+```
+
+3. Your controller wants to accept new files but also mark some as deleted in the same view:
+
+```rb
+params.require(:your_model).permit(*permitted_params).tap do |permitted_params|
+  permitted_params[:your_model_pictures_attributes] = merged_picture_attributes(permitted_params)
+end
+
+def merged_picture_attributes(permitted_your_model_params)
+  new_pictures = params.dig(:your_model, :new_your_model_pictures_attributes)
+  existing_pictures = permitted_your_model_params[:your_model_pictures_attributes] || {}
+  return existing_pictures if new_pictures.nil?
+
+  existing_pictures.values.push(*new_pictures.map(&:permit!))
+end
+```
+
+4. And a simple form looks then like that:
+
+```rb
+= form.file_field nil, name: 'your_model[your_model_pictures_attributes][][picture]', multiple: true
+- if your_model.your_model_pictures.any?
+  ul
+    = form.simple_fields_for :your_model_pictures do |picture|
+      - pic = picture.object
+      li
+        = picture.input :id, as: :hidden, input_html: { value: pic.id }, wrapper: false
+        = image_tag pic.picture.url(:thumb)
+        = picture.input :_destroy, as: :boolean, label: t('buttons.destroy')
+```
+
+
+### Store height and with (useful for galleries, where you need to know the size)
+
+1. Add `gem 'mini_magick'` if you plan to resize images (quite always needed)
+1. Extend your uploader:
+
+```
+class PictureUploader < CarrierWave::Uploader::Base
+  ...
+  include CarrierWave::MiniMagick
+  ...
+
+  process :store_dimensions
+
+  ...
+
+  private
+
+  def store_dimensions
+    model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions] if file && model
+  end
+end
+```
+
