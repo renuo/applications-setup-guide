@@ -118,7 +118,7 @@ end
   end
 ```
 
-* all specs except `system` specs: 
+* all specs except `system` specs:
 
 ```rb
 config.before(:all, type: :system) do
@@ -192,7 +192,6 @@ end
         = picture.input :_destroy, as: :boolean, label: t('buttons.destroy')
 ```
 
-
 ### Store height and with (useful for galleries, where you need to know the size)
 
 1. Add `gem 'mini_magick'` if you plan to resize images (quite always needed)
@@ -215,4 +214,3 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 end
 ```
-
