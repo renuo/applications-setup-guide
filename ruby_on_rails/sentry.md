@@ -1,16 +1,22 @@
 # Sentry
 
-## Setup Monitoring Services
+## General configuration
 
-* Go to https://www.sentry.io and login as the renuo monitor.
+* Go to https://www.sentry.io and login as the renuo monitor user.
 
-* Create a project for each environment (`master`, `develop`, `testing`). So: `[project-name]-master`, `[project-name]-develop`, `[project-name]-testing`
+* Create a project named `[project-name]`.
 
-* Add the `master` to the *#renuo* team, `testing` and `develop` to the *#no-notification* team. We are interested to receive notifications only regarding the `master` environment, but to log errors also in other environments.
+* Add the project to the *#renuo* team if the client pays for monitoring, to the `#no-notifications` otherwise.
 
-* Once you have created an entry, you will see the `dsn key` which you'll need in your config variables on Heroku. Note it.
+* Note the DSN key.
 
   ![sentry_dsn](../images/sentry.png)
+
+* Add the `SENTRY_DSN` value to the password manager.
+* Set the Heroku environment variables.
+You can use `renuo configure-sentry project-name SENTRY_DSN` to generate the commands for you.
+
+## Backend (Rails)
 
 * Add sentry gem to the project:
 
@@ -20,8 +26,9 @@
   end
   ```
 
-* Add `SENTRY_DSN` to `application.example.yml`
-* Add `CSP_REPORT_URI` to `application.example.yml`
+* Add `# SENTRY_DSN: 'find_me_on_password_manager'` to `application.example.yml`
+* Add `# SENTRY_ENVIRONMENT: 'local'` to `application.example.yml`
+* Add `# CSP_REPORT_URI` to `application.example.yml`
 * Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
 
   ```ruby
@@ -35,10 +42,11 @@
 
   You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
 
-* Set the variables in all three Heroku environments
-* Add a Sentry initializer to your project [`config/initializers/sentry.rb`](../templates/config/initializers/sentry.rb).
+## Frontend (Javascript)
 
-* Enable Sentry also on the frontend (javascript) by including [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
+* Install the npm package: `yarn add @sentry/browser`
+* Include [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
+* Include [sentry.js](../templates/app/javascript/packs/sentry.js) in your packs.
 
 ## Verify the installation
 
@@ -54,7 +62,7 @@ rescue ZeroDivisionError => exception
 end
 ```
 
-On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find the exception of the ZeroDivisionError.
+On `https://sentry.io/renuo/[project-name]` you should find the exception of the ZeroDivisionError.
 
 ### Javascript
 
@@ -68,4 +76,4 @@ try {
 }
 ```
 
-On `https://sentry.io/renuo/[project-name]-[branch-name]` you should find "Uncaught Error: test raven js".
+On `https://sentry.io/renuo/[project-name]` you should find "Uncaught Error: test raven js".
