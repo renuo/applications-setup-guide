@@ -61,7 +61,7 @@ And also we want to clear the folder after the tests run in a `spec/support/carr
 ```rb
 # frozen_string_literal: true
 
-uploads_test_path = Rails.root.join('public', 'tmp')
+uploads_test_path = Rails.root.join('public', 'tmp', 'uploads')
 
 RSpec.configure do |config|
   config.after(:suite) do
