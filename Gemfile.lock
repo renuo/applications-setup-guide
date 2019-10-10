@@ -7,9 +7,9 @@ GEM
       mixlib-cli (~> 1.7, >= 1.7.0)
       mixlib-config (~> 2.2, >= 2.2.1)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.13)
+    mixlib-config (2.2.18)
       tomlrb
-    tomlrb (1.2.7)
+    tomlrb (1.2.8)
 
 PLATFORMS
   ruby
