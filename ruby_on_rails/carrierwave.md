@@ -50,8 +50,7 @@ module UploaderBasepath
     private
 
     def base_path_helper
-      return "tmp/uploads" if Rails.env.test?
-      'uploads'
+      Rails.env.test? ? 'tmp/uploads' : 'uploads'
     end
   end
 end
@@ -79,11 +78,20 @@ module SecurelyUploadable
   include UploaderBasepath
 
   included do
+    def filename
+      "#{time_token}.#{file.extension}" if original_filename.present?
+    end
+
     def store_dir
-      "#{base_path_helper}/#{model.class.to_s.underscore}/#{mounted_as}/#{unguessable_id}"
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{unguessable_id}"
     end
 
     private
+
+    def time_token
+      var = :"@#{mounted_as}_time_token"
+      model.instance_variable_get(var) || model.instance_variable_set(var, (Time.now.to_f * 1000).to_i)
+    end
 
     def unguessable_id
       secret = [ENV['CARRIERWAVE_SALT'], model.id].join('/')
@@ -111,11 +119,11 @@ end
 * seeds_spec.rb: Not really relevant, but also often a system spec
 
 ```rb
-  around do |example|
-    described_class.enable_processing = false
-    example.run
-    described_class.enable_processing = true
-  end
+around do |example|
+  described_class.enable_processing = false
+  example.run
+  described_class.enable_processing = true
+end
 ```
 
 * all specs except `system` specs:
@@ -139,52 +147,59 @@ This case is well documented in the [carrierwave docs](https://github.com/carrie
 
 ### Multiple images per model
 
+This example will have a model `User` with multiple `Picture`s
+
 1. Add a model with the image instance:
 
 ```rb
-class YourModelPicture < ApplicationRecord
+class UserPicture < ApplicationRecord
   mount_uploader :picture, PictureUploader
-  belongs_to :your_model, inverse_of: :your_model_pictures
-
+  belongs_to :user, inverse_of: :user_pictures
 end
 ```
 
-2. Let the model accept nested attributes:
+1. Let the model accept nested attributes:
 
 ```rb
-class YourModel < ApplicationRecord
-  has_many :your_model_pictures, inverse_of: :your_model, dependent: :destroy
-  accepts_nested_attributes_for :your_model_pictures, allow_destroy: true
+class User < ApplicationRecord
+  has_many :user_pictures, inverse_of: :user, dependent: :destroy
+  accepts_nested_attributes_for :user_pictures, allow_destroy: true
+end
+```
 
-  # use a short cut so you don't have to call ``your_model.your_model_pictures.first.picture` every time
+1. Simplify access to the pictures in `User`
+
+```rb
+class User < ApplicationRecord
   def pictures
-    your_model_pictures.map(&:picture)
+    user_pictures.map(&:picture)
   end
+end
 ```
 
-3. Your controller wants to accept new files but also mark some as deleted in the same view:
+1. Your controller wants to accept new files but also mark some as deleted in the same view:
 
 ```rb
-params.require(:your_model).permit(*permitted_params).tap do |permitted_params|
-  permitted_params[:your_model_pictures_attributes] = merged_picture_attributes(permitted_params)
+params.require(:user).permit(*permitted_params).tap do |permitted_params|
+  permitted_params[:user_pictures_attributes] = merged_picture_attributes(permitted_params)
 end
 
-def merged_picture_attributes(permitted_your_model_params)
-  new_pictures = params.dig(:your_model, :new_your_model_pictures_attributes)
-  existing_pictures = permitted_your_model_params[:your_model_pictures_attributes] || {}
+def merged_picture_attributes(permitted_user_params)
+  new_pictures = params.dig(:user, :new_user_pictures_attributes)
+  existing_pictures = permitted_user_params[:user_pictures_attributes] || {}
   return existing_pictures if new_pictures.nil?
 
   existing_pictures.values.push(*new_pictures.map(&:permit!))
 end
 ```
 
-4. And a simple form looks then like that:
+1. And a simple form looks then like that:
 
 ```rb
-= form.file_field nil, name: 'your_model[your_model_pictures_attributes][][picture]', multiple: true
-- if your_model.your_model_pictures.any?
+= form.file_field nil, name: 'user[user_pictures_attributes][][picture]', multiple: true
+- if user.user_pictures.any?
   ul
-    = form.simple_fields_for :your_model_pictures do |picture|
+    = form.simple_fields_for :user_pictures do |picture|
       - pic = picture.object
       li
         = picture.input :id, as: :hidden, input_html: { value: pic.id }, wrapper: false
