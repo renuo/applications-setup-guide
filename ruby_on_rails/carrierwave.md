@@ -50,7 +50,7 @@ module UploaderBasepath
     private
 
     def base_path_helper
-      Rails.env.test? ? 'tmp/uploads' : 'uploads'
+      Rails.env.test? ? 'uploads/tmp' : 'uploads'
     end
   end
 end
@@ -61,7 +61,7 @@ And also we want to clear the folder after the tests run in a `spec/support/carr
 ```rb
 # frozen_string_literal: true
 
-uploads_test_path = Rails.root.join('public', 'tmp', 'uploads')
+uploads_test_path = Rails.root.join('public', 'uploads', 'tmp')
 
 RSpec.configure do |config|
   config.after(:suite) do
