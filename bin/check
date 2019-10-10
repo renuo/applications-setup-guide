@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! bundle exec mdl _0.5_ .
+if ! bundle exec mdl .
 then
   echo 'Violated Markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
   exit 1
