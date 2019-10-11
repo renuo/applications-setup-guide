@@ -45,13 +45,18 @@ end
 ```rb
 module UploaderBasepath
   extend ActiveSupport::Concern
+  TEST_UPLOAD_PATH = 'uploads/tmp'
 
   included do
     private
 
+    # :nocov:
     def base_path_helper
-      Rails.env.test? ? 'uploads/tmp' : 'uploads'
+      return TEST_UPLOAD_PATH if Rails.env.test?
+
+      'uploads'
     end
+    # :nocov:
   end
 end
 ```
@@ -59,15 +64,12 @@ end
 And also we want to clear the folder after the tests run in a `spec/support/carrierwave.rb`
 
 ```rb
-# frozen_string_literal: true
-
-uploads_test_path = Rails.root.join('public', 'uploads', 'tmp')
-
 RSpec.configure do |config|
   config.after(:suite) do
-    FileUtils.rm_rf(Dir[uploads_test_path])
+    FileUtils.rm_rf(Dir[Rails.root.join('public', UploaderBasepath::TEST_UPLOAD_PATH)])
   end
 end
+
 ```
 
 6. The `SecurelyUploadable` makes sure, that your path is not guessable:
@@ -114,28 +116,15 @@ class PictureUploader < CarrierWave::Uploader::Base
 end
 ```
 
-8. We recommend to not run the image processing for all kind of specs, since it's slow. Therefore the initializer sets it to `false`. But for system specs we want to enable it.
+8. We recommend to use image processing only when needed, since it's slow. Therefore the initializer sets it to `false`. But for `system`-specs we want to enable it, so we see how it would look like (also if used with snapshot comparison tools):
 
-* seeds_spec.rb: Not really relevant, but also often a system spec
+* enable it for `system` specs:
 
 ```rb
-around do |example|
-  described_class.enable_processing = false
+config.around(type: :system) do |example|
+  CarrierWave.configure { |c| c.enable_processing = true }
   example.run
-  described_class.enable_processing = true
-end
-```
-
-* all specs except `system` specs:
-
-```rb
-config.before(:all, type: :system) do
-  PictureUploader.enable_processing = true
-end
-
-
-config.after(:all, type: :system) do
-  PictureUploader.enable_processing = false
+  CarrierWave.configure { |c| c.enable_processing = false }
 end
 ```
 
