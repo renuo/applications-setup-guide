@@ -58,6 +58,7 @@ useful services:
 1. [Sidekiq](sidekiq.md)
 1. [Cucumber](cucumber.md)
 1. [Amazon S3 and Cloudfront](aws.md)
+1. [Carrierwave Upload](carrierwave.md)
 1. awesome_print `gem 'awesome_print'`
 1. [bootstrap](bootstrap.md)
 1. devise `gem 'devise'`
