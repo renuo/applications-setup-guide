@@ -12,7 +12,6 @@
 
   ![sentry_dsn](../images/sentry.png)
 
-* Add the `SENTRY_DSN` value to the password manager.
 * Set the Heroku environment variables.
 You can use `renuo configure-sentry project-name SENTRY_DSN` to generate the commands for you.
 
