@@ -1,7 +1,7 @@
-<% if Rails.env.production? %>
-  <%= javascript_include_tag 'https://cdn.renuo.ch/raven.min.js', crossorigin: 'anonymous' %>
-  <%= javascript_include_tag 'https://cdn.renuo.ch/raven-ignore.min.js', crossorigin: 'anonymous' %>
-  <script type="text/javascript">
-    Raven.config('<%= ENV['SENTRY_DSN']%>', RenuoSentryList).install();
+<% if defined?(Sentry) %>
+  <script type="application/javascript">
+    window.sentryConfig = {dsn: '<%= ENV['SENTRY_DSN']%>', environment: '<%= ENV['SENTRY_ENVIRONMENT']%>'};
   </script>
+  <%= javascript_include_tag 'https://cdn.renuo.ch/sentry-ignore.min.js', crossorigin: 'anonymous' %>
+  <%= javascript_pack_tag 'sentry' %>
 <% end %>
