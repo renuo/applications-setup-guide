@@ -1,10 +1,8 @@
 require:
+  - rubocop-faker
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
-
-Rails:
-  Enabled: true
 
 Rails/SkipsModelValidations:
   Exclude:
