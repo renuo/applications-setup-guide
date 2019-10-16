@@ -23,8 +23,6 @@ Please stick to it unless you have special needs.
     * Reference prefix: `TICKET-`
     * Target URL: `https://redmine.renuo.ch/issues/<num>`
 
-    
-
 ## Responsibility Tag
 
 Some Renuo Projects have a "Responsibility Tag". Thanks to this tag we can:
