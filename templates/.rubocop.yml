@@ -3,9 +3,6 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
-Rails:
-  Enabled: true
-
 Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
