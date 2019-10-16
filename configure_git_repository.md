@@ -18,6 +18,12 @@ Please stick to it unless you have special needs.
     * Require branches to be up to date before merging
 * Alerts
   * Add team `renuo/security`
+* Autolink references
+  * Add a new Autolink reference with:
+    * Reference prefix: `TICKET-`
+    * Target URL: `https://redmine.renuo.ch/issues/<num>`
+
+    
 
 ## Responsibility Tag
 
