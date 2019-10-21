@@ -26,6 +26,9 @@ Metrics/BlockLength:
   - 'spec/**/*.rb'
   - 'config/environments/**/*.rb'
 
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 RSpec/MultipleExpectations:
   Enabled: false
 
