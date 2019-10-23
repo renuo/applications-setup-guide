@@ -1,5 +1,11 @@
 # Papertrail
 
+
+## Setup Usage Notifications
+
+* Remove admin@renuo.ch from the recipients of the Usage Notifications and add operations@renuo.ch.
+
+
 ## Setup Alerts
 
 * Go to https://dashboard.heroku.com/apps and login with you Renuo account
@@ -51,4 +57,3 @@ After you saw the message that the search was saved successfully, you can click 
 This is what the final config should look like:
 
 ![papertrail finished config](../images/papertrail_finished_config.png)
-
