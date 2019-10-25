@@ -24,11 +24,11 @@ promotions:
       when: "result = 'passed' and branch = 'testing'"
 ```
 
-* Add the three files called `develop-deploy.yml`, `master-deploy.yml` and `testing-deploy.yml` to the 
-`.semaphore` folder. You can look them up in the [templates](templates/.semaphore) folder. Make sure to replace [project-name]
+* Add the three files called `develop-deploy.yml`, `master-deploy.yml` and `testing-deploy.yml` to the
+`.semaphore` folder. You can look them up in the [templates](templates/.semaphore) folder.
+Make sure to replace [project-name]
 
-
-Commit and push the changes. 
+Commit and push the changes.
 
 You should now see a third block where your deployment runs to Heroku.
 Make sure it is green and deploys correctly:
