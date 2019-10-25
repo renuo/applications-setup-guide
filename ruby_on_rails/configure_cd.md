@@ -4,26 +4,36 @@ We use Semaphore to deploy most of our apps. Some projects use CircleCI and
 mobile apps use Fastlane. This article is about how to deploy to Heroku with
 Semaphore.
 
-## Prerequisites
-
-* Heroku API key of `admin@renuo.ch` (*wg-operations* can help with that)
-
 ## Setup `master`, `develop` and `testing`
 
-* Add three servers (very tiny plus button) and name them `master`
-and `develop` and `testing`.
-* Select Heroku
-* Choose automatic deployment
-* Enter Heroku API key of `admin@renuo.ch`
-* Select your application
-* Change server name to your branch
-* Enter the server URL `https://projectname-branch.renuoapp.ch`
+* Add the following to your `semaphore.yml`:
 
-Then make sure the deploy commands equals the following:
-
-```shell
-git push --force heroku $BRANCH_NAME:master
 ```
+promotions:
+  - name: develop
+    pipeline_file: develop-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'develop'"
+  - name: master
+    pipeline_file: master-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
+  - name: testing
+    pipeline_file: testing-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'testing'"
+```
+
+* Add the three files called `develop-deploy.yml`, `master-deploy.yml` and `testing-deploy.yml` to the 
+`.semaphore` folder. You can look them up in the [templates](templates/.semaphore) folder. Make sure to replace [project-name]
+
+
+Commit and push the changes. 
+
+You should now see a third block where your deployment runs to Heroku.
+Make sure it is green and deploys correctly:
+
+![semaphoreci_2](../images/semaphore_cd.png)
 
 ## Conclusion
 

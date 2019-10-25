@@ -1,0 +1,55 @@
+version: "v1.0"
+name: Pipeline with parallel blocks and dependencies
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+auto_cancel:
+  running:
+    when: "true"
+blocks:
+  - name: Install dependencies
+    dependencies: []
+    task:
+      secrets:
+        - name: [project-name]
+      jobs:
+        - name: cache
+          commands:
+            - checkout
+            - cache restore bundle-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),bundle-$SEMAPHORE_GIT_BRANCH,bundle-master
+            - bundle install --deployment
+            - cache store bundle-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+            - cache store bundleconfig-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) .bundle
+            - cache restore yarn-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),yarn-$SEMAPHORE_GIT_BRANCH,yarn-master
+            - cache restore nodemodules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),nodemodules-$SEMAPHORE_GIT_BRANCH,nodemodules-master
+            - nvm install
+            - bin/yarn install --cache-folder ~/.cache/yarn
+            - cache store yarn-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) ~/.cache/yarn
+            - cache store nodemodules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) node_modules
+  - name: "Tests"
+    dependencies: ['Install dependencies']
+    task:
+      secrets:
+        - name: [project-name]
+      env_vars:
+        - name: DATABASE_URL
+          value: postgresql://postgres@localhost/test?encoding=utf8
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - cache restore bundle-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),bundle-$SEMAPHORE_GIT_BRANCH,bundle-master
+          - cache restore bundleconfig-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock)
+          - cache restore yarn-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),yarn-$SEMAPHORE_GIT_BRANCH,yarn-master
+          - cache restore nodemodules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+          - nvm use
+          - sem-service start postgres
+          - cp config/application.example.yml config/application.yml
+          - bin/rails db:create db:schema:load
+          - bin/rails assets:precompile
+      jobs:
+        - name: "Tests"
+          commands:
+            - bin/check
