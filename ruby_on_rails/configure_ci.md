@@ -15,7 +15,7 @@ and the main branches already pushed and ready to be tested.
 
 1. Create a folder called `.semaphore` in the project root with a file called `semaphore.yml` in it.
 
-1. Take the content of [this template](templates/.semaphore/semaphore.yml) and replace [project-name] where
+1. Take the content of [this template](../templates/.semaphore/semaphore.yml) and replace [project-name] where
 needed.
 
     This runs a build and a testing process for your code.
