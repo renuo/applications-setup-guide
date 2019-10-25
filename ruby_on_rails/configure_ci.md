@@ -2,21 +2,20 @@
 
 At Renuo we **always** use a CI (Continuous Integration) system to test our applications. It's essential to guarantee
 that all the tests pass before building and releasing a new version through our CD system. Our projects use
-[SemaphoreCI](<https://semaphoreci.com/>).
+[SemaphoreCI 2.0](<https://semaphoreci.com/>).
 
 Before configuring the CI, you should already have a Git Repository with the code, a `bin/check` command to execute,
 and the main branches already pushed and ready to be tested.
 
-* Proceed to <https://semaphoreci.com/> and login or create an account with your Renuo email address.
+* Proceed to <https://renuo.semaphoreci.com/> and login or create an account with your Renuo email address.
 You should already be part of the Renuo organisation but you may not have permissions to add a project to
 the organisation. That's not a problem, you can configure it anyway and ask wg-operations to transfer it to
 the organisation afterwards (you have 100 free builds)
-* Create a project here for the branch `master`: <https://semaphoreci.com/organizations/renuo/projects/new>
-* Skip the automated project analysis and choose `JavaScript` as *Language* with the newest version available.
-* Add the Renuo team to the collaborators, so that everyone can see the build statuses on SemaphoreCI.
-![image](../images/semaphoreci_team.png)
+* Create a project here: <https://renuo.semaphoreci.com/new_project> 
 
 ## Rails specific configuration
+
+1. Create a folder called `.semaphore` in the project root with a file called `semaphore.yml` in it.
 
 Add two jobs to the configuration:
 
