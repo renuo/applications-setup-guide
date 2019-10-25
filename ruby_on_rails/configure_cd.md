@@ -25,7 +25,7 @@ promotions:
 ```
 
 * Add the three files called `develop-deploy.yml`, `master-deploy.yml` and `testing-deploy.yml` to the
-`.semaphore` folder. You can look them up in the [templates](templates/.semaphore) folder.
+`.semaphore` folder. You can look them up in the [templates](../templates/.semaphore) folder.
 Make sure to replace [project-name]
 
 Commit and push the changes.
