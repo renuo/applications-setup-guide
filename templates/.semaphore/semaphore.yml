@@ -1,0 +1,48 @@
+version: "v1.0"
+name: [project-name]
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+auto_cancel:
+  running:
+    when: "true"
+blocks:
+  - name: cache
+    dependencies: []
+    task:
+      secrets:
+        - name: [project-name]
+      jobs:
+        - name: cache
+          commands:
+            - checkout
+            - cache restore
+            - bundle install --deployment -j 4 --path vendor/bundle
+            - nvm install
+            - bin/yarn install --cache-folder ~/.cache/yarn
+            - cache store
+  - name: tests
+    dependencies: ['cache']
+    task:
+      secrets:
+        - name: [project-name]
+      env_vars:
+        - name: DATABASE_URL
+          value: postgresql://postgres@localhost/test?encoding=utf8
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+          - bundle install --deployment --path vendor/bundle
+          - nvm use
+          - sem-service start postgres
+          - cp config/application.example.yml config/application.yml
+          - bin/rails db:create db:schema:load
+          - bin/rails assets:precompile
+      jobs:
+        - name: tests
+          commands:
+            - bin/check
