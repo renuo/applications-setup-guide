@@ -1,20 +1,20 @@
 version: v1.0
-name: Heroku deployment
+name: master-deploy
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: Deploy
+  - name: master-deploy
     task:
       secrets:
-        - name: [project-name]
+        - name: heroku-deploy
       env_vars:
         - name: HEROKU_REMOTE
           value: https://git.heroku.com/[project-name]-master.git
       jobs:
-        - name: Push code
+        - name: master-deploy
           commands:
             - checkout --use-cache
             - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts

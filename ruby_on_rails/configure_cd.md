@@ -6,7 +6,7 @@ Semaphore.
 
 ## Setup `master`, `develop` and `testing`
 
-* Add the following to your `semaphore.yml`:
+* Add the following to `.semaphore/semaphore.yml`:
 
 ```
 promotions:
