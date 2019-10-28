@@ -25,6 +25,7 @@ You can use `renuo configure-sentry project-name SENTRY_DSN` to generate the com
   end
   ```
 
+* Add a Sentry initializer to your project [`config/initializers/sentry.rb`](../templates/config/initializers/sentry.rb).
 * Add `# SENTRY_DSN: 'find_me_on_password_manager'` to `application.example.yml`
 * Add `# SENTRY_ENVIRONMENT: 'local'` to `application.example.yml`
 * Add `# CSP_REPORT_URI` to `application.example.yml`
