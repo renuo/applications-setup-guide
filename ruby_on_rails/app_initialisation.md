@@ -52,7 +52,7 @@ They are always idempotent (runnable multiple times).
 * Add a `bin/check` file. It will run all the automated tests. It's mainly used in our CI.
 
   ```sh
-  echo "#\!/bin/sh\nset -e\nbin/fastcheck\n" > bin/check
+  echo "#\!/bin/sh\nset -e\nbin/fastcheck\nbin/rails zeitwerk:check" > bin/check
   ```
 
 * Make the new scripts executable
