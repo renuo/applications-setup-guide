@@ -14,7 +14,8 @@ To add a new project to the GA account go to <https://www.google.com/analytics> 
 ## Javascript only (recommended)
 
 This way is recommended in the normal case, because it doesn't involve another gem dependency. Since Google propotes the 
-Tag Manager as a default, you can find the code [here](https://developers.google.com/analytics/devguides/collection/analyticsjs/) 
+Tag Manager as a default, you can find the code
+[here](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 
 
 ```js
