@@ -50,6 +50,15 @@ Make sure you insert this script at the end of the <head> tag of the page (not i
 
 There's a gem which can be used for a lot of trackers: <https://github.com/railslove/rack-tracker#installation>
 
+```rb
+group :production do
+  ...
+  gem 'rack-tracker'
+end
+```
+
+and write to `config/environments/production.rb`
+
 ```ruby
 config.middleware.use(Rack::Tracker) do
   if ENV['GOOGLE_ANALYTICS_ID'].present?
