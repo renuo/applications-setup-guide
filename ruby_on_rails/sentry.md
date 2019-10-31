@@ -58,7 +58,7 @@ For each Heroku app, connect to the `heroku run rails console --app [project-nam
 begin
   1 / 0
 rescue ZeroDivisionError => exception
-  Sentry.capture_exception(exception)
+  Raven.capture_exception(exception)
 end
 ```
 
@@ -72,7 +72,7 @@ Open the dev console in chrome, and run
 try {
     throw new Error('test raven js');
 } catch(e) {
-    Raven.captureException(e)
+    Sentry.captureException(e)
 }
 ```
 
