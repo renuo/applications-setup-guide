@@ -58,7 +58,7 @@ For each Heroku app, connect to the `heroku run rails console --app [project-nam
 begin
   1 / 0
 rescue ZeroDivisionError => exception
-  Raven.capture_exception(exception)
+  Sentry.capture_exception(exception)
 end
 ```
 
