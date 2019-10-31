@@ -72,7 +72,7 @@ Open the dev console in chrome, and run
 try {
     throw new Error('test raven js');
 } catch(e) {
-    Raven.captureException(e)
+    Sentry.captureException(e)
 }
 ```
 
