@@ -4,6 +4,8 @@ set -e
 
 bin/fastcheck
 
+bin/rails zeitwerk:check
+
 if ! grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
 then
   echo 'console.log found. Please fix them and try again, commit aborted'
