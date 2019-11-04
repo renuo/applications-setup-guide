@@ -11,11 +11,14 @@ To add a new project to the GA account go to <https://www.google.com/analytics> 
 1. Once you saved the Account you will see the tracking snippet.
 1. Write down the tracking ID (the string in the snippet with all caps and starting with an UX-XXX....) and note it - you will need it for the Heroku config.
 
-## Javascript only (recommended)
+Choose one of the given options to set analytics up:
 
-This way is recommended in the normal case, because it doesn't involve another gem dependency. Since Google propotes the
-Tag Manager as a default, you can find the code
-[here](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+## a) Javascript only: Analytics script (recommended)
+
+This way is recommended in the normal case, because it doesn't involve another gem dependency. Since Google proposes the
+Tag Manager as a default, the Analytics Script is a bit hidden. Tag Manager makes our sites slower, this is not recommended
+by us if we have control over the source code (in this case you might prefer Tag Manager). Use only the analytics
+script which you can find [here](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 
 ```js
 ga('create', 'UA-XXXXXXXX-X', 'auto');
@@ -45,7 +48,7 @@ ga('send', 'pageview');
 
 Make sure you insert this script at the end of the <head> tag of the page (not in the <body>).
 
-## Ruby rack-tracker
+## b) Ruby rack-tracker
 
 There's a gem which can be used for a lot of trackers: <https://github.com/railslove/rack-tracker#installation>
 
