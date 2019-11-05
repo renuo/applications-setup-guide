@@ -40,7 +40,7 @@ They are always idempotent (runnable multiple times).
 * Add a `bin/run` file. It will be used to start our project.
 
   ```sh
-  echo "#\!/bin/sh\n\nbundle exec puma" >> bin/run
+  echo "#\!/bin/sh\n\nrails s -u puma" >> bin/run
   ```
 
 * Add a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
