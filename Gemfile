@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'mdl'
+gem 'mdl', '~> 0.5.0'

@@ -1,10 +1,8 @@
 # Papertrail
 
-
 ## Setup Usage Notifications
 
 * Remove admin@renuo.ch from the recipients of the Usage Notifications and add operations@renuo.ch.
-
 
 ## Setup Alerts
 
