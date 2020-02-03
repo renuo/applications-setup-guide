@@ -7,9 +7,6 @@ Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
 
-Rails/FilePath:
-  EnforcedStyle: arguments
-
 Layout/LineLength:
   Max: 120
 
