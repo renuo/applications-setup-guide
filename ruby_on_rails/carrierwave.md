@@ -66,7 +66,7 @@ And also we want to clear the folder after the tests run in a `spec/support/carr
 ```rb
 RSpec.configure do |config|
   config.after(:suite) do
-    FileUtils.rm_rf(Dir[Rails.root.join("public#{UploaderBasepath::TEST_UPLOAD_PATH}")])
+    FileUtils.rm_rf(Dir[Rails.root.join('public', UploaderBasepath::TEST_UPLOAD_PATH)])
   end
 end
 
