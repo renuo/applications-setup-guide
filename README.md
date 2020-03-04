@@ -49,12 +49,10 @@ Thank you for your work and have fun! :tada:
 
 ### Frameworks, languages and services
 
-* [Angular](angular/README.md)
 * [Frontend apps (JS)](js/README.md)
 * [Google APIs](google_apis.md)
 * [React Native](react_native/README.md)
-* **[Ruby On Rails 5.2](ruby_on_rails/README.md)**
-* [Ruby On Rails API Only](ruby_on_rails_api/README.md)
+* **[Ruby On Rails](ruby_on_rails/README.md)**
 
 ## License
 

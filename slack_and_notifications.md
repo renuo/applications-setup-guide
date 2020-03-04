@@ -20,25 +20,14 @@ it for you communicating the `[project-name]`.
 
 :warning: **You must have already setup [Automatic Deployment through SemaphoreCI](ruby_on_rails/configure_cd.md)** :warning:
 
-On Slack:
-1. Create a new Custom Integration --> Incoming Webhook
-2. Post to the channel `#project-[project-name]`
-3. Copy the Webhook URL and note it
-4. In "Customize Name" write "Semaphore CI"
-5. In "Customize Icon" place this icon: ![semaphore_icon](images/semaphore_icon.png)
-6. Save
-
-Now proceed to SemaphoreCI:
-
-1. Open the project Slack notifications settings (`https://semaphoreci.com/renuo/[project-name]/settings/notifications/slack/new`)
-2. Paste the Webhook URL
-3. Change **Receive after builds** to **Never**
-4. Select only the `[project-name]-master` server
-5. Include the Project Name
-6. Save
+1. Open the project Notifications settings (`https://renuo.semaphoreci.com/notifications`)
+1. Create New Notification
+1. Name of the Notification -> `[project-name]`
+1. Name of the Rule -> `Slack notifications`
+1. Branches -> `master`
+1. Slack Endpoint: Use the Webhook URL from other projects
+1. Send to Slack channel: `#project-[project-name]`
+1. Save changes
 
 > We do not want to pollute the channel with many notifications, therefore we suggest to only send a notification about
-> deployments to production. You can configure other notifications, like Email, in the Notifications panel of the
-> project on Semaphore CI
-
-You can test the notification using the provided test button.
+> deployments to production.
