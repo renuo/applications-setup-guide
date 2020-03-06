@@ -1,8 +1,7 @@
 # Configure the Continuous Deployment (CD)
 
-We use Semaphore to deploy most of our apps. Some projects use CircleCI and
-mobile apps use Fastlane. This article is about how to deploy to Heroku with
-Semaphore.
+We use Semaphore to deploy most of our apps. Mobile apps are deployed via Bitrise. This article is about how to deploy
+to Heroku with Semaphore.
 
 ## Setup `master`, `develop` and `testing`
 

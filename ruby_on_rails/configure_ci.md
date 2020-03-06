@@ -13,6 +13,16 @@ and the main branches already pushed and ready to be tested.
 
 ## Rails specific configuration
 
+### Using Renuo CLI:
+
+```
+renuo configure-semaphore
+```
+
+The command will copy the templates to `.semaphore` folder.
+
+### Manually
+
 1. Create a folder called `.semaphore` in the project root with a file called `semaphore.yml` in it.
 
 1. Take the content of [this template](../templates/.semaphore/semaphore.yml) and replace [project-name] where
