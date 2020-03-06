@@ -19,6 +19,7 @@ order to do that you must be an admin of the Renuo Slack Organisation. If you ar
 it for you communicating the `[project-name]`.
 
 :warning: **You must have already setup [Automatic Deployment through SemaphoreCI](ruby_on_rails/configure_cd.md)** :warning:
+If you used Renuo CLI to configure SemaphoreCI, the notifications should be already created. For manual setup, follow these steps:
 
 1. Open the project Notifications settings (`https://renuo.semaphoreci.com/notifications`)
 1. Create New Notification
