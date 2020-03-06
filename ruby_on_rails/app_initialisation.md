@@ -2,7 +2,7 @@
 
 ## Default Rails setup
 
-* Check if you are using the latest version of ruby supported by SemahoreCI and Heroku with `ruby -v`
+* Check if you are using the latest version of ruby supported by Heroku with `ruby -v`
 and update it if you are not. Run `rbenv versions` to check your installed ruby versions.
 Follow the instructions on screen to eventually install it.
 
