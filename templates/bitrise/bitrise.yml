@@ -1,0 +1,144 @@
+---
+format_version: '7'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+app:
+  envs:
+  - FASTLANE_XCODE_LIST_TIMEOUT: '120'
+  - opts:
+      is_expand: false
+    FASTLANE_WORK_DIR: "."
+  - VERSION_NUMBER: 1.0.0
+trigger_map:
+- push_branch: master
+  workflow: Deploy-master
+- push_branch: develop
+  workflow: Deploy-develop
+workflows:
+  Setup:
+    steps:
+    - activate-ssh-key@4.0.5:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4.0.18: {}
+    - cache-pull@2.1.3: {}
+    - script@1.1.6:
+        title: Install bundler
+        inputs:
+        - content: |-
+            # brew update &> /dev/null
+
+            # brew install rbenv
+
+            # eval "$(rbenv init -)"
+            cd web && yarn install && cd -
+            rbenv install 2.6.2 --skip-existing && rbenv global 2.6.2 && gem install bundler cocoapods --no-document
+            export ORG_GRADLE_PROJECT_VERSION_NUMBER=$VERSION_NUMBER
+    - cache-push@2.2.3:
+        inputs:
+        - cache_paths: "~/.rbenv/versions -> app/.ruby-version"
+    - yarn@0.1.1:
+        inputs:
+        - cache_local_deps: 'yes'
+        - workdir: "$BITRISE_SOURCE_DIR/app"
+        - command: install
+        title: Yarn install
+    - script@1.1.6:
+        title: Install pods
+        inputs:
+        - content: cd $BITRISE_SOURCE_DIR/app/ios && pod install && cd -
+  Deploy:
+    steps:
+    - certificate-and-profile-installer@1.10.2: {}
+    - set-xcode-build-number@1.0.9:
+        inputs:
+        - build_short_version_string: "$VERSION_NUMBER"
+        - plist_path: ios/$IOS_PROJECT_NAME/Info.plist
+    - fastlane:
+        inputs:
+        - lane: "$FASTLANE_IOS_LANE"
+        - update_fastlane: 'false'
+        - work_dir: "$FASTLANE_WORK_DIR"
+    - fastlane:
+        inputs:
+        - work_dir: "$FASTLANE_WORK_DIR"
+        - update_fastlane: 'false'
+        - lane: "$FASTLANE_ANDROID_LANE"
+  Deploy-develop:
+    steps:
+    - change-workdir@1.0.2:
+        inputs:
+        - is_create_path: 'false'
+        - path: "$BITRISE_SOURCE_DIR/app"
+        title: Workdir app
+    - script@1.1.6:
+        title: Prepare .env
+        inputs:
+        - content: cp .env.staging .env
+    - script:
+        inputs:
+        - content: |-
+            openssl aes-256-cbc -md sha256 -in android/key.json.enc -out android/key.json -d -a -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystore.properties.enc -out android/keystore.properties -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystores/[project-name].jks.enc -out android/keystores/[project-name].jks -pass env:KEY_JSON_PASSWORD
+
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/app/google-services-develop.json.enc -out android/app/google-services.json -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in ios/GoogleService-Info-develop.plist.enc -out ios/GoogleService-Info.plist -pass env:KEY_JSON_PASSWORD
+        title: Decrypt secrets
+    before_run:
+    - Setup
+    after_run:
+    - Deploy
+    envs:
+    - opts:
+        is_expand: false
+      APP_BUNDLE_ID: ch.renuo.[project-name].staging
+    - opts:
+        is_expand: false
+      FASTLANE_IOS_LANE: ios deploy_staging
+    - opts:
+        is_expand: false
+      FASTLANE_ANDROID_LANE: android deploy_staging --env staging
+    - opts:
+        is_expand: false
+      IOS_PROJECT_NAME: [project-name]
+  Deploy-master:
+    steps:
+    - change-workdir@1.0.2:
+        title: Workdir app
+        inputs:
+        - is_create_path: 'false'
+        - path: "$BITRISE_SOURCE_DIR/app"
+    - script@1.1.6:
+        title: Prepare .env
+        inputs:
+        - content: cp .env.production .env
+    - script:
+        inputs:
+        - content: |-
+            openssl aes-256-cbc -md sha256 -in android/key.json.enc -out android/key.json -d -a -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystore.properties.enc -out android/keystore.properties -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystores/[project-name].jks.enc -out android/keystores/[project-name].jks -pass env:KEY_JSON_PASSWORD
+
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/app/google-services-master.json.enc -out android/app/google-services.json -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in ios/GoogleService-Info-master.plist.enc -out ios/GoogleService-Info.plist -pass env:KEY_JSON_PASSWORD
+        title: Decrypt secrets
+    before_run:
+    - Setup
+    after_run:
+    - Deploy
+    envs:
+    - opts:
+        is_expand: false
+      APP_BUNDLE_ID: ch.renuo.[project-name]
+    - opts:
+        is_expand: false
+      FASTLANE_IOS_LANE: ios deploy
+    - opts:
+        is_expand: false
+      FASTLANE_ANDROID_LANE: android deploy --env production
+    - opts:
+        is_expand: false
+      IOS_PROJECT_NAME: [project-name]
+meta:
+  bitrise.io:
+    machine_type: standard
