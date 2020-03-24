@@ -4,16 +4,11 @@ Short project description
 
 ## Environments
 
-| Branch  | Domain                                | Deployment | CI                                      |
-| ------- | ------------------------------------- | ---------- | --------------------------------------- |
-| develop | https://`[project-name]`-develop.renuoapp.ch | auto       | [![Build Status][ci-develop-badge]][ci] |
-| testing | https://`[project-name]`-testing.renuoapp.ch | auto       | [![Build Status][ci-testing-badge]][ci] |
-| master  | https://`[project-name]`-master.renuoapp.ch  | release    | [![Build Status][ci-master-badge]][ci]  |
-
-[ci]: https://renuo.semaphoreci.com/projects/`[project-name]`
-[ci-develop-badge]: FETCH FROM SEMAPHORECI
-[ci-testing-badge]: FETCH FROM SEMAPHORECI
-[ci-master-badge]: FETCH FROM SEMAPHORECI
+| Branch  | Domain                                | Deployment     |
+| ------- | ------------------------------------- | ---------------|
+| develop | https://`[project-name]`-develop.renuoapp.ch | auto    |
+| testing | https://`[project-name]`-testing.renuoapp.ch | auto    |
+| master  | https://`[project-name]`-master.renuoapp.ch  | release |
 
 ## Setup
 
