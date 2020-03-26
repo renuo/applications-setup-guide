@@ -4,7 +4,7 @@ As soon as you have to do work with background jobs please follow those suggesti
 They will help you having a proper system to do background work.
 We use [sidekiq](https://github.com/mperham/sidekiq) because it works well on Heroku and is easy to setup (suckerpunch for example causes memory issues on Heroku).
 
-* Add the following gem `gem 'sidekiq'` (to the `production` session only!) and install it
+* Add the following gem `gem 'sidekiq'` to the `production` block and install it
 
 ```sh
 bundle install
@@ -119,4 +119,3 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq' if defined? Sidekiq::Web
   ...
 ```
-
