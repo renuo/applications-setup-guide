@@ -4,7 +4,7 @@ As soon as you have to do work with background jobs please follow those suggesti
 They will help you having a proper system to do background work.
 We use [sidekiq](https://github.com/mperham/sidekiq) because it works well on Heroku and is easy to setup (suckerpunch for example causes memory issues on Heroku).
 
-* Add the following gem `gem 'sidekiq'` and install it
+* Add the following gem `gem 'sidekiq'` (to the `production` session only!) and install it
 
 ```sh
 bundle install
@@ -73,11 +73,13 @@ bundle install
 * update/create `config/initializers/sidekiq.rb` and add the following lines:
 
 ```rb
-schedule_file = 'config/schedule.yml'
+if defined? Sidekiq
+ schedule_file = 'config/schedule.yml'
 
-if File.exist?(schedule_file) && Sidekiq.server?
-  errors = Sidekiq::Cron::Job.load_from_hash!(YAML.load_file(schedule_file))
-  Rails.logger.error "Errors loading scheduled jobs: #{errors}" if errors.any?
+ if File.exist?(schedule_file) && Sidekiq.server?
+   errors = Sidekiq::Cron::Job.load_from_hash!(YAML.load_file(schedule_file))
+   Rails.logger.error "Errors loading scheduled jobs: #{errors}" if errors.any?
+ end
 end
 ```
 
@@ -91,3 +93,30 @@ MyExampleJob:
   class: "MyJob"
   queue: default
 ```
+
+## Sidekiq monitoring
+
+If you want to provide a sidekiq dashboard and see which tasks failed or run through, you can use the [Sidekiq Monitoring](https://github.com/mperham/sidekiq/wiki/Monitoring):
+
+* update/create `config/initializers/sidekiq.rb` and add the following lines:
+
+```rb
+if defined? Sidekiq
+  require 'sidekiq/web'
+
+  Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
+    [user, password] == [ENV['SIDEKIQ_USER'], ENV['SIDEKIQ_PASSWORD']]
+  end
+end
+```
+
+* Add `SIDEKIQ_USER` and `SIDEKIQ_PASSWORD` as the credentials to the dashboard to your `application.example.yml`.
+* Add the following line inside `routes.rb`:
+
+```rb
+Rails.application.routes.draw do
+  ...
+  mount Sidekiq::Web => '/sidekiq' if defined? Sidekiq::Web
+  ...
+```
+
