@@ -2,6 +2,34 @@
 
 set -e
 
+# Adds a -c flag to only check files that have actually changed
+# e.g.: bin/fastcheck -c
+CHANGED_ONLY="$1"
+changed() {
+  if [ "$CHANGED_ONLY" = '-c' ]
+  then
+    CHANGES="$(git diff --name-only | sed -e "s@^@$(git rev-parse --show-cdup)@g" | grep -E "$1" || :)"
+    if ! [ "$CHANGES" ]; then
+      echo "No changes found matching $1. Skipping." >&2
+      return 1
+    else
+      echo "Changed files:" >&2
+      echo "$CHANGES" >&2
+    fi
+  else
+    CHANGES=""
+  fi
+}
+
+# To use it wrap your command in an if statement like so:
+if changed "\.rb"
+then
+  # Command to be executed if -c flag is set and the regex matches any of the changed files OR if -c flag is not set.
+  # Use the $CHANGES variable to receive the list of changed files that matches the regex
+  # e.g.: bundle exec rubocop -D -c .rubocop.yml --fail-fast $CHANGES
+fi
+
+
 if ! bundle exec rubocop -D -c .rubocop.yml --fail-fast
 then
   echo 'rubocop detected issues!'
