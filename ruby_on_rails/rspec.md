@@ -1,8 +1,6 @@
 # Setup RSpec
 
-RSpec is a *de-facto* standard and is used in all our projects.
-We love rspec and we strongly suggest you to use it as well.
-Even if is not mandatory, we believe you should discuss with your team the decision of not using it.
+Even though Rails uses Minitest per default, RSpec is the *de-facto* standard at Renuo. We love RSpec and we strongly suggest to use it.
 
 Add the following gems to your Gemfile:
 
@@ -13,7 +11,6 @@ end
 
 group :test do
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
