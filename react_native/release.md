@@ -11,6 +11,7 @@
 * when you have this, you should be already able to publish the app.
 * configure Fastlane (copy & paste the config from another app (e.g.: <https://github.com/renuo/citymessenger/tree/develop/app/fastlane>),
   * change the identifier and run `bundle exec fastlane match development && bundle exec fastlane match appstore`).
+  * run it also for the staging app: `APP_BUNDLE_ID="ch.renuo.[project-name]" bundle exec fastlane match development && APP_BUNDLE_ID="ch.renuo.[project-name]" bundle exec fastlane match appstore`
   This will create the certificates an push them to the repo here <https://github.com/renuo/fastlane-ios-certificates>
 
 ### Build configuration
