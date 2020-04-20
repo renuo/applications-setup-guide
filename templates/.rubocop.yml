@@ -10,6 +10,15 @@ Rails/SkipsModelValidations:
 Layout/LineLength:
   Max: 120
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+  
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+  
 Style/Documentation:
   Enabled: false
 
@@ -28,6 +37,9 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+  
+Style/ExponentialNotation:
   Enabled: true
 
 Metrics/BlockLength:
