@@ -117,8 +117,8 @@ config.after(:each, type: :system, js: true) do
         expect(error.level).not_to eq('SEVERE'), error.message
         next unless error.level == 'WARNING'
 
-        STDERR.puts 'WARN: javascript warning'
-        STDERR.puts error.message
+        warn 'WARN: javascript warning'
+        warn error.message
       end
     end
   end
