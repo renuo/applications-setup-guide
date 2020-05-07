@@ -22,10 +22,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 end
-
-group :production do
-  gem 'lograge'
-end
 ```
 
 ## :gem: Suggested NPM packages
