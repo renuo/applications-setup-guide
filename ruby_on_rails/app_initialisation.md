@@ -86,9 +86,8 @@ They are always idempotent (runnable multiple times).
     system! 'cp config/application.example.yml config/application.yml'
   end
   ```
-  
-  Make sure it comes **before** any `rails` comands.
 
+  Make sure it comes **before** any `rails` comands.
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
 create the initializer for figaro in `config/initializers/figaro.rb`:
 
