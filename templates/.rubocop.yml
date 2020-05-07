@@ -50,6 +50,10 @@ RSpec/ExampleLength:
     - 'spec/requests/**/*'
     - 'spec/views/**/*'
 
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/views/**/*'
+
 RSpec/NestedGroups:
   Max: 5
 
