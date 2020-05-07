@@ -48,6 +48,7 @@ RSpec/ExampleLength:
   Exclude:
     - 'spec/system/**/*'
     - 'spec/requests/**/*'
+    - 'spec/views/**/*'
 
 RSpec/NestedGroups:
   Max: 5
