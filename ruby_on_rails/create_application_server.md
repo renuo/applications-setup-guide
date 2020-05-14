@@ -20,11 +20,21 @@ Pull Request on the [renuo-cli](https://github.com/renuo/renuo-cli) project.
 
 ## Setup Rails for Heroku
 
-Add a file called `Procfile` to your code root:
+* Add a file called `Procfile` to your code root:
 
-```
-web: bundle exec puma -C config/puma.rb
-release: bundle exec rails db:migrate
-```
+  ```
+  web: bundle exec puma -C config/puma.rb
+  release: bundle exec rails db:migrate
+  ```
 
-It's read by Heroku to start the web app and worker jobs.
+  It's read by Heroku to start the web app and worker jobs.
+
+* Add a file called `.slugignore` to your code root:
+
+  ```
+  /spec
+  /.semaphore
+  ```
+
+  Like this you can make files and folders to be excluded from the Heroku slug.
+
