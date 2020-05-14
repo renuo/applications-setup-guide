@@ -122,6 +122,17 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 * Enable the default Content Security Policies in `config/initializers/content_security_policy.rb`.
   The report URI will be set later in the step of Sentry configuration.
 
+* If you're using Webpacker, let's clean up after asset precompilation
+  to reduce Heroku slug size. Add this to the `Rakefile`:
+
+  ```ruby
+  Rake::Task['assets:clean'].enhance do
+    FileUtils.remove_dir('node_modules', true)
+    FileUtils.remove_dir('vendor/javascript', true)
+    FileUtils.remove_dir('tmp/cache/webpacker', true)
+  end
+  ```
+
 ## Finalising
 
 * Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/run`
