@@ -58,6 +58,7 @@ RSpec/NestedGroups:
   Max: 5
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'bin/**/*'
     - 'script/**/*'
