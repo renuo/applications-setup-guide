@@ -66,7 +66,13 @@ You should know exactly why you are adding each one of them and why is necessary
   require 'selenium/webdriver'
 
   RSpec.configure do |config|
-    # other configs
+
+    # other omitted configs here
+    # ...
+
+    config.before do |example|
+      Rails.logger.debug("RSpec #{example.metadata[:location]} #{example.metadata[:description]}")
+    end
 
     config.before(:each, type: :system) do
       driven_by :rack_test
