@@ -24,9 +24,9 @@ This is done via page rules in Cloudflare.
 
 ## Heroku
 
-* Check the size and amount of dynos on heroku
-* Check the database size plan on heroku
-* Check additional addons and according plans on heroku
+* Check the size and amount of dynos on Heroku
+* Check the database size plan on Heroku and upgrade if it is foreseeable that 10'000 rows are exceeded in a short time
+* Check additional addons and according plans on Heroku
 
 ## Other
 
