@@ -38,7 +38,7 @@ Metrics/BlockLength:
 RSpec/MultipleExpectations:
   Enabled: false
 
-RSpec/DescribedClass:
+RSpec/DescribeClass:
   Exclude:
     - 'spec/system/**/*'
     - 'spec/views/**/*'
