@@ -35,6 +35,12 @@ Metrics/BlockLength:
   - 'spec/**/*.rb'
   - 'config/environments/**/*.rb'
 
+Metrics/MethodLength:
+  CountAsOne:
+  - array
+  - hash
+  - heredoc
+
 RSpec/MultipleExpectations:
   Enabled: false
 
