@@ -14,7 +14,7 @@ To install `cucumber-rails`, add the following gems to your Gemfile:
 group :test do
     gem 'capybara', require: false
     gem 'cucumber-rails', require: false
-    gem 'database-cleaner'
+    gem 'database_cleaner'
 end
 ```
 
