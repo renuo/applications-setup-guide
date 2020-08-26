@@ -18,7 +18,9 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - bundle install --deployment -j 4 --path vendor/bundle
+            - bundle config --local deployment 'true'
+            - bundle config --local path 'vendor/bundle'
+            - bundle install -j 4
             - nvm install
             - bin/yarn install --cache-folder ~/.cache/yarn
             - cache store
@@ -36,7 +38,9 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - bundle install --deployment --path vendor/bundle
+          - bundle config --local deployment 'true'
+          - bundle config --local path 'vendor/bundle'
+          - bundle install -j 4
           - nvm use
           - sem-service start postgres
           - cp config/application.example.yml config/application.yml
