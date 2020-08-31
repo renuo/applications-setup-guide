@@ -20,7 +20,7 @@ Style/MixinUsage:
 
 Style/NonNilCheck:
   IncludeSemanticChanges: true
-  
+
 Style/HashEachMethods:
   Enabled: true
 
@@ -29,6 +29,9 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Style/HashAsLastArrayItem:
+  EnforcedStyle: no_braces
 
 Metrics/BlockLength:
   Exclude:
