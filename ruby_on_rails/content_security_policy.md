@@ -32,10 +32,11 @@ Rails.application.config.content_security_policy do |policy|
 end
 ```
 
-Details on how to setup Sentry reporting can be found in the 
-[Sentry guide](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/sentry.md#backend-rails).
+Details on how to setup Sentry reporting can be found in the [Sentry guide](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/sentry.md#backend-rails).
 
 ## Common Rules
+
+**Warning:** This list may be incomplete. Please feel free to modify or add if you see something missing!
 
 ### Sentry
 
