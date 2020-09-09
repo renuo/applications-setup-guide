@@ -11,7 +11,7 @@ effective when it comes to actually preventing an attack. One possible scenario,
 reporting only would be useful would be, when CSP should be introduced to a new project,
 but blocking would possibly cause the site to malfunction).
 
-### Setup
+## Setup
 
 Content Security Policy can be enabled by uncommenting the code given in
 `config/initializers/content_security_policy.rb`. This file has the following structure
@@ -35,9 +35,16 @@ end
 Details on how to setup Sentry reporting can be found in the 
 [Sentry guide](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/sentry.md#backend-rails).
 
-### Common Rules
+## Common Rules
 
-##### Google Tag Manager
+### Sentry
+
+| Source      | Rule                                           |
+| ----------- | ---------------------------------------------- |
+| connect-src | `https://sentry.io`                            |
+| script-src  | `https://cdn.ravenjs.com` (if loaded from CDN) |
+
+### Google Tag Manager
 
 | Source     | Rule                        |
 | ---------- | --------------------------- |
@@ -53,45 +60,65 @@ Where the tracking script looks like:
 Alternatively, if `'unsafe-inline'` is already set, the nonce can be left out.
 
 Starting from Rails 6 on, the `javascript_tag` view helper also accepts a nonce option:
+
 ```erbruby
 <%= javascript_tag nonce: true do %>
   // code
 <% end %>
 ```
 
-###### With Preview Mode Enabled
+#### With Preview Mode Enabled
 
-| Source     | Rule                                   |
-| ---------- | -------------------------------------- |
-| script-src | `https://tagmanager.google.com` |
-| style-src | `https://tagmanager.google.com https://fonts.googleapis.com` |
-| img-src | `https://ssl.gstatic.com https://www.gstatic.com` |
-| font-src | `https://fonts.gstatic.com data:` |
+| Source     | Rule                                                         |
+| ---------- | ------------------------------------------------------------ |
+| script-src | `https://tagmanager.google.com`                              |
+| style-src  | `https://tagmanager.google.com https://fonts.googleapis.com` |
+| img-src    | `https://ssl.gstatic.com https://www.gstatic.com`            |
+| font-src   | `https://fonts.gstatic.com data:`                            |
 
-###### Universal Analytics (Google Analytics)
+#### Universal Analytics (Google Analytics)
 
-| Source     | Rule                                   |
-| ---------- | -------------------------------------- |
-| script-src | `https://www.google-analytics.com https://ssl.google-analytics.com` |
-| img-src | `https://www.google-analytics.com` |
-| connect-src | `https://www.google-analytics.com` |
+| Source      | Rule                                                                |
+| ----------- | ------------------------------------------------------------------- |
+| script-src  | `https://www.google-analytics.com https://ssl.google-analytics.com` |
+| img-src     | `https://www.google-analytics.com`                                  |
+| connect-src | `https://www.google-analytics.com`                                  |
 
 For a more details list, see https://developers.google.com/tag-manager/web/csp
 
-##### Facebook Tracking Pixel
+### Facebook Tracking Pixel
 
 | Source     | Rule                                   |
 | ---------- | -------------------------------------- |
 | script-src | `'unsafe-inline' connect.facebook.net` |
 
-##### Google Fonts
+### Google Fonts
 
-| Source     | Rule                                   |
-| ---------- | -------------------------------------- |
+| Source    | Rule                           |
+| --------- | ------------------------------ |
 | style-src | `https://fonts.googleapis.com` |
 
-##### Aiaibot
+### Stripe
 
-| Source     | Rule                                   |
-| ---------- | -------------------------------------- |
+#### Checkout
+
+| Source      | Rule                                       |
+| ----------- | ------------------------------------------ |
+| connect-src | `https://checkout.stripe.com g.stripe.com` |
+| frame-src   | `https://checkout.stripe.com`              |
+| script-src  | `https://checkout.stripe.com`              |
+| img-src     | `https://*.stripe.com`                     |
+
+#### Stripe.js
+
+| Source      | Rule                                             |
+| ----------- | ------------------------------------------------ |
+| connect-src | `https://api.stripe.com`                         |
+| frame-src   | `https://js.stripe.com https://hooks.stripe.com` |
+| script-src  | `https://js.stripe.com`                          |
+
+### Aiaibot
+
+| Source      | Rule                                                 |
+| ----------- | ---------------------------------------------------- |
 | connect-src | `https://api.aiaibot.com https://sentry.aiaibot.com` |
