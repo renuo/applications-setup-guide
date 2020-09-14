@@ -119,7 +119,7 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
   config.action_view.raise_on_missing_translations = true # uncomment
   ```
 
-* Enable the default Content Security Policies in `config/initializers/content_security_policy.rb`.
+* Enable the default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) in `config/initializers/content_security_policy.rb`.
   The report URI will be set later in the step of Sentry configuration.
 
 * If you're using Webpacker, let's clean up after asset precompilation

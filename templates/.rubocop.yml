@@ -7,6 +7,9 @@ Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
 
+Rails/WhereExists:
+  Enabled: false
+
 Layout/LineLength:
   Max: 120
 
