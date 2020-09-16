@@ -20,11 +20,6 @@ NEW_RELIC_APP_NAME: '<application>-<branch>'
 # Add 3 new projects for develop/master/testing at https://sentry.io/organizations/renuo/projects/new
 SENTRY_DSN: ''
 
-# Use Renuo CMS instead of configuring / implementing your own WYSIWYG editor
-RENUO_CMS_API_HOST: ''
-RENUO_CMS_API_KEY: ''
-RENUO_CMS_PRIVATE_API_KEY: ''
-
 # Use Renuo Upload instead of Amazon S3
 RENUO_UPLOAD_API_KEY: ''
 # Where the renuo-upload library gets the credentials for the upload
