@@ -33,6 +33,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Style/HashAsLastArrayItem:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
