@@ -5,19 +5,19 @@ Please stick to it unless you have special needs.
 
 * Options
   * Features: Remove *Wikis*, *Issues* and *Projects*
-  * Data services: Enable *Dependency graph* and *Vulnerability alerts*
   * Merge button: Automatically delete head branches
-* Collaborators & teams
-  * Add Renuo team as a collaborator with Admin access
-  * Add Security team as collaborator with Write access
+* Manage access
+  * Add *staff* team as a collaborator with Admin access
+  * Add *security* team as collaborator with Write access
+* Security & analysis
+  * Enable *Dependency graph* and *Dependabot alerts*
+  * Add team *security* to *Dependabot alerts*
 * Branches
   * Default branch: `develop`. Click *update*
   * Add these rules for the two branches `develop` and `master`:
     * Require pull request reviews before merging
     * Require status checks to pass before merging
     * Require branches to be up to date before merging
-* Alerts
-  * Add team `renuo/security`
 * Autolink references
   * Add a new Autolink reference with:
     * Reference prefix: `TICKET-`
