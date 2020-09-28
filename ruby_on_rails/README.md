@@ -25,12 +25,12 @@ It's now time to introduce some more tools which will help you and the team to k
 :tada: Finally you are ready to start working on you new project! :tada:
 
 While everyone starts working there are some more things which you should setup.
-They are not optional, but the rest of the team can start working even if those are not in place yet.
+Most are not optional, but the rest of the team can start working even if those are not in place yet.
 
 1. [Sentry](sentry.md)
-2. [NewRelic](newrelic.md)
+2. [NewRelic](newrelic.md) (optional)
 3. [robots.txt](robots_txt.md)
-4. [Percy](configure_percy.md)
+4. [Percy](configure_percy.md) (optional)
 5. [Papertrail](papertrail.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
