@@ -1,0 +1,13 @@
+version: v1.0
+name: applications-setup-guide
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Linting
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
