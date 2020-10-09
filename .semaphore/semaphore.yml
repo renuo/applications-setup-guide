@@ -4,10 +4,19 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+auto_cancel:
+  running:
+    when: 'true'
 blocks:
-  - name: Linting
-    task:
-      jobs:
-        - name: 'Job #1'
+  - name: linter
+      execution_time_limit:
+        minutes: 10
+      task:
+        prologue:
           commands:
             - checkout
+            - bin/setup
+        jobs:
+          - name: linting
+            commands:
+              - bin/check
