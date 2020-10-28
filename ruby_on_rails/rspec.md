@@ -112,21 +112,26 @@ Check that you see `1+2=3` in each app.
 
 ## Optional: catch javascript errors
 
-If you want to catch Javascript errors in your system tests, you can add the following to the `rails_helper.rb`:
+If you want to catch Javascript errors in your system tests, you can create the `support/javascript_error_collector.rb`:
 
 ```ruby
-config.after(:each, type: :system, js: true) do
-  errors = page.driver.browser.manage.logs.get(:browser)
-  if errors.present?
+module JavaScriptErrorCollector
+  def collect_errors
+    errors = page.driver.browser.manage.logs.get(:browser)
+
     aggregate_failures 'javascript errors' do
       errors.each do |error|
         expect(error.level).not_to eq('SEVERE'), error.message
-        next unless error.level == 'WARNING'
-
-        warn 'WARN: javascript warning'
-        warn error.message
+        expect(error.level).not_to eq('WARNING'), error.message
       end
     end
   end
 end
+```
+
+And then include it in the `rails_helper.rb`:
+
+```ruby
+config.include JavaScriptErrorCollector
+config.after(:each, type: :system, js: true) { collect_errors }
 ```
