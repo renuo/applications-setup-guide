@@ -112,7 +112,7 @@ Check that you see `1+2=3` in each app.
 
 ## Optional: catch javascript errors
 
-If you want to catch Javascript errors in your system tests, you can create the `support/javascript_error_collector.rb`:
+If you want to catch Javascript errors in your system tests, you can create `support/javascript_error_collector.rb`:
 
 ```ruby
 module JavaScriptErrorCollector
