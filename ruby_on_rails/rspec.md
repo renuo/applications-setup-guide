@@ -122,7 +122,9 @@ module JavaScriptErrorCollector
     aggregate_failures 'javascript errors' do
       errors.each do |error|
         expect(error.level).not_to eq('SEVERE'), error.message
-        expect(error.level).not_to eq('WARNING'), error.message
+
+        next unless error.level == 'WARNING'
+        puts "\e[33m\nJAVASCRIPT WARNING\n#{error.message}\e[0m"
       end
     end
   end
@@ -132,6 +134,6 @@ end
 And then include it in the `rails_helper.rb`:
 
 ```ruby
-config.include JavaScriptErrorCollector
+config.include JavaScriptErrorCollector, type: :system
 config.after(:each, type: :system, js: true) { collect_errors }
 ```
