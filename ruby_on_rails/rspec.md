@@ -124,16 +124,31 @@ module JavaScriptErrorCollector
         expect(error.level).not_to eq('SEVERE'), error.message
 
         next unless error.level == 'WARNING'
-        puts "\e[33m\nJAVASCRIPT WARNING\n#{error.message}\e[0m"
+        warn "\e[33m\nJAVASCRIPT WARNING\n#{error.message}\e[0m" if Rails.application.config.show_javascript_warning
+
+        next unless Rails.application.config.fail_on_javascript_warning
+        expect(error.level).not_to eq('WARNING'), error.message
       end
     end
   end
 end
 ```
 
-And then include it in the `rails_helper.rb`:
+Then include it in the `rails_helper.rb`:
 
 ```ruby
 config.include JavaScriptErrorCollector, type: :system
 config.after(:each, type: :system, js: true) { collect_errors }
+```
+
+And configure `config/environments/test.rb` to your preference
+
+```ruby
+Rails.application.configure do
+  # Make the test fail when a warning is logged
+  config.fail_on_javascript_warning = false
+
+  # Ouput the warning into the console
+  config.show_javascript_warning = false
+ebd
 ```
