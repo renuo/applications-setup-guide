@@ -27,6 +27,7 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 You'll need to install `aws-cli`. No worries, if you don't have it alreay. The setup command below will guide you.
 It will install `aws-cli` and ask you for the `renuo-app-setup` credentials you find in our password manager.
+If not please ask `wg-operations` for help.
 
 ### Start the Setup
 
