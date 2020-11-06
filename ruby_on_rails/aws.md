@@ -15,17 +15,22 @@ but for that, we most often use Google Firebase.
 
 ### Preconditions
 
+#### renuo-cli
+
 You will need Renuo-CLI to be set up and at the newest version:
 
 `gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
 
 Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-cli/tags)
 
+#### aws-cli
+
+You'll need to install `aws-cli`. No worries, if you don't have it alreay. The setup command below will guide you.
+It will install `aws-cli` and ask you for the `renuo-app-setup` credentials you find in our password manager.
+
 ### Start the Setup
 
-The following command will create command-line-commands to set up S3 and CloudFront. Before that, the command makes sure,
-you have the aws-profile and the aws-cli set up, so you have the necessary rights to run the commands.
-If you don't, follow the [AWS CLI Setup Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
+The following command will create command-line-commands to set up S3 and CloudFront.
 
 1. Run `renuo create-aws-project`
 1. Follow the steps and answer the questions
