@@ -13,7 +13,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
-
+  config.include JavaScriptErrorReporter, type: :system, js: true 
+  
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 
@@ -31,20 +32,5 @@ RSpec.configure do |config|
 
   config.after do
     I18n.locale = I18n.default_locale
-  end
-
-  config.after(:each, type: :system, js: true) do
-    errors = page.driver.browser.manage.logs.get(:browser)
-    if errors.present?
-      aggregate_failures 'javascript errors' do
-        errors.each do |error|
-          expect(error.level).not_to eq('SEVERE'), error.message
-          next unless error.level == 'WARNING'
-
-          STDERR.puts 'WARN: javascript warning'
-          STDERR.puts error.message
-        end
-      end
-    end
   end
 end

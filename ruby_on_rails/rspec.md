@@ -110,45 +110,10 @@ Commit and push your changes! :tada:
 
 Check that you see `1+2=3` in each app.
 
-## Optional: catch javascript errors
+## Javascript error reporter
 
-If you want to catch Javascript errors in your system tests, you can create `support/javascript_error_collector.rb`:
+* Create the module [`spec/support/javascript_error_reporter.rb`](../templates/spec/support/javascript_error_reporter.rb`)
 
-```ruby
-module JavaScriptErrorCollector
-  def collect_errors
-    errors = page.driver.browser.manage.logs.get(:browser)
+* Verify that `config.include JavaScriptErrorReporter, type: :system, js: true` is in your [`rails_helper.rb`](../templates/spec/rails_helper.rb)
 
-    aggregate_failures 'javascript errors' do
-      errors.each do |error|
-        expect(error.level).not_to eq('SEVERE'), error.message
-
-        next unless error.level == 'WARNING'
-        warn "\e[33m\nJAVASCRIPT WARNING\n#{error.message}\e[0m" if Rails.application.config.show_javascript_warning
-
-        next unless Rails.application.config.fail_on_javascript_warning
-        expect(error.level).not_to eq('WARNING'), error.message
-      end
-    end
-  end
-end
-```
-
-Then include it in the `rails_helper.rb`:
-
-```ruby
-config.include JavaScriptErrorCollector, type: :system
-config.after(:each, type: :system, js: true) { collect_errors }
-```
-
-And configure `config/environments/test.rb` to your preference
-
-```ruby
-Rails.application.configure do
-  # Make the test fail when a warning is logged
-  config.fail_on_javascript_warning = false
-
-  # Ouput the warning into the console
-  config.show_javascript_warning = false
-ebd
-```
+* Add `js: true` to any system test that should fail when JavaScript errors occur.
