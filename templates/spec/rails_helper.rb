@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
+require 'super_diff/rspec-rails'
 
 ActiveRecord::Migration.maintain_test_schema!
 
