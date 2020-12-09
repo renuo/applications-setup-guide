@@ -13,6 +13,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'super_diff'
 end
 ```
 
@@ -64,11 +65,10 @@ You should know exactly why you are adding each one of them and why is necessary
   require 'capybara/rspec'
   require 'capybara/rails'
   require 'selenium/webdriver'
+  require 'super_diff/rspec-rails'
 
   RSpec.configure do |config|
-
-    # other omitted configs here
-    # ...
+    # ... (omitted configs here)
 
     config.before do |example|
       Rails.logger.debug("RSpec #{example.metadata[:location]} #{example.metadata[:description]}")
