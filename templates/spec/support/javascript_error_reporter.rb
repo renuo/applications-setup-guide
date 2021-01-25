@@ -1,4 +1,4 @@
-module JavascriptErrorReporter 
+module JavaScriptErrorReporter 
   RSpec.configure do |config|
     config.after(:each, type: :system, js: true) do
       errors = page.driver.browser.manage.logs.get(:browser)
