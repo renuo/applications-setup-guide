@@ -25,16 +25,16 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 #### aws-cli
 
-You'll need to use `aws-cli`. Install it via homebrew (`brew install awscli`) and configure the `renuo-app-setup` profile.
-The credentials can be found in our password manager. If not please ask `wg-operations` for help.
-
-Check now that you locally have the correct AWS profiles in `~/.aws/credentials`:
+You'll need to use `aws-cli`. You can either just continue with "Start the Setup". The command will ensure that everything is set up properly.
+Or you can install it manually:
 
 ```
-[renuo-app-setup]
-aws_access_key_id = ID
-aws_secret_access_key = KEY
+brew install awscli
+aws configure --profile renuo-app-setup
+
 ```
+
+If you want to check your config, run `aws configure --profile renuo-app-setup list`.
 
 ### Start the Setup
 
