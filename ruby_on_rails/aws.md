@@ -25,9 +25,16 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 #### aws-cli
 
-You'll need to install `aws-cli`. No worries, if you don't have it alreay. The setup command below will guide you.
-It will install `aws-cli` and ask you for the `renuo-app-setup` credentials you find in our password manager.
-If not please ask `wg-operations` for help.
+You'll need to install `aws-cli`. Install it and configure the `renuo-app-setup` profile.
+The credentials can be found in our password manager. If not please ask `wg-operations` for help.
+
+Check that you locally have the correct AWS profiles in `~/.aws/credentials`:
+
+```
+[renuo-app-setup]
+aws_access_key_id = ID
+aws_secret_access_key = KEY
+```
 
 ### Start the Setup
 
