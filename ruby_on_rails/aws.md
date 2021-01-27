@@ -25,13 +25,14 @@ Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-c
 
 #### aws-cli
 
+Retrieve the credentials "AWS Profile 'renuo-app-setup' for s3 setup" from the password manager (or as _wg-operations_ for help) at first.
+
 You'll need to use `aws-cli`. You can either just continue with "Start the Setup". The command will ensure that everything is set up properly.
 Or you can install it manually:
 
 ```
 brew install awscli
 aws configure --profile renuo-app-setup
-
 ```
 
 If you want to check your config, run `aws configure --profile renuo-app-setup list`.
