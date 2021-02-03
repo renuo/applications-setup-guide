@@ -54,6 +54,8 @@ RSpec/DescribeClass:
   Exclude:
     - 'spec/system/**/*'
     - 'spec/views/**/*'
+
+RSpec/DescribedClass:
   SkipBlocks: true
 
 RSpec/ExampleLength:

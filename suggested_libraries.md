@@ -1,7 +1,7 @@
 # Suggested Libraries
 
 Here is an up-to-date version of libraries which we strongly suggest to include in your project.
-Please include them or give a good reason not to.
+Please include them or find a good reason not to.
 
 :exclamation: Please follow the guide of each of these libraries to know how to properly install them. :exclamation:
 
