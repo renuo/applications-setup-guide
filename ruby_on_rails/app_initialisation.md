@@ -113,12 +113,6 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
   config.log_level = ENV['RAILS_LOG_LEVEL']&.to_sym || :warn # change
   ```
 
-* Update your `config/environments/development.rb` settings:
-
-  ```ruby
-  config.active_record.verbose_query_logs = true # add
-  ```
-
 * Update `config/environments/test.rb` settings:
 
   ```ruby
