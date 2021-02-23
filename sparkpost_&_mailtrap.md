@@ -19,7 +19,7 @@
 **Testing (Mailtrap)**
 
 - Login: operations@renuo.ch
-- The Email will be catched by Mailtrap and not forwarded to the intended receiver
+- The Email will be caught by Mailtrap and not forwarded to the intended receiver
 - You can login to Mailtrap to see the sent email
 
 ## Sparkpost
