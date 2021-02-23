@@ -1,14 +1,28 @@
-# SparkPost
+# SparkPost & Mailtrap
 
-Each app is using a separate subaccount under the main SparkPost accounts
-- sparkpost+master@renuo.ch
-- sparkpost+develop@renuo.ch
-- sparkpost+testing@renuo.ch
+## Introduction
 
-There are two paths when setting up the project on SparkPost:
+**Master (Sparkpost, sample-app@yourdomain.tld)**
 
-* The domain is known: it should be set up and verified under the subaccount's sending domains.
-* The domain is not known: the emails will be sent with **\*@renuoapp.ch** as your mail sender
+- Each app is using a separate subaccount under the main account
+- The Domain should be set up and verified under the subaccount's sending domains
+- Login: sparkpost+master@renuo.ch
+
+**Develop (Sparkpost, renuoapp.ch)**
+
+- Each app is using a separate subaccount under the main account
+- The emails will be sent with **\*@renuoapp.ch** as your mail sender
+- Login: sparkpost+develop@renuo.ch
+
+- If you want, you can also use Mailtrap for Develop. Create a new Inbox <https://mailtrap.io/inboxes> and use this credentials
+
+**Testing (Mailtrap)**
+
+- Login: operations@renuo.ch
+- The Email will be catched by Mailtrap and not forwarded to the intended receiver
+- You can login to Mailtrap to see the sent email
+
+## Sparkpost
 
 :warning:
 Always use subaccounts for the project, so that the whole account doesn't get suspended / blocked in case of compliance issues!
@@ -39,3 +53,15 @@ Or with a custom domain:
 MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
 ```
 
+## Mailtrap
+
+ENV-variables example:
+
+```
+MAIL_USERNAME: 'found in credential store'
+MAIL_PASSWORD:  'found in credential store'
+MAIL_HOST: 'smtp.mailtrap.io'
+MAIL_SENDER: 'Sample App <sample-app@yourdomain.tld>'
+```
+
+Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', subject: 'Testmail', body: 'Mail content').deliver_now!`
