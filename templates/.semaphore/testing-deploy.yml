@@ -23,3 +23,4 @@ blocks:
             - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
             - git remote add heroku $HEROKU_REMOTE
             - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
+            - heroku run -x rails db:migrate
