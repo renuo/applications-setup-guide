@@ -117,6 +117,7 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 
   ```ruby
   config.action_view.raise_on_missing_translations = true # uncomment
+  config.active_record.verbose_query_logs = true # add
   ```
 
 * Enable the default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) in `config/initializers/content_security_policy.rb`.
