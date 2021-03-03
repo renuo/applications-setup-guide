@@ -24,7 +24,6 @@ Pull Request on the [renuo-cli](https://github.com/renuo/renuo-cli) project.
 
   ```
   web: bundle exec puma -C config/puma.rb
-  release: bundle exec rails db:migrate
   ```
 
   It's read by Heroku to start the web app and worker jobs.
