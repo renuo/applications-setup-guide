@@ -113,9 +113,16 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
   config.log_level = ENV['RAILS_LOG_LEVEL']&.to_sym || :warn # change
   ```
 
+* Update `config/environments/development.rb` settings:
+
+  ```ruby
+  config.action_controller.action_on_unpermitted_parameters = :raise
+  ```
+
 * Update `config/environments/test.rb` settings:
 
   ```ruby
+  config.action_controller.action_on_unpermitted_parameters = :raise
   config.action_view.raise_on_missing_translations = true # uncomment
   config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
   config.active_record.verbose_query_logs = true # add
