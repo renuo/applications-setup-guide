@@ -15,7 +15,7 @@ You may have it already installed, but this command will make sure that you have
 * [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if you are not.
 You can do this with `gem update rails`. Beware of beta versions.
 
-* Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip-sprockets --webpack` where the `project-name` is exactly the one you chose before.
+* Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip-sprockets --webpack --skip_action_mailbox` where the `project-name` is exactly the one you chose before.
 You may want to choose a different database from Postgres, but most of the time that will be your choice.
 If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
