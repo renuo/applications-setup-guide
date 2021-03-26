@@ -21,7 +21,8 @@ You can use `renuo configure-sentry project-name SENTRY_DSN` to generate the com
 
   ```ruby
   group :production do
-    gem 'sentry-raven'
+    gem 'sentry-rails'
+    gem 'sentry-ruby'
   end
   ```
 
@@ -58,7 +59,7 @@ For each Heroku app, connect to the `heroku run rails console --app [project-nam
 begin
   1 / 0
 rescue ZeroDivisionError => exception
-  Raven.capture_exception(exception)
+  Sentry.capture_exception(exception)
 end
 ```
 
@@ -70,10 +71,10 @@ Open the dev console in chrome, and run
 
 ```js
 try {
-    throw new Error('test raven js');
+    throw new Error('test sentry js');
 } catch(e) {
     Sentry.captureException(e)
 }
 ```
 
-On `https://sentry.io/renuo/[project-name]` you should find "Uncaught Error: test raven js".
+On `https://sentry.io/renuo/[project-name]` you should find "Uncaught Error: test sentry js".
