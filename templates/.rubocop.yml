@@ -40,6 +40,7 @@ Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
   - 'config/environments/**/*.rb'
+  - 'config/routes.rb'
 
 Metrics/MethodLength:
   CountAsOne:
