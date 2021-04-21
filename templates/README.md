@@ -46,4 +46,4 @@ special stuff
 
 ## Copyright
 
-Copyright 2020 [Renuo AG](https://www.renuo.ch/).
+Copyright 2021 [Renuo AG](https://www.renuo.ch/).
