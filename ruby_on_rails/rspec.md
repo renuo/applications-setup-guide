@@ -78,8 +78,9 @@ You should know exactly why you are adding each one of them and why is necessary
       driven_by :rack_test
     end
 
+    SELENIUM_DRIVER = ENV['DEBUG'].present? && ENV['DEBUG'].eql?('true') ? :selenium_chrome : :selenium_chrome_headless
     config.before(:each, type: :system, js: true) do
-      driven_by :selenium_chrome_headless
+      driven_by SELENIUM_DRIVER
     end
   end
   ```
