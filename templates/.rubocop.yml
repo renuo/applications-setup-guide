@@ -47,6 +47,12 @@ Metrics/MethodLength:
   - array
   - hash
   - heredoc
+  
+Metrics/ClassLength:
+  CountAsOne:
+  - array
+  - hash
+  - heredoc  
 
 RSpec/MultipleExpectations:
   Enabled: false
