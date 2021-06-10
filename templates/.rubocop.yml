@@ -18,8 +18,8 @@ Style/Documentation:
 
 Style/MixinUsage:
   Exclude:
-  - 'bin/setup'
-  - 'bin/update'
+    - 'bin/setup'
+    - 'bin/update'
 
 Style/NonNilCheck:
   IncludeSemanticChanges: true
@@ -38,15 +38,32 @@ Style/HashAsLastArrayItem:
 
 Metrics/BlockLength:
   Exclude:
-  - 'spec/**/*.rb'
-  - 'config/environments/**/*.rb'
-  - 'config/routes.rb'
+    - 'spec/**/*.rb'
+    - 'config/environments/**/*.rb'
+    - 'config/routes.rb'
+    - 'db/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+Rails/NotNullColumn:
+  Exclude:
+    - 'db/migrate/*'
 
 Metrics/MethodLength:
   CountAsOne:
-  - array
-  - hash
-  - heredoc
+    - array
+    - hash
+    - heredoc
+  
+Metrics/ClassLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+  Exclude:
+    - 'db/**/*'
 
 RSpec/MultipleExpectations:
   Enabled: false
@@ -80,6 +97,6 @@ AllCops:
     - 'log/**/*'
     - 'public/**/*'
     - 'tmp/**/*'
-    - 'db/**/*'
+    - 'db/schema.rb'
     - 'vendor/**/*'
     - 'node_modules/**/*'
