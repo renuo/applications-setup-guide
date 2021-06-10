@@ -78,7 +78,7 @@ You should know exactly why you are adding each one of them and why is necessary
       driven_by :rack_test
     end
 
-    SELENIUM_DRIVER = ENV['DEBUG'].present? && ENV['DEBUG'].eql?('true') ? :selenium_chrome : :selenium_chrome_headless
+    SELENIUM_DRIVER = ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
     config.before(:each, type: :system, js: true) do
       driven_by SELENIUM_DRIVER
     end
@@ -88,6 +88,8 @@ You should know exactly why you are adding each one of them and why is necessary
   Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * Add the line `bundle exec rspec` to `bin/check`
+
+> **Note**: If you want to debug a spec, you can simply run `rspec ./spec/my_spec.rb SELENIUM_DRIVER=selenium_chrome` to not run it headless or for a very verbose output use the `rspec ./spec/my_spec.rb DEBUG=true` 
 
 ## :white_check_mark: Our first (green) test
 
