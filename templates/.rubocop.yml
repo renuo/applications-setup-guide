@@ -89,9 +89,6 @@ RSpec/InstanceVariable:
 RSpec/NestedGroups:
   Max: 5
 
-RSpec/MultipleMemoizedHelpers:
-  Enabled: false
-
 AllCops:
   NewCops: enable
   Exclude:
