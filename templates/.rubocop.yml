@@ -65,6 +65,9 @@ Metrics/ClassLength:
   Exclude:
     - 'db/**/*'
 
+Naming/InclusiveLanguage:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Enabled: false
 
