@@ -99,7 +99,9 @@ You should know exactly why you are adding each one of them and why is necessary
 
 * Add the line `bundle exec rspec` to `bin/check`
 
-> **Note**: If you want to debug a spec, you can simply run `rspec ./spec/my_spec.rb SELENIUM_DRIVER=selenium_chrome` to not run it headless or for a very verbose output use the `rspec ./spec/my_spec.rb DEBUG=true` 
+> **Note**: If you want to debug a spec, you can simply uncomment the line `SELENIUM_DRIVER` in the application.yml to not run it headless:
+  
+![CleanShot 2021-06-25 at 16 54 22](https://user-images.githubusercontent.com/1319150/123443347-1bbcae80-d5d6-11eb-8ba5-0d2c9ae4a37c.gif)
 
 ## :white_check_mark: Our first (green) test
 
