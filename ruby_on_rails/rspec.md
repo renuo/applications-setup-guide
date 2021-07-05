@@ -93,7 +93,7 @@ You should know exactly why you are adding each one of them and why is necessary
     # SELENIUM_DRIVER: 'chrome'
     SELENIUM_DRIVER: 'headless_chrome'
   ```
- 
+
   Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * Add the line `bundle exec rspec` to `bin/check`
