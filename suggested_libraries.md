@@ -21,6 +21,7 @@ end
 group :development, :test do
   gem 'bullet'
   gem 'pry-byebug'
+  gem 'pry-doc'
   gem 'pry-rails'
 end
 
