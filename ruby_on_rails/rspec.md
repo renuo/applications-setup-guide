@@ -59,34 +59,48 @@ You should know exactly why you are adding each one of them and why is necessary
 
   Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
-* Inside `spec/rails_helper.rb` after `require 'rspec/rails'` add the following system test configurations:
+* Add the configurations:
+  ```rb
+  # spec/rails_helper.rb:
 
-  ```ruby
-  require 'capybara/rspec'
-  require 'capybara/rails'
-  require 'selenium/webdriver'
-  require 'super_diff/rspec-rails'
+    # after `require 'rspec/rails'`
+    require 'capybara/rspec'
+    require 'capybara/rails'
+    require 'selenium/webdriver'
+    require 'super_diff/rspec-rails'
 
-  RSpec.configure do |config|
     # ... (omitted configs here)
 
-    config.before do |example|
-      Rails.logger.debug("RSpec #{example.metadata[:location]} #{example.metadata[:description]}")
+    RSpec.configure do |config|
+      # ... (omitted configs here)
+
+      config.before do |example|
+        Rails.logger.debug("RSpec #{example.metadata[:location]} #{example.metadata[:description]}")
+      end
+
+      config.before(:each, type: :system) do
+        driven_by :rack_test
+      end
+
+      SELENIUM_DRIVER = ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+      config.before(:each, type: :system, js: true) do
+        driven_by :selenium, using: ENV['SELENIUM_DRIVER'].to_sym
+      end
     end
 
-    config.before(:each, type: :system) do
-      driven_by :rack_test
-    end
-
-    config.before(:each, type: :system, js: true) do
-      driven_by :selenium_chrome_headless
-    end
-  end
+  # config/application.example.yml
+  test:
+    # SELENIUM_DRIVER: 'chrome'
+    SELENIUM_DRIVER: 'headless_chrome'
   ```
 
   Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * Add the line `bundle exec rspec` to `bin/check`
+
+> **Note**: If you want to debug a spec, you can simply uncomment the line `SELENIUM_DRIVER` in the application.yml to not run it headless:
+
+![CleanShot 2021-06-25 at 16 54 22](https://user-images.githubusercontent.com/1319150/123443347-1bbcae80-d5d6-11eb-8ba5-0d2c9ae4a37c.gif)
 
 ## :white_check_mark: Our first (green) test
 
