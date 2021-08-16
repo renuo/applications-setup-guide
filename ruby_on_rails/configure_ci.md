@@ -24,3 +24,5 @@ The command will copy the necessary templates to `.semaphore` folder.
 When you have your three green builds you have configured your CI properly.
 
 ![semaphoreci_2](../images/semaphore_ci.png)
+
+To proceed further we need to create our servers and then configure the Continuous Deployment.
