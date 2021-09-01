@@ -9,7 +9,7 @@
 ## Setup the remote configuration
 
 Run the command `renuo create-heroku-app [project-name]` to generate a script which will create and configure all
-Heroku apps.
+Heroku apps. `[project-name]` is limited to 22 characters.
 
 Please review the script before running it and execute only the commands you need and understand.
 
