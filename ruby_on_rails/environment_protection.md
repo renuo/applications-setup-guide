@@ -7,11 +7,11 @@ To setup authentication, configure the application controller like that:
 ```ruby
 class ApplicationController < ActionController::Base
   # ...
-  
+
   ENV['BASIC_AUTH'].to_s.split(':').presence&.then do |username, password|
     http_basic_authenticate_with name: username, password: password
   end
-  
+
   # ...
 end
 ```
