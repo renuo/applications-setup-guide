@@ -32,7 +32,7 @@ Most are not optional, but the rest of the team can start working even if those 
 3. [robots.txt](robots_txt.md)
 4. [Percy](configure_percy.md) (optional)
 5. [Papertrail](papertrail.md)
-6. [Protect staging environments](environment_protection.md)
+6. [Protect develop & testing environment](environment_protection.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
 Once the new application is created, please add the project to the
