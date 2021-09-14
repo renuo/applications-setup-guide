@@ -1,6 +1,6 @@
 # Staging Environment Protection
 
-To protect Renuo from a lawsuit for using copyrighted material, staging applications should be protected using HTTP Basic auth to prevent unwanted traffic.
+HTTP Basic Authentication should be configured to prevent public traffic on our develop and testing applications
 
 To setup authentication, configure the application controller like that:
 
@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml` and run the following commands:
+Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`, run the following commands:
 
 ```sh
-heroku config:set BASIC_AUTH='admin:[some-memorable-password]' --app [your-app]-develop
-heroku config:set BASIC_AUTH='admin:[some-memorable-password]' --app [your-app]-testing
+heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+heroku config:set BASIC_AUTH='admin:[second-memorable-password]' --app [your-app]-testing
 ```
 
-(save the passwords in 1password)
+and save the passwords in 1Password.
