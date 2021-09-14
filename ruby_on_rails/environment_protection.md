@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-Add `BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml` and run the following commands:
+Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml` and run the following commands:
 
 ```sh
 heroku config:set BASIC_AUTH='admin:[some-memorable-password]' --app [your-app]-develop
