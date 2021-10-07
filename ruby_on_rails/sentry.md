@@ -78,3 +78,9 @@ try {
 ```
 
 On `https://sentry.io/renuo/[project-name]` you should find "Uncaught Error: test sentry js".
+
+## Disable the project for non paying customers
+
+If a customer is not paying for Sentry monitoring (check the projects list) we should now disable the key under [Project Settings] » Client Keys » Configure.
+Make sure that the project is in the projects list.
+
