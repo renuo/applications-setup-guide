@@ -1,5 +1,7 @@
 # SparkPost & Mailtrap
 
+⚠️ Always use subaccounts in Sparkpost!
+
 ## Introduction
 
 **Master (Sparkpost, sample-app@yourdomain.tld)**
