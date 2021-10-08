@@ -1,5 +1,9 @@
 # SparkPost & Mailtrap
 
+⚠️ Always use subaccounts in Sparkpost!
+
+> Otherwise there may be compliance issues which can lead to the closing down of the whole Renuo account.
+
 ## Introduction
 
 **Master (Sparkpost, sample-app@yourdomain.tld)**
