@@ -11,7 +11,6 @@ Some steps are the same as for the Rails app.
 1. [Initialise Gitflow](../ruby_on_rails/initialise_gitflow.md)
 1. [Configure CI](configure_ci.md)
 1. [Release](release.md)
-1. [Configure CD](configure_cd.md)
 
 Now the app should be downloadable via Testflight / Play store.
 Other recommended tools:

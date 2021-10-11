@@ -8,9 +8,8 @@ The application (and relative github repo) will be named after the `[project-nam
 1. [Push to Git Repository](first_git_push.md)
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)
-1. [Configure the CI](configure_ci.md)
 1. [Create an Application Server](create_application_server.md)
-1. [Configure Continuous Deployment](configure_cd.md)
+1. [Configure the CI / CD](configure_ci.md)
 
 Once here, your app should be up and running on all three environments.
 

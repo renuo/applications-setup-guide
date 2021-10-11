@@ -21,8 +21,19 @@ The command will copy the necessary templates to `.semaphore` folder.
 1. Add a file called `.nvmrc` to the project root, where you specify the latest node version
 1. Commit the files to all three branches, push and watch the CI run.
 
-When you have your three green builds you have configured your CI properly.
+When you have your three green builds you have configured your CI and CD properly.
 
 ![semaphoreci_2](../images/semaphore_ci.png)
 
-To proceed further we need to create our servers and then configure the Continuous Deployment.
+You should now see a third block where your deployment runs to Heroku.
+Make sure it is green and deploys correctly:
+
+![semaphoreci_2](../images/semaphore_cd.png)
+
+## Conclusion
+
+You have now your application running on all the three environments.
+From now on, all the changes you will push on *develop*, *master*, or *testing*
+branches in Github will be automatically deployed to the related server.
+
+It's time to create some first Pull Requests with some improvements.
