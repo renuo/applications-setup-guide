@@ -6,6 +6,7 @@ Add the following gems to your Gemfile:
 
 ```ruby
 group :development, :test do
+  gem 'rexml'
   gem 'rspec-rails'
 end
 
@@ -75,16 +76,21 @@ You should know exactly why you are adding each one of them and why is necessary
       # ... (omitted configs here)
 
       config.before do |example|
-        Rails.logger.debug("RSpec #{example.metadata[:location]} #{example.metadata[:description]}")
+        ActionMailer::Base.deliveries.clear
+        I18n.locale = I18n.default_locale
+        Rails.logger.debug { "--- #{example.location} ---" }
+      end
+
+      config.after do |example|
+        Rails.logger.debug { "--- #{example.location} FINISHED ---" }
       end
 
       config.before(:each, type: :system) do
         driven_by :rack_test
       end
 
-      SELENIUM_DRIVER = ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
       config.before(:each, type: :system, js: true) do
-        driven_by :selenium, using: ENV['SELENIUM_DRIVER'].to_sym
+        driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
       end
     end
 
@@ -93,8 +99,6 @@ You should know exactly why you are adding each one of them and why is necessary
     # SELENIUM_DRIVER: 'chrome'
     SELENIUM_DRIVER: 'headless_chrome'
   ```
-
-  Please check the [rails_helper template](../templates/spec/rails_helper.rb).
 
 * Add the line `bundle exec rspec` to `bin/check`
 
@@ -129,3 +133,5 @@ Check that you see `1+2=3` in each app.
 * Create the module [`spec/support/javascript_error_reporter.rb`](../templates/spec/support/javascript_error_reporter.rb)
 
 * Verify that `config.include JavaScriptErrorReporter, type: :system, js: true` is in your [`rails_helper.rb`](../templates/spec/rails_helper.rb)
+
+Please check the [rails_helper template](../templates/spec/rails_helper.rb) to compare.
