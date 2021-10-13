@@ -8,6 +8,7 @@ Before configuring the CI, you should already have a Git Repository with the cod
 and the main branches already pushed and ready to be tested.
 
 1. Proceed to <https://renuo.semaphoreci.com/> and login or create an account with your Renuo email address.
+1. Follow this instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/
 1. Create a project here: <https://renuo.semaphoreci.com/new_project>
 
 ## Rails specific configuration
