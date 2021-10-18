@@ -9,4 +9,4 @@ Incoming issues will be treated with high priority by _wg-operations_.
 
 ## Cipher suite review
 
-Review your SSL/TLS configuration periodically: https://www.ssllabs.com/ssltest/
+Review your SSL/TLS configuration periodically: <https://www.ssllabs.com/ssltest/>
