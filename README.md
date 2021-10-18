@@ -46,6 +46,7 @@ Thank you for your work and have fun! :tada:
 * [GitFlow](gitflow.md)
 * [Go Live! :tada:](go_live.md)
 * [Naming conventions](naming_conventions.md)
+* [Security](security.md)
 
 ### Frameworks, languages and services
 
