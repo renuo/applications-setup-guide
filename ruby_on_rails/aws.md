@@ -74,3 +74,14 @@ your credentials store:
 1. Repeat the previous step for all environments
 1. (Only if using CloudFront) Make sure, you know also the Domain name of your CloudFront-Distribution to access your s3 files
 (e.g. ***.cloudfront.net or the Alias, if using an Alias).
+
+You then can use an _ActiveStorage_ configuration like this:
+
+```yaml
+amazon:
+  service: S3
+  access_key_id: <%= ENV['AWS_S3_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_S3_SECRET_ACCESS_KEY'] %>
+  bucket: <%= ENV['AWS_S3_BUCKET'] %>
+  region: "eu-central-1"
+```
