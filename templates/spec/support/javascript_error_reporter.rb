@@ -1,7 +1,7 @@
 module JavaScriptErrorReporter 
   RSpec.configure do |config|
     config.after(:each, type: :system, js: true) do
-      errors = page.driver.browser.manage.logs.get(:browser)
+      errors = page.driver.browser.logs.get(:browser)
 
       aggregate_failures 'javascript errors' do
         errors.each do |error|
