@@ -6,12 +6,12 @@ Add the following gems to your Gemfile:
 
 ```ruby
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'rexml'
   gem 'rspec-rails'
 end
 
 group :test do
-  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'super_diff'
