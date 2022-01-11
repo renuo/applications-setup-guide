@@ -35,8 +35,6 @@ You can use `renuo configure-sentry project-name <SENTRY_DSN>` to generate the c
   ```ruby
   Rails.application.config.content_security_policy do |policy|
     ...
-    policy.script_src  :self, :https, :unsafe_inline
-    ...
     policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
   end
   ```

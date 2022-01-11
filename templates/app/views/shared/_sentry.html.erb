@@ -1,7 +1,7 @@
-<% if defined?(Raven) %>
-  <script type="application/javascript">
+<% if defined? Sentry %>
+  <%= javascript_tag nonce: true do -%>
     window.sentryConfig = {dsn: '<%= ENV['SENTRY_DSN']%>', environment: '<%= ENV['SENTRY_ENVIRONMENT']%>'};
-  </script>
+  <% end -%>
   <%= javascript_include_tag 'https://cdn.renuo.ch/sentry-ignore.min.js', crossorigin: 'anonymous' %>
   <%= javascript_pack_tag 'sentry' %>
 <% end %>
