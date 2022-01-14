@@ -18,7 +18,7 @@ Please stick to it unless you have special needs.
   * Default branch: `develop`. Click *update*
   * Add these rules for the two branches `develop` and `master`:
     * Require pull request reviews before merging
-    * Require status checks to pass before merging
+    * Require status checks to pass before merging (after you configured the CI add it to the required checks)
     * Require branches to be up to date before merging
 * Autolink references
   * Add a new Autolink reference with:
