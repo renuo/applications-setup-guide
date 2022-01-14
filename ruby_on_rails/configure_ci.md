@@ -38,3 +38,5 @@ From now on, all the changes you will push on *develop*, *master*, or *testing*
 branches in Github will be automatically deployed to the related server.
 
 It's time to create some first Pull Requests with some improvements.
+
+**Don't forget to go back to the github settings and add the CI to the required checks!**
