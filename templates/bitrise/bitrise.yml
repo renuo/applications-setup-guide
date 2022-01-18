@@ -10,8 +10,8 @@ app:
     FASTLANE_WORK_DIR: "."
   - VERSION_NUMBER: 1.0.0
 trigger_map:
-- push_branch: master
-  workflow: Deploy-master
+- push_branch: main
+  workflow: Deploy-main
 - push_branch: develop
   workflow: Deploy-develop
 workflows:
@@ -101,7 +101,7 @@ workflows:
     - opts:
         is_expand: false
       IOS_PROJECT_NAME: [project-name]
-  Deploy-master:
+  Deploy-main:
     steps:
     - change-workdir@1.0.2:
         title: Workdir app
@@ -119,8 +119,8 @@ workflows:
             openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystore.properties.enc -out android/keystore.properties -pass env:KEY_JSON_PASSWORD
             openssl aes-256-cbc -md sha256 -d -a -salt -in android/keystores/[project-name].jks.enc -out android/keystores/[project-name].jks -pass env:KEY_JSON_PASSWORD
 
-            openssl aes-256-cbc -md sha256 -d -a -salt -in android/app/google-services-master.json.enc -out android/app/google-services.json -pass env:KEY_JSON_PASSWORD
-            openssl aes-256-cbc -md sha256 -d -a -salt -in ios/GoogleService-Info-master.plist.enc -out ios/GoogleService-Info.plist -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in android/app/google-services-main.json.enc -out android/app/google-services.json -pass env:KEY_JSON_PASSWORD
+            openssl aes-256-cbc -md sha256 -d -a -salt -in ios/GoogleService-Info-main.plist.enc -out ios/GoogleService-Info.plist -pass env:KEY_JSON_PASSWORD
         title: Decrypt secrets
     before_run:
     - Setup

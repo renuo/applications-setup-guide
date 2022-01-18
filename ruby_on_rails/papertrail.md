@@ -10,7 +10,7 @@
 
 * Select the App for which you want to set alerts.
 
-* Advance to the `master` branch.
+* Advance to the `main` branch.
 
 ![app_environments](../images/app_environments.png)
 
