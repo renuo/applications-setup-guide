@@ -13,8 +13,7 @@ fi
 bundle exec brakeman -q -z --no-summary --no-pager
 bundle exec mdl ./
 
-
-npx stylelint "**/*.scss"
+npx stylelint "./app/assets/stylesheets/**/*.scss"
 
 bundle exec slim-lint app/views/ -c .slim-lint.yml
 
