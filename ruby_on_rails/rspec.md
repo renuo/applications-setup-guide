@@ -122,7 +122,7 @@ Commit and push your changes! :tada:
 ## Verify
 
 * Open the three apps
-  * <https://[project-name]-master.herokuapp.com/home/check>
+  * <https://[project-name]-main.herokuapp.com/home/check>
   * <https://[project-name]-develop.herokuapp.com/home/check>
   * <https://[project-name]-testing.herokuapp.com/home/check>
 

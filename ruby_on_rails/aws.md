@@ -46,7 +46,7 @@ The following command will create command-line-commands to set up S3 and CloudFr
 1. Now it will print you out a series of commands e.g.:
 
 ```sh
-# AWS master
+# AWS main
 
       aws --profile renuo-app-setup iam create-user --user-name <<your-project>>
       [...]

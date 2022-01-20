@@ -34,7 +34,7 @@ Make sure it is green and deploys correctly:
 ## Conclusion
 
 You have now your application running on all the three environments.
-From now on, all the changes you will push on *develop*, *master*, or *testing*
+From now on, all the changes you will push on *develop*, *main*, or *testing*
 branches in Github will be automatically deployed to the related server.
 
 It's time to create some first Pull Requests with some improvements.

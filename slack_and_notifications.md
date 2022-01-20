@@ -14,7 +14,7 @@ Invite all team members involved in the project to the channel.
 
 ## Deploy Notifications
 
-One notification you may want to receive on this channel is about when a new deployment on master has been performed. In
+One notification you may want to receive on this channel is about when a new deployment on main has been performed. In
 order to do that you must be an admin of the Renuo Slack Organisation. If you are not an admin, ask wg-operations to do
 it for you communicating the `[project-name]`.
 
@@ -25,7 +25,7 @@ If you used Renuo CLI to configure SemaphoreCI, the notifications should be alre
 1. Create New Notification
 1. Name of the Notification -> `[project-name]`
 1. Name of the Rule -> `Slack notifications`
-1. Branches -> `master`
+1. Branches -> `main`
 1. Slack Endpoint: Use the Webhook URL from other projects
 1. Send to Slack channel: `#project-[project-name]`
 1. Save changes
