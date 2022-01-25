@@ -96,8 +96,8 @@ You should know exactly why you are adding each one of them and why is necessary
 
   # config/application.example.yml
   test:
-    # SELENIUM_DRIVER: 'chrome'
-    SELENIUM_DRIVER: 'headless_chrome'
+    # SELENIUM_DRIVER: 'selenium_chrome'
+    SELENIUM_DRIVER: 'selenium_chrome_headless'
   ```
 
 * Add the line `bundle exec rspec` to `bin/check`
