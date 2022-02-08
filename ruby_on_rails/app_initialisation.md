@@ -149,4 +149,4 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 ## Finalising
 
 * Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/run`
-* If they do, commit all your changes to the master branch with Git.
+* If they do, commit all your changes to the main branch with Git.

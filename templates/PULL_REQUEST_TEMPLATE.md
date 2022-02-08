@@ -12,7 +12,7 @@ What I did and maybe screenshots.
 ### New feature
 
 - [ ] I wrote unit tests and e2e tests.
-- [ ] *I updated the environment variables on develop and master*
+- [ ] *I updated the environment variables on develop and main*
 
 #### Feature involving the frontend
 
