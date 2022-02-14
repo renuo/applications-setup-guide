@@ -87,6 +87,9 @@ They are always idempotent (runnable multiple times).
   end
   ```
 
+* add application.yml to .gitignore
+* add one first key to application.example.yml `APP_PORT: 3000`
+
   Make sure it comes **before** any `rails` comands.
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
 create the initializer for figaro in `config/initializers/figaro.rb`:
