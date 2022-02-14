@@ -86,7 +86,7 @@ They are always idempotent (runnable multiple times).
     system! 'cp config/application.example.yml config/application.yml'
   end
   ```
-  
+
 * add application.yml to .gitignore
 * add one first key to application.example.yml `APP_PORT: 3000`
 
