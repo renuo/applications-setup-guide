@@ -39,7 +39,7 @@ You can use `renuo configure-sentry project-name <SENTRY_DSN>` to generate the c
   end
   ```
 
-  You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`. Add the environment to the `CSP_REPORT_URI` using `&sentry_environment=master`.
+  You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`. Add the environment to the `CSP_REPORT_URI` using `&sentry_environment=main`.
 
 ## Frontend (Javascript)
 
