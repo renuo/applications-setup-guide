@@ -19,8 +19,13 @@ renuo configure-semaphore
 
 The command will copy the necessary templates to `.semaphore` folder.
 
-1. Add a file called `.nvmrc` to the project root, where you specify the latest node version
-1. Commit the files to all three branches, push and watch the CI run.
+1. If node is needed specify the version inside `package.json`:
+```json
+  "engines": {
+    "node": "X.X"
+  },
+```
+2. Commit the files to all three branches, push and watch the CI run.
 
 When you have your three green builds you have configured your CI and CD properly.
 
