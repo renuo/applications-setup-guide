@@ -11,16 +11,16 @@
 * [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if you are not.
 You can do this with `gem update rails`. Beware of beta versions.
 
-* Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip-action-text --skip-action-mailbox` where the `project-name` is exactly the one you chose before.
+* Start a new Rails project using `rails new [project-name] --database=postgresql --skip-test --skip-action-mailbox` where the `project-name` is exactly the one you chose before.
 
-  * You can use the `--css` option to preconfigure your new Rails application to use a CSS processor/framework. Available options are: `tailwind, bootstrap, bulma, postcss, sass`. This will automatically install the [cssbundling-rails](https://github.com/rails/cssbundling-rails) and [jsbundling-rails](https://github.com/rails/jsbundling-rails) gems. The app then uses the the [esbuild](https://github.com/evanw/esbuild) bundler and minifier by default.
+  * You can use the `--css` flag to preconfigure your new Rails app to use a CSS processor/framework. Available options are: `tailwind, bootstrap, bulma, postcss, sass`. This will automatically install the [cssbundling-rails](https://github.com/rails/cssbundling-rails) and [jsbundling-rails](https://github.com/rails/jsbundling-rails) gems. The app then uses the the [esbuild](https://github.com/evanw/esbuild) JS bundler and minifier by default.
 
-  * If you prefer a different JS bundler, you can use the `--javascript` option to configure it. You have the choice between using one of the node-based bundlers: `esbuild, rollup, webpack` or you can use `importmap`, which is the default unless you have used the `--css` option from above.
+  * Esbuild is generally a good choice, but you can also configure an alternative JS bundler using the `--javascript` flag. You have the choice between using one of the node-based bundlers: `esbuild, rollup, webpack` or you can use `importmap`, which is the default. Note that importmaps cannot be used in conjunction with the `--css` option from above.
 
   * You may want to choose a different database from Postgres, but most of the time that will be your choice.
 If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
-* Check if you've got a `.ruby-version` file.  If there is already one, make sure you remove the `ruby-` prefix so that only the version number is left. Otherwise, create one and enter the Ruby version manually.
+* Check if you've got a `.ruby-version` file and create one if not . If  there is already one in the project, be sure to remove the `ruby-` prefix from the version number inside the file, leaving only the number itself.
 
 * Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
 
@@ -34,7 +34,7 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
 
 * Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
 
-* Then check your default Rails setup by running either `bin/dev` if you are using `jsbundling-rails`, or `rails s` if you are using importmaps and then visit `localhost:3000`.
+* Check your default Rails setup by running either `bin/dev` or `rails s`, depending on whether you are using a node-based bundler with the foreman Procfile-runner, or if you are using importmaps and then visit `localhost:3000`.
 You should be on Rails now, yay!
 
 ## Adjustments
@@ -72,20 +72,20 @@ They are always idempotent (runnable multiple times).
 
   Also change `system!('bundle install')` to `system!('bundle install --jobs=3 --retry=3')`
 
-#### If you are using `importmap-rails`
+#### If you are using a node-based JS bundler using `jsbundling-rails`
 
-* Add a `bin/dev` file and make it executable. It will be used to start our project.
+* Add the following to `bin/setup` to allow intalling all dependencies in one go
+
+  ```ruby
+  system! 'yarn install'
+  ```
+
+#### If you use `importmap-rails` and there is no `bin/dev` file yet
+
+* Create one and make it executable. It will be used to start our project.
 
   ```sh
   echo "#\!/bin/sh\nset -e\n\nrails s" >> bin/dev && chmod +x bin/dev
-  ```
-  
-#### If you are using `jsbundling-rails`
-
-* Add the following to `bin/setup` to also install node dependencies:
- 
-  ```ruby
-  system! 'yarn'
   ```
 
 ### ENV variables with Figaro
