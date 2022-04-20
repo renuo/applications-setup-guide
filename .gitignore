@@ -1,3 +1,3 @@
 *.pdf
 book
-*.html
+.DS_STORE
