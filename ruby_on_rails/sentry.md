@@ -35,13 +35,11 @@ You can use `renuo configure-sentry project-name <SENTRY_DSN>` to generate the c
   ```ruby
   Rails.application.config.content_security_policy do |policy|
     ...
-    policy.script_src  :self, :https, :unsafe_inline
-    ...
     policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
   end
   ```
 
-  You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`.
+  You can find the correct value in `Sentry -> Project Settings -> Security Headers -> REPORT URI`. Add the environment to the `CSP_REPORT_URI` using `&sentry_environment=main`.
 
 ## Frontend (Javascript)
 

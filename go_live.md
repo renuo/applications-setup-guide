@@ -8,7 +8,7 @@
 * Verify that SSL is working correctly
 
 If the final domain isn't already in use, you can configure it also already:
-Add a CNAME DNS record pointing to the app (`[project-name]-master.renuoapp.ch`).
+Add a CNAME DNS record pointing to the app (`[project-name]-main.renuoapp.ch`).
 
 ### URL rewriting on Cloudflare
 

@@ -6,11 +6,11 @@
 
 ## Introduction
 
-**Master (Sparkpost, sample-app@yourdomain.tld)**
+**Main (Sparkpost, sample-app@yourdomain.tld)**
 
 - Each app is using a separate subaccount under the main account
 - The Domain should be set up and verified under the subaccount's sending domains
-- Login: sparkpost+master@renuo.ch
+- Login: sparkpost+main@renuo.ch
 
 **Develop (Sparkpost, renuoapp.ch)**
 

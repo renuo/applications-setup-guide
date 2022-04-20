@@ -8,7 +8,7 @@ Short project description
 | ------- | ------------------------------------- | ---------------|
 | develop | https://`[project-name]`-develop.renuoapp.ch | auto    |
 | testing | https://`[project-name]`-testing.renuoapp.ch | auto    |
-| master  | https://`[project-name]`-master.renuoapp.ch  | release |
+| main    | https://`[project-name]`-main.renuoapp.ch    | release |
 
 ## Setup
 

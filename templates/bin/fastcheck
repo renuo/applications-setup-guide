@@ -11,7 +11,7 @@ then
 fi
 
 bundle exec brakeman -q -z --no-summary --no-pager
-bundle exec mdl ./
+bundle exec mdl ./ -g
 
 npx stylelint "./app/assets/stylesheets/**/*.scss"
 

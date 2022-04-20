@@ -2,15 +2,11 @@
 
 ## Default Rails setup
 
-* Check if you are using the latest version of ruby supported by Heroku with `ruby -v`
-and update it if you are not. Run `rbenv versions` to check your installed ruby versions.
-Follow the instructions on screen to eventually install it.
+* Install the latest Ruby version with `asdf install ruby latest` (Check if it's supported by Heroku).
 
-* Switch the global Ruby version to the newest one with `rbenv global <ruby-version>` so that the latter commands
-run in the correct context. You don't need to, if you've a `.ruby-version` in your projects containment folder.
+* Switch your global Ruby to the fresh one: `asdf global ruby latest`
 
-* Run `gem install bundler` to install Bundler.
-You may have it already installed, but this command will make sure that you have the latest version.
+* Run `gem update --system` to update Ruby's default gems (e.g. `bundler`).
 
 * [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if you are not.
 You can do this with `gem update rails`. Beware of beta versions.
@@ -19,14 +15,20 @@ You can do this with `gem update rails`. Beware of beta versions.
 You may want to choose a different database from Postgres, but most of the time that will be your choice.
 If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
+* Check if you've got a `.ruby-version` file. If not, create one and enter the Ruby version.
+
 * Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
 
-  ```ruby File.read(File.join(__dir__, '.ruby-version'))```
+  ```rb
+  ruby File.read(File.join(__dir__, '.ruby-version')).strip
+  ```
 
   [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
 
 * Run `bin/setup`
-* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file
+
+* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
+
 * Then check your default Rails setup by running `rails s` and visiting `localhost:3000`.
   You should be on Rails now, yay!
 
@@ -87,6 +89,9 @@ They are always idempotent (runnable multiple times).
   end
   ```
 
+* add application.yml to .gitignore
+* add one first key to application.example.yml `APP_PORT: 3000`
+
   Make sure it comes **before** any `rails` comands.
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
 create the initializer for figaro in `config/initializers/figaro.rb`:
@@ -146,4 +151,4 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 ## Finalising
 
 * Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/run`
-* If they do, commit all your changes to the master branch with Git.
+* If they do, commit all your changes to the main branch with Git.

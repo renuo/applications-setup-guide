@@ -17,7 +17,7 @@ DEVISE_PEPPER: 'rake secret'
 NEW_RELIC_LICENSE_KEY: 'TO DO'
 NEW_RELIC_APP_NAME: '<application>-<branch>'
 
-# Add 3 new projects for develop/master/testing at https://sentry.io/organizations/renuo/projects/new
+# Add 3 new projects for develop/main/testing at https://sentry.io/organizations/renuo/projects/new
 SENTRY_DSN: ''
 
 # Use Renuo Upload instead of Amazon S3
@@ -29,7 +29,7 @@ RENUO_UPLOAD_CDN_HOST: ''
 RENUO_UPLOAD_APP_NAME: '<application>-<branch>'
 
 # This is used to seed your database
-# Use a random password for develop/master/testing
+# Use a random password for develop/main/testing
 ADMIN_EMAIL: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
 ADMIN_PASSWORD: 'developer'
 

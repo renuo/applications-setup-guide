@@ -15,7 +15,7 @@ and use that project for all your environments.
 
 **API key generation**
 
-In order to user the Google APIs you will need to generate new credentials. Because we are using only one project per application, but would like to separate the usage in development from the one in production, name the keys like so: `maps-master` and `maps-develop`. Because we might need a key to also test the map locally, add a separate one named `maps-local`.
+In order to user the Google APIs you will need to generate new credentials. Because we are using only one project per application, but would like to separate the usage in development from the one in production, name the keys like so: `maps-main` and `maps-develop`. Because we might need a key to also test the map locally, add a separate one named `maps-local`.
 
 **API key restrictions**
 
@@ -23,7 +23,7 @@ To prevent quota and key theft, we need to add some restrictions to our keys. Th
 
 ![google_app_2](images/google_app_2.png)
 
-For master, enable only the specific domain **and** the `renuoapp.ch` domain.
+For main, enable only the specific domain **and** the `renuoapp.ch` domain.
 
 For the key we use locally, enable the specific localhost domain (`project-name.localhost`).
 
@@ -31,7 +31,7 @@ For the key we use locally, enable the specific localhost domain (`project-name.
 
 **API key generation**
 
-As for the JS API, create two different keys for the two environments. For this API, name the keys like this: `geocoding-master` and `geocoding-develop`.
+As for the JS API, create two different keys for the two environments. For this API, name the keys like this: `geocoding-main` and `geocoding-develop`.
 
 **API key restrictions**
 

@@ -6,12 +6,12 @@ Add the following gems to your Gemfile:
 
 ```ruby
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'rexml'
   gem 'rspec-rails'
 end
 
 group :test do
-  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'super_diff'
@@ -96,8 +96,8 @@ You should know exactly why you are adding each one of them and why is necessary
 
   # config/application.example.yml
   test:
-    # SELENIUM_DRIVER: 'chrome'
-    SELENIUM_DRIVER: 'headless_chrome'
+    # SELENIUM_DRIVER: 'selenium_chrome'
+    SELENIUM_DRIVER: 'selenium_chrome_headless'
   ```
 
 * Add the line `bundle exec rspec` to `bin/check`
@@ -122,7 +122,7 @@ Commit and push your changes! :tada:
 ## Verify
 
 * Open the three apps
-  * <https://[project-name]-master.herokuapp.com/home/check>
+  * <https://[project-name]-main.herokuapp.com/home/check>
   * <https://[project-name]-develop.herokuapp.com/home/check>
   * <https://[project-name]-testing.herokuapp.com/home/check>
 

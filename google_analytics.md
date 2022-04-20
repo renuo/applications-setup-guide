@@ -1,6 +1,6 @@
 # Google Analytics
 
-Google Analytics is only set up for the master branch (since \*.renuoapp.ch domains are tracked via Cloudflare injection).
+Google Analytics is only set up for the main branch (since \*.renuoapp.ch domains are tracked via Cloudflare injection).
 
 To add a new project to the GA account go to <https://www.google.com/analytics> and login as google@renuo.ch.
 
