@@ -1,0 +1,12 @@
+[book]
+authors = ["Devs@Renuo"]
+language = "en"
+multilingual = false
+src = ""
+title = "Renuo - Application Setup Guide"
+
+[build]
+create-missing = false
+
+[output.html.search]
+limit-results = 10
