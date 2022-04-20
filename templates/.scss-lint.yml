@@ -1,0 +1,12 @@
+scss_files: 'app/assets/stylesheets/**/*.css.scss'
+
+linters:
+  BorderZero:
+    enabled: false
+
+  Indentation:
+    severity: warning
+    width: 2
+    
+  PropertySortOrder:
+    enabled: false

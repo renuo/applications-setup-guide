@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+bin/fastcheck
+
+bin/rails zeitwerk:check
+
+if ! grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
+then
+  echo 'console.log found. Please fix them and try again, commit aborted'
+  exit 1
+fi
+
+DIFF_BEFORE=`git diff | shasum -a 256`
+csscomb -v src/app/**/*.scss
+DIFF_AFTER=`git diff | shasum -a 256`
+if [ $DIFF_BEFORE -ne $DIFF_AFTER ]; then
+  echo 'csscomb has rearranged some of your css that has to be reviewed manually, commit aborted'
+  exit 1
+fi
+
+bin/rspec
+
+# for Cucumber
+
+NO_COVERAGE=true bundle exec cucumber --format progress

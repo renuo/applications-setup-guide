@@ -1,0 +1,47 @@
+# Edit /etc/hosts to let your DNS resolve to 127.0.0.1 or use puma-dev
+APP_HOST: '<application>.localhost'
+APP_PORT: '3000'
+
+# Mail config
+MAIL_HOST: ''
+MAIL_USERNAME: ''
+MAIL_PASSWORD: ''
+MAIL_SENDER: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
+
+# Secrets
+SECRET_KEY_BASE: 'rake secret'
+DEVISE_SECRET_KEY: 'rake secret'
+DEVISE_PEPPER: 'rake secret'
+
+# Newrelic
+NEW_RELIC_LICENSE_KEY: 'TO DO'
+NEW_RELIC_APP_NAME: '<application>-<branch>'
+
+# Add 3 new projects for develop/main/testing at https://sentry.io/organizations/renuo/projects/new
+SENTRY_DSN: ''
+
+# Use Renuo Upload instead of Amazon S3
+RENUO_UPLOAD_API_KEY: ''
+# Where the renuo-upload library gets the credentials for the upload
+RENUO_UPLOAD_SIGNING_URL: ''
+# Host where the images are available
+RENUO_UPLOAD_CDN_HOST: ''
+RENUO_UPLOAD_APP_NAME: '<application>-<branch>'
+
+# This is used to seed your database
+# Use a random password for develop/main/testing
+ADMIN_EMAIL: 'yourname+<application>@example.com' # change your name and domain to @renuo.ch
+ADMIN_PASSWORD: 'developer'
+
+# Have 3 different Google Analytics key so not to mix up data from different applications
+GOOGLE_ANALYTICS_ID: ''
+
+# For the production environment on Heroku we use the DATABASE_URL. The format of it is as follows:
+# "postgres://myuser:mypass@localhost/somedatabase"
+# Note that this ENV variable is already configured by Heroku when installing the PG extension.
+# For the local environment the defaults should be ok. If you need to override the config, use the DATABASE_URL.
+
+# Try not to use Amazon S3! If you have to, name the bucket: <project-name>-<user>-<rails_env>
+# S3_BUCKET_NAME: '<application>-<branch>'
+# AWS_ACCESS_KEY_ID: ''
+# AWS_SECRET_ACCESS_KEY: ''

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+base=$(cat $1)
+message=`echo ${base:0:1} | tr '[a-z]' '[A-Z]'`${base:1}
+echo "$message" > $1
