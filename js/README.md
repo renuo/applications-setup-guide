@@ -37,4 +37,4 @@ An example Vue.js application can be found [here](https://github.com/renuo/tamed
 
 ## Complex JS app
 
-Use either React or [Angular](../angular/README.md).
+Use either React or Angular.
