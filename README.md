@@ -39,22 +39,6 @@ We want you to know exactly the reason behind each single step of this guide.
 
 Thank you for your work and have fun! :tada:
 
-## Guides
-
-### General
-
-* [GitFlow](gitflow.md)
-* [Go Live! :tada:](go_live.md)
-* [Naming conventions](naming_conventions.md)
-* [Security](security.md)
-
-### Frameworks, languages and services
-
-* [Frontend apps (JS)](js/README.md)
-* [Google APIs](google_apis.md)
-* [React Native](react_native/README.md)
-* **[Ruby On Rails](ruby_on_rails/README.md)**
-
 ## License
 
 [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/legalcode)
