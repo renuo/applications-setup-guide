@@ -20,6 +20,7 @@ Please stick to it unless you have special needs.
     * Require pull request reviews before merging
     * Require status checks to pass before merging (after you configured the CI add it to the required checks)
     * Require branches to be up to date before merging
+    * Include administrators (since we are all administrators)
 * Autolink references
   * Add a new Autolink reference with:
     * Reference prefix: `TICKET-`
