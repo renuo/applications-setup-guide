@@ -46,7 +46,7 @@ ga('require', 'displayfeatures');
 ga('send', 'pageview');
 ```
 
-Make sure you insert this script at the end of the <head> tag of the page (not in the <body>).
+Make sure you insert this script at the end of the `<head>` tag of the page (not in the `<body>`).
 
 ## b) Ruby rack-tracker
 
