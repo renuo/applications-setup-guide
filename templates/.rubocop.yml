@@ -27,6 +27,10 @@ Style/NonNilCheck:
 Style/HashEachMethods:
   Enabled: true
 
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: consistent
+
 Style/HashTransformKeys:
   Enabled: true
 
