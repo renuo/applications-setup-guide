@@ -517,13 +517,13 @@ config.log_level = ENV['RAILS_LOG_LEVEL']&amp;.to_sym || :warn # change
 <li>
 <p>Update <code>config/environments/development.rb</code> settings:</p>
 <pre><code class="language-ruby">config.action_controller.action_on_unpermitted_parameters = :raise
-config.action_view.raise_on_missing_translations = true # uncomment
+config.i18n.raise_on_missing_translations = true # uncomment
 </code></pre>
 </li>
 <li>
 <p>Update <code>config/environments/test.rb</code> settings:</p>
 <pre><code class="language-ruby">config.action_controller.action_on_unpermitted_parameters = :raise
-config.action_view.raise_on_missing_translations = true # uncomment
+config.i18n.raise_on_missing_translations = true # uncomment
 config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
 config.active_record.verbose_query_logs = true # add
 </code></pre>
