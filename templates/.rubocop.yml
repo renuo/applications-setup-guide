@@ -29,7 +29,7 @@ Style/HashEachMethods:
 
 Style/HashSyntax:
   Enabled: true
-  EnforcedShorthandSyntax: consistent
+  EnforcedShorthandSyntax: either
 
 Style/HashTransformKeys:
   Enabled: true
