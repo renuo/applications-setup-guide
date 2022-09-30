@@ -13,7 +13,7 @@ There are things, in Renuo projects, which are mandatory, other that are suggest
 The basic things that need to be ready before the team can start working on a project are:
 
 * An existing *git* repository containing the project
-* Three main branches: *main*, *develop*, *testing*
+* Three main branches: *main*, *develop*
 * A README with essential information about the application
 * Convenience-scripts: `bin/setup`, `bin/check`, `bin/fastcheck`, `bin/run`
 * One running, green test

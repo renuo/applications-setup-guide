@@ -1,6 +1,6 @@
 # robots.txt
 
-It is time to configure the `robots.txt` file properly, to avoid crawlers to find our develop and testing environments.
+It is time to configure the `robots.txt` file properly, to avoid crawlers to find our develop environments.
 The main environment should be the only one searchable in the end.
 
 Make sure that there is a `robots.txt` file in the public folder or your project (Rails should have created it).
@@ -15,9 +15,8 @@ group :production do
 end
 ```
 
-Add the variable `BLOCK_ROBOTS=true` in your develop and testing environments on Heroku:
+Add the variable `BLOCK_ROBOTS=true` in your develop environment on Heroku:
 
 ```sh
-heroku config:add BLOCK_ROBOTS=true --app [project-name]-testing
 heroku config:add BLOCK_ROBOTS=true --app [project-name]-develop
 ```

@@ -1,6 +1,6 @@
 # Staging Environment Protection
 
-HTTP Basic Authentication should be configured to prevent public traffic on our develop and testing applications
+HTTP Basic Authentication should be configured to prevent public traffic on our develop applications
 
 To setup authentication, configure the application controller like that:
 
@@ -20,7 +20,6 @@ Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`
 
 ```sh
 heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
-heroku config:set BASIC_AUTH='admin:[second-memorable-password]' --app [your-app]-testing
 ```
 
 and save the passwords in 1Password.

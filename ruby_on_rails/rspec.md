@@ -124,7 +124,6 @@ Commit and push your changes! :tada:
 * Open the three apps
   * <https://[project-name]-main.herokuapp.com/home/check>
   * <https://[project-name]-develop.herokuapp.com/home/check>
-  * <https://[project-name]-testing.herokuapp.com/home/check>
 
 Check that you see `1+2=3` in each app.
 
