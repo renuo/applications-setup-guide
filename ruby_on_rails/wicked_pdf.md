@@ -10,7 +10,7 @@ Can be used to generate PDFs and supports HTML to PDF.
 
 By default, it adds no layout, you you may want to add a layout:
 
-* Create a `pdf.pdf.slim`
+* Create a `pdf.pdf.erb`
 * Use the method to add stylesheets : `wicked_pdf_stylesheet_link_tag 'pdf', media: 'all'`
 * Use the method `wicked_pdf_image_tag` to insert images to the layout.
 
