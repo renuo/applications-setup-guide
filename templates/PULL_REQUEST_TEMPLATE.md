@@ -7,7 +7,6 @@ What I did and maybe screenshots.
 - [ ] I reviewed my code.
 - [ ] This PR is relatable to a ticket number (via branch name, title or description).
 - [ ] I updated the ticket on Redmine.
-- [ ] *This PR is deployed on the testing environment*
 
 ### New feature
 

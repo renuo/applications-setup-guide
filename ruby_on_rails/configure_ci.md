@@ -7,7 +7,7 @@ that all the tests pass before building and releasing a new version through our 
 Before configuring the CI, you should already have a Git Repository with the code, a `bin/check` command to execute,
 and the main branches already pushed and ready to be tested.
 
-1. Proceed to <https://renuo.semaphoreci.com/> and login or create an account with your Renuo email address.
+1. Proceed to <https://renuo.semaphoreci.com/> and login through github with renuobot@renuo.ch ([1Password](https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&v=crlutt26yprmp6thr573qxsxkq&i=u7rirvnrf5fjxd25caiq7ib6vq&h=renuo.1password.com))
 1. Follow this instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/
 1. Create a project here: <https://renuo.semaphoreci.com/new_project>
 
@@ -34,7 +34,7 @@ Make sure it is green and deploys correctly:
 ## Conclusion
 
 You have now your application running on all the three environments.
-From now on, all the changes you will push on *develop*, *main*, or *testing*
+From now on, all the changes you will push on *develop* or *main*
 branches in Github will be automatically deployed to the related server.
 
 It's time to create some first Pull Requests with some improvements.

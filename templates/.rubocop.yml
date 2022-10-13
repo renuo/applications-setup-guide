@@ -105,6 +105,9 @@ RSpec/NestedGroups:
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+  
+RSpec/NoExpectationExample:  
+  Enabled: false
 
 AllCops:
   NewCops: enable
