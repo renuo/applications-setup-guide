@@ -895,12 +895,9 @@ end
 <p><code>bin/yarn add sass-lint</code></p>
 <p>Add to the project the linter configuration file you can find in the templates folder and check the <code>bin/fastcheck</code>
 template to see the command to execute the SCSS linting.</p>
-<h2 id="slim-lint"><a class="header" href="#slim-lint">Slim lint</a></h2>
-<blockquote>
-<p>only if you'll use slim templates</p>
-</blockquote>
+<h2 id="erb-lint"><a class="header" href="#erb-lint">Erb lint</a></h2>
 <pre><code class="language-ruby">group :development, :test do
-  gem 'slim_lint', require: false
+  gem 'erb_lint', require: false
 end
 </code></pre>
 <h2 id="eslint"><a class="header" href="#eslint">ESLint</a></h2>
@@ -920,7 +917,6 @@ Please include them or find a good reason not to.</p>
 <p><strong>💡</strong> Do you know all of them? Do you know why we'd like them to be included?</p>
 <h2 id="-suggested-gems"><a class="header" href="#-suggested-gems">💎 Suggested gems</a></h2>
 <pre><code class="language-rb">gem 'simple_form'
-gem 'slim-rails'
 
 group :development do
   gem 'better_errors'
@@ -2250,7 +2246,7 @@ end
 </ul>
 <p>By default, it adds no layout, you you may want to add a layout:</p>
 <ul>
-<li>Create a <code>pdf.pdf.slim</code></li>
+<li>Create a <code>pdf.pdf.erb</code></li>
 <li>Use the method to add stylesheets : <code>wicked_pdf_stylesheet_link_tag 'pdf', media: 'all'</code></li>
 <li>Use the method <code>wicked_pdf_image_tag</code> to insert images to the layout.</li>
 </ul>
