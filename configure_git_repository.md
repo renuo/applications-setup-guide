@@ -11,9 +11,6 @@ Please stick to it unless you have special needs.
 * Manage access
   * Add *staff* team as a collaborator with Admin access
   * Add *security* team as collaborator with Write access
-* Security & analysis
-  * Enable *Dependency graph* and *Dependabot alerts*
-  * Add team *security* to *Dependabot alerts*
 * Branches
   * Default branch: `develop`. Click *update*
   * Add these rules for the two branches `develop` and `main`:
