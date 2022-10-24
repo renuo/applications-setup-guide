@@ -26,7 +26,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  mdl (~> 0.11.0)
+  mdl
 
 BUNDLED WITH
    2.3.19

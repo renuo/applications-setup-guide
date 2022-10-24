@@ -3,5 +3,5 @@
 source 'https://rubygems.org'
 
 group :test do
-  gem 'mdl', '~> 0.11.0'
+  gem 'mdl'
 end
