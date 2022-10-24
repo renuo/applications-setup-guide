@@ -14,7 +14,9 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v2
-      - name: Run mdl
-        uses: actionshub/markdownlint@main
+      - uses: ruby/setup-ruby@v1
         with:
-          filesToIgnoreRegex: "SUMMARY.md"
+          ruby-version: '3.1'
+
+      - run: gem install mdl --version 0.11.0
+      - run: mdl $(find . -name '*.md'|grep -v SUMMARY.md)
