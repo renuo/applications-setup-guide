@@ -11,7 +11,7 @@ To add a new project to the GA account go to <https://www.google.com/analytics> 
 1. Once you saved, you will see the tracking snippet. Note: You can always find it again later under Porperty/Data Streams.
 1. Write down the Measurement ID (the string in the snippet with all caps and starting with an G-XXX....) and note it - you will need it for the Heroku config.
 
-```Choose one of the given options to set up Google Analytics:```
+Choose one of the given options to set up Google Analytics:
 
 ## a) Javascript only: gtag script (recommended)
 
@@ -19,7 +19,7 @@ This way is recommended in the normal case, because it doesn't involve another g
 Tag Manager as a default, the Analytics Script is a bit hidden. Tag Manager makes sites slower, therefor one has to decide on a case-by-case basis whether the advantages of a tag manager outweigh the disadvantages. In each case use only the gtag
 script which you can find [here](https://developers.google.com/analytics/devguides/collection/gtagjs#install_the_global_site_tag)
 
-<!-- Google tag (gtag.js) -->
+```<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,6 +28,7 @@ script which you can find [here](https://developers.google.com/analytics/devguid
 
   gtag('config', 'G-XXXXXXXXXX');
 </script>
+```
 
 Make sure you insert this script at the end of the `<head>` tag of the page (not in the `<body>`).
 
@@ -44,6 +45,7 @@ group :production do
 end
 ```
 
+
 and write to `config/environments/production.rb`
 
 ```ruby
@@ -53,3 +55,4 @@ config.middleware.use(Rack::Tracker) do
   end
 end
 ```
+
