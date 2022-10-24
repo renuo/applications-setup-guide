@@ -109,6 +109,9 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/NoExpectationExample:  
   Enabled: false
 
+RSpec/SortMetadata:
+  Enabled: false
+
 AllCops:
   NewCops: enable
   Exclude:
