@@ -11,7 +11,7 @@ To add a new project to the GA account go to <https://www.google.com/analytics> 
 1. Once you saved, you will see the tracking snippet. Note: You can always find it again later under Porperty/Data Streams.
 1. Write down the Measurement ID (the string in the snippet with all caps and starting with an G-XXX....) and note it - you will need it for the Heroku config.
 
-Choose one of the given options to set up Google Analytics:
+```Choose one of the given options to set up Google Analytics:```
 
 ## a) Javascript only: gtag script (recommended)
 
