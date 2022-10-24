@@ -2,4 +2,4 @@
 #
 set -euo pipefail
 
-bundle exec mdl $(find . -name '*.md'|grep -v SUMMARY.md)
+bundle exec mdl $(find . -name '*.md'|grep -E -v '(SUMMARY.md|vendor/)')
