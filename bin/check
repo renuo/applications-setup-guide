@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+set -euo pipefail
+
+bundle exec mdl $(find . -name '*.md'|grep -E -v '(SUMMARY.md|vendor/)')
