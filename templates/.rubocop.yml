@@ -111,6 +111,9 @@ RSpec/NoExpectationExample:
 
 RSpec/SortMetadata:
   Enabled: false
+  
+RSpec/AnyInstance:
+  Enabled: false
 
 AllCops:
   NewCops: enable
