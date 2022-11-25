@@ -19,7 +19,8 @@ This way is recommended in the normal case, because it doesn't involve another g
 Tag Manager as a default, the Analytics Script is a bit hidden. Tag Manager makes sites slower, therefor one has to decide on a case-by-case basis whether the advantages of a tag manager outweigh the disadvantages. In each case use only the gtag
 script which you can find [here](https://developers.google.com/analytics/devguides/collection/gtagjs#install_the_global_site_tag)
 
-```<!-- Google tag (gtag.js) -->
+```html
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -44,7 +45,6 @@ group :production do
   gem 'rack-tracker'
 end
 ```
-
 
 and write to `config/environments/production.rb`
 
