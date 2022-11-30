@@ -137,7 +137,8 @@
 <p>These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.</p>
 <ul>
-<li>Options
+<li>
+<p>Options</p>
 <ul>
 <li>Features: Remove <em>Wikis</em>, <em>Issues</em> and <em>Projects</em></li>
 <li>Merge button: Automatically delete head branches</li>
@@ -145,25 +146,28 @@ Please stick to it unless you have special needs.</p>
 <li>Merge button: Allow auto-merge</li>
 </ul>
 </li>
-<li>Manage access
+<li>
+<p>Manage access</p>
 <ul>
 <li>Add <em>staff</em> team as a collaborator with Admin access</li>
 <li>Add <em>security</em> team as collaborator with Write access</li>
 </ul>
 </li>
-<li>Branches
+<li>
+<p>Branches</p>
 <ul>
 <li>Default branch: <code>develop</code>. Click <em>update</em></li>
 <li>Add these rules for the two branches <code>develop</code> and <code>main</code>:
 <ul>
 <li>Require pull request reviews before merging</li>
 <li>Require status checks to pass before merging (after you configured the CI add it to the required checks)</li>
-<li>Require branches to be up to date before merging</li>
+<li>Always suggest updating pull request branches</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Autolink references
+<li>
+<p>Autolink references</p>
 <ul>
 <li>Add a new Autolink reference with:
 <ul>
@@ -174,22 +178,36 @@ Please stick to it unless you have special needs.</p>
 </ul>
 </li>
 </ul>
-<h2 id="responsibility-tag"><a class="header" href="#responsibility-tag">Responsibility Tag</a></h2>
-<p>Some Renuo Projects have a &quot;Responsibility Tag&quot;. Thanks to this tag we can:</p>
+<h2 id="team"><a class="header" href="#team">Team</a></h2>
+<p>Each project has a team ownning it. The team is named after the project: <code>[team-name] = [project-name]</code>.
+Thanks to this we can:</p>
 <ul>
-<li>see who is responsible for a project;</li>
-<li>see all the projects of a working group or person.</li>
+<li>
+<p>see who is responsible for a project;</p>
+</li>
+<li>
+<p>assign issues to the right team;</p>
+</li>
+<li>
+<p>assign pull requests to the right team.</p>
+</li>
+<li>
+<p>Create a team with the name of the project and add all the developers working on it;</p>
+</li>
+<li>
+<p>Give to each team member the role &quot;maintainer&quot;;</p>
+</li>
+<li>
+<p>Add the team to the repository with the &quot;administrator&quot; role;</p>
+</li>
+<li>
+<p>Add a CODEOWNERS file with the team name in it:</p>
+</li>
 </ul>
-<p>On the <strong>&lt;&gt;Code</strong> page of the GitHub project click on <em>Manage topics</em> and add a responsibility tag following this
-convention: <code>r-[responsible]</code> where <code>responsible</code> can be:</p>
-<ul>
-<li>name of working group (if is a working group project)</li>
-<li>first name and lastname of a Renuo employee (if is a personal project)</li>
-</ul>
-<p>Some examples:</p>
-<p><code>r-wg-education</code>, <code>r-wg-operations</code>, <code>r-alessandrorodi</code>, <code>r-simonhuber</code></p>
-<p>If you have doubts, look at the other projects of Renuo.</p>
-<p><strong>There should never be more than one responsibility tag per project.</strong></p>
+<pre><code class="language-markdown"># .github/CODEOWNERS
+
+* @renuo/[team-name]
+</code></pre>
 
                     </main>
 
