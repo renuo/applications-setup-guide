@@ -126,3 +126,7 @@ If you want to provide a sidekiq dashboard and see which tasks failed or run thr
     mount Sidekiq::Web => '/sidekiq' if defined? Sidekiq::Web
     ...
   ```
+  
+### Error monitoring
+  
+In order to report messages, exceptions or to trace events, it is recommended to install the `sentry-sidekiq` gem. 
