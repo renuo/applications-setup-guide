@@ -114,6 +114,9 @@ RSpec/SortMetadata:
   
 RSpec/AnyInstance:
   Enabled: false
+  
+RSpec/VerifiedDoubles:
+  Enabled: false  
 
 AllCops:
   NewCops: enable
