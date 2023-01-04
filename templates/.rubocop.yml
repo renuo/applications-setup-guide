@@ -3,6 +3,9 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
