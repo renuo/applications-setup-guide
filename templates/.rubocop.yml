@@ -12,6 +12,9 @@ Rails/SkipsModelValidations:
 
 Rails/WhereExists:
   Enabled: false
+  
+Rails/BulkChangeTable:
+  Enabled: false  
 
 Layout/LineLength:
   Max: 120
