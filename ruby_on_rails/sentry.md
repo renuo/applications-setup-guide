@@ -13,7 +13,8 @@
   ![sentry_dsn](../images/sentry.png)
 
 * Set the Heroku environment variables.
-You can use `renuo configure-sentry project-name <SENTRY_DSN>` to generate the commands for you.
+You can use [`renuo configure-sentry project-name <SENTRY_DSN>`](https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/app/configure_sentry.rb)
+to generate the commands for you.
 
 ## Backend (Rails)
 
