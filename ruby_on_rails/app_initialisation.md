@@ -56,7 +56,7 @@
 The following scripts are standardized tools for more convenience at Renuo.
 They are always idempotent (runnable multiple times).
 
-* Add a `bin/run file`. It will be used to start our project.
+* Add a `bin/run` file. It will be used to start our project.
 
   ```sh
   echo "#\!/bin/sh\nset -e\n" >> bin/run
