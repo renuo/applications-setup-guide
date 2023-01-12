@@ -16,21 +16,21 @@
   the project.
   The [official documentation](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#choosing-between-import-maps-and-a-javascript-bundler)
   can help you make this decision.
-    * In the case that you want to use a more traditional JS Bundler, add `--javascript=esbuild` to the generation
-      command below. `ESBuild` is the preferred option here.
-    * If you want to use importmaps instead, you can skip the `--javascript` flag since this is Rails 7 default.
+  * In the case that you want to use a more traditional JS Bundler, add `--javascript=esbuild` to the generation
+    command below. `ESBuild` is the preferred option here.
+  * If you want to use importmaps instead, you can skip the `--javascript` flag since this is Rails 7 default.
 
 * Start a new Rails project using `rails new [project-name] --database=postgresql --skip-test --skip-action-mailbox`
   where the `project-name` is exactly the one you chose before.
 
-    * You can add the `--css=bootstrap` flag to preconfigure your new Rails app to use a CSS processor/framework.
-      Note that this flag will not work with importmaps and in that case you should
-      follow [this guide](https://dev.to/coorasse/rails-7-bootstrap-5-and-importmaps-without-nodejs-4g8) instead.
+  * You can add the `--css=bootstrap` flag to preconfigure your new Rails app to use a CSS processor/framework. Note
+    that this flag will not work with importmaps and in that case you should
+    follow [this guide](https://dev.to/coorasse/rails-7-bootstrap-5-and-importmaps-without-nodejs-4g8) instead.
 
-    * You may want to choose a database other than Postgres, but if so, this should be discussed and agreed upon with
-      the team before setting up the app. For most use-cases, Postgresql should be the preferred choice.
-      If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look
-      at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
+  * You may want to choose a database other than Postgres, but if so, this should be discussed and agreed upon with
+    the team before setting up the app. For most use-cases, Postgresql should be the preferred choice. If you do not
+    need a DB you may rethink the fact that you may not need Rails at all :) Take a look
+    at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
 * Check if you've got a `.ruby-version` file and create one if not. If there is already one in the project, be sure to
   remove the `ruby-` prefix from the version number inside the file, leaving only the version number itself.
