@@ -8,19 +8,32 @@
 
 * Run `gem update --system` to update Ruby's default gems (e.g. `bundler`).
 
-* [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if you are not.
-You can do this with `gem update rails`. Beware of beta versions.
+* [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if
+  you are not.
+  You can do this with `gem update rails`. Beware of beta versions.
 
-* Start a new Rails project using `rails new [project-name] --database=postgresql --skip-test --skip-action-mailbox` where the `project-name` is exactly the one you chose before.
+* Before you set up the Rails application, you should decide with your team upon which JS approach you want to use for
+  the project.
+  The [official documentation](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#choosing-between-import-maps-and-a-javascript-bundler)
+  can help you make this decision.
+    * In the case that you want to use a more traditional JS Bundler, add `--javascript=esbuild` to the generation
+      command below. `ESBuild` is the preferred option here.
+    * If you want to use importmaps instead, you can skip the `--javascript` flag since this is Rails 7 default.
 
-  * You can use the `--css` flag to preconfigure your new Rails app to use a CSS processor/framework. Available options are: `tailwind, bootstrap, bulma, postcss, sass`. This will automatically install the [cssbundling-rails](https://github.com/rails/cssbundling-rails) and [jsbundling-rails](https://github.com/rails/jsbundling-rails) gems. The app then uses the the [esbuild](https://github.com/evanw/esbuild) JS bundler and minifier by default.
+* Start a new Rails project using `rails new [project-name] --database=postgresql --skip-test --skip-action-mailbox`
+  where the `project-name` is exactly the one you chose before.
 
-  * Esbuild is generally a good choice, but you can also configure an alternative JS bundler using the `--javascript` flag. You have the choice between using one of the node-based bundlers: `esbuild, rollup, webpack` or you can use `importmap`, which is the default. Note that importmaps cannot be used in conjunction with the `--css` option from above.
+    * You can add the `--css=bootstrap` flag to preconfigure your new Rails app to use a CSS processor/framework.
+      Note that this flag will not work with importmaps and in that case you should
+      follow [this guide](https://dev.to/coorasse/rails-7-bootstrap-5-and-importmaps-without-nodejs-4g8) instead.
 
-  * You may want to choose a different database from Postgres, but most of the time that will be your choice.
-If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
+    * You may want to choose a database other than Postgres, but if so, this should be discussed and agreed upon with
+      the team before setting up the app. For most use-cases, Postgresql should be the preferred choice.
+      If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look
+      at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 
-* Check if you've got a `.ruby-version` file and create one if not . If  there is already one in the project, be sure to remove the `ruby-` prefix from the version number inside the file, leaving only the number itself.
+* Check if you've got a `.ruby-version` file and create one if not. If there is already one in the project, be sure to
+  remove the `ruby-` prefix from the version number inside the file, leaving only the version number itself.
 
 * Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
 
@@ -34,8 +47,7 @@ If you do not need a DB you may rethink the fact that you may not need Rails at 
 
 * Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
 
-* Check your default Rails setup by running either `bin/dev` or `rails s`, depending on whether you are using a node-based bundler with the foreman Procfile-runner, or if you are using importmaps and then visit `localhost:3000`.
-You should be on Rails now, yay!
+* Then check your default Rails setup by running rails s and visiting localhost:3000. You should be on Rails now, yay!
 
 ## Adjustments
 
@@ -43,6 +55,12 @@ You should be on Rails now, yay!
 
 The following scripts are standardized tools for more convenience at Renuo.
 They are always idempotent (runnable multiple times).
+
+* Add a `bin/run file`. It will be used to start our project.
+
+  ```sh
+  echo "#\!/bin/sh\nset -e\n" >> bin/run
+  ```
 
 * Add a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
 
@@ -59,7 +77,7 @@ They are always idempotent (runnable multiple times).
 * Make the new scripts executable
 
   ```sh
-  chmod +x bin/fastcheck bin/check
+  chmod +x bin/run bin/fastcheck bin/check
   ```
 
 * `bin/setup` was generated by Rails. We'll add a `pre-push` hook to it:
@@ -74,24 +92,30 @@ They are always idempotent (runnable multiple times).
 
 #### If you are using a node-based JS bundler using `jsbundling-rails`
 
-* Add the following to `bin/setup` to allow intalling all dependencies in one go
+* Add this to `bin/run`. This is required mainly for consistency with other projects.
+
+  ```sh
+  bin/dev
+  ```
+
+* Add the following to the `bin/setup` script to install all dependencies in one go.
 
   ```ruby
   system! 'yarn install'
   ```
 
-#### If you use `importmap-rails` and there is no `bin/dev` file yet
+#### Or if you are using `importmap-rails` instead
 
-* Create one and make it executable. It will be used to start our project.
+* Add the following to `bin/run`
 
   ```sh
-  echo "#\!/bin/sh\nset -e\n\nrails s" >> bin/dev && chmod +x bin/dev
+  rails s -p 3000
   ```
 
 ### ENV variables with Figaro
 
 * Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
-(usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`.
+  (usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`.
 * and create `config/application.example.yml` where you will specify the only environment variable you need for now:
   `SECRET_KEY_BASE`.
 * Add the following section to your `bin/setup` script so that the application.yml is created when the project is setup:
@@ -108,7 +132,7 @@ They are always idempotent (runnable multiple times).
 
   Make sure it comes **before** any `rails` comands.
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
-create the initializer for figaro in `config/initializers/figaro.rb`:
+  create the initializer for figaro in `config/initializers/figaro.rb`:
 
   ```ruby
   Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
@@ -148,10 +172,22 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
   config.active_record.verbose_query_logs = true # add
   ```
 
-* Enable the default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) in `config/initializers/content_security_policy.rb`.
+* Enable the
+  default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md)
+  in `config/initializers/content_security_policy.rb`.
   The report URI will be set later in the step of Sentry configuration.
+
+* If you're using `jsbundling-rails`, let's clean up after asset precompilation
+  to reduce Heroku slug size. Add this to the `Rakefile`:
+
+  ```ruby
+  Rake::Task['assets:clean'].enhance do
+    FileUtils.remove_dir('node_modules', true)
+    FileUtils.remove_dir('vendor/javascript', true)
+  end
+  ```
 
 ## Finalising
 
-* Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/dev`
+* Check if the following scripts run successfully: `bin/setup`, `bin/check`, `bin/run`
 * If they do, commit all your changes to the main branch with Git.
