@@ -136,14 +136,14 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 
   ```ruby
   config.action_controller.action_on_unpermitted_parameters = :raise
-  config.action_view.raise_on_missing_translations = true # uncomment
+  config.i18n.raise_on_missing_translations = true # uncomment
   ```
 
 * Update `config/environments/test.rb` settings:
 
   ```ruby
   config.action_controller.action_on_unpermitted_parameters = :raise
-  config.action_view.raise_on_missing_translations = true # uncomment
+  config.i18n.raise_on_missing_translations = true # uncomment
   config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
   config.active_record.verbose_query_logs = true # add
   ```

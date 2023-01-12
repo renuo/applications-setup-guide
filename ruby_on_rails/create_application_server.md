@@ -35,5 +35,5 @@ Pull Request on the [renuo-cli](https://github.com/renuo/renuo-cli) project.
   /.semaphore
   ```
 
-  Like this you can make files and folders to be excluded from the Heroku slug.
+  Like this you can mark files and folders to be excluded from the Heroku slug.
 

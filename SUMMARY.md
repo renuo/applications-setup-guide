@@ -32,7 +32,7 @@
       - [Robots.txt](ruby_on_rails/robots_txt.md)
       - [Percy](ruby_on_rails/configure_percy.md)
       - [Papertrail](ruby_on_rails/papertrail.md)
-      - [Protect develop & testing environment](ruby_on_rails/environment_protection.md)
+      - [Protect develop environment](ruby_on_rails/environment_protection.md)
   - [Customer Plan Services]()
       - [Uptimerobot](ruby_on_rails/uptimerobot.md)
       - [Sentry Notifications](ruby_on_rails/sentry.md)

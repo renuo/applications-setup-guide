@@ -11,7 +11,6 @@ Please include them or find a good reason not to.
 
 ```rb
 gem 'simple_form'
-gem 'slim-rails'
 
 group :development do
   gem 'better_errors'

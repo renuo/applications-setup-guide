@@ -11,37 +11,34 @@ Please stick to it unless you have special needs.
 * Manage access
   * Add *staff* team as a collaborator with Admin access
   * Add *security* team as collaborator with Write access
-* Security & analysis
-  * Enable *Dependency graph* and *Dependabot alerts*
-  * Add team *security* to *Dependabot alerts*
 * Branches
   * Default branch: `develop`. Click *update*
   * Add these rules for the two branches `develop` and `main`:
     * Require pull request reviews before merging
     * Require status checks to pass before merging (after you configured the CI add it to the required checks)
-    * Require branches to be up to date before merging
+    * Always suggest updating pull request branches
+
 * Autolink references
   * Add a new Autolink reference with:
     * Reference prefix: `TICKET-`
     * Target URL: `https://redmine.renuo.ch/issues/<num>`
 
-## Responsibility Tag
+## Team
 
-Some Renuo Projects have a "Responsibility Tag". Thanks to this tag we can:
+Each project has a team ownning it. The team is named after the project: `[team-name] = [project-name]`.
+Thanks to this we can:
 
 * see who is responsible for a project;
-* see all the projects of a working group or person.
+* assign issues to the right team;
+* assign pull requests to the right team.
 
-On the **\<\>Code** page of the GitHub project click on *Manage topics* and add a responsibility tag following this
-convention: `r-[responsible]` where `responsible` can be:
+* Create a team with the name of the project and add all the developers working on it;
+* Give to each team member the role "maintainer";
+* Add the team to the repository with the "administrator" role;
+* Add a CODEOWNERS file with the team name in it:
 
-* name of working group (if is a working group project)
-* first name and lastname of a Renuo employee (if is a personal project)
+```markdown
+# .github/CODEOWNERS
 
-Some examples:
-
-`r-wg-education`, `r-wg-operations`, `r-alessandrorodi`, `r-simonhuber`
-
-If you have doubts, look at the other projects of Renuo.
-
-**There should never be more than one responsibility tag per project.**
+* @renuo/[team-name]
+```

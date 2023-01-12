@@ -18,7 +18,7 @@
 - The emails will be sent with **\*@renuoapp.ch** as your mail sender
 - Login: sparkpost+develop@renuo.ch
 
-- If you want, you can also use Mailtrap for Develop. Create a new Inbox <https://mailtrap.io/inboxes> and use this credentials
+- If you want, you can also use Mailtrap for develop. Create a new Inbox <https://mailtrap.io/inboxes> and use this credentials
 
 **Testing (Mailtrap)**
 

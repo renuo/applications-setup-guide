@@ -3,12 +3,18 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
 
 Rails/WhereExists:
   Enabled: false
+  
+Rails/BulkChangeTable:
+  Enabled: false  
 
 Layout/LineLength:
   Max: 120
@@ -27,6 +33,10 @@ Style/NonNilCheck:
 Style/HashEachMethods:
   Enabled: true
 
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: either
+
 Style/HashTransformKeys:
   Enabled: true
 
@@ -34,6 +44,9 @@ Style/HashTransformValues:
   Enabled: true
 
 Style/HashAsLastArrayItem:
+  Enabled: false
+
+Style/IfUnlessModifier:
   Enabled: false
 
 Metrics/BlockLength:
@@ -98,6 +111,18 @@ RSpec/NestedGroups:
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+  
+RSpec/NoExpectationExample:  
+  Enabled: false
+
+RSpec/SortMetadata:
+  Enabled: false
+  
+RSpec/AnyInstance:
+  Enabled: false
+  
+RSpec/VerifiedDoubles:
+  Enabled: false  
 
 AllCops:
   NewCops: enable
