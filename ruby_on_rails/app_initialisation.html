@@ -281,8 +281,7 @@ config.active_record.verbose_query_logs = true # add
 </code></pre>
 </li>
 <li>
-<p>Enable the default <a href="https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md">Content Security Policies</a> in <code>config/initializers/content_security_policy.rb</code>.
-The report URI will be set later in the step of Sentry configuration.</p>
+<p>The default <a href="https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md">Content Security Policies</a> should not always be activated, but rather only where there are platform secrets that need to be secured. This rule can be overwritten by a customer, if he opted into CSP when selecting his maintenance plans.</p>
 </li>
 <li>
 <p>If you're using Webpacker, let's clean up after asset precompilation
