@@ -7,8 +7,8 @@ that all the tests pass before building and releasing a new version through our 
 Before configuring the CI, you should already have a Git Repository with the code, a `bin/check` command to execute,
 and the main branches already pushed and ready to be tested.
 
-1. Proceed to <https://renuo.semaphoreci.com/> and login through github with renuobot@renuo.ch ([1Password](https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&v=crlutt26yprmp6thr573qxsxkq&i=u7rirvnrf5fjxd25caiq7ib6vq&h=renuo.1password.com))
-1. Follow this instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/
+1. Proceed to <https://renuo.semaphoreci.com/> and login through GitHub with renuobot@renuo.ch ([1Password](https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&v=crlutt26yprmp6thr573qxsxkq&i=u7rirvnrf5fjxd25caiq7ib6vq&h=renuo.1password.com))
+1. Follow these instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/
 1. Create a project here: <https://renuo.semaphoreci.com/new_project>
 
 ## Rails specific configuration
@@ -20,9 +20,9 @@ renuo configure-semaphore
 The command will copy the necessary templates to `.semaphore` folder.
 
 1. Add a file called `.nvmrc` to the project root, where you specify the latest node version
-1. Commit the files to all three branches, push and watch the CI run.
+1. Commit the files to both branches, push and watch the CI run.
 
-When you have your three green builds you have configured your CI and CD properly.
+When all builds are green, then you have properly configured your CI and CD.
 
 ![semaphoreci_2](../images/semaphore_ci.png)
 
@@ -33,10 +33,10 @@ Make sure it is green and deploys correctly:
 
 ## Conclusion
 
-You have now your application running on all the three environments.
+You have now your application running on all the environments.
 From now on, all the changes you will push on *develop* or *main*
-branches in Github will be automatically deployed to the related server.
+branches in GitHub will be automatically deployed to the related server.
 
 It's time to create some first Pull Requests with some improvements.
 
-**Don't forget to go back to the github settings and add the CI to the required checks!**
+**Don't forget to go back to the GitHub settings and add the CI to the required checks!**

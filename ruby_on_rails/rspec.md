@@ -70,6 +70,8 @@ You should know exactly why you are adding each one of them and why is necessary
     require 'selenium/webdriver'
     require 'super_diff/rspec-rails'
 
+    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
     # ... (omitted configs here)
 
     RSpec.configure do |config|
@@ -100,6 +102,8 @@ You should know exactly why you are adding each one of them and why is necessary
     SELENIUM_DRIVER: 'selenium_chrome_headless'
   ```
 
+Please check the full [rails_helper template](../templates/spec/rails_helper.rb) to compare.
+
 * Add the line `bundle exec rspec` to `bin/check`
 
 > **Note**: If you want to debug a spec, you can simply uncomment the line `SELENIUM_DRIVER` in the application.yml to not run it headless:
@@ -121,7 +125,7 @@ Commit and push your changes! :tada:
 
 ## Verify
 
-* Open the three apps
+* Open the two apps
   * <https://[project-name]-main.herokuapp.com/home/check>
   * <https://[project-name]-develop.herokuapp.com/home/check>
 

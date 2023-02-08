@@ -2,7 +2,7 @@
 
 This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
-The application (and relative github repo) will be named after the `[project-name]` you chose before.
+The application (and relative GitHub repo) will be named after the `[project-name]` you chose before.
 
 1. [Initialise the Rails App](app_initialisation.md)
 1. [Push to Git Repository](first_git_push.md)
