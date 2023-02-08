@@ -208,6 +208,8 @@ end
   require 'selenium/webdriver'
   require 'super_diff/rspec-rails'
 
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
   # ... (omitted configs here)
 
   RSpec.configure do |config|
@@ -238,9 +240,10 @@ test:
   SELENIUM_DRIVER: 'selenium_chrome_headless'
 </code></pre>
 </li>
-<li>
-<p>Add the line <code>bundle exec rspec</code> to <code>bin/check</code></p>
-</li>
+</ul>
+<p>Please check the full <a href="../templates/spec/rails_helper.rb">rails_helper template</a> to compare.</p>
+<ul>
+<li>Add the line <code>bundle exec rspec</code> to <code>bin/check</code></li>
 </ul>
 <blockquote>
 <p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the application.yml to not run it headless:</p>
@@ -268,7 +271,7 @@ test:
 <p>Commit and push your changes! 🎉</p>
 <h2 id="verify"><a class="header" href="#verify">Verify</a></h2>
 <ul>
-<li>Open the three apps
+<li>Open the two apps
 <ul>
 <li><a href="https://%5Bproject-name%5D-main.herokuapp.com/home/check">https://[project-name]-main.herokuapp.com/home/check</a></li>
 <li><a href="https://%5Bproject-name%5D-develop.herokuapp.com/home/check">https://[project-name]-develop.herokuapp.com/home/check</a></li>

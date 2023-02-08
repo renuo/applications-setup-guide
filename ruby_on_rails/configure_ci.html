@@ -148,8 +148,8 @@ that all the tests pass before building and releasing a new version through our 
 <p>Before configuring the CI, you should already have a Git Repository with the code, a <code>bin/check</code> command to execute,
 and the main branches already pushed and ready to be tested.</p>
 <ol>
-<li>Proceed to <a href="https://renuo.semaphoreci.com/">https://renuo.semaphoreci.com/</a> and login through github with renuobot@renuo.ch (<a href="https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&amp;v=crlutt26yprmp6thr573qxsxkq&amp;i=u7rirvnrf5fjxd25caiq7ib6vq&amp;h=renuo.1password.com">1Password</a>)</li>
-<li>Follow this instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/</li>
+<li>Proceed to <a href="https://renuo.semaphoreci.com/">https://renuo.semaphoreci.com/</a> and login through GitHub with renuobot@renuo.ch (<a href="https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&amp;v=crlutt26yprmp6thr573qxsxkq&amp;i=u7rirvnrf5fjxd25caiq7ib6vq&amp;h=renuo.1password.com">1Password</a>)</li>
+<li>Follow these instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/</li>
 <li>Create a project here: <a href="https://renuo.semaphoreci.com/new_project">https://renuo.semaphoreci.com/new_project</a></li>
 </ol>
 <h2 id="rails-specific-configuration"><a class="header" href="#rails-specific-configuration">Rails specific configuration</a></h2>
@@ -158,19 +158,19 @@ and the main branches already pushed and ready to be tested.</p>
 <p>The command will copy the necessary templates to <code>.semaphore</code> folder.</p>
 <ol>
 <li>Add a file called <code>.nvmrc</code> to the project root, where you specify the latest node version</li>
-<li>Commit the files to all three branches, push and watch the CI run.</li>
+<li>Commit the files to both branches, push and watch the CI run.</li>
 </ol>
-<p>When you have your three green builds you have configured your CI and CD properly.</p>
+<p>When all builds are green, then you have properly configured your CI and CD.</p>
 <p><img src="../images/semaphore_ci.png" alt="semaphoreci_2" /></p>
 <p>You should now see a third block where your deployment runs to Heroku.
 Make sure it is green and deploys correctly:</p>
 <p><img src="../images/semaphore_cd.png" alt="semaphoreci_2" /></p>
 <h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
-<p>You have now your application running on all the three environments.
+<p>You have now your application running on all the environments.
 From now on, all the changes you will push on <em>develop</em> or <em>main</em>
-branches in Github will be automatically deployed to the related server.</p>
+branches in GitHub will be automatically deployed to the related server.</p>
 <p>It's time to create some first Pull Requests with some improvements.</p>
-<p><strong>Don't forget to go back to the github settings and add the CI to the required checks!</strong></p>
+<p><strong>Don't forget to go back to the GitHub settings and add the CI to the required checks!</strong></p>
 
                     </main>
 
