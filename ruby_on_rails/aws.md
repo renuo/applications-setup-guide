@@ -50,7 +50,7 @@ You'll need to run them by yourself after reviewing the output.
 
    ```sh
    # AWS main
- 
+
        aws --profile renuo-app-setup iam create-user --user-name <<your-project>>
        [...]
 
