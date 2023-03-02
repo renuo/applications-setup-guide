@@ -68,6 +68,9 @@ Rails/I18nLocaleAssignment:
   Exclude:
     - 'spec/**/*'
 
+Rails/ActionControllerFlashBeforeRender:
+  Enabled: false
+
 Metrics/MethodLength:
   CountAsOne:
     - array
