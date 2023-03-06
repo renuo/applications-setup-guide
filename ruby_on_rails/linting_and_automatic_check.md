@@ -5,21 +5,15 @@ Every linter consists of a gem (usually) and a command to add to our `bin/fastch
 
 Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the final version of it.
 
-## Rubocop :cop:
+## Renuocop :cop: aka Standard aka Rubocop
 
 ```ruby
 group :development, :test do
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'renuocop', require: false
 end
 ```
 
-Please add them to every Rails project and use the [rubocop configuration provided](../templates/.rubocop.yml) adding a `.rubocop.yml` file in the root of the project.
-
-**This file may get outdated quickly**. Please update it if necessary with a PR.
-If you need to change it in a specific project you may want to consider to change this template as well for the future.
+Please add it to every Rails project and use the [rubocop configuration provided](../templates/.rubocop.yml) adding a `.rubocop.yml` file in the root of the project.
 
 After configuring it, you can execute it and correct the issues you'll find.
 
