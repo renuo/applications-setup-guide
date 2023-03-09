@@ -71,10 +71,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -881,17 +883,12 @@ test:
 <p>All Renuo projects contain (and your project must contain as well) the following linters.
 Every linter consists of a gem (usually) and a command to add to our <code>bin/fastcheck</code> script.</p>
 <p>Check out the <code>bin/fastcheck</code> <a href="ruby_on_rails/../templates/bin/fastcheck">fastcheck</a> for the final version of it.</p>
-<h2 id="rubocop-"><a class="header" href="#rubocop-">Rubocop 👮</a></h2>
+<h2 id="renuocop--aka-standard-aka-rubocop"><a class="header" href="#renuocop--aka-standard-aka-rubocop">Renuocop 👮 aka Standard aka Rubocop</a></h2>
 <pre><code class="language-ruby">group :development, :test do
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'renuocop', require: false
 end
 </code></pre>
-<p>Please add them to every Rails project and use the <a href="ruby_on_rails/../templates/.rubocop.yml">rubocop configuration provided</a> adding a <code>.rubocop.yml</code> file in the root of the project.</p>
-<p><strong>This file may get outdated quickly</strong>. Please update it if necessary with a PR.
-If you need to change it in a specific project you may want to consider to change this template as well for the future.</p>
+<p>Please add it to every Rails project and use the <a href="ruby_on_rails/../templates/.rubocop.yml">rubocop configuration provided</a> adding a <code>.rubocop.yml</code> file in the root of the project.</p>
 <p>After configuring it, you can execute it and correct the issues you'll find.</p>
 <p><code>bundle exec rubocop -a</code> will fix most of them automatically.</p>
 <p>Once all issues are fixed add the check to our <code>bin/fastcheck</code> and create a PR. Example:</p>
