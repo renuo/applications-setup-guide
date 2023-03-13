@@ -1,15 +1,17 @@
 # Amazon Services
 
-## Amazon S3
+The following Amazon services are involved in our app setups
 
-S3 is Amazon's Simple Cloud Storage Service‎, and used in most of your projects to store images and
-files.
-
-## Amazon CloudFront
-
-CloudFront is a large scale, global, and feature rich CDN. We mostly use it together with S3, since fetching
-data from S3 is only possible together with CloudFront. You could also host a Single Page Application (SPA),
-but for that, we most often use Google Firebase.
+* Amazon **S3** is Amazon's Simple Cloud Storage Service,
+  and used in most of your projects to store images and files.
+* Amazon **CloudFront** is a large scale, global, and feature rich CDN.
+  We mostly use it together with S3 to provide a proper HTTP endpoint (caching, header forwarding, etc.).
+  You could also host a Single Page Application (SPA).
+* Amazon **ACM** issues certificates which can be used for custom Cloudfront distribution domains
+* Amazon **IAM** issues resource policies.
+  * We use a special "renuo-app-setup" user to setup our projects.
+  * Each app has an own user to separate tenants properly. The user belongs to "renuo-apps-v2"
+  * You can find a graphical overview in [this lightning talk](https://docs.google.com/presentation/d/1E-6hQB7ZezsVlkESEQVJmdZtdTUWRalT8XjkriurIQc/edit#slide=id.g3ba9e981d1_0_7).
 
 ## Setup
 
@@ -37,43 +39,47 @@ aws configure --profile renuo-app-setup
 
 If you want to check your config, run `aws configure --profile renuo-app-setup list`.
 
-### Start the Setup
+### Command generation
 
-The following command will create command-line-commands to set up S3 and CloudFront.
+The following command will generate command-line-commands to set up S3 and CloudFront.
+You'll need to run them by yourself after reviewing the output.
 
 1. Run `renuo create-aws-project`
 1. Follow the steps and answer the questions
 1. Now it will print you out a series of commands e.g.:
 
-```sh
-# AWS main
+   ```sh
+   # AWS main
 
-      aws --profile renuo-app-setup iam create-user --user-name <<your-project>>
-      [...]
+       aws --profile renuo-app-setup iam create-user --user-name <<your-project>>
+       [...]
 
-# AWS develop
-[...]
-```
+   # AWS develop
+   [...]
+   ```
+1. Review the commands carefully
 
-1. Copy and run the commands environment per environment. After each environment,
-it will print you out the credentials as a `json`. Copy `SecretAccessKey` and `AccessKeyId` to
-your credentials store:
+### Executing the commands
 
-```json
-{
-  "AccessKey": {
-      "UserName": "***",
-      "Status": "***",
-      "CreateDate": "***",
-      "SecretAccessKey": "*** STORE THIS KEY ***",
-      "AccessKeyId": "*** STORE THIS KEY ***"
-  }
-}
-```
+Running the commands will print some JSON pages to your screen.
+**Copy each `SecretAccessKey` and `AccessKeyId` to your credentials store!**
 
-1. Repeat the previous step for all environments
-1. (Only if using CloudFront) Make sure, you know also the Domain name of your CloudFront-Distribution to access your s3 files
-(e.g. ***.cloudfront.net or the Alias, if using an Alias).
+### Custom Cloudfront Distribution CNAME Aliases
+
+If you want to serve your S3 bucket via a custom domain, you need to add the CNAMEs to
+your Cloudfront Distibution manually.
+
+1. Visit <https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=eu-central-1#/distributions> and edit
+   your distribution.
+1. Enter the CNAMEs as aliases
+1. Click "Request certificate" (this opens a new tab with Amazon ACM, make sure it's region is us-east-1)
+1. Enter all the CNAMEs you want to have as aliases (normally only one)
+1. Enter the domain ownership verification records into Cloudflare (CNAME with cryptic values)
+1. Submit the ACM form and wait for the certificate to being issued.
+1. Go back to the Cloudfront distribution, refresh the certifactes drop down and choose your new certificate.
+1. Save the changes to the Cloudfront distribution.
+
+### Rails Configuration
 
 You then can use an _ActiveStorage_ configuration like this:
 
