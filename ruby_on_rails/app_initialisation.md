@@ -13,7 +13,7 @@ You can do this with `gem update rails`. Beware of beta versions.
 
 * Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip_action_mailbox` where the `project-name` is exactly the one you chose before.
 
-> ⚠️You may want to choose a different database from Postgres, but most of the time that will be your choice.
+> ⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.
 > If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)
 > You might also need actionmailbox of course, so always double-check the parameters that you are using.
 > Check if you've got a `.ruby-version` file. If not, create one and enter the Ruby version.
