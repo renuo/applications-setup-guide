@@ -145,13 +145,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="amazon-services"><a class="header" href="#amazon-services">Amazon Services</a></h1>
-<h2 id="amazon-s3"><a class="header" href="#amazon-s3">Amazon S3</a></h2>
-<p>S3 is Amazon's Simple Cloud Storage Service‎, and used in most of your projects to store images and
-files.</p>
-<h2 id="amazon-cloudfront"><a class="header" href="#amazon-cloudfront">Amazon CloudFront</a></h2>
-<p>CloudFront is a large scale, global, and feature rich CDN. We mostly use it together with S3, since fetching
-data from S3 is only possible together with CloudFront. You could also host a Single Page Application (SPA),
-but for that, we most often use Google Firebase.</p>
+<p>The following Amazon services are involved in our app setups</p>
+<ul>
+<li>Amazon <strong>S3</strong> is Amazon's Simple Cloud Storage Service,
+and used in most of your projects to store images and files.</li>
+<li>Amazon <strong>CloudFront</strong> is a large scale, global, and feature rich CDN.
+We mostly use it together with S3 to provide a proper HTTP endpoint (caching, header forwarding, etc.).
+You could also host a Single Page Application (SPA).</li>
+<li>Amazon <strong>ACM</strong> issues certificates which can be used for custom Cloudfront distribution domains</li>
+<li>Amazon <strong>IAM</strong> issues resource policies.
+<ul>
+<li>We use a special &quot;renuo-app-setup&quot; user to setup our projects.</li>
+<li>Each app has an own user to separate tenants properly. The user belongs to &quot;renuo-apps-v2&quot;</li>
+<li>You can find a graphical overview in <a href="https://docs.google.com/presentation/d/1E-6hQB7ZezsVlkESEQVJmdZtdTUWRalT8XjkriurIQc/edit#slide=id.g3ba9e981d1_0_7">this lightning talk</a>.</li>
+</ul>
+</li>
+</ul>
 <h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
 <h3 id="preconditions"><a class="header" href="#preconditions">Preconditions</a></h3>
 <h4 id="renuo-cli"><a class="header" href="#renuo-cli">renuo-cli</a></h4>
@@ -166,41 +175,49 @@ Or you can install it manually:</p>
 aws configure --profile renuo-app-setup
 </code></pre>
 <p>If you want to check your config, run <code>aws configure --profile renuo-app-setup list</code>.</p>
-<h3 id="start-the-setup"><a class="header" href="#start-the-setup">Start the Setup</a></h3>
-<p>The following command will create command-line-commands to set up S3 and CloudFront.</p>
+<h3 id="command-generation"><a class="header" href="#command-generation">Command generation</a></h3>
+<p>The following command will generate command-line-commands to set up S3 and CloudFront.
+You'll need to run them by yourself after reviewing the output.</p>
 <ol>
-<li>Run <code>renuo create-aws-project</code></li>
-<li>Follow the steps and answer the questions</li>
-<li>Now it will print you out a series of commands e.g.:</li>
-</ol>
+<li>
+<p>Run <code>renuo create-aws-project</code></p>
+</li>
+<li>
+<p>Follow the steps and answer the questions</p>
+</li>
+<li>
+<p>Now it will print you out a series of commands e.g.:</p>
 <pre><code class="language-sh"># AWS main
 
-      aws --profile renuo-app-setup iam create-user --user-name &lt;&lt;your-project&gt;&gt;
-      [...]
+    aws --profile renuo-app-setup iam create-user --user-name &lt;&lt;your-project&gt;&gt;
+    [...]
 
 # AWS develop
 [...]
 </code></pre>
-<ol>
-<li>Copy and run the commands environment per environment. After each environment,
-it will print you out the credentials as a <code>json</code>. Copy <code>SecretAccessKey</code> and <code>AccessKeyId</code> to
-your credentials store:</li>
+</li>
+<li>
+<p>Review the commands carefully</p>
+</li>
 </ol>
-<pre><code class="language-json">{
-  &quot;AccessKey&quot;: {
-      &quot;UserName&quot;: &quot;***&quot;,
-      &quot;Status&quot;: &quot;***&quot;,
-      &quot;CreateDate&quot;: &quot;***&quot;,
-      &quot;SecretAccessKey&quot;: &quot;*** STORE THIS KEY ***&quot;,
-      &quot;AccessKeyId&quot;: &quot;*** STORE THIS KEY ***&quot;
-  }
-}
-</code></pre>
+<h3 id="executing-the-commands"><a class="header" href="#executing-the-commands">Executing the commands</a></h3>
+<p>Running the commands will print some JSON pages to your screen.
+<strong>Copy each <code>SecretAccessKey</code> and <code>AccessKeyId</code> to your credentials store!</strong></p>
+<h3 id="custom-cloudfront-distribution-cname-aliases"><a class="header" href="#custom-cloudfront-distribution-cname-aliases">Custom Cloudfront Distribution CNAME Aliases</a></h3>
+<p>If you want to serve your S3 bucket via a custom domain, you need to add the CNAMEs to
+your Cloudfront Distibution manually.</p>
 <ol>
-<li>Repeat the previous step for all environments</li>
-<li>(Only if using CloudFront) Make sure, you know also the Domain name of your CloudFront-Distribution to access your s3 files
-(e.g. ***.cloudfront.net or the Alias, if using an Alias).</li>
+<li>Visit <a href="https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=eu-central-1#/distributions">https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=eu-central-1#/distributions</a> and edit
+your distribution.</li>
+<li>Enter the CNAMEs as aliases</li>
+<li>Click &quot;Request certificate&quot; (this opens a new tab with Amazon ACM, make sure it's region is us-east-1)</li>
+<li>Enter all the CNAMEs you want to have as aliases (normally only one)</li>
+<li>Enter the domain ownership verification records into Cloudflare (CNAME with cryptic values)</li>
+<li>Submit the ACM form and wait for the certificate to being issued.</li>
+<li>Go back to the Cloudfront distribution, refresh the certifactes drop down and choose your new certificate.</li>
+<li>Save the changes to the Cloudfront distribution.</li>
 </ol>
+<h3 id="rails-configuration"><a class="header" href="#rails-configuration">Rails Configuration</a></h3>
 <p>You then can use an <em>ActiveStorage</em> configuration like this:</p>
 <pre><code class="language-yaml">amazon:
   service: S3
