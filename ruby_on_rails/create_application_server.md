@@ -50,4 +50,31 @@ To enable review apps in heroku do the following
     ![](../images/heroku/connect_pipeline_to_github.png)
  3. Enable Review Apps for your application
     ![](../images/heroku/enable_review_apps.png)
- 4. Add an `app.json` to your repository
+ 4. Add an `app.json` to your repository:
+   ```json
+   {
+     "stack": "heroku-22",
+     "environments": {
+       "review": {
+         "addons": [
+           "heroku-postgresql:mini",
+           {
+             "plan": "rediscloud:30",
+             "as": "REDIS"
+           }
+         ],
+        "scripts":{
+          "postdeploy": "bundle exec rake db:schema:load db:seed"
+         }
+       }
+     },
+     "buildpacks": [
+       {
+         "url": "heroku/nodejs"
+       },
+       {
+         "url": "heroku/ruby"
+       }
+     ]
+   }
+   ```
