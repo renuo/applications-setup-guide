@@ -39,6 +39,8 @@ aws configure --profile renuo-app-setup
 
 If you want to check your config, run `aws configure --profile renuo-app-setup list`.
 
+We would recommend setting default region name to `eu-central-1`. The default output format is json and should not be changed.
+
 ### Command generation
 
 The following command will generate command-line-commands to set up S3 and CloudFront.
@@ -63,6 +65,8 @@ You'll need to run them by yourself after reviewing the output.
 
 Running the commands will print some JSON pages to your screen.
 **Copy each `SecretAccessKey` and `AccessKeyId` to your credentials store!**
+
+Once you have worked through the commands, you are ready to use S3 for Active Storage within your Rails app by configuring the storage.yml file (as below) and setting `config.active_storage.service = :amazon` in your production.rb file.
 
 ### Custom Cloudfront Distribution CNAME Aliases
 
