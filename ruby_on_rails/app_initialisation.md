@@ -84,7 +84,6 @@ They are always idempotent (runnable multiple times).
   end
   ```
 
-
 * add one more key to application.example.yml `APP_PORT: 3000`
 
   Make sure it comes **before** any `rails` comands.
