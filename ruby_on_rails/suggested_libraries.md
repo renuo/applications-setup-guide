@@ -29,6 +29,7 @@ group :production do
   gem 'lograge'
 end
 ```
+Note that to install `simple_form` you need to run `rails generate simple_form:install --bootstrap` (without option if not using Bootstrap) after adding it to your Gemfile.
 
 ## :gem: Suggested NPM packages
 
