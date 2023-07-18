@@ -21,8 +21,9 @@ RSpec.configure do |config|
   end
 end
 
-# WebMock catches all per default, we allow localhost for Capybara/Selenium in non-VCR tests
-WebMock.disable_net_connect!(allow_localhost: true)
+# WebMock catches everything per default, we allow localhost for Capybara/Selenium and the webdrivers binary downloads
+WEBDRIVER_HOSTS = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }.freeze
+WebMock.disable_net_connect!(allow_localhost: true, allow: WEBDRIVER_HOSTS)
 
 VCR.configure do |c|
   c.hook_into :webmock
@@ -34,7 +35,9 @@ VCR.configure do |c|
     record: ENV['VCR'] ? ENV['VCR'].to_sym : :once # re-record with VCR=all
   }
   c.debug_logger = $stderr if ENV['DEBUG'] == 'true'
+
   c.ignore_localhost = true
+  c.ignore_hosts(*WEBDRIVER_HOSTS)
 
   # Filter out sensitive data from the cassettes
   env_keys = YAML.load_file('config/application.example.yml').filter do |k, v|
