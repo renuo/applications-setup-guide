@@ -6,6 +6,21 @@ A VCR setup should be very specifically tied to the tests which need VCR because
 Here's an example configuration we use at Renuo:
 
 ```rb
+# spec/rails_helper.rb
+
+RSpec.configure do |config|
+  # …
+
+  # Disable VCR completely for tests that are not tagged with :vcr
+  config.around do |example|
+    if example.metadata[:vcr]
+      example.run
+    else
+      VCR.turned_off { example.run }
+    end
+  end
+end
+
 VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
