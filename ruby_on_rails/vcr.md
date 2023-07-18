@@ -21,6 +21,9 @@ RSpec.configure do |config|
   end
 end
 
+# WebMock catches all per default, we allow localhost for Capybara/Selenium
+WebMock.disable_net_connect!(allow_localhost: true)
+
 VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
