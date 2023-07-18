@@ -26,18 +26,19 @@ WEBDRIVER_HOSTS = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_u
 WebMock.disable_net_connect!(allow_localhost: true, allow: WEBDRIVER_HOSTS)
 
 VCR.configure do |c|
-  c.hook_into :webmock
   c.configure_rspec_metadata!
+  c.debug_logger = $stderr if ENV['DEBUG'] == 'true'
+
+  c.hook_into :webmock
+  c.ignore_localhost = true
+  c.ignore_hosts(*WEBDRIVER_HOSTS)
+
   c.cassette_library_dir = 'spec/vcr'
   c.default_cassette_options = {
     decode_compressed_response: true,
     allow_unused_http_interactions: false,
     record: ENV['VCR'] ? ENV['VCR'].to_sym : :once # re-record with VCR=all
   }
-  c.debug_logger = $stderr if ENV['DEBUG'] == 'true'
-
-  c.ignore_localhost = true
-  c.ignore_hosts(*WEBDRIVER_HOSTS)
 
   # Filter out sensitive data from the cassettes
   env_keys = YAML.load_file('config/application.example.yml').filter do |k, v|
