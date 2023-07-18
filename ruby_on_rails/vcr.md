@@ -1,8 +1,34 @@
 # VCR
 
-VCR is a gem for recording HTTP requests to external services and replaying them. A VCR setup should be very specifically tied to
-the tests which need VCR because it's quite expensive.
+VCR is a gem for recording HTTP requests to external services and replaying them.
+A VCR setup should be very specifically tied to the tests which need VCR because it's quite expensive.
 
-Here's an article on about some tweaks which can be made to a VCR setup: https://blog.arkency.com/3-tips-to-tune-your-vcr-in-tests/
+Here's an example configuration we use at Renuo:
 
-Also consider re-recording often (maybe nightly on the CI?) because out-of-date replays give you a false sense of safety.
+```rb
+VCR.configure do |c|
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.cassette_library_dir = 'spec/vcr'
+  c.default_cassette_options = {
+    decode_compressed_response: true,
+    allow_unused_http_interactions: false,
+  }
+  c.debug_logger = $stderr if ENV['DEBUG'] == 'true'
+  c.ignore_localhost = true
+
+  # Filter out sensitive data from the cassettes
+  env_keys = YAML.load_file('config/application.example.yml').filter do |k, v|
+    (!k.in? %w[test production development]) && (!v.in? %w[false true])
+  end.keys
+  env_keys.each { |key| c.filter_sensitive_data("<#{key}>") { ENV.fetch(key, nil) } }
+end
+```
+
+Some considerations:
+* Do you really want/need VCR? A fake may be better: https://thoughtbot.com/blog/how-to-stub-external-services-in-tests#create-a-fake-hello-sinatra
+* Do you test so specifically that WebMock would be the better tool?
+* Does your project have special needs for tweaks: https://blog.arkency.com/3-tips-to-tune-your-vcr-in-tests/
+* How often do you want to re-record your cassettes? Out-of-date replays may give you a false sense of safety.
+* Where do you want to re-record your cassettes? Maybe nightly on the CI?
+
