@@ -21,7 +21,7 @@ RSpec.configure do |config|
   end
 end
 
-# WebMock catches all per default, we allow localhost for Capybara/Selenium
+# WebMock catches all per default, we allow localhost for Capybara/Selenium in non-VCR tests
 WebMock.disable_net_connect!(allow_localhost: true)
 
 VCR.configure do |c|
