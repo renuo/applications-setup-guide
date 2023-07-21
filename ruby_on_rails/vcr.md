@@ -35,7 +35,8 @@ VCR.configure do |c|
   c.default_cassette_options = {
     decode_compressed_response: true,
     allow_unused_http_interactions: false,
-    record: ENV['VCR'] ? ENV['VCR'].to_sym : :once # re-record with VCR=all
+    record: ENV['VCR'] ? ENV['VCR'].to_sym : :once, # re-record with VCR=all
+    drop_unused_requests: true # only when re-recording
   }
 
   # Filter out sensitive data from the cassettes
