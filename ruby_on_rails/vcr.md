@@ -21,9 +21,8 @@ RSpec.configure do |config|
   end
 end
 
-# WebMock catches everything per default, we allow localhost for Capybara/Selenium and the webdrivers binary downloads
-WEBDRIVER_HOSTS = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }.freeze
-WebMock.disable_net_connect!(allow_localhost: true, allow: WEBDRIVER_HOSTS)
+# WebMock catches everything per default, we allow localhost for Capybara/Selenium
+WebMock.disable_net_connect!(allow_localhost: true)
 
 VCR.configure do |c|
   c.configure_rspec_metadata!
@@ -31,7 +30,6 @@ VCR.configure do |c|
 
   c.hook_into :webmock
   c.ignore_localhost = true
-  c.ignore_hosts(*WEBDRIVER_HOSTS)
 
   c.cassette_library_dir = 'spec/vcr'
   c.default_cassette_options = {
