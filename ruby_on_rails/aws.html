@@ -88,11 +88,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -175,6 +197,7 @@ Or you can install it manually:</p>
 aws configure --profile renuo-app-setup
 </code></pre>
 <p>If you want to check your config, run <code>aws configure --profile renuo-app-setup list</code>.</p>
+<p>We would recommend setting default region name to <code>eu-central-1</code>. The default output format is json and should not be changed.</p>
 <h3 id="command-generation"><a class="header" href="#command-generation">Command generation</a></h3>
 <p>The following command will generate command-line-commands to set up S3 and CloudFront.
 You'll need to run them by yourself after reviewing the output.</p>
@@ -203,6 +226,7 @@ You'll need to run them by yourself after reviewing the output.</p>
 <h3 id="executing-the-commands"><a class="header" href="#executing-the-commands">Executing the commands</a></h3>
 <p>Running the commands will print some JSON pages to your screen.
 <strong>Copy each <code>SecretAccessKey</code> and <code>AccessKeyId</code> to your credentials store!</strong></p>
+<p>Once you have worked through the commands, you are ready to use S3 for Active Storage within your Rails app by configuring the storage.yml file (as below) and setting <code>config.active_storage.service = :amazon</code> in your production.rb file.</p>
 <h3 id="custom-cloudfront-distribution-cname-aliases"><a class="header" href="#custom-cloudfront-distribution-cname-aliases">Custom Cloudfront Distribution CNAME Aliases</a></h3>
 <p>If you want to serve your S3 bucket via a custom domain, you need to add the CNAMEs to
 your Cloudfront Distibution manually.</p>

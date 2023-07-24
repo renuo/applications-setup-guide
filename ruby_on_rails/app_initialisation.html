@@ -88,11 +88,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -222,14 +244,20 @@ They are always idempotent (runnable multiple times).</p>
 <ul>
 <li>
 <p>Add <code>figaro</code> to Gemfile. Check the <a href="https://github.com/laserlemon/figaro">gem homepage</a> to see how to install the gem
-(usually <code>bundle exec figaro install</code> is enough). Delete the newly created file <code>config/application.yml</code>.</p>
+(usually <code>bundle exec figaro install</code> is enough). Delete the newly created file <code>config/application.yml</code>...</p>
 </li>
 <li>
 <p>and create <code>config/application.example.yml</code> where you will specify the only environment variable you need for now:
 <code>SECRET_KEY_BASE</code>.</p>
 </li>
 <li>
-<p>Add the following section to your <code>bin/setup</code> script so that the application.yml is created when the project is setup:</p>
+<p>Going forward we will only push the <code>config/application.example.yml</code> file to the repository in order to protect our env variables.</p>
+</li>
+<li>
+<p>Add application.yml to .gitignore</p>
+</li>
+<li>
+<p>Add the following section to your <code>bin/setup</code> script so that the <code>application.yml</code> is created from the <code>application.example.yml</code> when the project is setup locally:</p>
 <pre><code class="language-ruby">puts &quot;\n== Copying sample files ==&quot;
 unless File.exist?('config/application.yml')
   system! 'cp config/application.example.yml config/application.yml'
@@ -237,10 +265,7 @@ end
 </code></pre>
 </li>
 <li>
-<p>add application.yml to .gitignore</p>
-</li>
-<li>
-<p>add one first key to application.example.yml <code>APP_PORT: 3000</code></p>
+<p>add one more key to application.example.yml <code>APP_PORT: 3000</code></p>
 <p>Make sure it comes <strong>before</strong> any <code>rails</code> comands.</p>
 </li>
 <li>
