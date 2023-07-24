@@ -70,10 +70,12 @@ They are always idempotent (runnable multiple times).
 ### ENV variables with Figaro
 
 * Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
-(usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`.
+(usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`...
 * and create `config/application.example.yml` where you will specify the only environment variable you need for now:
   `SECRET_KEY_BASE`.
-* Add the following section to your `bin/setup` script so that the application.yml is created when the project is setup:
+* Going forward we will only push the `config/application.example.yml` file to the repository in order to protect our env variables.
+* Add application.yml to .gitignore
+* Add the following section to your `bin/setup` script so that the `application.yml` is created from the `application.example.yml` when the project is setup locally:
 
   ```ruby
   puts "\n== Copying sample files =="
@@ -82,8 +84,7 @@ They are always idempotent (runnable multiple times).
   end
   ```
 
-* add application.yml to .gitignore
-* add one first key to application.example.yml `APP_PORT: 3000`
+* add one more key to application.example.yml `APP_PORT: 3000`
 
   Make sure it comes **before** any `rails` comands.
 * To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,

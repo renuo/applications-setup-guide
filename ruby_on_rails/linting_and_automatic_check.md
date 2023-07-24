@@ -55,6 +55,8 @@ To lint the SASS/SCSS files in our project we are going to use the `sass-lint` n
 Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
 template to see the command to execute the SCSS linting.
 
+You may also need to add the `scss_lint` gem to your gemfile.
+
 ## Erb lint
 
 ```ruby

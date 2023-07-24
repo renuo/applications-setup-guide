@@ -17,7 +17,7 @@ and the main branches already pushed and ready to be tested.
 renuo configure-semaphore
 ```
 
-The command will copy the necessary templates to `.semaphore` folder.
+The command will copy the necessary templates to `.semaphore` folder using the renuo-cli. These files need to be maintained on the [renuo-cli repository](https://github.com/renuo/renuo-cli/tree/main).
 
 1. Add a file called `.nvmrc` to the project root, where you specify the latest node version
 1. Commit the files to both branches, push and watch the CI run.
