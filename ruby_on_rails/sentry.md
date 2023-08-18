@@ -18,12 +18,13 @@ to generate the commands for you.
 
 ## Backend (Rails)
 
-* Add sentry gem to the project:
+* Add sentry gems to the project:
 
   ```ruby
   group :production do
     gem 'sentry-rails'
     gem 'sentry-ruby'
+    gem 'sentry-sidekiq' # If the project uses Sidekiq for background jobs
   end
   ```
 
