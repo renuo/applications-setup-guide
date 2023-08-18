@@ -8,5 +8,7 @@ if defined? Sentry
     config.before_send = lambda do |event, _hint|
       filter.filter(event.to_hash)
     end
+
+    config.breadcrumbs_logger = %i[sentry_logger active_support_logger http_logger]
   end
 end
