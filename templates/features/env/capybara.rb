@@ -1,15 +1,20 @@
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+
+  %w[
+    incognito
+    disable-extensions
+    auto-open-devtools-for-tabs
+    window-size=1280,800
+  ].each { options.add_argument _1 }
+
+  %w[
+    headless
+    disable-gpu
+  ].each { options.add_argument _1 } if %w[1 on true].include?(ENV['HEADLESS'])
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu] }
-  )
-
-  Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
-end
-
-Capybara.javascript_driver = :headless_chrome
+Capybara.default_driver = :rack_test
+Capybara.javascript_driver = :selenium_chrome_headless
