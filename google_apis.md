@@ -1,6 +1,6 @@
 # Google APIs
 
-* If you need Google APIs in your project (e. g. Google Maps or Google+) proceed to the [Google Cloud Console](https://console.cloud.google.com).
+* If you need Google APIs in your project (e. g. Google Maps) proceed to the [Google Cloud Console](https://console.cloud.google.com).
 
 * Create a project named `[project-name]` under the renuo.ch organisation
 and use that project for all your environments.
