@@ -1,5 +1,7 @@
 # Carrierwave
 
+**⚠️ Don't use Carrierwave for new projects anymore. Use ActiveStorage**
+
 Carrierwave is used to upload files to S3.
 
 1. Add `gem 'carrierwave'` and `gem 'fog-aws'`
