@@ -81,7 +81,7 @@ module SecurelyUploadable
 
   included do
     def filename
-      "#{time_token}.#{file.extension}" if original_filename.present?
+      "#{time_token}#{file.extension.present? ? ".#{file.extension}" : ''}"
     end
 
     def store_dir
