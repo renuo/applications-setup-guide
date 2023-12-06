@@ -37,8 +37,13 @@ Always use subaccounts for the project, so that the whole account doesn't get su
 1. Create [a new API-Key for your subaccount](https://app.sparkpost.com/account/api-keys/create) and assign it to the new subaccount, with the following permissions: *Send via SMTP, Sending Domains: Read/Write*
 1. Write down the API-key in the credential store (in a list under sparkpost+_enviroment_@renuo.ch), because it's only showed once!
 1. Credentials for SMTP setup on your app can be found [here](https://app.sparkpost.com/account/smtp), password is your generated API-key
-1. (if domain is known) Add your sending domain [here](https://app.sparkpost.com/domains/create?type=sending). Assign it to the subaccount. Set up SPF & DKIM with TXT DNS records (only use `renuoapp.ch` within the `sparkpost+develop@renuo.ch`)
+1. (if domain is known) Add your sending domain
+   [here](https://app.sparkpost.com/domains/create?type=sending). Assign it to
+   the subaccount. Set up SPF, DKIM and DMARC with TXT DNS records (only use
+   `renuoapp.ch` within the `sparkpost+develop@renuo.ch`)
+1. Verify your Email DNS configuration with <https://mxtoolbox.com/SuperTool.aspx>
 1. Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', from: ENV['MAIL_SENDER'], subject: 'Testmail', body: 'Mail content').deliver_now!`
+1. Send a test email to <https://www.mail-tester.com/> and check the result
 
 For DNS setup also see [Go Live](go_live.md)
 
