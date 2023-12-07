@@ -8,8 +8,10 @@ unless ENV['NO_COVERAGE']
     add_filter 'app/jobs/application_job.rb'
     add_filter 'app/mailers/application_mailer.rb'
     add_filter 'app/models/application_record.rb'
+    add_filter '.semaphore-cache'
+    enable_coverage :branch
+    minimum_coverage line: 100, branch: 100
   end
-  SimpleCov.minimum_coverage 100
 end
 
 RSpec.configure do |config|
