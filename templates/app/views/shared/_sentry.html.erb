@@ -3,5 +3,5 @@
     window.sentryConfig = {dsn: '<%= ENV['SENTRY_DSN']%>', environment: '<%= ENV['SENTRY_ENVIRONMENT']%>'};
   <% end -%>
   <%= javascript_include_tag 'https://cdn.renuo.ch/sentry-ignore.min.js', crossorigin: 'anonymous' %>
-  <%= javascript_pack_tag 'sentry' %>
+  <%= javascript_include_tag 'sentry' %>
 <% end %>
