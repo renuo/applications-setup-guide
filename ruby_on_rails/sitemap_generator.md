@@ -45,7 +45,7 @@ xmllint --format public/sitemap.xml -o public/sitemap.xml
 
 ## GitHub Action
 
-The GitHub Action is setup in the `.github/workflows/generate_sitemap.yml` file. The below example is configured to run on the 1st of each month, or on a push to main. It will run the `./bin/generate_sitemap` script, and then push the changes to a new pull request. 
+The GitHub Action is setup in the `.github/workflows/generate_sitemap.yml` file. The below example is configured to run on the 1st of each month, or on a push to main. It will run the `./bin/generate_sitemap` script, and then push the changes to a new pull request.
 
 Please configure this file as required for your project.
 
@@ -82,7 +82,7 @@ jobs:
       - name: Set up Ruby 3.1.2
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1.2 
+          ruby-version: 3.1.2
 
       - name: Install dependencies
         run: |
