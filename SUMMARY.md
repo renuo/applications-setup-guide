@@ -56,6 +56,7 @@
       - [Hotjar](ruby_on_rails/hotjar.md)
       - [Wicked PDF](ruby_on_rails/wicked_pdf.md)
       - [Recaptcha v3](ruby_on_rails/recaptcha.md)
+      - [Sitemap Generator](ruby_on_rails/sitemap_generator.md)
 
 - [Frontend apps (JS)](js/README.md)
 - [React Native](react_native/README.md)
