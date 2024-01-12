@@ -1,6 +1,10 @@
 # AppSignal
 
-AppSignal is a service to monitor app performance, errors and aggregate logs.
+AppSignal is a service to record logs, monitor errors and performance.
+
+Recording logs works independently from the tech stack. So you should use AppSignal to record logs even if you don't use Rails. Choose the "JavaScript" option on the AppSignal page in that case.
+
+Now follows the guide to setup AppSignal for Rails.
 
 * Add the following gem to your Gemfile:
 
