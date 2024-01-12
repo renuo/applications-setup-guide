@@ -26,12 +26,13 @@ It's now time to introduce some more tools which will help you and the team to k
 While everyone starts working there are some more things which you should setup.
 Most are not optional, but the rest of the team can start working even if those are not in place yet.
 
-1. [Sentry](sentry.md)
-2. [NewRelic](newrelic.md) (optional)
-3. [robots.txt](robots_txt.md)
-4. [Percy](configure_percy.md) (optional)
-5. [Papertrail](papertrail.md)
-6. [Protect develop environment](environment_protection.md)
+1. [AppSignal](appsignal.md)
+1. [Sentry](sentry.md) (optional)
+1. [NewRelic](newrelic.md) (optional)
+1. [robots.txt](robots_txt.md)
+1. [Percy](configure_percy.md) (optional)
+1. [Papertrail](papertrail.md)
+1. [Protect develop environment](environment_protection.md)
 
 Some services should be configured accordingly to the packages bought by the customer.
 Once the new application is created, please add the project to the
