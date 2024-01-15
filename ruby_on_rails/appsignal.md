@@ -4,7 +4,7 @@ AppSignal is a service to record logs, monitor errors and performance.
 
 Recording logs works independently from the tech stack. So you should use AppSignal to record logs even if you don't use Rails. Choose the "JavaScript" option on the AppSignal page in that case.
 
-Now follows the guide to setup AppSignal for Rails.
+Now follows the guide to setup AppSignal for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
 
 * Add the following gem to your Gemfile:
 
@@ -33,3 +33,26 @@ Platform: **Heroku Log Drain**
 Message format: **logfmt**
 
 Then add this log drain using the heroku commands displayed.
+
+## Lograge
+
+We use [lograge](lograge.md) in many projects. Here is how to configure it with AppSignal to get properly tagged logs.
+
+Using this configuration we get the fully tagged lograge lines and also the full stack trace with each line tagged with the request id. This allows us to filter by request id with one click and get all relevant log data at once.
+
+```ruby
+# config/initializers/lograge.rb
+Rails.application.configure do
+  config.lograge.enabled = true
+  config.lograge.keep_original_rails_log = true
+  config.lograge.logger = Appsignal::Logger.new(
+    "rails",
+    format: Appsignal::Logger::LOGFMT
+  )
+  config.lograge.custom_payload do |controller|
+    {
+      request_id: controller.request.request_id
+    }
+  end
+end
+```
