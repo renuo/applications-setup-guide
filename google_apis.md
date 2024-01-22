@@ -1,15 +1,16 @@
 # Google APIs
 
 * If you need Google APIs in your project (e. g. Google Maps) proceed to the [Google Cloud Console](https://console.cloud.google.com).
+* Create a project named `[project-name]` under the renuo.ch organisation and use that project for all your environments.
+* Attach the _wg-operations_ billing account
+* Choose the right correct resource folder
+  * `clients` for client projects
+  * `wg-operations` for persistent internal things (e.g. Renuo Dashboard)
+  * `tmp` for trials (e.g. learning week, presentations)
 
-* Create a project named `[project-name]` under the renuo.ch organisation
-and use that project for all your environments.
+  ![google_app_1](images/google_app_1.png)
 
-![google_app_1](images/google_app_1.png)
-
-* After creating it, make sure that it is selected in the header and enable the Google APIs that you need for this project under `APIs & Services > Library`.
-
-* When asked, attach the `wg-education CC` as billing account.
+Before continuing, make sure that your new project is selected in the top navigational header of the Google Console.
 
 ## Maps JavaScript API
 
