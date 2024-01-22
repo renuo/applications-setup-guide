@@ -179,19 +179,22 @@
 <p>If you need Google APIs in your project (e. g. Google Maps) proceed to the <a href="https://console.cloud.google.com">Google Cloud Console</a>.</p>
 </li>
 <li>
-<p>Create a project named <code>[project-name]</code> under the renuo.ch organisation
-and use that project for all your environments.</p>
+<p>Create a project named <code>[project-name]</code> under the renuo.ch organisation and use that project for all your environments.</p>
 </li>
+<li>
+<p>Attach the <em>wg-operations</em> billing account</p>
+</li>
+<li>
+<p>Choose the right correct resource folder</p>
+<ul>
+<li><code>clients</code> for client projects</li>
+<li><code>wg-operations</code> for persistent internal things (e.g. Renuo Dashboard)</li>
+<li><code>tmp</code> for trials (e.g. learning week, presentations)</li>
 </ul>
 <p><img src="images/google_app_1.png" alt="google_app_1" /></p>
-<ul>
-<li>
-<p>After creating it, make sure that it is selected in the header and enable the Google APIs that you need for this project under <code>APIs &amp; Services &gt; Library</code>.</p>
-</li>
-<li>
-<p>When asked, attach the <code>wg-education CC</code> as billing account.</p>
 </li>
 </ul>
+<p>Before continuing, make sure that your new project is selected in the top navigational header of the Google Console.</p>
 <h2 id="maps-javascript-api"><a class="header" href="#maps-javascript-api">Maps JavaScript API</a></h2>
 <p><strong>API key generation</strong></p>
 <p>In order to user the Google APIs you will need to generate new credentials. Because we are using only one project per application, but would like to separate the usage in development from the one in production, name the keys like so: <code>maps-main</code> and <code>maps-develop</code>. Because we might need a key to also test the map locally, add a separate one named <code>maps-local</code>.</p>
