@@ -175,13 +175,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="renuo-applications-setup-guide"><a class="header" href="#renuo-applications-setup-guide">Renuo Applications Setup Guide</a></h1>
-<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>This repo is the <a href="https://www.renuo.ch">Renuo</a> collection of best-practices to set-up apps.
+We are a <a href="https://rubyonrails.org/foundation">Rails company</a>, so the most value probably
+will be found in the parts concerning Rails. But anyways you'll also find a lot about the
+inner workings of Renuo.</p>
+<ul>
+<li><a href="./ruby_on_rails/README.html">Ruby on Rails – App Setup Guide</a></li>
+</ul>
+<h2 id="some-notes-on-the-side"><a class="header" href="#some-notes-on-the-side">Some Notes on the Side</a></h2>
 <p>If you are reading this document, it means that you have to setup a new application.
 A new project started and it's now time to set everything up so that <strong>everyone</strong>,
 in your team, <strong>can start working on it</strong>.</p>
 <p>This document will try to be as minimalist as possible and provide you with all the steps to set up the application as
-fast as possible.
-There are things, in Renuo projects, which are mandatory, other that are suggested.</p>
+fast as possible. There are things, in Renuo projects, which are mandatory, other that are suggested.</p>
 <p>The basic things that need to be ready before the team can start working on a project are:</p>
 <ul>
 <li>An existing <em>git</em> repository containing the project</li>
@@ -194,14 +200,7 @@ There are things, in Renuo projects, which are mandatory, other that are suggest
 <li>The application deployed for both branches</li>
 </ul>
 <p>As an appendix, you'll find a <a href="checklist.html">checklist</a> you can use to follow the guide.</p>
-<p>The guide consists of generic paragraphs that will be referenced from the specific application types
-(e.g. How to configure the CI will be referenced from both <em>Rails</em> and <em>Angular</em> setup guides)</p>
-<p>Again: The purpose of this guide is to have your project setup as fast as possible so that the rest
-of the team can start working on the project with you.
-Before starting to follow this guide you should also have clear in mind, what is the architecture of your system
-(e.g, a monolithic Rails Application, a two layers app, a native app, etc.)</p>
-<p><strong>❗ One more, important, final note: Do not blindly follow this guide,
-always think about what you are doing and why.
+<p><strong>❗ Do not blindly follow this guide, always think about what you are doing and why.
 If you think something is wrong or simply outdated, improve this guide with a Pull Request.</strong></p>
 <p>We want you to know exactly the reason behind each single step of this guide.</p>
 <p>Thank you for your work and have fun! 🎉</p>
@@ -1603,7 +1602,7 @@ end
 <blockquote>
 <p>Otherwise there may be compliance issues which can lead to the closing down of the whole Renuo account.</p>
 </blockquote>
-<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p><strong>Main (Sparkpost, sample-app@yourdomain.tld)</strong></p>
 <ul>
 <li>Each app is using a separate subaccount under the main account</li>
