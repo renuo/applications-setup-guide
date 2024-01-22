@@ -3,10 +3,11 @@
 * If you need Google APIs in your project (e. g. Google Maps) proceed to the [Google Cloud Console](https://console.cloud.google.com).
 * Create a project named `[project-name]` under the renuo.ch organisation and use that project for all your environments.
 * Attach the _wg-operations_ billing account
-* Choose the right correct resource folder
+* Choose the correct resource folder
   * `clients` for client projects
   * `wg-operations` for persistent internal things (e.g. Renuo Dashboard)
   * `tmp` for trials (e.g. learning week, presentations)
+  * `system-gsuite` is for Google app script
 
   ![google_app_1](images/google_app_1.png)
 
