@@ -34,6 +34,46 @@ Message format: **logfmt**
 
 Then add this log drain using the heroku commands displayed.
 
+## Correct Severity
+
+According to the docs, getting the severity to be anything but "INFO" is not possible using the heroku drain.
+
+However, there is now a way to send the `"severity=XYZ"` logfmt information and have that be applied correctly in appsignal. Unfortunately, just setting this seems to break the recognition of `request_id` in the format `[1234-5678]`. So we have to override the `ActiveSupport::TaggedLogging::Formatter` to add both the `severity` and the `request_id` in logfmt syntax.
+
+```
+module ActiveSupport
+  module TaggedLogging
+    module Formatter
+      def call(severity, timestamp, progname, msg)
+        super(severity, timestamp, progname, "severity=#{severity} #{tags_text}#{msg}")
+      end
+
+      def tags_text
+        tags = current_tags
+        tags.inject('') do |text, tag|
+          if tag.is_a? Hash
+            text += tag.map { |k,v| "#{k}=#{v} " }.join
+          else
+            raise 'we use our own tags!'
+          end
+        end
+      end
+    end
+  end
+end
+```
+
+and
+
+```
+# config/environments/production.rb
+Rails.application.configure do
+  config.log_tags = [lambda { |request| {request_id: request.request_id} }]
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
+end
+```
+
 ## Lograge
 
 We use [lograge](lograge.md) in many projects. Here is how to configure it with AppSignal to get properly tagged logs.
