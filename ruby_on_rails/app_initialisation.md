@@ -126,6 +126,13 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
   config.i18n.raise_on_missing_translations = true # uncomment
   config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
   config.active_record.verbose_query_logs = true # add
+
+  # add the following lines to the end of the file
+  config.to_prepare do
+    ActiveSupport.on_load(:active_record) do
+      ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.create_unlogged_tables = true
+    end
+  end
   ```
 
 * The default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) should not always be activated, but rather only where there are platform secrets that need to be secured. This rule can be overwritten by a customer, if he opted into CSP when selecting his maintenance plans.
