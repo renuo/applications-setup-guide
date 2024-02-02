@@ -596,6 +596,13 @@ config.i18n.raise_on_missing_translations = true # uncomment
 config.i18n.raise_on_missing_translations = true # uncomment
 config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
 config.active_record.verbose_query_logs = true # add
+
+# add the following lines to the end of the file
+config.to_prepare do
+  ActiveSupport.on_load(:active_record) do
+    ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.create_unlogged_tables = true
+  end
+end
 </code></pre>
 </li>
 <li>
