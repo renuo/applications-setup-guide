@@ -46,19 +46,19 @@ They are always idempotent (runnable multiple times).
 * Add a `bin/run` file. It will be used to start our project.
 
   ```sh
-  echo "#\!/bin/sh\nset -e\n\nrails s" >> bin/run
+  echo "#\!/usr/bin/env bash\nset -euo pipefail\n\nrails s" > bin/run
   ```
 
 * Add a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
 
   ```sh
-  echo "#\!/bin/sh\n" >> bin/fastcheck
+  echo "#\!/usr/bin/env bash\nset -euo pipefail" > bin/fastcheck
   ```
 
 * Add a `bin/check` file. It will run all the automated tests. It's mainly used in our CI.
 
   ```sh
-  echo "#\!/bin/sh\nset -e\nbin/fastcheck\nbin/rails zeitwerk:check" > bin/check
+  echo "#\!/usr/bin/env bash\nset -euo pipefail\nbin/fastcheck\nbin/rails zeitwerk:check" > bin/check
   ```
 
 * Make the new scripts executable
