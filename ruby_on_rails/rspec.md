@@ -7,7 +7,6 @@ Add the following gems to your Gemfile:
 ```ruby
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'rexml'
   gem 'rspec-rails'
 end
 
