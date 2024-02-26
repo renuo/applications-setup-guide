@@ -31,13 +31,11 @@
       - [NewRelic](ruby_on_rails/newrelic.md)
       - [Robots.txt](ruby_on_rails/robots_txt.md)
       - [Percy](ruby_on_rails/configure_percy.md)
-      - [Papertrail](ruby_on_rails/papertrail.md)
       - [Protect develop environment](ruby_on_rails/environment_protection.md)
   - [Customer Plan Services]()
       - [Uptimerobot](ruby_on_rails/uptimerobot.md)
       - [Sentry Notifications](ruby_on_rails/sentry.md)
       - [Depfu Security monitoring](ruby_on_rails/depfu.md)
-      - [Papertrail](ruby_on_rails/papertrail.md)
 
   - [Gems]()
       - [Jest](ruby_on_rails/jest.md)
