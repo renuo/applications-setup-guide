@@ -198,14 +198,14 @@ MAIL_PASSWORD: ''
 <li>update <code>app/mailers/application_mailer.rb</code></li>
 </ul>
 <pre><code class="language-ruby">class ApplicationMailer &lt; ActionMailer::Base
-  default from: ENV['MAIL_SENDER']  # &lt;-- change this
+  default from: ENV.fetch('MAIL_SENDER')  # &lt;-- change this
   layout 'mailer'
 end
 </code></pre>
 <ul>
 <li>add the following to <code>config/application.rb</code></li>
 </ul>
-<pre><code class="language-ruby">config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
+<pre><code class="language-ruby">config.action_mailer.default_url_options = { host: ENV.fetch('APP_HOST'), port: ENV.fetch('APP_PORT') }
 </code></pre>
 <ul>
 <li>add the following to <code>config/environments/development.rb</code>:</li>
@@ -216,13 +216,13 @@ end
 <li>add the following <code>config/environments/production.rb</code>:</li>
 </ul>
 <pre><code class="language-ruby">config.action_mailer.smtp_settings = {
-  address: ENV['MAIL_HOST'],
+  address: ENV.fetch('MAIL_HOST'),
   port: 587,
   enable_starttls_auto: true,
-  user_name: ENV['MAIL_USERNAME'],
-  password: ENV['MAIL_PASSWORD'],
+  user_name: ENV.fetch('MAIL_USERNAME'),
+  password: ENV.fetch('MAIL_PASSWORD'),
   authentication: 'login',
-  domain: ENV['APP_HOST']
+  domain: ENV.fetch('APP_HOST')
 }
 </code></pre>
 <h2 id="sparkpost--mailtrap"><a class="header" href="#sparkpost--mailtrap">Sparkpost &amp; Mailtrap</a></h2>
