@@ -35,6 +35,7 @@ Since PRs need to be approved before depfu can merge them we add a GitHub
 Actions workflow to automatically approve PRs from depfu:
 
 ```yaml
+# .github/workflows/depfu_autoapprove.yml
 name: Depfu auto-approve
 on:
   pull_request_target:
