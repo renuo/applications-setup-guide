@@ -61,4 +61,4 @@ config.action_mailer.smtp_settings = {
 
 ## Sparkpost & Mailtrap
 
-Follow the [sparkpost](../sparkpost_&_mailtrap.md) section to configure Sparkpost and Mailtrap on your production environment
+Follow the [sparkpost](../sparkpost_and_mailtrap.md) section to configure Sparkpost and Mailtrap on your production environment
