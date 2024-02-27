@@ -28,7 +28,7 @@ MAIL_PASSWORD: ''
 
 ```ruby
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['MAIL_SENDER']  # <-- change this
+  default from: ENV.fetch('MAIL_SENDER')  # <-- change this
   layout 'mailer'
 end
 ```
@@ -36,7 +36,7 @@ end
 * add the following to `config/application.rb`
 
 ```ruby
-config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
+config.action_mailer.default_url_options = { host: ENV.fetch('APP_HOST'), port: ENV.fetch('APP_PORT') }
 ```
 
 * add the following to `config/environments/development.rb`:
@@ -49,13 +49,13 @@ config.action_mailer.delivery_method = :letter_opener
 
 ```ruby
 config.action_mailer.smtp_settings = {
-  address: ENV['MAIL_HOST'],
+  address: ENV.fetch('MAIL_HOST'),
   port: 587,
   enable_starttls_auto: true,
-  user_name: ENV['MAIL_USERNAME'],
-  password: ENV['MAIL_PASSWORD'],
+  user_name: ENV.fetch('MAIL_USERNAME'),
+  password: ENV.fetch('MAIL_PASSWORD'),
   authentication: 'login',
-  domain: ENV['APP_HOST']
+  domain: ENV.fetch('APP_HOST')
 }
 ```
 
