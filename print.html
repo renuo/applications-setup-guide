@@ -1306,6 +1306,42 @@ repository.</li>
 </ol>
 <p>That's all :-)</p>
 <p>Update strategy should be set to <code>Grouped Updates</code>, frequency: <code>monthly</code>. Assignee should be set.</p>
+<h2 id="engine-updates"><a class="header" href="#engine-updates">Engine Updates</a></h2>
+<p>Enable minor engine updates.</p>
+<p><img src="ruby_on_rails/../images/depfu_engine_updates.png" alt="Depfu Engine Updates" /></p>
+<p><strong>Note:</strong> If you are using Heroku, the latest Ruby / node version may not yet
+be available on their platform, so you may need to delay the upgrade. Check the
+following GitHub repositories to see if Heroku added support already:</p>
+<ul>
+<li><a href="https://github.com/heroku/heroku-buildpack-nodejs">https://github.com/heroku/heroku-buildpack-nodejs</a></li>
+<li><a href="https://github.com/heroku/heroku-buildpack-ruby">https://github.com/heroku/heroku-buildpack-ruby</a></li>
+</ul>
+<h2 id="automatic-merging"><a class="header" href="#automatic-merging">Automatic merging</a></h2>
+<p>To speed up the merging of smaller upgrades (like security fixes) we enable
+Automatic merging like this:</p>
+<p><img src="ruby_on_rails/../images/depfu_automatic_merging.png" alt="Depfu Automatic Merging" /></p>
+<p>Since PRs need to be approved before depfu can merge them we add a GitHub
+Actions workflow to automatically approve PRs from depfu:</p>
+<pre><code class="language-yaml"># .github/workflows/depfu_autoapprove.yml
+name: Depfu auto-approve
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  depfu:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'depfu[bot]' }}
+    steps:
+      - name: Approve all depfu PRs
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="run-javascript-tests-with-jest"><a class="header" href="#run-javascript-tests-with-jest">Run Javascript tests with Jest</a></h1>
 <p>When you start writing Javascript code, you have to test it. Webpacker doesn't come (yet) with a default test tool.
 Here is a configuration suggestion to start testing using Jest.</p>
