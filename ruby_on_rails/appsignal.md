@@ -54,7 +54,7 @@ module ActiveSupport
           if tag.is_a? Hash
             text += tag.map { |k,v| "#{k}=#{v} " }.join
           else
-            raise 'we use our own tags!'
+            text += "[#{tag}] "
           end
         end
       end
