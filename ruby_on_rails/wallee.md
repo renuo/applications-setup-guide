@@ -50,7 +50,7 @@
        #     address: {
        #       city: "Zürich",
        #       country: "CH",
-       #       email_address: "
+       #       email_address: "customer@example.com",
        #       family_name: "Muster",
        #       given_name: "Hans",
        #       postcode: "8000",
@@ -329,5 +329,5 @@ Be aware that this is quite integrated with the business logic of your app, e.g.
    end
    ```
 
-4. … and you're far from done. You need to handle errors, retries, and so on. But this is a good start.
+4. … and you're far from done. You need to handle errors, other state changes, and so on. But this is a good start.
 5. Oh, and you need to setup the webhook in the Wallee backend, so that it actually sends requests to your Rails app.
