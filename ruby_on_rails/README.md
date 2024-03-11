@@ -72,3 +72,4 @@ useful services:
     * Header tags
 1. [wicked pdf](wicked_pdf.md) `gem wicked_pdf`
 1. [Recaptcha v3](recaptcha.md)
+1. [Wallee Payment Integration](wallee.md)
