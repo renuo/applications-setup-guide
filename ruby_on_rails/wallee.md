@@ -24,8 +24,8 @@
    # config/initializers/wallee.rb
 
    Wallee.configure do |config|
-     config.user_id = ENV["WALLEE_APP_USER_ID"]
-     config.authentication_key = ENV["WALLEE_APP_AUTHENTICATION_KEY"]
+     config.user_id = ENV.fetch("WALLEE_APP_USER_ID")
+     config.authentication_key = ENV.fetch("WALLEE_APP_AUTHENTICATION_KEY")
    end
    ```
 
