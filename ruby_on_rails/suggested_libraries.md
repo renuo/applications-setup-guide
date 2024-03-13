@@ -20,9 +20,7 @@ end
 group :development, :test do
   gem 'awesome_print'
   gem 'bullet'
-  gem 'pry-byebug'
-  gem 'pry-doc'
-  gem 'pry-rails'
+  gem 'debug'
 end
 
 group :production do
