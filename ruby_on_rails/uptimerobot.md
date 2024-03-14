@@ -26,3 +26,39 @@ The command will setup the project in a paused state. You can start it once your
 ## Examples
 
 * `renuo setup-uptimerobot https://germann.ch/home/check`
+
+## Replacing monitors
+
+It's cumbersome to exchange a monitor for all projects.
+You can utilize this script for that:
+
+```rb
+require "json"
+require "open3"
+
+API_KEY = "XXX"
+OFFSET = 0 # default page size is 50
+
+# Use Open3 to capture stdout and stderr to avoid shell-specific parsing issues
+monitors_response, stderr, status = Open3.capture3("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -H \"Cache-Control: no-cache\" -d 'api_key=#{API_KEY}&format=json&alert_contacts=1&offset=#{OFFSET}' \"https://api.uptimerobot.com/v2/getMonitors\" | jq -c '[.monitors[] | {id: .id, alert_contacts: .alert_contacts}]'")
+
+unless status.success?
+  puts "Error executing command: #{stderr}"
+  exit
+end
+
+monitors = JSON.parse(monitors_response)
+monitors.each do |monitor|
+  id = monitor["id"]
+
+  # Add your new monitor here so that it is added to all projects
+  monitor["alert_contacts"] << { "id" => raise("TODO: replace this"), "threshold" => 0, "recurrence" => 0 }
+
+  alert_contacts = monitor["alert_contacts"].map { |contact|
+    contact.values_at("id", "threshold", "recurrence").compact.join("_")
+  }.join("-")
+
+  cmd = %(curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded" -d 'api_key=#{API_KEY}&format=json&id=#{id}&alert_contacts=#{alert_contacts}' "https://api.uptimerobot.com/v2/editMonitor")
+  puts cmd
+end
+```
