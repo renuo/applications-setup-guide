@@ -20,7 +20,6 @@ end
 group :development, :test do
   gem 'awesome_print'
   gem 'bullet'
-  gem 'debug'
 end
 
 group :production do
