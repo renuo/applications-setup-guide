@@ -523,7 +523,7 @@ They are always idempotent (runnable multiple times).</p>
 </li>
 <li>
 <p>Add a <code>bin/check</code> file. It will run all the automated tests. It's mainly used in our CI.</p>
-<pre><code class="language-sh">echo "#\!/usr/bin/env bash\nset -euo pipefail\nbin/fastcheck\nbin/rails zeitwerk:check" &gt; bin/check
+<pre><code class="language-sh">echo "#\!/usr/bin/env bash\n\nset -euo pipefail\n\nbin/rails zeitwerk:check" &gt; bin/check
 </code></pre>
 </li>
 <li>
