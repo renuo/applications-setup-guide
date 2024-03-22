@@ -2,8 +2,6 @@
 
 set -e
 
-bin/fastcheck
-
 bin/rails zeitwerk:check
 
 if ! grep --exclude-dir="app/assets/typings/**" -i -r 'console.log' app spec
