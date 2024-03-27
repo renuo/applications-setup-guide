@@ -95,10 +95,8 @@ You should know exactly why you are adding each one of them and why is necessary
         driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
       end
 
-      config.around do |example|
-        locale_before = I18n.locale
-        example.call
-        raise "This test did not reset the locale properly" if I18n.locale != locale_before
+      config.before do |example|
+        I18n.locale = I18n.default_locale
       end
     end
 
