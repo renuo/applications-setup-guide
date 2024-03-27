@@ -94,6 +94,12 @@ You should know exactly why you are adding each one of them and why is necessary
       config.before(:each, type: :system, js: true) do
         driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
       end
+
+      config.around do |example|
+        locale_before = I18n.locale
+        example.call
+        raise "This test did not reset the locale properly" if I18n.locale != locale_before
+      end
     end
 
   # config/application.example.yml
