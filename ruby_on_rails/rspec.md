@@ -94,6 +94,10 @@ You should know exactly why you are adding each one of them and why is necessary
       config.before(:each, type: :system, js: true) do
         driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
       end
+
+      config.before do |example|
+        I18n.locale = I18n.default_locale
+      end
     end
 
   # config/application.example.yml
