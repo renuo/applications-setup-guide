@@ -31,7 +31,7 @@ coffeelint -f .coffeelint.json app/javascripts/**/*.coffee
 # for javascript
 yarn eslint app/javascripts spec/javascripts
 
-# for diaeresis chracters
+# for diaeresis characters
 output=$(find . -name '*.yml' -exec grep -nH "̈" {} +); echo "$output"; [ -z "$output" ]
 if [ $? -ne 0 ]; then
   echo "There are combining diaeresis characters in the YML files. Remove them."
