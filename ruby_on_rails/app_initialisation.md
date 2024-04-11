@@ -2,7 +2,7 @@
 
 ## Default Rails setup
 
-* Ensure that your asdf plugins are up to date with `asdf plugin update -all`.
+* Ensure that your asdf plugins are up to date with `asdf plugin update --all`.
 
 * Install the latest Ruby version with `asdf install ruby latest` (Check if it's supported by Heroku).
 
