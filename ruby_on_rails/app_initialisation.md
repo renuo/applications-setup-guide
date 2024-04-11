@@ -2,9 +2,11 @@
 
 ## Default Rails setup
 
+* Ensure that your asdf plugins are up to date with `asdf plugin update --all`.
+
 * Install the latest Ruby version with `asdf install ruby latest` (Check if it's supported by Heroku).
 
-* Switch your global Ruby to the fresh one: `asdf global ruby latest`
+* Switch your global Ruby to the fresh one: `asdf global ruby latest`.
 
 * Run `gem update --system` to update Ruby's default gems (e.g. `bundler`).
 
