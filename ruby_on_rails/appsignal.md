@@ -58,7 +58,7 @@ module ActiveSupport
                  else
                    "[#{tag}] "
                  end
-        end
+        end.strip
       end
     end
   end
