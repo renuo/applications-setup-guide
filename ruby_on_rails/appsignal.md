@@ -40,7 +40,7 @@ According to [the docs](https://docs.appsignal.com/logging/platforms/heroku.html
 
 However, there is now a way to send the `"severity=XYZ"` logfmt information and have that be applied correctly in appsignal. Unfortunately, just setting this seems to break the recognition of `request_id` in the format `[1234-5678]`. So we have to override the `ActiveSupport::TaggedLogging::Formatter` to add both the `severity` and the `request_id` in logfmt syntax.
 
-```
+```ruby
 module ActiveSupport
   module TaggedLogging
     module Formatter
@@ -65,7 +65,7 @@ end
 
 and
 
-```
+```ruby
 # config/environments/production.rb
 Rails.application.configure do
   # We use our custom key value tagging
