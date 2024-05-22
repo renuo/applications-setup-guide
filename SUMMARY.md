@@ -50,7 +50,7 @@
       - [Bootstrap](ruby_on_rails/bootstrap.md)
       - [FontAwesome](ruby_on_rails/font_awesome.md)
       - [Bullet](ruby_on_rails/bullet.md)
-      - [Lograge](ruby_on_rails/appsignal.md#lograge)
+      - [Lograge](ruby_on_rails/appsignal.md)
       - [Hotjar](ruby_on_rails/hotjar.md)
       - [Wicked PDF](ruby_on_rails/wicked_pdf.md)
       - [Recaptcha v3](ruby_on_rails/recaptcha.md)
