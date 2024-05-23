@@ -126,7 +126,7 @@ raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 File.write 'config/appsignal.yml', <<~YAML
   #{options[:env]}:
     active: true
-    push_api_key: PUSH_API_KEY
+    push_api_key: #{PUSH_API_KEY}
     name: "#{options[:name]}"
 YAML
 
