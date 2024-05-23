@@ -99,3 +99,37 @@ Rails.application.configure do
   end
 end
 ```
+
+## Automation
+
+Unfortunately Appsignal doesn't provide an API for project configuration.
+So if you need to do something on a lot of projects, you have to do it manually.
+
+Project creation can be automated though with this script:
+
+```rb
+#!/usr/bin/env ruby
+require 'optparse'
+require 'appsignal'
+require 'appsignal/demo'
+
+PUSH_API_KEY = "XXX"
+
+options = {}
+OptionParser.new do |opt|
+  opt.on('--env APPSIGNAL_ENV') { |o| options[:env] = o }
+  opt.on('--name APPSIGNAL_NAME') { |o| options[:name] = o }
+end.parse!
+
+raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil? 
+
+File.write 'config/appsignal.yml', <<~YAML
+  #{options[:env]}:
+    active: true
+    push_api_key: PUSH_API_KEY
+    name: "#{options[:name]}"
+YAML
+
+Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
+Appsignal::Demo.transmit
+```
