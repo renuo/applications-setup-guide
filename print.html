@@ -756,6 +756,8 @@ and the main branches already pushed and ready to be tested.</p>
 <li>Proceed to <a href="https://renuo.semaphoreci.com/">https://renuo.semaphoreci.com/</a> and login through GitHub with renuobot@renuo.ch (<a href="https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&amp;v=crlutt26yprmp6thr573qxsxkq&amp;i=u7rirvnrf5fjxd25caiq7ib6vq&amp;h=renuo.1password.com">1Password</a>)</li>
 <li>Follow these instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/</li>
 <li>Create a project here: <a href="https://renuo.semaphoreci.com/new_project">https://renuo.semaphoreci.com/new_project</a></li>
+<li>Go to the project's artifact settings: <code>Settings</code> &gt; <code>Artifacts</code></li>
+<li>Set the retention policy for project, workflow and job artifacts to <code>/**/*</code> and <code>2 weeks</code></li>
 </ol>
 <h2 id="rails-specific-configuration"><a class="header" href="#rails-specific-configuration">Rails specific configuration</a></h2>
 <pre><code class="language-sh">renuo configure-semaphore
