@@ -10,6 +10,8 @@ and the main branches already pushed and ready to be tested.
 1. Proceed to <https://renuo.semaphoreci.com/> and login through GitHub with renuobot@renuo.ch ([1Password](https://start.1password.com/open/i?a=QZNJJCCDWVCGBGI73Z2L55KSGE&v=crlutt26yprmp6thr573qxsxkq&i=u7rirvnrf5fjxd25caiq7ib6vq&h=renuo.1password.com))
 1. Follow these instructions to install semaphore CLI https://docs.semaphoreci.com/reference/sem-command-line-tool/
 1. Create a project here: <https://renuo.semaphoreci.com/new_project>
+1. Go to the project's artifact settings: `Settings` > `Artifacts`
+1. Set the retention policy for project, workflow and job artifacts to `/**/*` and `2 weeks`
 
 ## Rails specific configuration
 
