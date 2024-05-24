@@ -51,14 +51,13 @@ module ActiveSupport
       end
 
       def tags_text
-        tags = current_tags
-        tags.inject('') do |text, tag|
-          text + if tag.is_a? Hash
-                   tag.map { |k, v| "#{k}=#{v} " }.join
-                 else
-                   "[#{tag}] "
-                 end
-        end.strip
+        current_tags.map do |tag|
+          if tag.is_a? Hash
+            tag.map { |k, v| "#{k}=#{v}" }
+          else
+            "[#{tag}]"
+          end
+        end.flatten.join(' ')
       end
     end
   end
