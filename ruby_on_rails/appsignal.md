@@ -47,7 +47,7 @@ module ActiveSupport
   module TaggedLogging
     module Formatter
       def call(severity, timestamp, progname, msg)
-        super(severity, timestamp, progname, "severity=#{severity} #{tags_text}#{msg}")
+        super(severity, timestamp, progname, "severity=#{severity} #{tags_text} #{msg}")
       end
 
       def tags_text
@@ -83,6 +83,8 @@ We use [lograge](lograge.md) in many projects. Here is how to configure it with 
 
 Using this configuration we get the fully tagged lograge lines and also the full stack trace with each line tagged with the request id. This allows us to filter by request id with one click and get all relevant log data at once.
 
+### With AppSignal gem
+
 ```ruby
 # config/initializers/lograge.rb
 Rails.application.configure do
@@ -97,6 +99,21 @@ Rails.application.configure do
       request_id: controller.request.request_id
     }
   end
+end
+```
+
+### Without AppSignal gem
+
+```ruby
+if ENV['RAILS_LOG_TO_STDOUT'].present?
+  config.log_tags = [->(request) { { request_id: request.request_id } }]
+  logger          = ActiveSupport::Logger.new($stdout)
+  config.logger   = ActiveSupport::TaggedLogging.new(logger)
+end
+
+if ENV['LOGRAGE_ENABLED'] == 'true'
+  config.lograge.enabled = true
+  config.lograge.keep_original_rails_log = true
 end
 ```
 
