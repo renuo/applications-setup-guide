@@ -30,11 +30,13 @@ This will just show you the key and tell you to deploy the app with it for the a
 Once you deploy the app and collect data the app will show up in the appsignal dashboard.
 Navigate to **Logging** -> **Manage Resources** and **Add log resource** with these settings:
 
-Source name: rails
-Platform: **Heroku Log Drain**
-Message format: **logfmt**
+| Setting        | Value              |
+| -------------- | ------------------ |
+| Source name    | `Rails`            |
+| Platform       | `Heroku Log Drain` |
+| Message format | `logfmt`           |
 
-Then add this log drain using the Heroku commands displayed.
+Then add this ingestion endpoint as a log drain using the Heroku commands displayed.
 
 ## Only Logs
 
