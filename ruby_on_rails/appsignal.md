@@ -89,7 +89,7 @@ end
 
 ### Lograge
 
-We use [lograge](lograge.md) in many projects. Here is how to configure
+We use [lograge](https://github.com/roidrage/lograge) in many projects. Here is how to configure
 it with AppSignal to get properly tagged logs.
 
 Using this configuration we get the fully tagged lograge lines and also
@@ -100,17 +100,19 @@ us to filter by request id with one click and get all relevant log data at once.
 
 ```ruby
 # config/initializers/lograge.rb
-Rails.application.configure do
-  config.lograge.enabled = true
-  config.lograge.keep_original_rails_log = true
-  config.lograge.logger = Appsignal::Logger.new(
-    "rails",
-    format: Appsignal::Logger::LOGFMT
-  )
-  config.lograge.custom_payload do |controller|
-    {
-      request_id: controller.request.request_id
-    }
+if ENV['LOGRAGE_ENABLED'] == 'true'
+  Rails.application.configure do
+    config.lograge.enabled = true
+    config.lograge.keep_original_rails_log = true
+    config.lograge.logger = Appsignal::Logger.new(
+      "rails",
+      format: Appsignal::Logger::LOGFMT
+    )
+    config.lograge.custom_payload do |controller|
+      {
+        request_id: controller.request.request_id
+      }
+    end
   end
 end
 ```

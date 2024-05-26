@@ -60,7 +60,7 @@ useful services:
 1. [bootstrap](bootstrap.md)
 1. [font-awesome](font_awesome.md)
 1. [bullet](bullet.md) `gem 'bullet'`
-1. [lograge](lograge.md) `gem 'lograge'`
+1. [lograge](appsignal.md) `gem 'lograge'`
 1. Rack Tracker (Google Analytics) `gem 'rack-tracker'` --> see [Google Analytics](../google_analytics.md)
 1. [Typescript](https://github.com/typescript-ruby/typescript-rails)
 1. Favicons
