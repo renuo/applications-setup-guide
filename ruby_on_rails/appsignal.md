@@ -100,17 +100,19 @@ us to filter by request id with one click and get all relevant log data at once.
 
 ```ruby
 # config/initializers/lograge.rb
-Rails.application.configure do
-  config.lograge.enabled = true
-  config.lograge.keep_original_rails_log = true
-  config.lograge.logger = Appsignal::Logger.new(
-    "rails",
-    format: Appsignal::Logger::LOGFMT
-  )
-  config.lograge.custom_payload do |controller|
-    {
-      request_id: controller.request.request_id
-    }
+if ENV['LOGRAGE_ENABLED'] == 'true'
+  Rails.application.configure do
+    config.lograge.enabled = true
+    config.lograge.keep_original_rails_log = true
+    config.lograge.logger = Appsignal::Logger.new(
+      "rails",
+      format: Appsignal::Logger::LOGFMT
+    )
+    config.lograge.custom_payload do |controller|
+      {
+        request_id: controller.request.request_id
+      }
+    end
   end
 end
 ```
