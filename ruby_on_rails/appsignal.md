@@ -89,7 +89,7 @@ end
 
 ### Lograge
 
-We use [lograge](lograge.md) in many projects. Here is how to configure
+We use [lograge](https://github.com/roidrage/lograge) in many projects. Here is how to configure
 it with AppSignal to get properly tagged logs.
 
 Using this configuration we get the fully tagged lograge lines and also
