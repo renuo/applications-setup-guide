@@ -1,19 +1,20 @@
-# AppSignal
+# Logging & AppSignal
 
 AppSignal is a service to record logs, monitor errors and performance.
+Recording logs works independently from the tech stack. So you should use AppSignal
+to record logs even if you don't use Rails. In Heroku we'll add a log drain to
+redirect the multiplexed Logplex logs to AppSignal in any case.
 
-Recording logs works independently from the tech stack. So you should use AppSignal to record logs even if you don't use Rails. Choose the "JavaScript" option on the AppSignal page in that case.
+## With the AppSignal agent
 
-Now follows the guide to setup AppSignal for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
+If you want to log errors and metrics, you need to install the AppSignal agent
+into your app. See integration instructions for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
 
 * Add the following gem to your Gemfile:
-
-```ruby
+  ```ruby
   gem 'appsignal'
-```
-
+  ```
 * Add a AppSignal configuration file [`config/appsignal.yml`](../templates/config/appsignal.yml) folder.
-
 * Add the new variables to your Heroku environments:
 
   ```yml
@@ -26,15 +27,23 @@ Now follows the guide to setup AppSignal for [Ruby/Rails](https://docs.appsignal
 We use the same push key for all apps. You can either copy it from another project or "create" an app on appsignal.
 This will just show you the key and tell you to deploy the app with it for the app to be created.
 
-Once you deploy the app and collect data the app will show up in the appsignal dashboard. Navigate to **Logging** -> **Manage Resources** and **Add log resource** with these settings:
+Once you deploy the app and collect data the app will show up in the appsignal dashboard.
+Navigate to **Logging** -> **Manage Resources** and **Add log resource** with these settings:
 
 Source name: rails
 Platform: **Heroku Log Drain**
 Message format: **logfmt**
 
-Then add this log drain using the heroku commands displayed.
+Then add this log drain using the Heroku commands displayed.
 
-## Correct Severity
+## Only Logs
+
+Choose the "JavaScript" option on the AppSignal project page to
+setup your project without an active agent.
+
+## Configuration adjustments
+
+### Correct Severity
 
 According to [the docs](https://docs.appsignal.com/logging/platforms/heroku.html), getting the severity to be anything but "INFO" is not possible using the heroku drain.
 
@@ -76,11 +85,14 @@ Rails.application.configure do
 end
 ```
 
-## Lograge
+### Lograge
 
-We use [lograge](lograge.md) in many projects. Here is how to configure it with AppSignal to get properly tagged logs.
+We use [lograge](lograge.md) in many projects. Here is how to configure
+it with AppSignal to get properly tagged logs.
 
-Using this configuration we get the fully tagged lograge lines and also the full stack trace with each line tagged with the request id. This allows us to filter by request id with one click and get all relevant log data at once.
+Using this configuration we get the fully tagged lograge lines and also
+the full stack trace with each line tagged with the request id. This allows
+us to filter by request id with one click and get all relevant log data at once.
 
 ### With AppSignal gem
 
@@ -137,7 +149,7 @@ OptionParser.new do |opt|
   opt.on('--name APPSIGNAL_NAME') { |o| options[:name] = o }
 end.parse!
 
-raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil? 
+raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 
 File.write 'config/appsignal.yml', <<~YAML
   #{options[:env]}:
