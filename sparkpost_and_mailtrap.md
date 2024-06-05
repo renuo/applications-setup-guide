@@ -43,7 +43,7 @@ Always use subaccounts for the project, so that the whole account doesn't get su
    `renuoapp.ch` within the `sparkpost+develop@renuo.ch`)
 1. Verify your Email DNS configuration with <https://mxtoolbox.com/SuperTool.aspx>
 1. Set up your ENV-variables and test if the mails are working. Manual test emails can be send via the following command in the rails console (production environment): `ActionMailer::Base.mail(to: 'yourname@renuo.ch', from: ENV['MAIL_SENDER'], subject: 'Testmail', body: 'Mail content').deliver_now!`
-1. Send a test email to <https://www.mail-tester.com/> and check the result
+1. Send a test email to <https://www.mail-tester.com/> or <https://www.experte.com/spam-checker> and check the result
 
 For DNS setup also see [Go Live](go_live.md)
 
