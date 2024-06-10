@@ -58,7 +58,8 @@ module ActiveSupport
   module TaggedLogging
     module Formatter
       def call(severity, timestamp, progname, msg)
-        super(severity, timestamp, progname, "severity=#{severity} #{tags_text} #{msg}")
+        logfmt_msg = ["severity=#{severity}", tags_text, msg].compact.join(' ')
+        super(severity, timestamp, progname, logfmt_msg)
       end
 
       def tags_text
