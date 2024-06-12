@@ -139,7 +139,8 @@ end
 Unfortunately Appsignal doesn't provide an API for project configuration.
 So if you need to do something on a lot of projects, you have to do it manually.
 
-Project creation can be automated though with this script:
+Project creation can be automated though with the following script.
+Run it in a tmp folder. **It writes into a file on disk.**
 
 ```rb
 #!/usr/bin/env ruby
