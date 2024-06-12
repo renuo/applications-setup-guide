@@ -54,21 +54,23 @@ However, there is now a way to send the `"severity=XYZ"` logfmt information and 
 ```ruby
 # frozen_string_literal: true
 
-module ActiveSupport
-  module TaggedLogging
-    module Formatter
-      def call(severity, timestamp, progname, msg)
-        super(severity, timestamp, progname, "severity=#{severity} #{tags_text} #{msg}")
-      end
-
-      def tags_text
-        current_tags.map do |tag|
-          if tag.is_a? Hash
-            tag.map { |k, v| "#{k}=#{v}" }
-          else
-            "[#{tag}]"
-          end
-        end.flatten.join(' ')
+if Rails.env.production?
+  module ActiveSupport
+    module TaggedLogging
+      module Formatter
+        def call(severity, timestamp, progname, msg)
+          super(severity, timestamp, progname, "severity=#{severity} #{tags_text} #{msg}")
+        end
+  
+        def tags_text
+          current_tags.map do |tag|
+            if tag.is_a? Hash
+              tag.map { |k, v| "#{k}=#{v}" }
+            else
+              "[#{tag}]"
+            end
+          end.flatten.join(' ')
+        end
       end
     end
   end
