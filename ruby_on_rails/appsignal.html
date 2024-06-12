@@ -289,7 +289,8 @@ end
 <h2 id="automation"><a class="header" href="#automation">Automation</a></h2>
 <p>Unfortunately Appsignal doesn't provide an API for project configuration.
 So if you need to do something on a lot of projects, you have to do it manually.</p>
-<p>Project creation can be automated though with this script:</p>
+<p>Project creation can be automated though with the following script.
+Run it in a tmp folder. <strong>It writes into a file on disk.</strong></p>
 <pre><code class="language-rb">#!/usr/bin/env ruby
 require 'optparse'
 require 'appsignal'
