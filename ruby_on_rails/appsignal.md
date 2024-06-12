@@ -54,22 +54,24 @@ However, there is now a way to send the `"severity=XYZ"` logfmt information and 
 ```ruby
 # frozen_string_literal: true
 
-module ActiveSupport
-  module TaggedLogging
-    module Formatter
-      def call(severity, timestamp, progname, msg)
-        logfmt_msg = ["severity=#{severity}", tags_text, msg].compact.join(' ')
-        super(severity, timestamp, progname, logfmt_msg)
-      end
+if Rails.env.production?
+  module ActiveSupport
+    module TaggedLogging
+      module Formatter
+        def call(severity, timestamp, progname, msg)
+          logfmt_msg = ["severity=#{severity}", tags_text, msg].compact.join(' ')
+          super(severity, timestamp, progname, logfmt_msg)
+        end
 
-      def tags_text
-        current_tags.map do |tag|
-          if tag.is_a? Hash
-            tag.map { |k, v| "#{k}=#{v}" }
-          else
-            "[#{tag}]"
-          end
-        end.flatten.join(' ')
+        def tags_text
+          current_tags.map do |tag|
+            if tag.is_a? Hash
+              tag.map { |k, v| "#{k}=#{v}" }
+            else
+              "[#{tag}]"
+            end
+          end.flatten.join(' ')
+        end
       end
     end
   end
@@ -138,7 +140,8 @@ end
 Unfortunately Appsignal doesn't provide an API for project configuration.
 So if you need to do something on a lot of projects, you have to do it manually.
 
-Project creation can be automated though with this script:
+Project creation can be automated though with the following script.
+Run it in a tmp folder. **It writes into a file on disk.**
 
 ```rb
 #!/usr/bin/env ruby
