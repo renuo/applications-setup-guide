@@ -2288,7 +2288,7 @@ if Rails.env.production?
         def call(severity, timestamp, progname, msg)
           super(severity, timestamp, progname, "severity=#{severity} #{tags_text} #{msg}")
         end
-  
+
         def tags_text
           current_tags.map do |tag|
             if tag.is_a? Hash
