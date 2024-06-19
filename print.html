@@ -2347,6 +2347,11 @@ Rails.application.configure do
     logger          = ActiveSupport::Logger.new($stdout)
     config.logger   = ActiveSupport::TaggedLogging.new(logger)
   end
+end
+</code></pre>
+<pre><code class="language-ruby"># config/initializers/lograge.rb
+Rails.application.configure do
+  …
 
   if ENV['LOGRAGE_ENABLED'] == 'true'
     config.lograge.enabled = true
