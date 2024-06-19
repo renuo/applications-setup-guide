@@ -132,6 +132,13 @@ Rails.application.configure do
     logger          = ActiveSupport::Logger.new($stdout)
     config.logger   = ActiveSupport::TaggedLogging.new(logger)
   end
+end
+```
+
+```ruby
+# config/initializers/lograge.rb
+Rails.application.configure do
+  …
 
   if ENV['LOGRAGE_ENABLED'] == 'true'
     config.lograge.enabled = true
