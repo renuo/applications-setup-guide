@@ -2338,15 +2338,20 @@ if ENV['LOGRAGE_ENABLED'] == 'true'
 end
 </code></pre>
 <h3 id="without-appsignal-gem"><a class="header" href="#without-appsignal-gem">Without AppSignal gem</a></h3>
-<pre><code class="language-ruby">if ENV['RAILS_LOG_TO_STDOUT'].present?
-  config.log_tags = [-&gt;(request) { { request_id: request.request_id } }]
-  logger          = ActiveSupport::Logger.new($stdout)
-  config.logger   = ActiveSupport::TaggedLogging.new(logger)
-end
+<pre><code class="language-ruby"># config/environments/production.rb
+Rails.application.configure do
+  …
 
-if ENV['LOGRAGE_ENABLED'] == 'true'
-  config.lograge.enabled = true
-  config.lograge.keep_original_rails_log = true
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    config.log_tags = [-&gt;(request) { { request_id: request.request_id } }]
+    logger          = ActiveSupport::Logger.new($stdout)
+    config.logger   = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  if ENV['LOGRAGE_ENABLED'] == 'true'
+    config.lograge.enabled = true
+    config.lograge.keep_original_rails_log = true
+  end
 end
 </code></pre>
 <h2 id="automation"><a class="header" href="#automation">Automation</a></h2>
