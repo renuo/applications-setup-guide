@@ -123,15 +123,20 @@ end
 ### Without AppSignal gem
 
 ```ruby
-if ENV['RAILS_LOG_TO_STDOUT'].present?
-  config.log_tags = [->(request) { { request_id: request.request_id } }]
-  logger          = ActiveSupport::Logger.new($stdout)
-  config.logger   = ActiveSupport::TaggedLogging.new(logger)
-end
+# config/environments/production.rb
+Rails.application.configure do
+  …
 
-if ENV['LOGRAGE_ENABLED'] == 'true'
-  config.lograge.enabled = true
-  config.lograge.keep_original_rails_log = true
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    config.log_tags = [->(request) { { request_id: request.request_id } }]
+    logger          = ActiveSupport::Logger.new($stdout)
+    config.logger   = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  if ENV['LOGRAGE_ENABLED'] == 'true'
+    config.lograge.enabled = true
+    config.lograge.keep_original_rails_log = true
+  end
 end
 ```
 
