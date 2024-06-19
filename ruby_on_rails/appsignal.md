@@ -128,10 +128,15 @@ if ENV['RAILS_LOG_TO_STDOUT'].present?
   logger          = ActiveSupport::Logger.new($stdout)
   config.logger   = ActiveSupport::TaggedLogging.new(logger)
 end
+```
 
+```ruby
+# config/initializers/lograge.rb
 if ENV['LOGRAGE_ENABLED'] == 'true'
-  config.lograge.enabled = true
-  config.lograge.keep_original_rails_log = true
+  Rails.application.configure do
+    config.lograge.enabled = true
+    config.lograge.keep_original_rails_log = true
+  end
 end
 ```
 
