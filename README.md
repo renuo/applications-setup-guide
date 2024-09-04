@@ -7,7 +7,7 @@ inner workings of Renuo.
 
 * [Ruby on Rails – Application Setup Guide](./ruby_on_rails/README.md)
 
-## Some Notes on the side
+## Some Notes on the Side
 
 If you are reading this document, it means that you have to setup a new application.
 A new project started and it's now time to set everything up so that **everyone**,
