@@ -197,19 +197,20 @@ You can do this with <code>gem update rails</code>. Beware of beta versions.</p>
 </li>
 </ul>
 <blockquote>
-<p>⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.
-If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at <a href="http://www.sinatrarb.com/">Sinatra</a> or <a href="https://angular.io/">Angular</a>
-You might also need actionmailbox of course, so always double-check the parameters that you are using.
-Check if you've got a <code>.ruby-version</code> file. If not, create one and enter the Ruby version.</p>
+<p>⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.<br />
+If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at <a href="http://www.sinatrarb.com/">Sinatra</a> or <a href="https://angular.io/">Angular</a><br />
+You might also need actionmailbox of course, so always double-check the parameters that you are using.</p>
 </blockquote>
 <blockquote>
-<p>⭐️ This setup does not include either js-bundling nor css-bundling by default. It will start with the simplest possible Rails setup and will use sprockets and importmaps.
-If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.</p>
+<p>⭐️ This setup does not include either js-bundling nor css-bundling by default.<br />
+It will start with the simplest possible Rails setup and will use sprockets and importmaps.<br />
+If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.<br />
+We want to go <a href="https://www.youtube.com/watch?v=iqXjGiQ_D-A">"no build"</a> whenever possible.</p>
 </blockquote>
 <ul>
 <li>
 <p>Load the Ruby version automatically in the fresh project's <code>Gemfile</code> by adding this:</p>
-<pre><code class="language-rb">ruby File.read(File.join(__dir__, '.ruby-version')).strip
+<pre><code class="language-rb">ruby file: ".ruby-version"
 </code></pre>
 <p><a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
 </li>
@@ -220,8 +221,11 @@ If you need to do fancy stuff, discuss with your team the opportunity of includi
 <p>Run <code>bundle exec rails db:migrate</code> to generate an empty <code>schema.rb</code> file.</p>
 </li>
 <li>
-<p>Then check your default Rails setup by running <code>rails s</code> and visiting <code>localhost:3000</code>.
+<p>Then check your default Rails setup by running <code>rails s</code> and visiting http://localhost:3000.
 You should be on Rails now, yay!</p>
+</li>
+<li>
+<p>Finally check if http://localhost:3000/up is green.</p>
 </li>
 </ul>
 <h2 id="adjustments"><a class="header" href="#adjustments">Adjustments</a></h2>

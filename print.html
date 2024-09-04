@@ -489,19 +489,20 @@ You can do this with <code>gem update rails</code>. Beware of beta versions.</p>
 </li>
 </ul>
 <blockquote>
-<p>⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.
-If you do not need a DB you may rethink the fact that you may not need Rails at all :) Take a look at <a href="http://www.sinatrarb.com/">Sinatra</a> or <a href="https://angular.io/">Angular</a>
-You might also need actionmailbox of course, so always double-check the parameters that you are using.
-Check if you've got a <code>.ruby-version</code> file. If not, create one and enter the Ruby version.</p>
+<p>⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.<br />
+If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at <a href="http://www.sinatrarb.com/">Sinatra</a> or <a href="https://angular.io/">Angular</a><br />
+You might also need actionmailbox of course, so always double-check the parameters that you are using.</p>
 </blockquote>
 <blockquote>
-<p>⭐️ This setup does not include either js-bundling nor css-bundling by default. It will start with the simplest possible Rails setup and will use sprockets and importmaps.
-If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.</p>
+<p>⭐️ This setup does not include either js-bundling nor css-bundling by default.<br />
+It will start with the simplest possible Rails setup and will use sprockets and importmaps.<br />
+If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.<br />
+We want to go <a href="https://www.youtube.com/watch?v=iqXjGiQ_D-A">"no build"</a> whenever possible.</p>
 </blockquote>
 <ul>
 <li>
 <p>Load the Ruby version automatically in the fresh project's <code>Gemfile</code> by adding this:</p>
-<pre><code class="language-rb">ruby File.read(File.join(__dir__, '.ruby-version')).strip
+<pre><code class="language-rb">ruby file: ".ruby-version"
 </code></pre>
 <p><a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
 </li>
@@ -512,8 +513,11 @@ If you need to do fancy stuff, discuss with your team the opportunity of includi
 <p>Run <code>bundle exec rails db:migrate</code> to generate an empty <code>schema.rb</code> file.</p>
 </li>
 <li>
-<p>Then check your default Rails setup by running <code>rails s</code> and visiting <code>localhost:3000</code>.
+<p>Then check your default Rails setup by running <code>rails s</code> and visiting http://localhost:3000.
 You should be on Rails now, yay!</p>
+</li>
+<li>
+<p>Finally check if http://localhost:3000/up is green.</p>
 </li>
 </ul>
 <h2 id="adjustments"><a class="header" href="#adjustments">Adjustments</a></h2>
@@ -896,33 +900,26 @@ test:
 <h2 id="-our-first-green-test"><a class="header" href="#-our-first-green-test">✅ Our first (green) test</a></h2>
 <p>We are now going to write a first test to ensure that the whole configuration is working:</p>
 <ul>
-<li>
-<p><code>bin/check</code> should be green ✅</p>
-</li>
-<li>
-<p>Write the test <a href="ruby_on_rails/../templates/spec/system/health_spec.rb"><code>spec/system/health_spec.rb</code></a></p>
-</li>
-<li>
-<p>Write the controller <a href="ruby_on_rails/../templates/app/controllers/home_controller.rb"><code>app/controllers/home_controller.rb</code></a></p>
-</li>
-<li>
-<p>Add <code>get 'home/check'</code> to <code>config/routes.rb</code></p>
-</li>
-<li>
-<p>Run <code>bin/check</code> and the test should pass and coverage is 100%.</p>
-</li>
+<li><code>bin/check</code> should be green ✅</li>
+<li>Write the test <a href="ruby_on_rails/../templates/spec/system/health_spec.rb"><code>spec/system/health_spec.rb</code></a></li>
+<li>Run <code>bin/check</code> and the test should pass and coverage is 100%.</li>
 </ul>
 <p>Commit and push your changes! 🎉</p>
+<blockquote>
+<p>⭐️ <code>/up</code> is the defualt Health check path for Rails. <a href="https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html">Read about it in the guides</a>.<br />
+If you want to customize the health check and add more checks, you can easily override the class <code>Rails::HealthController</code> and add your own checks.<br />
+<a href="ruby_on_rails/../templates/app/controllers/rails/health_controller.rb">Here</a> you find an example that checks also the database connection.</p>
+</blockquote>
 <h2 id="verify"><a class="header" href="#verify">Verify</a></h2>
 <ul>
 <li>Open the two apps
 <ul>
-<li><a href="https://%5Bproject-name%5D-main.herokuapp.com/home/check">https://[project-name]-main.herokuapp.com/home/check</a></li>
-<li><a href="https://%5Bproject-name%5D-develop.herokuapp.com/home/check">https://[project-name]-develop.herokuapp.com/home/check</a></li>
+<li><a href="https://%5Bproject-name%5D-main.herokuapp.com/up">https://[project-name]-main.herokuapp.com/up</a></li>
+<li><a href="https://%5Bproject-name%5D-develop.herokuapp.com/up">https://[project-name]-develop.herokuapp.com/up</a></li>
 </ul>
 </li>
 </ul>
-<p>Check that you see <code>1+2=3</code> in each app.</p>
+<p>Check that you see a green page in each app.</p>
 <h2 id="javascript-error-reporter"><a class="header" href="#javascript-error-reporter">Javascript error reporter</a></h2>
 <ul>
 <li>
