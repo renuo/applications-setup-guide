@@ -10,7 +10,7 @@
 - [ ] Linting tools installed
 - [ ] RSpec installed
 - [ ] Suggested gems included
-- [ ] Sentry, Appsignal, NewRelic configured depending on your choice.
+- [ ] Sentry, Appsignal and NewRelic configured depending on your choice.
 - [ ] Logs on Appsignal configured
 - [ ] Cloudflare configured
 - [ ] README written and complete
