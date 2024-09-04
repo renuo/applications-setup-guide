@@ -32,7 +32,7 @@ bundle exec rubocop -D
 
 ## Brakeman
 
-Brakeman comes byb default with Rails. Add it to the `bin/fastcheck` script.
+Brakeman comes by default with Rails. Add it to the `bin/fastcheck` script.
 
 ```
 bundle exec brakeman -q -z --no-summary --no-pager
