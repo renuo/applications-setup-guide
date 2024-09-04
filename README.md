@@ -15,7 +15,7 @@ in your team, **can start working on it**.
 
 This document will try to be as minimalist as possible and provide you with all the steps to set up the application as
 fast as possible. There are things, in Renuo projects, which are mandatory, other that are suggested.
-This guide is the result of more than ten years of experience, so this means two things: it's very robust and very opinionated.
+This guide is the result of more than ten years of experience, so this means three things: it's very robust, very opinionated, and possibly very outdated.
 
 **You are always welcome to challenge the guide and improve it with a Pull Request.**
 
