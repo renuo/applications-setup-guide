@@ -13,7 +13,11 @@
 * [Check if you are using the latest stable version of Rails](http://rubyonrails.org/) with `rails -v` and update it if you are not.
 You can do this with `gem update rails`. Beware of beta versions.
 
-* Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip_action_mailbox` where the `project-name` is exactly the one you chose before.
+* Start a new Rails project using
+```
+rails new [project-name] --database=postgresql --skip_ci --no-skip-test --skip_action_mailbox -m https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+```
+where the `project-name` is exactly the one you chose before.
 
 > ⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.\
 > If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)\
@@ -53,11 +57,9 @@ They are always idempotent (runnable multiple times).
   echo "#\!/usr/bin/env bash\nset -euo pipefail\n\nrails s" > bin/run
   ```
 
-* Add a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
+* There is already a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues. 
+  Check the content of this file.
 
-  ```sh
-  echo "#\!/usr/bin/env bash\nset -euo pipefail" > bin/fastcheck
-  ```
 
 * Add a `bin/check` file. It will run all the automated tests. It's mainly used in our CI.
 
@@ -68,7 +70,7 @@ They are always idempotent (runnable multiple times).
 * Make the new scripts executable
 
   ```sh
-  chmod +x bin/run bin/fastcheck bin/check
+  chmod +x bin/run bin/check
   ```
 
 ### ENV variables with Figaro
