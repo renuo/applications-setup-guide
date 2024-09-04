@@ -1,7 +1,7 @@
 # Ruby On Rails - Application Setup Guide
 
 This setup will cover a pure, monolithic Rails Applications.
-This is the most frequent type of application we have at [Renuo](https://renuo.ch) and probably also the easiest to setup.
+This is the most frequent type of application we have at [Renuo](https://renuo.ch) and is probably also the easiest to setup.
 The application (and relative GitHub repo) will be named after the `[project-name]` you chose before.
 
 Have you chosen a `[project-name]` yet? If not, please do so now. Check our [Naming Conventions](../naming_conventions.md)
