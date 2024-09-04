@@ -15,7 +15,7 @@ You can do this with `gem update rails`. Beware of beta versions.
 
 * Start a new Rails project using
 ```
-rails new [project-name] --database=postgresql --skip_ci --no-skip-test --skip_action_mailbox -m https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+rails new [project-name] --database=postgresql --skip-ci --no-skip-test --skip_action_mailbox -m https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
 ```
 where the `project-name` is exactly the one you chose before.
 
