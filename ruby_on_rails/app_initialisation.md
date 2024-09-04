@@ -1,4 +1,4 @@
-# Initialise the Rails App
+# Initialise the Rails Application
 
 ## Default Rails setup
 

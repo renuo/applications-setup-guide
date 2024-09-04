@@ -1,10 +1,11 @@
-# Ruby On Rails
+# Ruby On Rails - Application Setup Guide
 
 This setup will cover a pure, monolithic Rails Applications.
-This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
+This is the most frequent type of application we have at [Renuo](https://renuo.ch) and probably also the easiest to setup.
 The application (and relative GitHub repo) will be named after the `[project-name]` you chose before.
 
-1. [Initialise the Rails App](app_initialisation.md)
+Have you chosen a `[project-name]` yet? If not, please do so now. Check our [Naming Conventions](../naming_conventions.md)
+1. [Initialise the Rails Application](app_initialisation.md)
 1. [Push to Git Repository](first_git_push.md)
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)

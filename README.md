@@ -5,9 +5,9 @@ We are a [Rails company](https://rubyonrails.org/foundation), so the most value 
 will be found in the parts concerning Rails. But anyways you'll also find a lot about the
 inner workings of Renuo.
 
-* [Ruby on Rails – App Setup Guide](./ruby_on_rails/README.md)
+* [Ruby on Rails – Application Setup Guide](./ruby_on_rails/README.md)
 
-## Some Notes on the Side
+## Some Notes on the side
 
 If you are reading this document, it means that you have to setup a new application.
 A new project started and it's now time to set everything up so that **everyone**,
@@ -15,6 +15,9 @@ in your team, **can start working on it**.
 
 This document will try to be as minimalist as possible and provide you with all the steps to set up the application as
 fast as possible. There are things, in Renuo projects, which are mandatory, other that are suggested.
+This guide is the result of more than ten years of experience, so this means two things: it's very robust and very opinionated.
+
+**You are always welcome to challenge the guide and improve it with a Pull Request.**
 
 The basic things that need to be ready before the team can start working on a project are:
 
