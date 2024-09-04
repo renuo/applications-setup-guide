@@ -30,4 +30,3 @@ create_file "bin/fastcheck", force: true do
 end
 
 run "chmod +x bin/fastcheck"
-

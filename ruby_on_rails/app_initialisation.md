@@ -57,9 +57,8 @@ They are always idempotent (runnable multiple times).
   echo "#\!/usr/bin/env bash\nset -euo pipefail\n\nrails s" > bin/run
   ```
 
-* There is already a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues. 
+* There is already a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
   Check the content of this file.
-
 
 * Add a `bin/check` file. It will run all the automated tests. It's mainly used in our CI.
 
