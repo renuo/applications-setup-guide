@@ -50,7 +50,7 @@ end
 
 ## SCSS lint
 
-To lint the SASS/SCSS files in our project we are going to use the `stylelint` npm package.
+To lint the SASS/SCSS files in our project you can use the `stylelint` npm package.
 
 `bin/yarn add stylelint stylelint-config-standard-scss`
 
