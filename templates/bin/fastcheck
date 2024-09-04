@@ -14,7 +14,7 @@ bundle exec brakeman -q -z --no-summary --no-pager
 bundle exec mdl ./ -g
 
 # for scss
-npx stylelint "./app/assets/stylesheets/**/*.scss"
+yarn run stylelint "./app/assets/stylesheets/**/*.scss"
 
 # for erb
 bundle exec erblint --config .erb-lint.yml --lint-all
