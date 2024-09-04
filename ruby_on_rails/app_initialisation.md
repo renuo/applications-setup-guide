@@ -15,13 +15,13 @@ You can do this with `gem update rails`. Beware of beta versions.
 
 * Start a new Rails project using `rails new [project-name] --database=postgresql --no-skip-test --skip_action_mailbox` where the `project-name` is exactly the one you chose before.
 
-> ⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.<br>
-> If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)<br>
-> You might also need actionmailbox of course, so always double-check the parameters that you are using.<br>
+> ⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.\
+> If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)\
+> You might also need actionmailbox of course, so always double-check the parameters that you are using.
 
-> ⭐️ This setup does not include either js-bundling nor css-bundling by default.<br>
-> It will start with the simplest possible Rails setup and will use sprockets and importmaps.<br>
-> If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.<br>
+> ⭐️ This setup does not include either js-bundling nor css-bundling by default.\
+> It will start with the simplest possible Rails setup and will use sprockets and importmaps.\
+> If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.\
 > We want to go ["no build"](https://www.youtube.com/watch?v=iqXjGiQ_D-A) whenever possible.
 
 * Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
