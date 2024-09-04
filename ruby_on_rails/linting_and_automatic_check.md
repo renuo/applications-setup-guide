@@ -32,13 +32,15 @@ bundle exec rubocop -D
 
 ## Brakeman
 
-```ruby
-group :development, :test do
-  gem 'brakeman', require: false
-end
+Brakeman comes byb default with Rails. Add it to the `bin/fastcheck` script.
+
+```
+bundle exec brakeman -q -z --no-summary --no-pager
 ```
 
 ## Mdl
+
+An optional check for markdown files. You can include it or not. Discuss within your team.
 
 ```ruby
 group :development, :test do
@@ -48,14 +50,12 @@ end
 
 ## SCSS lint
 
-To lint the SASS/SCSS files in our project we are going to use the `sass-lint` npm package.
+To lint the SASS/SCSS files in our project we are going to use the `stylelint` npm package.
 
-`bin/yarn add sass-lint`
+`bin/yarn add stylelint stylelint-config-standard-scss`
 
-Add to the project the linter configuration file you can find in the templates folder and check the `bin/fastcheck`
-template to see the command to execute the SCSS linting.
-
-You may also need to add the `scss_lint` gem to your gemfile.
+Add to the project the [linter configuration file](../templates/stylelintrc.yml) and check the [`bin/fastcheck`
+template](../templates/bin/fastcheck) to see the command to execute the SCSS linting.
 
 ## Erb lint
 
