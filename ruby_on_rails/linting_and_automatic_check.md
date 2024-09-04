@@ -7,7 +7,7 @@ Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the fi
 
 ## Renuocop :cop:
 
-Renuocop is based on StandardRB and is a set of rules that we use to lint our Ruby code.
+Renuocop is based on Standard Ruby and is a set of rules that we use to lint our Ruby code.
 It's already included in your Gemfile by default.
 
 You can execute it and correct the issues you'll find.
