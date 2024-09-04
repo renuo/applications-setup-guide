@@ -180,14 +180,16 @@ We are a <a href="https://rubyonrails.org/foundation">Rails company</a>, so the 
 will be found in the parts concerning Rails. But anyways you'll also find a lot about the
 inner workings of Renuo.</p>
 <ul>
-<li><a href="./ruby_on_rails/README.html">Ruby on Rails – App Setup Guide</a></li>
+<li><a href="./ruby_on_rails/README.html">Ruby on Rails – Application Setup Guide</a></li>
 </ul>
 <h2 id="some-notes-on-the-side"><a class="header" href="#some-notes-on-the-side">Some Notes on the Side</a></h2>
 <p>If you are reading this document, it means that you have to setup a new application.
 A new project started and it's now time to set everything up so that <strong>everyone</strong>,
 in your team, <strong>can start working on it</strong>.</p>
 <p>This document will try to be as minimalist as possible and provide you with all the steps to set up the application as
-fast as possible. There are things, in Renuo projects, which are mandatory, other that are suggested.</p>
+fast as possible. There are things, in Renuo projects, which are mandatory, other that are suggested.
+This guide is the result of more than ten years of experience, so this means three things: it's very robust, very opinionated, and possibly very outdated.</p>
+<p><strong>You are always welcome to challenge the guide and improve it with a Pull Request.</strong></p>
 <p>The basic things that need to be ready before the team can start working on a project are:</p>
 <ul>
 <li>An existing <em>git</em> repository containing the project</li>
@@ -301,8 +303,12 @@ This is done via page rules in Cloudflare.</p>
 We carefully choose the names for our projects and we always stick to the following conventions so you are
 asked to do the same.</p>
 <h2 id="project-name"><a class="header" href="#project-name">Project Name</a></h2>
-<p>The project name <code>[project-name]</code> consists of <code>[base-project]-[sub-project]</code>, and only uses <code>[a-z0-9]</code> and dash <code>-</code>.
-No underscore <code>_</code>.</p>
+<ul>
+<li>The project name <code>[project-name]</code> only uses <code>[a-z0-9]</code> and dash <code>-</code>. No underscore <code>_</code>.</li>
+<li>A project name is easy to remember and easy to pronounce. In the best case it consists of one word.</li>
+<li>The project name should be unique and not too long.</li>
+<li>It should not contain any version information.</li>
+</ul>
 <h2 id="extended-use"><a class="header" href="#extended-use">Extended Use</a></h2>
 <ul>
 <li>Use <code>[project-name]</code> for project names and services which are branch-independent.</li>
@@ -382,12 +388,13 @@ Uptime Monitor configured</li>
 <li><input disabled="" type="checkbox"/>
 robots.txt configured</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ruby-on-rails"><a class="header" href="#ruby-on-rails">Ruby On Rails</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ruby-on-rails---application-setup-guide"><a class="header" href="#ruby-on-rails---application-setup-guide">Ruby On Rails - Application Setup Guide</a></h1>
 <p>This setup will cover a pure, monolithic Rails Applications.
-This is the most frequent type of application we have at Renuo and probably also the easiest to setup.
+This is the most frequent type of application we have at <a href="https://renuo.ch">Renuo</a> and is probably also the easiest to setup.
 The application (and relative GitHub repo) will be named after the <code>[project-name]</code> you chose before.</p>
+<p>Have you chosen a <code>[project-name]</code> yet? If not, please do so now. Check our <a href="ruby_on_rails/../naming_conventions.html">Naming Conventions</a></p>
 <ol>
-<li><a href="ruby_on_rails/app_initialisation.html">Initialise the Rails App</a></li>
+<li><a href="ruby_on_rails/app_initialisation.html">Initialise the Rails Application</a></li>
 <li><a href="ruby_on_rails/first_git_push.html">Push to Git Repository</a></li>
 <li><a href="ruby_on_rails/initialise_gitflow.html">Initialise Gitflow</a></li>
 <li><a href="ruby_on_rails/../configure_git_repository.html">Configure Git Repository</a></li>
@@ -458,7 +465,7 @@ useful services:</p>
 <li><a href="ruby_on_rails/recaptcha.html">Recaptcha v3</a></li>
 <li><a href="ruby_on_rails/wallee.html">Wallee Payment Integration</a></li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="initialise-the-rails-app"><a class="header" href="#initialise-the-rails-app">Initialise the Rails App</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="initialise-the-rails-application"><a class="header" href="#initialise-the-rails-application">Initialise the Rails Application</a></h1>
 <h2 id="default-rails-setup"><a class="header" href="#default-rails-setup">Default Rails setup</a></h2>
 <ul>
 <li>
