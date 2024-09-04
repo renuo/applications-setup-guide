@@ -116,20 +116,21 @@ We are now going to write a first test to ensure that the whole configuration is
 
 * `bin/check` should be green :white_check_mark:
 * Write the test [`spec/system/health_spec.rb`](../templates/spec/system/health_spec.rb)
-* Write the controller [`app/controllers/home_controller.rb`](../templates/app/controllers/home_controller.rb)
-* Add `get 'home/check'` to `config/routes.rb`
-
 * Run `bin/check` and the test should pass and coverage is 100%.
 
 Commit and push your changes! :tada:
 
+> ⭐️ `/up` is the defualt Health check path for Rails. [Read about it in the guides](https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html).<br>
+> If you want to customize the health check and add more checks, you can easily override the class `Rails::HealthController` and add your own checks.<br>
+> [Here](../templates/app/controllers/rails/health_controller.rb) you find an example that checks also the database connection.
+
 ## Verify
 
 * Open the two apps
-  * <https://[project-name]-main.herokuapp.com/home/check>
-  * <https://[project-name]-develop.herokuapp.com/home/check>
+  * <https://[project-name]-main.herokuapp.com/up>
+  * <https://[project-name]-develop.herokuapp.com/up>
 
-Check that you see `1+2=3` in each app.
+Check that you see a green page in each app.
 
 ## Javascript error reporter
 
