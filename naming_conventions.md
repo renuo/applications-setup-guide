@@ -6,8 +6,10 @@ asked to do the same.
 
 ## Project Name
 
-The project name `[project-name]` consists of `[base-project]-[sub-project]`, and only uses `[a-z0-9]` and dash `-`.
-No underscore `_`.
+* The project name `[project-name]` only uses `[a-z0-9]` and dash `-`. No underscore `_`.
+* A project name is easy to remember and easy to pronounce. In the best case it consists of one word.
+* The project name should be unique and not too long.
+* It should not contain any version information.
 
 ## Extended Use
 
