@@ -951,21 +951,20 @@ echo "Executing rubocop"
 bundle exec rubocop -D
 </code></pre>
 <h2 id="brakeman"><a class="header" href="#brakeman">Brakeman</a></h2>
-<pre><code class="language-ruby">group :development, :test do
-  gem 'brakeman', require: false
-end
+<p>Brakeman comes by default with Rails. Add it to the <code>bin/fastcheck</code> script.</p>
+<pre><code>bundle exec brakeman -q -z --no-summary --no-pager
 </code></pre>
 <h2 id="mdl"><a class="header" href="#mdl">Mdl</a></h2>
+<p>An optional check for markdown files. You can include it or not. Discuss within your team.</p>
 <pre><code class="language-ruby">group :development, :test do
   gem 'mdl', require: false
 end
 </code></pre>
 <h2 id="scss-lint"><a class="header" href="#scss-lint">SCSS lint</a></h2>
-<p>To lint the SASS/SCSS files in our project we are going to use the <code>sass-lint</code> npm package.</p>
-<p><code>bin/yarn add sass-lint</code></p>
-<p>Add to the project the linter configuration file you can find in the templates folder and check the <code>bin/fastcheck</code>
-template to see the command to execute the SCSS linting.</p>
-<p>You may also need to add the <code>scss_lint</code> gem to your gemfile.</p>
+<p>To lint the SASS/SCSS files in our project you can use the <code>stylelint</code> npm package.</p>
+<p><code>bin/yarn add stylelint stylelint-config-standard-scss</code></p>
+<p>Add to the project the <a href="ruby_on_rails/../templates/stylelintrc.yml">linter configuration file</a> and check the <a href="ruby_on_rails/../templates/bin/fastcheck"><code>bin/fastcheck</code>
+template</a> to see the command to execute the SCSS linting.</p>
 <h2 id="erb-lint"><a class="header" href="#erb-lint">Erb lint</a></h2>
 <pre><code class="language-ruby">group :development, :test do
   gem 'erb_lint', require: false

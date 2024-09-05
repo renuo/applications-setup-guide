@@ -13,11 +13,8 @@ fi
 bundle exec brakeman -q -z --no-summary --no-pager
 bundle exec mdl ./ -g
 
-# old SCSS linter (deprecated)
-bundle exec scss-lint `find app/assets/stylesheets/ -name "*.scss"`
-
-# new SASS linter
-yarn sass-lint -v --no-exit app/javascripts/**/*.scss
+# for scss
+yarn run stylelint "./app/assets/stylesheets/**/*.scss"
 
 # for erb
 bundle exec erblint --config .erb-lint.yml --lint-all
