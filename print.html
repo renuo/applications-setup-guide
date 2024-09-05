@@ -485,9 +485,12 @@ useful services:</p>
 You can do this with <code>gem update rails</code>. Beware of beta versions.</p>
 </li>
 <li>
-<p>Start a new Rails project using <code>rails new [project-name] --database=postgresql --no-skip-test --skip_action_mailbox</code> where the <code>project-name</code> is exactly the one you chose before.</p>
+<p>Start a new Rails project using</p>
 </li>
 </ul>
+<pre><code>rails new [project-name] --database=postgresql --skip-ci --no-skip-test --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+</code></pre>
+<p>where the <code>project-name</code> is exactly the one you chose before.</p>
 <blockquote>
 <p>⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.<br />
 If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at <a href="http://www.sinatrarb.com/">Sinatra</a> or <a href="https://angular.io/">Angular</a><br />
@@ -531,9 +534,8 @@ They are always idempotent (runnable multiple times).</p>
 </code></pre>
 </li>
 <li>
-<p>Add a <code>bin/fastcheck</code> file. It will be used as a hook before pushing to quickly check for linting issues.</p>
-<pre><code class="language-sh">echo "#\!/usr/bin/env bash\nset -euo pipefail" &gt; bin/fastcheck
-</code></pre>
+<p>There is already a <code>bin/fastcheck</code> file. It will be used as a hook before pushing to quickly check for linting issues.
+Check the content of this file.</p>
 </li>
 <li>
 <p>Add a <code>bin/check</code> file. It will run all the automated tests. It's mainly used in our CI.</p>
@@ -542,7 +544,7 @@ They are always idempotent (runnable multiple times).</p>
 </li>
 <li>
 <p>Make the new scripts executable</p>
-<pre><code class="language-sh">chmod +x bin/run bin/fastcheck bin/check
+<pre><code class="language-sh">chmod +x bin/run bin/check
 </code></pre>
 </li>
 </ul>
@@ -934,22 +936,11 @@ If you want to customize the health check and add more checks, you can easily ov
 <p>All Renuo projects contain (and your project must contain as well) the following linters.
 Every linter consists of a gem (usually) and a command to add to our <code>bin/fastcheck</code> script.</p>
 <p>Check out the <code>bin/fastcheck</code> <a href="ruby_on_rails/../templates/bin/fastcheck">fastcheck</a> for the final version of it.</p>
-<h2 id="renuocop--aka-standard-aka-rubocop"><a class="header" href="#renuocop--aka-standard-aka-rubocop">Renuocop 👮 aka Standard aka Rubocop</a></h2>
-<pre><code class="language-ruby">group :development, :test do
-  gem 'renuocop', require: false
-end
-</code></pre>
-<p>Please add it to every Rails project and use the <a href="ruby_on_rails/../templates/.rubocop.yml">rubocop configuration provided</a> adding a <code>.rubocop.yml</code> file in the root of the project.</p>
-<p>After configuring it, you can execute it and correct the issues you'll find.</p>
-<p><code>bundle exec rubocop -a</code> will fix most of them automatically.</p>
-<p>Once all issues are fixed add the check to our <code>bin/fastcheck</code> and create a PR. Example:</p>
-<pre><code class="language-bash">#!/bin/sh
-
-set -e
-
-echo "Executing rubocop"
-bundle exec rubocop -D
-</code></pre>
+<h2 id="renuocop-"><a class="header" href="#renuocop-">Renuocop 👮</a></h2>
+<p>Renuocop is based on Standard Ruby and is a set of rules that we use to lint our Ruby code.
+It's already included in your Gemfile by default.</p>
+<p>You can execute it and correct the issues you'll find.</p>
+<p><code>bundle exec rubocop -A</code> will fix <del>most</del> all of them automatically.</p>
 <h2 id="brakeman"><a class="header" href="#brakeman">Brakeman</a></h2>
 <p>Brakeman comes by default with Rails. Add it to the <code>bin/fastcheck</code> script.</p>
 <pre><code>bundle exec brakeman -q -z --no-summary --no-pager

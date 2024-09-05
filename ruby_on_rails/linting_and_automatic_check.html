@@ -177,22 +177,11 @@
 <p>All Renuo projects contain (and your project must contain as well) the following linters.
 Every linter consists of a gem (usually) and a command to add to our <code>bin/fastcheck</code> script.</p>
 <p>Check out the <code>bin/fastcheck</code> <a href="../templates/bin/fastcheck">fastcheck</a> for the final version of it.</p>
-<h2 id="renuocop--aka-standard-aka-rubocop"><a class="header" href="#renuocop--aka-standard-aka-rubocop">Renuocop 👮 aka Standard aka Rubocop</a></h2>
-<pre><code class="language-ruby">group :development, :test do
-  gem 'renuocop', require: false
-end
-</code></pre>
-<p>Please add it to every Rails project and use the <a href="../templates/.rubocop.yml">rubocop configuration provided</a> adding a <code>.rubocop.yml</code> file in the root of the project.</p>
-<p>After configuring it, you can execute it and correct the issues you'll find.</p>
-<p><code>bundle exec rubocop -a</code> will fix most of them automatically.</p>
-<p>Once all issues are fixed add the check to our <code>bin/fastcheck</code> and create a PR. Example:</p>
-<pre><code class="language-bash">#!/bin/sh
-
-set -e
-
-echo "Executing rubocop"
-bundle exec rubocop -D
-</code></pre>
+<h2 id="renuocop-"><a class="header" href="#renuocop-">Renuocop 👮</a></h2>
+<p>Renuocop is based on Standard Ruby and is a set of rules that we use to lint our Ruby code.
+It's already included in your Gemfile by default.</p>
+<p>You can execute it and correct the issues you'll find.</p>
+<p><code>bundle exec rubocop -A</code> will fix <del>most</del> all of them automatically.</p>
 <h2 id="brakeman"><a class="header" href="#brakeman">Brakeman</a></h2>
 <p>Brakeman comes by default with Rails. Add it to the <code>bin/fastcheck</code> script.</p>
 <pre><code>bundle exec brakeman -q -z --no-summary --no-pager
