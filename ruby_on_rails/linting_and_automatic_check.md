@@ -5,30 +5,14 @@ Every linter consists of a gem (usually) and a command to add to our `bin/fastch
 
 Check out the `bin/fastcheck` [fastcheck](../templates/bin/fastcheck) for the final version of it.
 
-## Renuocop :cop: aka Standard aka Rubocop
+## Renuocop :cop:
 
-```ruby
-group :development, :test do
-  gem 'renuocop', require: false
-end
-```
+Renuocop is based on Standard Ruby and is a set of rules that we use to lint our Ruby code.
+It's already included in your Gemfile by default.
 
-Please add it to every Rails project and use the [rubocop configuration provided](../templates/.rubocop.yml) adding a `.rubocop.yml` file in the root of the project.
+You can execute it and correct the issues you'll find.
 
-After configuring it, you can execute it and correct the issues you'll find.
-
-`bundle exec rubocop -a` will fix most of them automatically.
-
-Once all issues are fixed add the check to our `bin/fastcheck` and create a PR. Example:
-
-```bash
-#!/bin/sh
-
-set -e
-
-echo "Executing rubocop"
-bundle exec rubocop -D
-```
+`bundle exec rubocop -A` will fix ~~most~~ all of them automatically.
 
 ## Brakeman
 
