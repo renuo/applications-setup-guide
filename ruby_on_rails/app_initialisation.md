@@ -28,13 +28,11 @@ where the `project-name` is exactly the one you chose before.
 > If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.\
 > We want to go ["no build"](https://www.youtube.com/watch?v=iqXjGiQ_D-A) whenever possible.
 
-* Load the Ruby version automatically in the fresh project's `Gemfile` by adding this:
+> ⭐The Gemfile reads the required ruby version from the `.ruby-version` file.
+> [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
 
-  ```rb
-  ruby file: ".ruby-version"
-  ```
-
-  [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
+> ⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
+> You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.
 
 * Run `bin/setup`
 
