@@ -210,14 +210,6 @@ It will start with the simplest possible Rails setup and will use sprockets and 
 If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.<br />
 We want to go <a href="https://www.youtube.com/watch?v=iqXjGiQ_D-A">"no build"</a> whenever possible.</p>
 </blockquote>
-<blockquote>
-<p>⭐The Gemfile reads the required ruby version from the <code>.ruby-version</code> file.
-<a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
-</blockquote>
-<blockquote>
-<p>⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
-You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.</p>
-</blockquote>
 <ul>
 <li>
 <p>Run <code>bin/setup</code></p>
@@ -234,31 +226,35 @@ You should be on Rails now, yay!</p>
 </li>
 </ul>
 <h2 id="adjustments"><a class="header" href="#adjustments">Adjustments</a></h2>
-<h3 id="convenience-scripts-bin"><a class="header" href="#convenience-scripts-bin">Convenience scripts (<code>bin/*</code>)</a></h3>
-<p>The following scripts are standardized tools for more convenience at Renuo.
-They are always idempotent (runnable multiple times).</p>
-<ul>
-<li>
-<p>Add a <code>bin/run</code> file. It will be used to start our project.</p>
-<pre><code class="language-sh">echo "#\!/usr/bin/env bash\nset -euo pipefail\n\nrails s" &gt; bin/run
-</code></pre>
-</li>
-<li>
-<p>There is already a <code>bin/fastcheck</code> file. It will be used as a hook before pushing to quickly check for linting issues.
-Check the content of this file.</p>
-</li>
-<li>
-<p>Add a <code>bin/check</code> file. It will run all the automated tests. It's mainly used in our CI.</p>
-<pre><code class="language-sh">echo "#\!/usr/bin/env bash\n\nset -euo pipefail\n\nbin/rails zeitwerk:check" &gt; bin/check
-</code></pre>
-</li>
-<li>
-<p>Make the new scripts executable</p>
-<pre><code class="language-sh">chmod +x bin/run bin/check
-</code></pre>
-</li>
-</ul>
-<h3 id="env-variables-with-figaro"><a class="header" href="#env-variables-with-figaro">ENV variables with Figaro</a></h3>
+<p>Some adjustments are made automatically by the template, but you should check them.
+Some other adjustments must be performed manually.</p>
+<h3 id="automatic-adjustments"><a class="header" href="#automatic-adjustments">Automatic adjustments</a></h3>
+<blockquote>
+<p>⭐The Gemfile reads the required ruby version from the <code>.ruby-version</code> file.
+<a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
+</blockquote>
+<blockquote>
+<p>⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
+You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.</p>
+</blockquote>
+<blockquote>
+<p>⭐️a bin/check script is added to the project. This script will run all the tests of the project.
+It is used in our CI and can be used locally to check if everything is fine. You can customize it to your needs.</p>
+</blockquote>
+<blockquote>
+<p>⭐️a bin/fastcheck script is added to the project.
+This script will run all the linters of the project. It is used in our CI and can be customized to your needs.
+It will be used as a hook before pushing to quickly check for linting issues.</p>
+</blockquote>
+<blockquote>
+<p>⭐️a bin/run script is added to the project. This script will start the application.</p>
+</blockquote>
+<blockquote>
+<p>⭐️bin/check, bin/fastcheck and bin/run are standardized tools for more convenience at Renuo.</p>
+</blockquote>
+<h3 id="manual-adjustments"><a class="header" href="#manual-adjustments">Manual adjustments</a></h3>
+<p>Please perform these adjustments manually:</p>
+<h4 id="env-variables-with-figaro"><a class="header" href="#env-variables-with-figaro">ENV variables with Figaro</a></h4>
 <ul>
 <li>
 <p>Add <code>figaro</code> to Gemfile. Check the <a href="https://github.com/laserlemon/figaro">gem homepage</a> to see how to install the gem
@@ -296,7 +292,7 @@ create the initializer for figaro in <code>config/initializers/figaro.rb</code>:
 <p>Run <code>bin/setup</code> again.</p>
 </li>
 </ul>
-<h3 id="configuration-customisation"><a class="header" href="#configuration-customisation">Configuration customisation</a></h3>
+<h4 id="configuration-customisation"><a class="header" href="#configuration-customisation">Configuration customisation</a></h4>
 <ul>
 <li>
 <p>Update <code>config/application.rb</code> and set the default language and timezone</p>
