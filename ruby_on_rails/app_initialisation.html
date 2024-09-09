@@ -210,13 +210,15 @@ It will start with the simplest possible Rails setup and will use sprockets and 
 If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.<br />
 We want to go <a href="https://www.youtube.com/watch?v=iqXjGiQ_D-A">"no build"</a> whenever possible.</p>
 </blockquote>
+<blockquote>
+<p>⭐The Gemfile reads the required ruby version from the <code>.ruby-version</code> file.
+<a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
+</blockquote>
+<blockquote>
+<p>⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
+You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.</p>
+</blockquote>
 <ul>
-<li>
-<p>Load the Ruby version automatically in the fresh project's <code>Gemfile</code> by adding this:</p>
-<pre><code class="language-rb">ruby file: ".ruby-version"
-</code></pre>
-<p><a href="https://devcenter.heroku.com/articles/ruby-versions">This is used by Heroku to determine what version to use.</a></p>
-</li>
 <li>
 <p>Run <code>bin/setup</code></p>
 </li>
