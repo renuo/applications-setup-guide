@@ -43,5 +43,5 @@ after_bundle do
   ask "Your project is now using renuocop instead of rubocop-rails-omakase. You know both gems and why it has been replaced. Ok?"
   ask "A .rubocop.yml file has been created with the default configuration. You know what this means. Ok?"
   ask "A bin/fastcheck script has been created to run rubocop with the default configuration."
-  ask "You can run the script with `bin/fastcheck`. Youm know why we have a bin/fastcheck file. Ok?"
+  ask "You can run the script with `bin/fastcheck`. You know why we have a bin/fastcheck file. Ok?"
 end
