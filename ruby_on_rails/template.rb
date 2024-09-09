@@ -5,7 +5,7 @@ gsub_file "Gemfile", /gem "rubocop-rails-omakase"/, "gem \"renuocop\""
 # add "ruby file: ".ruby-version" to the Gemfile under the line starting with "source"
 insert_into_file "Gemfile", after: /^source.*\n/ do
   <<~RUBY
-    ruby File.read(".ruby-version").strip
+    ruby file: ".ruby-version"
   RUBY
 end
 
