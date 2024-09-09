@@ -39,7 +39,7 @@ after_bundle do
 
   puts "We want to be sure that you are aware of what has been done by the Renuo template."
   puts "Please read the following list of changes and confirm that you understand them."
-  ask "The Gemfile ruby version has been set to the version in the .ruby-version file. You know what this means.  Ok?"
+  ask "The Gemfile ruby version has been set to the version in the .ruby-version file. You know what this means. Ok?"
   ask "Your project is now using renuocop instead of rubocop-rails-omakase. You know both gems and why it has been replaced. Ok?"
   ask "A .rubocop.yml file has been created with the default configuration. You know what this means. Ok?"
   ask "A bin/fastcheck script has been created to run rubocop with the default configuration."
