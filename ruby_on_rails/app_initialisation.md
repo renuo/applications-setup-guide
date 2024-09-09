@@ -28,12 +28,6 @@ where the `project-name` is exactly the one you chose before.
 > If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.\
 > We want to go ["no build"](https://www.youtube.com/watch?v=iqXjGiQ_D-A) whenever possible.
 
-> ⭐The Gemfile reads the required ruby version from the `.ruby-version` file.
-> [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
-
-> ⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
-> You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.
-
 * Run `bin/setup`
 
 * Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
@@ -44,33 +38,33 @@ where the `project-name` is exactly the one you chose before.
 
 ## Adjustments
 
-### Convenience scripts (`bin/*`)
+Some adjustments are made automatically by the template, but you should check them.
+Some other adjustments must be performed manually.
 
-The following scripts are standardized tools for more convenience at Renuo.
-They are always idempotent (runnable multiple times).
+### Automatic adjustments
 
-* Add a `bin/run` file. It will be used to start our project.
+> ⭐The Gemfile reads the required ruby version from the `.ruby-version` file.
+> [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
 
-  ```sh
-  echo "#\!/usr/bin/env bash\nset -euo pipefail\n\nrails s" > bin/run
-  ```
+> ⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
+> You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.
 
-* There is already a `bin/fastcheck` file. It will be used as a hook before pushing to quickly check for linting issues.
-  Check the content of this file.
+> ⭐️a bin/check script is added to the project. This script will run all the tests of the project.
+> It is used in our CI and can be used locally to check if everything is fine. You can customize it to your needs.
 
-* Add a `bin/check` file. It will run all the automated tests. It's mainly used in our CI.
+> ⭐️a bin/fastcheck script is added to the project. 
+> This script will run all the linters of the project. It is used in our CI and can be customized to your needs.
+> It will be used as a hook before pushing to quickly check for linting issues.
 
-  ```sh
-  echo "#\!/usr/bin/env bash\n\nset -euo pipefail\n\nbin/rails zeitwerk:check" > bin/check
-  ```
+> ⭐️a bin/run script is added to the project. This script will start the application.
 
-* Make the new scripts executable
+> ⭐️bin/check, bin/fastcheck and bin/run are standardized tools for more convenience at Renuo.
 
-  ```sh
-  chmod +x bin/run bin/check
-  ```
+### Manual adjustments
 
-### ENV variables with Figaro
+Please perform these adjustments manually:
+
+#### ENV variables with Figaro
 
 * Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
 (usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`...
@@ -99,7 +93,7 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 
 * Run `bin/setup` again.
 
-### Configuration customisation
+#### Configuration customisation
 
 * Update `config/application.rb` and set the default language and timezone
 

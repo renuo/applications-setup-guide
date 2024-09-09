@@ -17,6 +17,26 @@ create_file ".rubocop.yml", force: true do
   RUBOCOP
 end
 
+create_file "bin/run", force: true do
+  <<~RUN
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    rails s
+  RUN
+end
+run "chmod +x bin/run"
+
+create_file "bin/check", force: true do
+  <<~CHECK
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    bin/rails zeitwerk:check
+  CHECK
+end
+run "chmod +x bin/check"
+
 create_file "bin/fastcheck", force: true do
   <<~FASTCHECK
     #!/usr/bin/env bash
@@ -31,7 +51,6 @@ create_file "bin/fastcheck", force: true do
     fi
   FASTCHECK
 end
-
 run "chmod +x bin/fastcheck"
 
 after_bundle do
@@ -42,6 +61,8 @@ after_bundle do
   ask "The Gemfile ruby version has been set to the version in the .ruby-version file. You know what this means. Ok?"
   ask "Your project is now using renuocop instead of rubocop-rails-omakase. You know both gems and why it has been replaced. Ok?"
   ask "A .rubocop.yml file has been created with the default configuration. You know what this means. Ok?"
+  ask "A bin/run script has been created. You know why. Ok?"
+  ask "A bin/check script has been created. You know why and what the commands in it do. Ok?"
   ask "A bin/fastcheck script has been created to run rubocop with the default configuration."
   ask "You can run the script with `bin/fastcheck`. You know why we have a bin/fastcheck file. Ok?"
 end
