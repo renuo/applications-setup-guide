@@ -59,7 +59,7 @@ You'll need to run them by yourself after reviewing the output.
    # AWS develop
    [...]
    ```
-1. Review the commands carefully
+1. Review the commands carefully (e.g. make sure that you enable bucket versioning)
 
 ### Executing the commands
 
