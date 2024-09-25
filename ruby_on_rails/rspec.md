@@ -120,7 +120,7 @@ We are now going to write a first test to ensure that the whole configuration is
 
 Commit and push your changes! :tada:
 
-> ⭐️ `/up` is the defualt Health check path for Rails. [Read about it in the guides](https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html).\
+> ⭐️ `/up` is the default Health check path for Rails. [Read about it in the guides](https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html).\
 > If you want to customize the health check and add more checks, you can easily override the class `Rails::HealthController` and add your own checks.\
 > [Here](../templates/app/controllers/rails/health_controller.rb) you find an example that checks also the database connection.
 
