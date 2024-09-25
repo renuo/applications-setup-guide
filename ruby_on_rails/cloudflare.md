@@ -9,7 +9,7 @@ Setup Cloudflare: <https://www.cloudflare.com/a/dns/renuoapp.ch>
 
 Check that you:
 * see "1+2=3" in each app.
-* have been redirected to https
+* have been redirected to https.
 
 ## Crypto settings
 
