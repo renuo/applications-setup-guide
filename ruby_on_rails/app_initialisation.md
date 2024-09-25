@@ -4,7 +4,7 @@
 
 * Ensure that your asdf plugins are up to date with `asdf plugin update --all`.
 
-* Install the latest Ruby version with `asdf install ruby latest` (Check if it's supported by Heroku).
+* Install the latest Ruby version with `asdf install ruby latest` (Check if it's [supported by Heroku](https://devcenter.heroku.com/articles/ruby-support#ruby-versions)).
 
 * Switch your global Ruby to the fresh one: `asdf global ruby latest`.
 
