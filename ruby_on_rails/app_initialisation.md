@@ -44,7 +44,7 @@ Some other adjustments must be performed manually.
 ### Automatic adjustments
 
 > ⭐The Gemfile reads the required ruby version from the `.ruby-version` file.
-> [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
+> [This is used by Heroku and Deploio to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
 
 > ⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
 > You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.
