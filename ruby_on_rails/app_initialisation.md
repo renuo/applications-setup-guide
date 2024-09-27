@@ -52,7 +52,7 @@ Some other adjustments must be performed manually.
 > ⭐️a bin/check script is added to the project. This script will run all the tests of the project.
 > It is used in our CI and can be used locally to check if everything is fine. You can customize it to your needs.
 
-> ⭐️a bin/fastcheck script is added to the project. 
+> ⭐️a bin/fastcheck script is added to the project.
 > This script will run all the linters of the project. It is used in our CI and can be customized to your needs.
 > It will be used as a hook before pushing to quickly check for linting issues.
 
