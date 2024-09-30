@@ -3,7 +3,7 @@
 You should probably configure a template for the Pull Requests in your project.
 
 This template will give a list of reminders and important points that the developer
-needs to remember when the developer opens a new Pull Request.
+needs to remember when opening a new Pull Request.
 
 We think this template is useful as a checklist of things that shouldn't be forgotten
 when assigning a Pull Request to one of your colleagues.
