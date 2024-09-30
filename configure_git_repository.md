@@ -25,7 +25,7 @@ Please stick to it unless you have special needs.
 
 ## Team
 
-Each project has a team ownning it. The team is named after the project: `[team-name] = [project-name]`.
+Each project has a team owning it. The team is named after the project: `[team-name] = [project-name]`.
 Thanks to this we can:
 
 * see who is responsible for a project;
