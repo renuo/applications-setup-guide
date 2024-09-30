@@ -69,8 +69,6 @@
       - [Linting and automatic checks](react_native/linting_and_automatic_check.md)
       - [Sentry](react_native/sentry.md)
 
-- [Flutter](flutter/README.md)
-
 # Services
 
 - [Google Analytics](google_analytics.md)
