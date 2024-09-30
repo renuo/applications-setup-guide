@@ -18,6 +18,8 @@ asked to do the same.
 * Use `[project-name]-[purpose]-[branch]` for deployed projects (e.g. one11-web-main).
 * Use `[project-name]-local-[user]-[rails_env]` for local names which interact with online services (e.g. S3).
 
+**Note:** Previously on Heroku, the convention was to use `[project-name]-[branch]-[purpose]` for deployed projects (e.g. kingschair-main-assets). This has been updated due to deplo.io.
+
 ## Examples
 
 * food-calendar, food-calendar-develop, food-calendar-develop-assets
