@@ -124,7 +124,7 @@ Commit and push your changes! :tada:
 > 
 > To customize the health check and add additional checks, you can override the `Rails::HealthController` class.\
 > 
-> [Here](../templates/app/controllers/rails/health_controller.rb) is an example that also checks the database connection.
+> You can find an example that also checks the database connection [in this file](../templates/app/controllers/rails/health_controller.rb).
 
 ## Verify
 
