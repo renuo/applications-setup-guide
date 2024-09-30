@@ -698,7 +698,7 @@ Please stick to it unless you have special needs.</p>
 </li>
 </ul>
 <h2 id="team"><a class="header" href="#team">Team</a></h2>
-<p>Each project has a team ownning it. The team is named after the project: <code>[team-name] = [project-name]</code>.
+<p>Each project has a team owning it. The team is named after the project: <code>[team-name] = [project-name]</code>.
 Thanks to this we can:</p>
 <ul>
 <li>
@@ -906,9 +906,9 @@ test:
 </ul>
 <p>Commit and push your changes! 🎉</p>
 <blockquote>
-<p>⭐️ <code>/up</code> is the defualt Health check path for Rails. <a href="https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html">Read about it in the guides</a>.<br />
-If you want to customize the health check and add more checks, you can easily override the class <code>Rails::HealthController</code> and add your own checks.<br />
-<a href="ruby_on_rails/../templates/app/controllers/rails/health_controller.rb">Here</a> you find an example that checks also the database connection.</p>
+<p>⭐️ The default health check path for Rails is <code>/up</code>. <a href="https://edgeapi.rubyonrails.org/classes/Rails/HealthController.html">Learn more in the Rails guides</a>.<br />
+To customize the health check and add additional checks, you can override the <code>Rails::HealthController</code> class.<br />
+You can find an example that also checks the database connection <a href="ruby_on_rails/../templates/app/controllers/rails/health_controller.rb">in this file</a>.</p>
 </blockquote>
 <h2 id="verify"><a class="header" href="#verify">Verify</a></h2>
 <ul>
@@ -972,7 +972,9 @@ yarn eslint --init (Use a popular style guide -&gt; Airbnb)
 <div style="break-before: page; page-break-before: always;"></div><h1 id="suggested-gems"><a class="header" href="#suggested-gems">Suggested gems</a></h1>
 <p>Here is an hopefully up-to-date version of gems which we strongly suggest to include in your project.
 Please include them or find a good reason not to.</p>
-<p>❗ Please follow the guide of each of these libraries to know how to properly install them. ❗</p>
+<blockquote>
+<p>❗ Please follow the guide of each of these libraries to know how to properly install them.</p>
+</blockquote>
 <blockquote>
 <p><strong>💡</strong> Do you know all of them? Do you know why we'd like them to be included?</p>
 </blockquote>
@@ -1009,7 +1011,7 @@ end
 <p>Check that you:</p>
 <ul>
 <li>see "1+2=3" in each app.</li>
-<li>have been redirected to https</li>
+<li>have been redirected to https.</li>
 </ul>
 <h2 id="crypto-settings"><a class="header" href="#crypto-settings">Crypto settings</a></h2>
 <p>When setting up a new site on Cloudflare, make sure you set SSL to "Full" under Crypto settings. You may end up in endless loop of redirects if it stays on the default setting ("Flexible")</p>
