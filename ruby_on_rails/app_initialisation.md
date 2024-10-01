@@ -4,7 +4,7 @@
 
 * Ensure that your asdf plugins are up to date with `asdf plugin update --all`.
 
-* Install the latest Ruby version with `asdf install ruby latest` (Check if it's supported by Heroku).
+* Install the latest Ruby version with `asdf install ruby latest` (Check if it's [supported by Heroku](https://devcenter.heroku.com/articles/ruby-support#ruby-versions)).
 
 * Switch your global Ruby to the fresh one: `asdf global ruby latest`.
 
@@ -45,6 +45,7 @@ Some other adjustments must be performed manually.
 
 > ⭐The Gemfile reads the required ruby version from the `.ruby-version` file.
 > [This is used by Heroku to determine what version to use.](https://devcenter.heroku.com/articles/ruby-versions)
+> Deploio reads the ruby version from the Gemfile, with the .ruby-version file inlined into it. https://paketo.io/docs/howto/ruby/#override-the-detected-ruby-version
 
 > ⭐️renuocop replaces the default rubocop-rails-omakase. We have our own set of rules at Renuo.
 > You can discuss them at https://github.com/renuo/renuocop and you can also contribute to them.
