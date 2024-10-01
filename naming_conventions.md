@@ -15,8 +15,10 @@ asked to do the same.
 
 * Use `[project-name]` for project names and services which are branch-independent.
 * Use `[project-name]-[branch]` for deployed projects (`[branch]` means the gitflow branch and not RAILS_ENV).
-* Use `[project-name]-[branch]-[purpose]` for deployed projects (e.g. kingschair-main-assets).
+* Use `[project-name]-[purpose]-[branch]` for deployed projects (e.g. one11-web-main).
 * Use `[project-name]-local-[user]-[rails_env]` for local names which interact with online services (e.g. S3).
+
+**Note:** Previously on Heroku, the convention was to use `[project-name]-[branch]-[purpose]` for deployed projects (e.g. kingschair-main-assets). This has been updated due to deplo.io.
 
 ## Examples
 
