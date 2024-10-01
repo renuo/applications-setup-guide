@@ -15,8 +15,20 @@ group :production do
 end
 ```
 
-Add the variable `BLOCK_ROBOTS=true` in your develop environment on Heroku:
+## Setting Environment Variables
+
+### Heroku
+
+Add the environment variable `BLOCK_ROBOTS=true` in your develop environment:
 
 ```sh
 heroku config:add BLOCK_ROBOTS=true --app [project-name]-develop
+```
+
+### Deploio
+
+Set the environment variable using:
+
+```sh
+nctl update app [app-name] --env=BLOCK_ROBOTS=true --project=[project-name]
 ```
