@@ -126,11 +126,21 @@ Commit and push your changes! :tada:
 
 ## Verify
 
+Check that you see a green page in each app.
+
+### Heroku
+
 * Open the two apps
   * <https://[project-name]-main.herokuapp.com/up>
   * <https://[project-name]-develop.herokuapp.com/up>
 
-Check that you see a green page in each app.
+### Deploio
+
+The host name contains a generated hash. The name can be accessed via:
+
+```sh
+nctl get applications --project={PROJECT_NAME}
+```
 
 ## Javascript error reporter
 
