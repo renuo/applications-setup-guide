@@ -24,7 +24,7 @@ Choose the platform you want to set up your application with and follow the resp
 
 ### Setup Deploio Application
 
-#### Remote Configuration
+#### Remote Deploio Configuration
 
 Run the command to generate a script which will create and configure all Deploio apps. `[project-name]` string length is limited to 63 characters:
 
@@ -40,7 +40,7 @@ If you think that the script is outdated, please open a Pull Request on the [ren
 
 ### Setup Heroku Application
 
-#### Remote Configuration
+#### Remote Heroku Configuration
 
 Run the command to generate a script which will create and configure all Heroku apps. `[project-name]` string length is limited to 22 characters:
 
