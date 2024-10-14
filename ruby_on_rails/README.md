@@ -9,7 +9,8 @@ Have you chosen a `[project-name]` yet? If not, please do so now. Check our [Nam
 1. [Push to Git Repository](first_git_push.md)
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)
-1. [Create an Application Server](create_application_server.md)
+1. [Create an Application Server for Heroku](create_application_server_heroku.md)
+1. [Create an Application Server for Deploio](create_application_server_deploio.md)
 1. [Configure the CI / CD](configure_ci.md)
 
 Once here, your app should be up and running on all three environments.
