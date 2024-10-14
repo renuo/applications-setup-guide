@@ -33,9 +33,9 @@ This is done via page rules in Cloudflare.
 
 ## Deploio
 
-* Check the machine types of PostgreSQL database
-* Check the configured application size
-* Check the application replica count
+* Verify the machine type of the PostgreSQL database in the PostgreSQL resource view
+* Confirm the configured application size in the application configuration tab
+* Ensure the application replica count is correctly set in the application configuration tab
 
 ## Other
 
