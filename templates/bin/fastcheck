@@ -17,7 +17,7 @@ bundle exec mdl ./ -g
 yarn run stylelint "./app/assets/stylesheets/**/*.scss"
 
 # for erb
-bundle exec erblint --config .erb-lint.yml --lint-all
+bundle exec erb_lint --config .erb-lint.yml --lint-all
 
 # for typescript
 tslint -c tslint.json app/javascripts/**/*.ts
