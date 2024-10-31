@@ -3,6 +3,7 @@
 At Renuo we **always** use a CI (Continuous Integration) system to test our applications. It's essential to guarantee
 that all the tests pass before building and releasing a new version through our CD system. Our projects use
 [SemaphoreCI 2.0](<https://semaphoreci.com/>).
+We have also a small section about [Github Actions](./github_actions.md) if you have particular needs not supported by SemaphoreCI.
 
 Before configuring the CI, you should already have a Git Repository with the code, a `bin/check` command to execute,
 and the main branches already pushed and ready to be tested.
