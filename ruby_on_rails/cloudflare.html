@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -30,15 +30,17 @@
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,45 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../README.html">Overview</a></li><li class="chapter-item expanded affix "><li class="part-title">General</li><li class="chapter-item expanded "><a href="../create_git_repository.html"><strong aria-hidden="true">1.</strong> Create a Git Repository</a></li><li class="chapter-item expanded "><a href="../gitflow.html"><strong aria-hidden="true">2.</strong> GitFlow</a></li><li class="chapter-item expanded "><a href="../go_live.html"><strong aria-hidden="true">3.</strong> Go Live!</a></li><li class="chapter-item expanded "><a href="../naming_conventions.html"><strong aria-hidden="true">4.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="../security.html"><strong aria-hidden="true">5.</strong> Security</a></li><li class="chapter-item expanded "><a href="../checklist.html"><strong aria-hidden="true">6.</strong> Project Checklist</a></li><li class="chapter-item expanded affix "><li class="part-title">Frameworks</li><li class="chapter-item expanded "><a href="../ruby_on_rails/README.html"><strong aria-hidden="true">7.</strong> Ruby on Rails</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> Setup</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/app_initialisation.html"><strong aria-hidden="true">7.1.1.</strong> Initialise the Rails App</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/first_git_push.html"><strong aria-hidden="true">7.1.2.</strong> Push to Git Repository</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/initialise_gitflow.html"><strong aria-hidden="true">7.1.3.</strong> Initialise Gitflow</a></li><li class="chapter-item expanded "><a href="../configure_git_repository.html"><strong aria-hidden="true">7.1.4.</strong> Configure Git Repository</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/create_application_server.html"><strong aria-hidden="true">7.1.5.</strong> Create an Application Server</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/configure_ci.html"><strong aria-hidden="true">7.1.6.</strong> Configure the CI/CD</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Tools</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/rspec.html"><strong aria-hidden="true">7.2.1.</strong> RSpec</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/linting_and_automatic_check.html"><strong aria-hidden="true">7.2.2.</strong> Linting and automatic checks</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/suggested_libraries.html"><strong aria-hidden="true">7.2.3.</strong> Gems and libraries</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/cloudflare.html" class="active"><strong aria-hidden="true">7.2.4.</strong> Cloudflare</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.3.</strong> Additional Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/sentry.html"><strong aria-hidden="true">7.3.1.</strong> Sentry</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/newrelic.html"><strong aria-hidden="true">7.3.2.</strong> NewRelic</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/robots_txt.html"><strong aria-hidden="true">7.3.3.</strong> Robots.txt</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/configure_percy.html"><strong aria-hidden="true">7.3.4.</strong> Percy</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/environment_protection.html"><strong aria-hidden="true">7.3.5.</strong> Protect develop environment</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.4.</strong> Customer Plan Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/uptimerobot.html"><strong aria-hidden="true">7.4.1.</strong> Uptimerobot</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/sentry.html"><strong aria-hidden="true">7.4.2.</strong> Sentry Notifications</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/depfu.html"><strong aria-hidden="true">7.4.3.</strong> Depfu Security monitoring</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.5.</strong> Gems</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/jest.html"><strong aria-hidden="true">7.5.1.</strong> Jest</a></li><li class="chapter-item expanded "><a href="../slack_and_notifications.html"><strong aria-hidden="true">7.5.2.</strong> Slack and Notifications</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/send_emails.html"><strong aria-hidden="true">7.5.3.</strong> Send Emails</a></li><li class="chapter-item expanded "><a href="../sparkpost_and_mailtrap.html"><strong aria-hidden="true">7.5.4.</strong> Sparkpost & Mailtrap</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/devise.html"><strong aria-hidden="true">7.5.5.</strong> Devise</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/sidekiq.html"><strong aria-hidden="true">7.5.6.</strong> Sidekiq</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/cucumber.html"><strong aria-hidden="true">7.5.7.</strong> Cucumber</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/aws.html"><strong aria-hidden="true">7.5.8.</strong> Amazon S3 and Cloudfront</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/carrierwave.html"><strong aria-hidden="true">7.5.9.</strong> Carrierwave Upload</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/bootstrap.html"><strong aria-hidden="true">7.5.10.</strong> Bootstrap</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/font_awesome.html"><strong aria-hidden="true">7.5.11.</strong> FontAwesome</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/bullet.html"><strong aria-hidden="true">7.5.12.</strong> Bullet</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/appsignal.html"><strong aria-hidden="true">7.5.13.</strong> Lograge</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/hotjar.html"><strong aria-hidden="true">7.5.14.</strong> Hotjar</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/wicked_pdf.html"><strong aria-hidden="true">7.5.15.</strong> Wicked PDF</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/recaptcha.html"><strong aria-hidden="true">7.5.16.</strong> Recaptcha v3</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../js/README.html"><strong aria-hidden="true">8.</strong> Frontend apps (JS)</a></li><li class="chapter-item expanded "><a href="../react_native/README.html"><strong aria-hidden="true">9.</strong> React Native</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> Setup</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ruby_on_rails/first_git_push.html"><strong aria-hidden="true">9.1.1.</strong> Push to Git Repository</a></li><li class="chapter-item expanded "><a href="../ruby_on_rails/initialise_gitflow.html"><strong aria-hidden="true">9.1.2.</strong> Initialise Gitflow</a></li><li class="chapter-item expanded "><a href="../react_native/configure_ci.html"><strong aria-hidden="true">9.1.3.</strong> Configure CI</a></li><li class="chapter-item expanded "><a href="../react_native/release.html"><strong aria-hidden="true">9.1.4.</strong> Release</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> Tools</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../react_native/jest.html"><strong aria-hidden="true">9.2.1.</strong> Jest</a></li><li class="chapter-item expanded "><a href="../react_native/recommended_libraries.html"><strong aria-hidden="true">9.2.2.</strong> Recommended libraries</a></li><li class="chapter-item expanded "><a href="../react_native/linting_and_automatic_check.html"><strong aria-hidden="true">9.2.3.</strong> Linting and automatic checks</a></li><li class="chapter-item expanded "><a href="../react_native/sentry.html"><strong aria-hidden="true">9.2.4.</strong> Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Services</li><li class="chapter-item expanded "><a href="../google_analytics.html"><strong aria-hidden="true">10.</strong> Google Analytics</a></li><li class="chapter-item expanded "><a href="../google_apis.html"><strong aria-hidden="true">11.</strong> Google Apis</a></li><li class="chapter-item expanded "><a href="../slack_and_notifications.html"><strong aria-hidden="true">12.</strong> Slack and Notifications</a></li><li class="chapter-item expanded affix "><li class="part-title">Templates</li><li class="chapter-item expanded "><a href="../templates/README.html"><strong aria-hidden="true">13.</strong> README</a></li><li class="chapter-item expanded "><a href="../templates/pull_requests_template.html"><strong aria-hidden="true">14.</strong> Pull Request Template</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
