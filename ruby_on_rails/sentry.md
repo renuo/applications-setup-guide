@@ -47,7 +47,7 @@ to generate the commands for you.
 
 * Install the npm package: `yarn add @sentry/browser`
 * Include [_sentry.html](../templates/app/views/shared/_sentry.html.erb) in your header.
-* Include [sentry.js](../templates/app/javascript/packs/sentry.js) in your packs.
+* Include [sentry.js](../templates/app/javascript/sentry.js) in your JS assets.
 
 ## Verify the installation
 
