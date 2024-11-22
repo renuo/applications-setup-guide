@@ -1,11 +1,13 @@
-# Logging & AppSignal
+# Log & error monitoring with AppSignal
 
 AppSignal is a service to record logs, monitor errors and performance.
 Recording logs works independently from the tech stack. So you should use AppSignal
 to record logs even if you don't use Rails. In Heroku we'll add a log drain to
 redirect the multiplexed Logplex logs to AppSignal in any case.
 
-## With the AppSignal agent
+# Backend
+
+## Logs & errors
 
 If you want to log errors and metrics, you need to install the AppSignal agent
 into your app. See integration instructions for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
@@ -99,7 +101,7 @@ Using this configuration we get the fully tagged lograge lines and also
 the full stack trace with each line tagged with the request id. This allows
 us to filter by request id with one click and get all relevant log data at once.
 
-### With AppSignal gem
+_With AppSignal gem_
 
 ```ruby
 # config/initializers/lograge.rb
@@ -120,7 +122,7 @@ if ENV['LOGRAGE_ENABLED'] == 'true'
 end
 ```
 
-### Without AppSignal gem
+_Without AppSignal gem_
 
 ```ruby
 # config/environments/production.rb
