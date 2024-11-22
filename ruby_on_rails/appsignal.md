@@ -1,4 +1,4 @@
-# Log & error monitoring with AppSignal
+# Logs & error monitoring with AppSignal
 
 AppSignal is a service to record logs, monitor errors and performance.
 Recording logs works independently from the tech stack. So you should use AppSignal
