@@ -14,9 +14,9 @@ into your app. See integration instructions for [Ruby/Rails](https://docs.appsig
 
 * Add the following gem to your Gemfile:
   ```ruby
-  gem 'appsignal'
+  gem 'appsignal', github: 'renuo/appsignal-ruby'
   ```
-* Add a AppSignal configuration file [`config/appsignal.yml`](../templates/config/appsignal.yml) folder.
+* Add a AppSignal configuration file [`config/initializers/appsignal.rb`](../templates/config/initializers/appsignal.rb)
 * Add the new variables to your Heroku environments:
 
   ```yml
@@ -24,6 +24,7 @@ into your app. See integration instructions for [Ruby/Rails](https://docs.appsig
   APPSIGNAL_APP_NAME: "project name without env"
   APPSIGNAL_IGNORE_ERRORS: "ActiveRecord::RecordNotFound,ActionController::UnknownFormat"
   APPSIGNAL_PUSH_API_KEY: "from appsignal"
+  # APPSIGNAL_SAMPLING_RATE: "1.0'
   ```
 
 We use the same push key for all apps. You can either copy it from another project or "create" an app on appsignal.
@@ -173,12 +174,15 @@ end.parse!
 
 raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 
-File.write 'config/appsignal.yml', <<~YAML
-  #{options[:env]}:
-    active: true
-    push_api_key: #{PUSH_API_KEY}
-    name: "#{options[:name]}"
-YAML
+File.write 'config/initializers/appsignal.rb', <<~RUBY
+  if defined?(Appsignal)
+    Appsignal.configure do |config|
+      %w[HTTP_REFERER HTTP_USER_AGENT HTTP_AUTHORIZATION REQUEST_URI].each do |header|
+        config.request_headers << header
+      end
+    end
+  end
+RUBY
 
 Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
 Appsignal::Demo.transmit
