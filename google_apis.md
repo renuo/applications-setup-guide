@@ -1,6 +1,7 @@
 # Google APIs
 
-* If you need Google APIs in your project (e. g. Google Maps) proceed to the [Google Cloud Console](https://console.cloud.google.com).
+* If you need Google APIs in your project (e. g. Google Maps) proceed to the [Google Cloud Console](https://console.cloud.google.com)
+  using the google@renuo.ch account.
 * Create a project named `[project-name]` under the renuo.ch organisation and use that project for all your environments.
 * Attach the _wg-operations_ billing account
 * Choose the correct resource folder
