@@ -5,6 +5,10 @@ Recording logs works independently from the tech stack. So you should use AppSig
 to record logs even if you don't use Rails. In Heroku we'll add a log drain to
 redirect the multiplexed Logplex logs to AppSignal in any case.
 
+- [Backend](#backend)
+- [Frontend](#frontend)
+- [Verify the installation](#verify-the-installation)
+
 # Backend
 
 ## Logs & errors
@@ -187,6 +191,26 @@ RUBY
 Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
 Appsignal::Demo.transmit
 ```
+
+# Frontend
+
+While the backend uses a secret `PUSH_API_KEY` to authenticate with AppSignal, the frontend uses a public `FRONTEND_API_KEY` 
+to authenticate with AppSignal. This key can only be read once the project is created on AppSignal.
+So once the project is created, the frontend API key can be found in the "Push and deploy" section of your project settings.
+
+Checkout the [AppSignal documentation](https://docs.appsignal.com/front-end/installation.html) if you need more information.
+
+_Installation steps:_
+* Add the new frontend API key to your Heroku environments:
+  ```yml
+  APPSIGNAL_FRONTEND_API_KEY: "from appsignal"
+  ```
+* Install the package: `yarn add @appsignal/javascript`
+* Include [_appsignal.html](../templates/app/views/shared/_appsignal.html.erb) in your header.
+```erb
+<%= render 'shared/appsignal' %>
+```
+* Include [appsignal.js](../templates/app/javascript/appsignal.js) in your JS assets.
 
 # Verify the installation
 
