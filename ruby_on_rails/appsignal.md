@@ -1,20 +1,26 @@
-# Logging & AppSignal
+# Logs & error monitoring with AppSignal
 
 AppSignal is a service to record logs, monitor errors and performance.
 Recording logs works independently from the tech stack. So you should use AppSignal
 to record logs even if you don't use Rails. In Heroku we'll add a log drain to
 redirect the multiplexed Logplex logs to AppSignal in any case.
 
-## With the AppSignal agent
+1. [Backend](#backend)
+2. [Frontend](#frontend)
+3. [Verify the installation](#verify-the-installation)
+
+## Backend
+
+### Logs & errors
 
 If you want to log errors and metrics, you need to install the AppSignal agent
 into your app. See integration instructions for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
 
 * Add the following gem to your Gemfile:
   ```ruby
-  gem 'appsignal'
+  gem 'appsignal', github: 'renuo/appsignal-ruby'
   ```
-* Add a AppSignal configuration file [`config/appsignal.yml`](../templates/config/appsignal.yml) folder.
+* Add a AppSignal configuration file [`config/initializers/appsignal.rb`](../templates/config/initializers/appsignal.rb)
 * Add the new variables to your Heroku environments:
 
   ```yml
@@ -22,6 +28,7 @@ into your app. See integration instructions for [Ruby/Rails](https://docs.appsig
   APPSIGNAL_APP_NAME: "project name without env"
   APPSIGNAL_IGNORE_ERRORS: "ActiveRecord::RecordNotFound,ActionController::UnknownFormat"
   APPSIGNAL_PUSH_API_KEY: "from appsignal"
+  # APPSIGNAL_SAMPLING_RATE: "1.0'
   ```
 
 We use the same push key for all apps. You can either copy it from another project or "create" an app on appsignal.
@@ -38,14 +45,14 @@ Navigate to **Logging** -> **Manage Resources** and **Add log resource** with th
 
 Then add this ingestion endpoint as a log drain using the Heroku commands displayed.
 
-## Only Logs
+### Only Logs
 
 Choose the "JavaScript" option on the AppSignal project page to
 setup your project without an active agent.
 
-## Configuration adjustments
+### Configuration adjustments
 
-### Correct Severity
+#### Correct Severity
 
 According to [the docs](https://docs.appsignal.com/logging/platforms/heroku.html), getting the severity to be anything but "INFO" is not possible using the heroku drain.
 
@@ -99,7 +106,7 @@ Using this configuration we get the fully tagged lograge lines and also
 the full stack trace with each line tagged with the request id. This allows
 us to filter by request id with one click and get all relevant log data at once.
 
-### With AppSignal gem
+_With AppSignal gem_
 
 ```ruby
 # config/initializers/lograge.rb
@@ -120,7 +127,7 @@ if ENV['LOGRAGE_ENABLED'] == 'true'
 end
 ```
 
-### Without AppSignal gem
+_Without AppSignal gem_
 
 ```ruby
 # config/environments/production.rb
@@ -147,7 +154,7 @@ Rails.application.configure do
 end
 ```
 
-## Automation
+### Automation
 
 Unfortunately Appsignal doesn't provide an API for project configuration.
 So if you need to do something on a lot of projects, you have to do it manually.
@@ -171,13 +178,68 @@ end.parse!
 
 raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 
-File.write 'config/appsignal.yml', <<~YAML
-  #{options[:env]}:
-    active: true
-    push_api_key: #{PUSH_API_KEY}
-    name: "#{options[:name]}"
-YAML
+File.write 'config/initializers/appsignal.rb', <<~RUBY
+  if defined?(Appsignal)
+    Appsignal.configure do |config|
+      %w[HTTP_REFERER HTTP_USER_AGENT HTTP_AUTHORIZATION REQUEST_URI].each do |header|
+        config.request_headers << header
+      end
+    end
+  end
+RUBY
 
 Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
 Appsignal::Demo.transmit
 ```
+
+## Frontend
+
+While the backend uses a secret `PUSH_API_KEY` to authenticate with AppSignal, the frontend uses a public `FRONTEND_API_KEY`
+to authenticate with AppSignal. This key can only be read once the project is created on AppSignal.
+So once the project is created, the frontend API key can be found in the "Push and deploy" section of your project settings.
+
+Checkout the [AppSignal documentation](https://docs.appsignal.com/front-end/installation.html) if you need more information.
+
+_Installation steps:_
+* Add the new frontend API key to your Heroku environments:
+  ```yml
+  APPSIGNAL_FRONTEND_API_KEY: "from appsignal"
+  ```
+* Install the package: `yarn add @appsignal/javascript`
+* Include [_appsignal.html](../templates/app/views/shared/_appsignal.html.erb) in your header.
+```erb
+<%= render 'shared/appsignal' %>
+```
+* Include [appsignal.js](../templates/app/javascript/appsignal.js) in your JS assets.
+
+## Verify the installation
+
+### Error monitoring
+
+#### Ruby
+
+For each environment of your app, connect to the `heroku run rails console --app [project-name]-[branch-name]` and raise an exception using Appsignal:
+
+```
+begin
+  1 / 0
+rescue ZeroDivisionError => exception
+  Appsignal.send_error(exception)
+end
+```
+
+You should find the exception of the ZeroDivisionError on Appsignal after a minute or two.
+
+#### Javascript
+
+Open the dev console in chrome, and run
+
+```js
+try {
+  throw new Error('test appsignal js');
+} catch(e) {
+  Appsignal.sendError(e)
+}
+```
+
+On Appsignal you should find "Uncaught Error: test appsignal js".

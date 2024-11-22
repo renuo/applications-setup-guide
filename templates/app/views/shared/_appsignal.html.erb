@@ -1,0 +1,9 @@
+<% if ENV['APPSIGNAL_FRONTEND_API_KEY'].present? %>
+  <script type="application/javascript">
+    window.appsignalConfig = {
+      frontendApiKey: "<%= ENV.fetch('APPSIGNAL_FRONTEND_API_KEY') %>"
+    };
+  </script>
+
+  <%= javascript_include_tag 'appsignal' %>
+<% end %>
