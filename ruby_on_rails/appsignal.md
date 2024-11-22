@@ -5,13 +5,13 @@ Recording logs works independently from the tech stack. So you should use AppSig
 to record logs even if you don't use Rails. In Heroku we'll add a log drain to
 redirect the multiplexed Logplex logs to AppSignal in any case.
 
-- [Backend](#backend)
-- [Frontend](#frontend)
-- [Verify the installation](#verify-the-installation)
+1. [Backend](#backend)
+2. [Frontend](#frontend)
+3. [Verify the installation](#verify-the-installation)
 
-# Backend
+## Backend
 
-## Logs & errors
+### Logs & errors
 
 If you want to log errors and metrics, you need to install the AppSignal agent
 into your app. See integration instructions for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
@@ -45,14 +45,14 @@ Navigate to **Logging** -> **Manage Resources** and **Add log resource** with th
 
 Then add this ingestion endpoint as a log drain using the Heroku commands displayed.
 
-## Only Logs
+### Only Logs
 
 Choose the "JavaScript" option on the AppSignal project page to
 setup your project without an active agent.
 
-## Configuration adjustments
+### Configuration adjustments
 
-### Correct Severity
+#### Correct Severity
 
 According to [the docs](https://docs.appsignal.com/logging/platforms/heroku.html), getting the severity to be anything but "INFO" is not possible using the heroku drain.
 
@@ -154,7 +154,7 @@ Rails.application.configure do
 end
 ```
 
-## Automation
+### Automation
 
 Unfortunately Appsignal doesn't provide an API for project configuration.
 So if you need to do something on a lot of projects, you have to do it manually.
@@ -192,9 +192,9 @@ Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
 Appsignal::Demo.transmit
 ```
 
-# Frontend
+## Frontend
 
-While the backend uses a secret `PUSH_API_KEY` to authenticate with AppSignal, the frontend uses a public `FRONTEND_API_KEY` 
+While the backend uses a secret `PUSH_API_KEY` to authenticate with AppSignal, the frontend uses a public `FRONTEND_API_KEY`
 to authenticate with AppSignal. This key can only be read once the project is created on AppSignal.
 So once the project is created, the frontend API key can be found in the "Push and deploy" section of your project settings.
 
@@ -212,10 +212,11 @@ _Installation steps:_
 ```
 * Include [appsignal.js](../templates/app/javascript/appsignal.js) in your JS assets.
 
-# Verify the installation
+## Verify the installation
 
-## Error monitoring
-### Ruby
+### Error monitoring
+
+#### Ruby
 
 For each environment of your app, connect to the `heroku run rails console --app [project-name]-[branch-name]` and raise an exception using Appsignal:
 
@@ -229,7 +230,7 @@ end
 
 You should find the exception of the ZeroDivisionError on Appsignal after a minute or two.
 
-### Javascript
+#### Javascript
 
 Open the dev console in chrome, and run
 
