@@ -187,3 +187,34 @@ RUBY
 Appsignal.config = Appsignal::Config.new(Dir.pwd, options[:env])
 Appsignal::Demo.transmit
 ```
+
+# Verify the installation
+
+## Error monitoring
+### Ruby
+
+For each environment of your app, connect to the `heroku run rails console --app [project-name]-[branch-name]` and raise an exception using Appsignal:
+
+```
+begin
+  1 / 0
+rescue ZeroDivisionError => exception
+  Appsignal.send_error(exception)
+end
+```
+
+You should find the exception of the ZeroDivisionError on Appsignal after a minute or two.
+
+### Javascript
+
+Open the dev console in chrome, and run
+
+```js
+try {
+  throw new Error('test appsignal js');
+} catch(e) {
+  Appsignal.sendError(e)
+}
+```
+
+On Appsignal you should find "Uncaught Error: test appsignal js".
