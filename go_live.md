@@ -7,7 +7,7 @@
   * `TXT` records for [SparkPost sending domains](https://support.sparkpost.com/docs/getting-started/setting-up-domains)
   * `CAA` records ([see Cloudflare](https://developers.cloudflare.com/ssl/edge-certificates/caa-records/#create-caa-records))
 * If SparkPost has been set up with the renuoapp.ch domain and the project has its own domain now, set up SparkPost again with its own domain
-* Verify that SparkPost mails are working and the [sending domain is validated](https://app.sparkpost.com/account/sending-domains).
+* Verify that SparkPost mails are working and the [sending domain is validated](https://app.sparkpost.com/domains/list/sending).
 * Verify that SSL is working correctly
 
 If the final domain isn't already in use, you can configure it also already:
