@@ -54,7 +54,7 @@ end
 run "chmod +x bin/fastcheck"
 
 after_bundle do
-  run "bundle exec rubocop -A"
+  run "bundle exec rubocop -a"
 
   puts "We want to be sure that you are aware of what has been done by the Renuo template."
   puts "Please read the following list of changes and confirm that you understand them."
