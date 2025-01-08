@@ -45,4 +45,4 @@ special stuff
 
 ## Copyright
 
-Copyright 2022 [Renuo AG](https://www.renuo.ch/).
+Copyright [Renuo AG](https://www.renuo.ch/).
