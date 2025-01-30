@@ -94,6 +94,17 @@ create the initializer for figaro in `config/initializers/figaro.rb`:
 
 * Run `bin/setup` again.
 
+### Secrets
+
+We store the secrets necessary to configure the project locally in a 1password Item.
+Create a new Item for the project called `[project-name] project secrets` of type note.
+Right click on the vault and select `Copy Private link`.
+
+* Run the command `renuo fetch-secrets --init [the vault private link]` to create an empty secrets file.
+
+The Item contains the fields that represent the ENV variables. You can use Text or Password fields.
+Check existing projects for an example of the usage.
+
 #### Configuration customisation
 
 * Update `config/application.rb` and set the default language and timezone

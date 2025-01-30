@@ -2,6 +2,23 @@
 
 gsub_file "Gemfile", /gem "rubocop-rails-omakase"/, "gem \"renuocop\""
 
+insert_into_file "Gemfile", after: /^group :development do\n/ do
+  <<~RUBY
+    gem "renuo-cli", require: false
+  RUBY
+end
+
+# replace bin/rails db:prepare with bin/rails db:setup in bin/setup
+gsub_file "bin/setup", "bin/rails db:prepare", "bin/rails db:setup"
+
+# add the renuo fetch-secrets command in bin/setup, before bin/rails db:setup
+insert_into_file "bin/setup", before: "\n  puts \"\\n== Preparing database ==\"" do
+  <<-RUBY
+  puts "\\n== Fetching 1password dependencies =="
+  system! 'renuo fetch-secrets'  
+  RUBY
+end
+
 # add "ruby file: ".ruby-version" to the Gemfile under the line starting with "source"
 insert_into_file "Gemfile", after: /^source.*\n/ do
   <<~RUBY
@@ -58,6 +75,7 @@ after_bundle do
 
   puts "We want to be sure that you are aware of what has been done by the Renuo template."
   puts "Please read the following list of changes and confirm that you understand them."
+  ask "We have included renuo fetch-secrets in bin/setup. Do you know why?"
   ask "The Gemfile ruby version has been set to the version in the .ruby-version file. You know what this means. Ok?"
   ask "Your project is now using renuocop instead of rubocop-rails-omakase. You know both gems and why it has been replaced. Ok?"
   ask "A .rubocop.yml file has been created with the default configuration. You know what this means. Ok?"
