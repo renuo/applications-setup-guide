@@ -22,9 +22,9 @@ to generate the commands for you.
 
   ```ruby
   group :production do
-    gem 'sentry-rails'
-    gem 'sentry-ruby'
-    gem 'sentry-sidekiq' # If the project uses Sidekiq for background jobs
+    gem "sentry-rails"
+    gem "sentry-ruby"
+    gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
   end
   ```
 

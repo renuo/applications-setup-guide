@@ -6,14 +6,14 @@ Add the following gems to your Gemfile:
 
 ```ruby
 group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem "rspec-rails"
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-  gem 'super_diff'
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "super_diff"
 end
 ```
 
@@ -30,13 +30,13 @@ You should know exactly why you are adding each one of them and why is necessary
 
   ```ruby
   require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_filter 'app/channels/application_cable/channel.rb'
-    add_filter 'app/channels/application_cable/connection.rb'
-    add_filter 'app/jobs/application_job.rb'
-    add_filter 'app/mailers/application_mailer.rb'
-    add_filter 'app/models/application_record.rb'
-    add_filter '.semaphore-cache'
+  SimpleCov.start "rails" do
+    add_filter "app/channels/application_cable/channel.rb"
+    add_filter "app/channels/application_cable/connection.rb"
+    add_filter "app/jobs/application_job.rb"
+    add_filter "app/mailers/application_mailer.rb"
+    add_filter "app/models/application_record.rb"
+    add_filter ".semaphore-cache"
     enable_coverage :branch
     minimum_coverage line: 100, branch: 100
   end

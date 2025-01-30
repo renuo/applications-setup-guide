@@ -11,7 +11,7 @@ Add the following gem:
 
 ```ruby
 group :production do
-  gem 'norobots'
+  gem "norobots"
 end
 ```
 
