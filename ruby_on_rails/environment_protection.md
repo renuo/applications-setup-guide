@@ -1,8 +1,32 @@
 # Staging Environment Protection
 
-HTTP Basic Authentication should be configured to prevent public traffic on our develop applications
+## Configuration for Heroku
 
-To setup authentication, configure the application controller like that:
+Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`, then run the following command:
+
+```sh
+heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+```
+Finally, save the passwords in 1Password.
+
+## Configuration for Deploio
+
+HTTP Basic Authentication should be configured to prevent public traffic on our development applications.
+
+With Deploio, configure Basic Auth in the Rails app:
+
+### Managing Basic Auth via Rails
+
+To manage Basic Auth via Rails, use the following commands:
+
+```sh
+nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --env=BASIC_AUTH={USERNAME}:{PASSWORD}
+nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --basic-auth false
+```
+
+## ApplicationController Configuration
+
+Configure the `ApplicationController` like this when managing Basic Auth via Rails:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -15,11 +39,3 @@ class ApplicationController < ActionController::Base
   # ...
 end
 ```
-
-Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`, run the following commands:
-
-```sh
-heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
-```
-
-and save the passwords in 1Password.

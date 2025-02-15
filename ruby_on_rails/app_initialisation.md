@@ -147,7 +147,7 @@ Check existing projects for an example of the usage.
 * The default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) should not always be activated, but rather only where there are platform secrets that need to be secured. This rule can be overwritten by a customer, if he opted into CSP when selecting his maintenance plans.
 
 * If you're using a js-bundling tool, let's clean up after asset precompilation
-  to reduce Heroku slug size. Add this to the `Rakefile`:
+  to reduce the size of your deployment. Although deplo.io doesn't have Heroku slugs, it is still good to set up. Add this to the `Rakefile`:
 
   ```ruby
   Rake::Task['assets:clean'].enhance do

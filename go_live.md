@@ -31,6 +31,12 @@ This is done via page rules in Cloudflare.
 * Check the database size plan on Heroku and upgrade if it is foreseeable that 10'000 rows are exceeded in a short time
 * Check additional addons and according plans on Heroku
 
+## Deploio
+
+* Verify the machine type of the PostgreSQL database in the PostgreSQL resource view
+* Confirm the configured application size in the application configuration tab
+* Ensure the application replica count is correctly set in the application configuration tab
+
 ## Other
 
 * Reset admin credentials, seeds, ... if necessary
