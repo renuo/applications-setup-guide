@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Create an Application Server - Renuo - Application Setup Guide</title>
+        <title>Create an Application Server (Heroku) - Renuo - Application Setup Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -152,36 +152,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="setup-heroku-application"><a class="header" href="#setup-heroku-application">Setup Heroku Application</a></h1>
-<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites:</a></h2>
+                        <h1 id="setup-application-server-for-heroku"><a class="header" href="#setup-application-server-for-heroku">Setup Application Server for Heroku</a></h1>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<p>Before setting up your application, ensure you have completed the following for Heroku.</p>
+<h3 id="prerequisites-for-heroku"><a class="header" href="#prerequisites-for-heroku">Prerequisites for Heroku</a></h3>
 <ul>
-<li>You've <a href="https://www.heroku.com/platform">read about what Heroku is</a></li>
+<li>You've <a href="https://www.heroku.com/platform">read about what Heroku is</a>.</li>
 <li>You have a Heroku account.</li>
-<li>You have installed the <code>renuo-cli</code> gem</li>
+<li>You have installed the <code>renuo-cli</code> gem.</li>
 </ul>
-<h2 id="setup-the-remote-configuration"><a class="header" href="#setup-the-remote-configuration">Setup the remote configuration</a></h2>
-<p>Run the command <code>renuo create-heroku-app [project-name]</code> to generate a script which will create and configure all
-Heroku apps. <code>[project-name]</code> string length is limited to 22 characters.</p>
+<h2 id="setup-your-application"><a class="header" href="#setup-your-application">Setup Your Application</a></h2>
+<h3 id="setup-heroku-application"><a class="header" href="#setup-heroku-application">Setup Heroku Application</a></h3>
+<h4 id="remote-configuration"><a class="header" href="#remote-configuration">Remote Configuration</a></h4>
+<p>Run the command to generate a script which will create and configure all Heroku apps. <code>[project-name]</code> string length is limited to 22 characters:</p>
+<pre><code class="language-sh">renuo create-heroku-app [project-name]
+</code></pre>
 <p>Please review the script before running it and execute only the commands you need and understand.</p>
 <p><strong>If you don't know what a command does: read the documentation and then execute it.</strong></p>
-<p>If you think that the script is outdated please open a
-Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
-<h2 id="setup-rails-for-heroku"><a class="header" href="#setup-rails-for-heroku">Setup Rails for Heroku</a></h2>
-<ul>
-<li>
-<p>Add a file called <code>Procfile</code> to your code root:</p>
-<pre><code>web: bundle exec puma -C config/puma.rb
+<p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
+<h4 id="setup-rails-for-heroku"><a class="header" href="#setup-rails-for-heroku">Setup Rails for Heroku</a></h4>
+<ol>
+<li>Add a file called <code>Procfile</code> to your code root:</li>
+</ol>
+<pre><code class="language-sh">web: bundle exec puma -C config/puma.rb
 </code></pre>
-<p>It's read by Heroku to start the web app and worker jobs.</p>
-</li>
-<li>
-<p>Add a file called <code>.slugignore</code> to your code root:</p>
-<pre><code>/spec
+<p>This file is read by Heroku to start the web app and worker jobs.</p>
+<ol start="2">
+<li>Add a file called <code>.slugignore</code> to your code root:</li>
+</ol>
+<pre><code class="language-sh">/spec
 /.semaphore
 </code></pre>
-<p>Like this you can mark files and folders to be excluded from the Heroku slug.</p>
-</li>
-</ul>
+<p>This file allows you to mark files and folders to be excluded from the Heroku</p>
 
                     </main>
 
@@ -191,7 +193,7 @@ Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> p
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../ruby_on_rails/configure_ci.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../ruby_on_rails/create_application_server_deploio.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -205,7 +207,7 @@ Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> p
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../ruby_on_rails/configure_ci.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../ruby_on_rails/create_application_server_deploio.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

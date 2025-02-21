@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ruby on Rails - Renuo - Application Setup Guide</title>
+        <title>Create an Application Server (Deploio) - Renuo - Application Setup Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -152,94 +152,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ruby-on-rails---application-setup-guide"><a class="header" href="#ruby-on-rails---application-setup-guide">Ruby On Rails - Application Setup Guide</a></h1>
-<p>This setup will cover a pure, monolithic Rails Applications.
-This is the most frequent type of application we have at <a href="https://renuo.ch">Renuo</a> and is probably also the easiest to setup.
-The application (and relative GitHub repo) will be named after the <code>[project-name]</code> you chose before.</p>
-<p>Have you chosen a <code>[project-name]</code> yet? If not, please do so now. Check our <a href="../naming_conventions.html">Naming Conventions</a></p>
-<ol>
-<li><a href="app_initialisation.html">Initialise the Rails Application</a></li>
-<li><a href="first_git_push.html">Push to Git Repository</a></li>
-<li><a href="initialise_gitflow.html">Initialise Gitflow</a></li>
-<li><a href="../configure_git_repository.html">Configure Git Repository</a></li>
-<li><a href="create_application_server_heroku.html">Create an Application Server for Heroku</a></li>
-<li><a href="create_application_server_deploio.html">Create an Application Server for Deploio</a></li>
-<li><a href="configure_ci.html">Configure the CI / CD</a></li>
-</ol>
-<p>Once here, your app should be up and running on all three environments.</p>
-<p>It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.</p>
-<ol>
-<li><a href="rspec.html">RSpec</a></li>
-<li><a href="linting_and_automatic_check.html">Linting and automatic checks</a></li>
-<li><a href="suggested_libraries.html">Gems and libraries 💎</a></li>
-<li><a href="cloudflare.html">Cloudflare</a></li>
-<li><a href="compile_readme.html">README</a></li>
-</ol>
-<p>🎉 Finally you are ready to start working on you new project! 🎉</p>
-<p>While everyone starts working there are some more things which you should setup.
-Most are not optional, but the rest of the team can start working even if those are not in place yet.</p>
-<ol>
-<li><a href="appsignal.html">AppSignal</a></li>
-<li><a href="sentry.html">Sentry</a> (optional)</li>
-<li><a href="newrelic.html">NewRelic</a> (optional)</li>
-<li><a href="robots_txt.html">robots.txt</a></li>
-<li><a href="configure_percy.html">Percy</a> (optional)</li>
-<li><a href="environment_protection.html">Protect develop environment</a></li>
-</ol>
-<p>Some services should be configured accordingly to the packages bought by the customer.
-Once the new application is created, please add the project to the
-<a href="https://docs.google.com/spreadsheets/d/1FY4jqByO-aI5sDan0hD7ULu6a2-eLsmO6kgdCFlPmuY/edit#gid=0">monitoring list</a>
-and discuss with the PO how the service should be configured.</p>
-<ol>
-<li><a href="uptimerobot.html">Uptimerobot</a></li>
-<li>Depending on the monitoring list, also <a href="sentry.html">Sentry notifications</a> need to be configured.</li>
-<li><a href="depfu.html">Depfu security monitoring</a></li>
-<li>Depending on the monitoring list, also <a href="papertrail.html">Papertrail alerts</a> need to be configured.</li>
-</ol>
-<p>Here you will find a series of chapters and guides on how to setup some of the gems we use most often and some other
-useful services:</p>
-<ol>
-<li><a href="jest.html">Run Javascript tests with Jest</a></li>
-<li><a href="../pull_requests_template.html">Pull Requests Template</a></li>
-<li><a href="../slack_and_notifications.html">Slack and Project Notifications</a></li>
-<li><a href="send_emails.html">Send emails</a></li>
-<li><a href="../sparkpost_&amp;_mailtrap.html">Sparkpost &amp; Mailtrap</a></li>
-<li><a href="devise.html">Devise</a></li>
-<li><a href="sidekiq.html">Sidekiq</a></li>
-<li><a href="cucumber.html">Cucumber</a></li>
-<li><a href="aws.html">Amazon S3 and Cloudfront</a></li>
-<li><a href="carrierwave.html">Carrierwave Upload</a></li>
-<li>awesome_print <code>gem 'awesome_print'</code></li>
-<li><a href="bootstrap.html">bootstrap</a></li>
-<li><a href="font_awesome.html">font-awesome</a></li>
-<li><a href="bullet.html">bullet</a> <code>gem 'bullet'</code></li>
-<li><a href="appsignal.html">lograge</a> <code>gem 'lograge'</code></li>
-<li>Rack Tracker (Google Analytics) <code>gem 'rack-tracker'</code> --&gt; see <a href="../google_analytics.html">Google Analytics</a></li>
-<li><a href="https://github.com/typescript-ruby/typescript-rails">Typescript</a></li>
-<li>Favicons</li>
-<li><a href="https://github.com/cyu/rack-cors">Rack CORS</a></li>
-<li><a href="https://github.com/rack/rack-attack#installing">Rack Attack</a></li>
-<li><a href="hotjar.html">🔥 Hotjar</a></li>
-<li>SEO
+                        <h1 id="setup-application-server-for-deploio"><a class="header" href="#setup-application-server-for-deploio">Setup Application Server for Deploio</a></h1>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<p>Before setting up your application, ensure you have completed the following for Deploio.</p>
+<h3 id="prerequisites-for-deploio"><a class="header" href="#prerequisites-for-deploio">Prerequisites for Deploio</a></h3>
 <ul>
-<li>redirect non-www to www</li>
-<li>Header tags</li>
+<li>You've <a href="https://docs.nine.ch/docs/deplo-io/getting-started-with-deploio">read about what Deploio is</a>.</li>
+<li>You have a Deploio account.</li>
+<li>You have installed the <code>renuo-cli</code> gem.</li>
+<li>You have installed the <code>nctl</code> command.</li>
+<li>You have logged in using <code>nctl</code>.</li>
 </ul>
-</li>
-<li><a href="wicked_pdf.html">wicked pdf</a> <code>gem wicked_pdf</code></li>
-<li><a href="recaptcha.html">Recaptcha v3</a></li>
-<li><a href="wallee.html">Wallee Payment Integration</a></li>
-</ol>
+<h2 id="setup-your-application"><a class="header" href="#setup-your-application">Setup Your Application</a></h2>
+<h3 id="setup-deploio-application"><a class="header" href="#setup-deploio-application">Setup Deploio Application</a></h3>
+<h4 id="remote-configuration"><a class="header" href="#remote-configuration">Remote Configuration</a></h4>
+<p>Run the command to generate a script which will create and configure all Deploio apps. <code>[project-name]</code> string length is limited to 63 characters:</p>
+<pre><code class="language-sh">renuo create-deploio-app [project-name]
+</code></pre>
+<p>Please review the script before running it and execute only the commands you need and understand.</p>
+<p><strong>If you don't know what a command does: read the documentation and then execute it.</strong></p>
+<p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>That's it! You have now configured your application with Deploio. No more configuration is needed.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../checklist.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ruby_on_rails/create_application_server_heroku.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../ruby_on_rails/app_initialisation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../ruby_on_rails/configure_ci.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -249,11 +193,11 @@ useful services:</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../checklist.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ruby_on_rails/create_application_server_heroku.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../ruby_on_rails/app_initialisation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../ruby_on_rails/configure_ci.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

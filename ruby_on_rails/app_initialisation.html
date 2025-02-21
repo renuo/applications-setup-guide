@@ -272,6 +272,15 @@ create the initializer for figaro in <code>config/initializers/figaro.rb</code>:
 <p>Run <code>bin/setup</code> again.</p>
 </li>
 </ul>
+<h3 id="secrets"><a class="header" href="#secrets">Secrets</a></h3>
+<p>We store the secrets necessary to configure the project locally in a 1password Item.
+Create a new Item for the project called <code>[project-name] project secrets</code> of type note.
+Right click on the vault and select <code>Copy Private link</code>.</p>
+<ul>
+<li>Run the command <code>renuo fetch-secrets --init [the vault private link]</code> to create an empty secrets file.</li>
+</ul>
+<p>The Item contains the fields that represent the ENV variables. You can use Text or Password fields.
+Check existing projects for an example of the usage.</p>
 <h4 id="configuration-customisation"><a class="header" href="#configuration-customisation">Configuration customisation</a></h4>
 <ul>
 <li>
@@ -312,7 +321,7 @@ end
 </li>
 <li>
 <p>If you're using a js-bundling tool, let's clean up after asset precompilation
-to reduce Heroku slug size. Add this to the <code>Rakefile</code>:</p>
+to reduce the size of your deployment. Although deplo.io doesn't have Heroku slugs, it is still good to set up. Add this to the <code>Rakefile</code>:</p>
 <pre><code class="language-ruby">Rake::Task['assets:clean'].enhance do
   FileUtils.remove_dir('node_modules', true)
   FileUtils.remove_dir('vendor/javascript', true)

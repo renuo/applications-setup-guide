@@ -153,8 +153,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="staging-environment-protection"><a class="header" href="#staging-environment-protection">Staging Environment Protection</a></h1>
-<p>HTTP Basic Authentication should be configured to prevent public traffic on our develop applications</p>
-<p>To setup authentication, configure the application controller like that:</p>
+<h2 id="configuration-for-heroku"><a class="header" href="#configuration-for-heroku">Configuration for Heroku</a></h2>
+<p>Add <code># BASIC_AUTH: 'admin:some-memorable-password'</code> to <code>application.example.yml</code>, then run the following command:</p>
+<pre><code class="language-sh">heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+</code></pre>
+<p>Finally, save the passwords in 1Password.</p>
+<h2 id="configuration-for-deploio"><a class="header" href="#configuration-for-deploio">Configuration for Deploio</a></h2>
+<p>HTTP Basic Authentication should be configured to prevent public traffic on our development applications.</p>
+<p>With Deploio, configure Basic Auth in the Rails app:</p>
+<h3 id="managing-basic-auth-via-rails"><a class="header" href="#managing-basic-auth-via-rails">Managing Basic Auth via Rails</a></h3>
+<p>To manage Basic Auth via Rails, use the following commands:</p>
+<pre><code class="language-sh">nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --env=BASIC_AUTH={USERNAME}:{PASSWORD}
+nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --basic-auth false
+</code></pre>
+<h2 id="applicationcontroller-configuration"><a class="header" href="#applicationcontroller-configuration">ApplicationController Configuration</a></h2>
+<p>Configure the <code>ApplicationController</code> like this when managing Basic Auth via Rails:</p>
 <pre><code class="language-ruby">class ApplicationController &lt; ActionController::Base
   # ...
 
@@ -165,10 +178,6 @@
   # ...
 end
 </code></pre>
-<p>Add <code># BASIC_AUTH: 'admin:some-memorable-password'</code> to <code>application.example.yml</code>, run the following commands:</p>
-<pre><code class="language-sh">heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
-</code></pre>
-<p>and save the passwords in 1Password.</p>
 
                     </main>
 
