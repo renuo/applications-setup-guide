@@ -33,6 +33,7 @@ RSpec.configure do |config|
 
   config.before(:each, :js, type: :system) do
     driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+    Capybara.page.current_window.resize_to(1280, 800)
   end
 
   config.after do
