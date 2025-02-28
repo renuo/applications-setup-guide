@@ -93,6 +93,7 @@ You should know exactly why you are adding each one of them and why is necessary
 
       config.before(:each, type: :system, js: true) do
         driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+        Capybara.page.current_window.resize_to(1280, 800)
       end
     end
 
