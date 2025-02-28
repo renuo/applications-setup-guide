@@ -982,8 +982,11 @@ It's already included in your Gemfile by default.</p>
 end
 </code></pre>
 <h2 id="scss-lint"><a class="header" href="#scss-lint">SCSS lint</a></h2>
+<blockquote>
+<p><em>Note</em>: Your Semaphore configuration might have to be adjusted if you decide to use <code>npm</code>.</p>
+</blockquote>
 <p>To lint the SASS/SCSS files in our project you can use the <code>stylelint</code> npm package.</p>
-<p><code>bin/yarn add stylelint stylelint-config-standard-scss</code></p>
+<p><code>npm install stylelint stylelint-config-standard-scss</code></p>
 <p>Add to the project the <a href="ruby_on_rails/../templates/.stylelintrc.yml">linter configuration file</a> and check the <a href="ruby_on_rails/../templates/bin/fastcheck"><code>bin/fastcheck</code>
 template</a> to see the command to execute the SCSS linting.</p>
 <h2 id="erb-lint"><a class="header" href="#erb-lint">Erb lint</a></h2>
@@ -992,8 +995,8 @@ template</a> to see the command to execute the SCSS linting.</p>
 end
 </code></pre>
 <h2 id="eslint"><a class="header" href="#eslint">ESLint</a></h2>
-<pre><code>yarn add eslint
-yarn eslint --init (Use a popular style guide -&gt; Airbnb)
+<pre><code>npm install eslint
+npx eslint --init (Use a popular style guide -&gt; Airbnb)
 </code></pre>
 <p>then extend the <code>bin/fastcheck</code> script with:</p>
 <pre><code>yarn eslint app/javascript
