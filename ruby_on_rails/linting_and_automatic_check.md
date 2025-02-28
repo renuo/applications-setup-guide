@@ -38,7 +38,7 @@ To lint the SASS/SCSS files in our project you can use the `stylelint` npm packa
 
 `bin/yarn add stylelint stylelint-config-standard-scss`
 
-Add to the project the [linter configuration file](../templates/stylelintrc.yml) and check the [`bin/fastcheck`
+Add to the project the [linter configuration file](../templates/.stylelintrc.yml) and check the [`bin/fastcheck`
 template](../templates/bin/fastcheck) to see the command to execute the SCSS linting.
 
 ## Erb lint
