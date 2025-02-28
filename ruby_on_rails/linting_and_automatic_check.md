@@ -34,11 +34,11 @@ end
 
 ## SCSS lint
 
-> _Note_: You may not need `yarn` in your Project. Please consult with your teammates.
+> _Note_: Your Semaphore configuration might have to be adjusted if you decide to use `npm`.
 
 To lint the SASS/SCSS files in our project you can use the `stylelint` npm package.
 
-`bin/yarn add stylelint stylelint-config-standard-scss`
+`npm install stylelint stylelint-config-standard-scss`
 
 Add to the project the [linter configuration file](../templates/stylelintrc.yml) and check the [`bin/fastcheck`
 template](../templates/bin/fastcheck) to see the command to execute the SCSS linting.
@@ -54,8 +54,8 @@ end
 ## ESLint
 
 ```
-yarn add eslint
-yarn eslint --init (Use a popular style guide -> Airbnb)
+npm install eslint
+npx eslint --init (Use a popular style guide -> Airbnb)
 ```
 
 then extend the `bin/fastcheck` script with:
