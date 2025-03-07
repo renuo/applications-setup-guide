@@ -604,6 +604,11 @@ config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn") # change
 <p>Update <code>config/environments/development.rb</code> settings:</p>
 <pre><code class="language-ruby">config.action_controller.action_on_unpermitted_parameters = :raise
 config.i18n.raise_on_missing_translations = true # uncomment
+
+config.generators do |g|
+  g.test_framework :rspec
+  g.apply_rubocop_autocorrect_after_generate!
+end
 </code></pre>
 </li>
 <li>
