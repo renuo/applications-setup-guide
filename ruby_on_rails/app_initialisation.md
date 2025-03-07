@@ -126,7 +126,7 @@ Check existing projects for an example of the usage.
   ```ruby
   config.action_controller.action_on_unpermitted_parameters = :raise
   config.i18n.raise_on_missing_translations = true # uncomment
-  
+
   config.generators do |g|
     g.test_framework :rspec
     g.apply_rubocop_autocorrect_after_generate!
