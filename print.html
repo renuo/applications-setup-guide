@@ -824,14 +824,14 @@ branches in GitHub will be automatically deployed to the related server.</p>
 <p>Even though Rails uses Minitest per default, RSpec is the <em>de-facto</em> standard at Renuo. We love RSpec and we strongly suggest to use it.</p>
 <p>Add the following gems to your Gemfile:</p>
 <pre><code class="language-ruby">group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem "rspec-rails"
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-  gem 'super_diff'
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "super_diff"
 end
 </code></pre>
 <p>You should know exactly why you are adding each one of them and why is necessary.</p>
@@ -850,13 +850,13 @@ end
 <li>
 <p>At the top of the <code>spec/spec_helper.rb</code></p>
 <pre><code class="language-ruby">require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter 'app/channels/application_cable/channel.rb'
-  add_filter 'app/channels/application_cable/connection.rb'
-  add_filter 'app/jobs/application_job.rb'
-  add_filter 'app/mailers/application_mailer.rb'
-  add_filter 'app/models/application_record.rb'
-  add_filter '.semaphore-cache'
+SimpleCov.start "rails" do
+  add_filter "app/channels/application_cable/channel.rb"
+  add_filter "app/channels/application_cable/connection.rb"
+  add_filter "app/jobs/application_job.rb"
+  add_filter "app/mailers/application_mailer.rb"
+  add_filter "app/models/application_record.rb"
+  add_filter ".semaphore-cache"
   enable_coverage :branch
   minimum_coverage line: 100, branch: 100
 end
@@ -1082,9 +1082,9 @@ to generate the commands for you.</p>
 <li>
 <p>Add sentry gems to the project:</p>
 <pre><code class="language-ruby">group :production do
-  gem 'sentry-rails'
-  gem 'sentry-ruby'
-  gem 'sentry-sidekiq' # If the project uses Sidekiq for background jobs
+  gem "sentry-rails"
+  gem "sentry-ruby"
+  gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
 end
 </code></pre>
 </li>
@@ -1163,7 +1163,7 @@ This file will only be used in environments where the <code>BLOCK_ROBOTS</code> 
 If it is set then a custom middleware catches calls to <code>/robots.txt</code></p>
 <p>Add the following gem:</p>
 <pre><code class="language-ruby">group :production do
-  gem 'norobots'
+  gem "norobots"
 end
 </code></pre>
 <h2 id="setting-environment-variables"><a class="header" href="#setting-environment-variables">Setting Environment Variables</a></h2>
@@ -1319,9 +1319,9 @@ to generate the commands for you.</p>
 <li>
 <p>Add sentry gems to the project:</p>
 <pre><code class="language-ruby">group :production do
-  gem 'sentry-rails'
-  gem 'sentry-ruby'
-  gem 'sentry-sidekiq' # If the project uses Sidekiq for background jobs
+  gem "sentry-rails"
+  gem "sentry-ruby"
+  gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
 end
 </code></pre>
 </li>
