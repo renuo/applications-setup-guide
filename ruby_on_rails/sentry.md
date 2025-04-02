@@ -14,7 +14,11 @@
 
 * Set the Heroku environment variables.
 You can use [`renuo configure-sentry project-name <SENTRY_DSN>`](https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/app/configure_sentry.rb)
-to generate the commands for you.
+to generate the commands for you. Use the same DSN key for all the environments (!!!), Sentry will differentiate between the environments.
+
+* To display the project's Sentry on Renuo Dashboard do this:
+  1. Go to the project's settings on Redmine
+  2. Set the `Dash` field to the Sentry project name.
 
 ## Backend (Rails)
 
