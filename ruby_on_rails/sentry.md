@@ -12,13 +12,15 @@
 
   ![sentry_dsn](../images/sentry.png)
 
-* Set the Heroku environment variables.
-You can use [`renuo configure-sentry project-name <SENTRY_DSN>`](https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/app/configure_sentry.rb)
-to generate the commands for you. Use the same DSN key for all the environments (!!!), Sentry will differentiate between the environments.
+Add the ENV variables to the `.env` files for each environment.
 
-* To display the project's Sentry on Renuo Dashboard do this:
-  1. Go to the project's settings on Redmine
-  2. Set the `Dash` field to the Sentry project name.
+Use the **same** `SENTRY_DSN` across all environments, but set a different `SENTRY_ENVIRONMENT` in each environment (e.g. `main`, `develop`).
+
+This allows all errors to be tracked in a single Sentry project while still being grouped by environment.
+
+The project's Sentry issues can be monitored on the [Renuo Dashboard](https://dashboard.renuo.ch/redmine_projects). To configure this, ensure that the `dash` attribute for the project on Redmine is equal to the Sentry project name.
+
+The different environments will be automatically detected, and you can monitor and view the Sentry issues from one place.
 
 ## Backend (Rails)
 
