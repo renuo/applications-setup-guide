@@ -36,7 +36,6 @@
     - [Protect develop environment](ruby_on_rails/environment_protection.md)
 - [Customer Plan Services]()
     - [Uptimerobot](ruby_on_rails/uptimerobot.md)
-    - [Sentry Notifications](ruby_on_rails/sentry.md)
     - [Depfu Security monitoring](ruby_on_rails/depfu.md)
 
 - [Gems]()
