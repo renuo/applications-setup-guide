@@ -25,17 +25,18 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -45,8 +46,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -60,7 +61,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -73,8 +75,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -110,6 +112,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -1292,86 +1295,6 @@ monitors.each do |monitor|
   puts cmd
 end
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sentry-1"><a class="header" href="#sentry-1">Sentry</a></h1>
-<h2 id="general-configuration-1"><a class="header" href="#general-configuration-1">General configuration</a></h2>
-<ul>
-<li>
-<p>Go to https://www.sentry.io and login as the renuo monitor user.</p>
-</li>
-<li>
-<p>Create a project named <code>[project-name]</code>.</p>
-</li>
-<li>
-<p>Add the project to the <em>#renuo</em> team if the client pays for monitoring, to the <code>#no-notifications</code> otherwise.</p>
-</li>
-<li>
-<p>Note the DSN key.</p>
-<p><img src="ruby_on_rails/../images/sentry.png" alt="sentry_dsn" /></p>
-</li>
-<li>
-<p>Set the Heroku environment variables.
-You can use <a href="https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/app/configure_sentry.rb"><code>renuo configure-sentry project-name &lt;SENTRY_DSN&gt;</code></a>
-to generate the commands for you.</p>
-</li>
-</ul>
-<h2 id="backend-rails-1"><a class="header" href="#backend-rails-1">Backend (Rails)</a></h2>
-<ul>
-<li>
-<p>Add sentry gems to the project:</p>
-<pre><code class="language-ruby">group :production do
-  gem "sentry-rails"
-  gem "sentry-ruby"
-  gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
-end
-</code></pre>
-</li>
-<li>
-<p>Add a Sentry initializer to your project <a href="ruby_on_rails/../templates/config/initializers/sentry.rb"><code>config/initializers/sentry.rb</code></a>.</p>
-</li>
-<li>
-<p>Add <code># SENTRY_DSN: 'find_me_on_password_manager'</code> to <code>application.example.yml</code></p>
-</li>
-<li>
-<p>Add <code># SENTRY_ENVIRONMENT: 'local'</code> to <code>application.example.yml</code></p>
-</li>
-<li>
-<p>Add <code># CSP_REPORT_URI</code> to <code>application.example.yml</code></p>
-</li>
-<li>
-<p>Enable CSP Reporting to Sentry in <code>config/initializers/content_security_policy.rb</code> and allow unsafe inline JS:</p>
-<pre><code class="language-ruby">Rails.application.config.content_security_policy do |policy|
-  ...
-  policy.report_uri ENV['CSP_REPORT_URI'] if ENV['CSP_REPORT_URI']
-end
-</code></pre>
-<p>You can find the correct value in <code>Sentry -&gt; Project Settings -&gt; Security Headers -&gt; REPORT URI</code>. Add the environment to the <code>CSP_REPORT_URI</code> using <code>&amp;sentry_environment=main</code>.</p>
-</li>
-</ul>
-<h2 id="frontend-javascript-1"><a class="header" href="#frontend-javascript-1">Frontend (Javascript)</a></h2>
-<ul>
-<li>Install the npm package: <code>yarn add @sentry/browser</code></li>
-<li>Include <a href="ruby_on_rails/../templates/app/views/shared/_sentry.html.erb">_sentry.html</a> in your header.</li>
-<li>Include <a href="ruby_on_rails/../templates/app/javascript/sentry.js">sentry.js</a> in your JS assets.</li>
-</ul>
-<h2 id="verify-the-installation-1"><a class="header" href="#verify-the-installation-1">Verify the installation</a></h2>
-<h3 id="ruby-1"><a class="header" href="#ruby-1">Ruby</a></h3>
-<p>For each Heroku app, connect to the <code>heroku run rails console --app [project-name]-[branch-name]</code> and raise an exception using Sentry:</p>
-<pre><code>begin
-  1 / 0
-rescue ZeroDivisionError =&gt; exception
-  Sentry.capture_exception(exception)
-end
-</code></pre>
-<p>On <code>https://sentry.io/renuo/[project-name]</code> you should find the exception of the ZeroDivisionError.</p>
-<h3 id="javascript-1"><a class="header" href="#javascript-1">Javascript</a></h3>
-<p>Open the dev console in chrome, and run</p>
-<pre><code class="language-js">try {
-    throw new Error('test sentry js');
-} catch(e) {
-    Sentry.captureException(e)
-}
-</code></pre>
-<p>On <code>https://sentry.io/renuo/[project-name]</code> you should find "Uncaught Error: test sentry js".</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="depfu"><a class="header" href="#depfu">Depfu</a></h1>
 <p>Depfu is a service which checks out the Gemfile / yarn.lock of a project for problematic
 dependencies. It will automatically create a pull request to the project
@@ -1498,34 +1421,6 @@ describe('MyClass', () =&gt; {
 });
 
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="slack-and-notifications"><a class="header" href="#slack-and-notifications">Slack and Notifications</a></h1>
-<p>If you want to keep your team up-to-date with some notifications about the project and to discuss project-related topics
-we suggest you to use <a href="https://renuo.slack.com/">Slack</a>.</p>
-<p>You are, for sure, already a member of slack.</p>
-<h2 id="project-channel"><a class="header" href="#project-channel">Project Channel</a></h2>
-<p>You can create a project-dedicated channel on slack naming it <code>#project-[project-name]</code> (e.g. <code>#project-bookshelf</code>,
-<code>#project-gifcoins</code>, etc..).</p>
-<p>Invite all team members involved in the project to the channel.</p>
-<h2 id="deploy-notifications"><a class="header" href="#deploy-notifications">Deploy Notifications</a></h2>
-<p>One notification you may want to receive on this channel is about when a new deployment on main has been performed. In
-order to do that you must be an admin of the Renuo Slack Organisation. If you are not an admin, ask wg-operations to do
-it for you communicating the <code>[project-name]</code>.</p>
-<p>⚠ <strong>You must have already setup <a href="ruby_on_rails/configure_ci.html">Automatic Deployment through SemaphoreCI</a></strong> ⚠
-If you used Renuo CLI to configure SemaphoreCI, the notifications should be already created. For manual setup, follow these steps:</p>
-<ol>
-<li>Open the project Notifications settings (<code>https://renuo.semaphoreci.com/notifications</code>)</li>
-<li>Create New Notification</li>
-<li>Name of the Notification -&gt; <code>[project-name]</code></li>
-<li>Name of the Rule -&gt; <code>Slack notifications</code></li>
-<li>Branches -&gt; <code>main</code></li>
-<li>Slack Endpoint: Use the Webhook URL from other projects</li>
-<li>Send to Slack channel: <code>#project-[project-name]</code></li>
-<li>Save changes</li>
-</ol>
-<blockquote>
-<p>We do not want to pollute the channel with many notifications, therefore we suggest to only send a notification about
-deployments to production.</p>
-</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-send-emails"><a class="header" href="#-send-emails">📫 Send Emails</a></h1>
 <p>As soon as you have to send emails please follow those suggestions.
 They will help you having a proper system to deliver emails and development environment.</p>
@@ -2459,9 +2354,9 @@ So once the project is created, the frontend API key can be found in the "Push a
 <ul>
 <li>Include <a href="ruby_on_rails/../templates/app/javascript/appsignal.js">appsignal.js</a> in your JS assets.</li>
 </ul>
-<h2 id="verify-the-installation-2"><a class="header" href="#verify-the-installation-2">Verify the installation</a></h2>
+<h2 id="verify-the-installation-1"><a class="header" href="#verify-the-installation-1">Verify the installation</a></h2>
 <h3 id="error-monitoring-1"><a class="header" href="#error-monitoring-1">Error monitoring</a></h3>
-<h4 id="ruby-2"><a class="header" href="#ruby-2">Ruby</a></h4>
+<h4 id="ruby-1"><a class="header" href="#ruby-1">Ruby</a></h4>
 <p>For each environment of your app, connect to the <code>heroku run rails console --app [project-name]-[branch-name]</code> and raise an exception using Appsignal:</p>
 <pre><code>begin
   1 / 0
@@ -2470,7 +2365,7 @@ rescue ZeroDivisionError =&gt; exception
 end
 </code></pre>
 <p>You should find the exception of the ZeroDivisionError on Appsignal after a minute or two.</p>
-<h4 id="javascript-2"><a class="header" href="#javascript-2">Javascript</a></h4>
+<h4 id="javascript-1"><a class="header" href="#javascript-1">Javascript</a></h4>
 <p>Open the dev console in chrome, and run</p>
 <pre><code class="language-js">try {
   throw new Error('test appsignal js');
@@ -2558,592 +2453,6 @@ which then returns a score based on which it will be decided if the request (to 
 the <code>application.yml</code>. If your integration worked, then you will see a small container in the bottom right
 corner of your chosen page, something like this:
 <img src="https://user-images.githubusercontent.com/31915276/55479133-ae4f8c80-561d-11e9-9df2-d94cbc5f92d3.png" alt="reCAPTCHA demonstration" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="frontend-apps"><a class="header" href="#frontend-apps">Frontend apps</a></h1>
-<h2 id="trivial-app"><a class="header" href="#trivial-app">Trivial app</a></h2>
-<p>Consider using only static files (example: <a href="https://github.com/renuo/green-card-probability-frontend">Green Card Predictor</a>)
-and CDNs.</p>
-<h2 id="simple-js-app"><a class="header" href="#simple-js-app">Simple JS app</a></h2>
-<p>If you need a really simple JavaScript application and you need more than just an <em>index.html</em>, you can checkout this template:
-<a href="https://github.com/renuo/tamedia-altersheime/tree/dab2bb6f1bb4c7776e965d227de5b63e06240624">https://github.com/renuo/tamedia-altersheime/tree/dab2bb6f1bb4c7776e965d227de5b63e06240624</a></p>
-<p>It contains a very simple <em>webpack</em> configuration (production ready) featuring:</p>
-<ul>
-<li>Cucumber tests</li>
-<li>Fonts</li>
-<li>Images</li>
-<li>Favicon</li>
-</ul>
-<p>The rest is done in these three files:</p>
-<ul>
-<li>index.html</li>
-<li>index.css</li>
-<li>index.js</li>
-</ul>
-<h2 id="vuejs"><a class="header" href="#vuejs">Vue.js</a></h2>
-<p>An alternative to the JS app mentioned above is a setup with Vue.js.
-It provides a scalable foundation for your app and it's easy to understand.</p>
-<p>To get started, install the <a href="https://github.com/vuejs/vue-cli">vue-cli</a> by running <code>npm install -g @vue/cli</code>.
-Then run <code>vue create [app-name]</code> to generate a vue app.
-This creates a minimal setup with some default configurations and
-if you wish, with some testing frameworks included like <a href="https://www.cypress.io">Cypress</a> or <a href="https://facebook.github.io/jest/">Jest</a>.</p>
-<p>An example Vue.js application can be found <a href="https://github.com/renuo/tamedia-altersheime">here</a>.</p>
-<h2 id="complex-js-app"><a class="header" href="#complex-js-app">Complex JS app</a></h2>
-<p>Use either React or Angular.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="react-native"><a class="header" href="#react-native">React Native</a></h1>
-<p>This guide discusses the steps from initialisation of the app up until the release.
-Some steps are the same as for the Rails app.</p>
-<ol>
-<li>Initialise the React Native app.
-<pre><code>react-native init [project-name] --template typescript
-</code></pre>
-</li>
-<li><a href="react_native/../ruby_on_rails/first_git_push.html">Push to Git Repository</a></li>
-<li><a href="react_native/../ruby_on_rails/initialise_gitflow.html">Initialise Gitflow</a></li>
-<li><a href="react_native/configure_ci.html">Configure CI</a></li>
-<li><a href="react_native/release.html">Release</a></li>
-</ol>
-<p>Now the app should be downloadable via Testflight / Play store.
-Other recommended tools:</p>
-<ol>
-<li><a href="react_native/jest.html">Jest</a></li>
-<li><a href="react_native/recommended_libraries.html">Recommended libraries</a></li>
-<li><a href="react_native/linting_and_automatic_check.html">Linting and automatic checks</a></li>
-<li><a href="react_native/../ruby_on_rails/compile_readme.html">README</a></li>
-</ol>
-<p>Optional steps:</p>
-<ol>
-<li><a href="react_native/sentry.html">Sentry</a></li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="push-to-git-repository-1"><a class="header" href="#push-to-git-repository-1">Push to Git Repository</a></h1>
-<p>It's now time to push to the git repository and configure our CI and CD to deploy our application on Heroku.
-To do that you first need to <a href="ruby_on_rails/../create_git_repository.html">Create a Git Repository</a>.</p>
-<p>After creating the repo you can connect your project to the remote git repo (if you didn't use <code>hub create</code> command)</p>
-<pre><code class="language-sh">git remote add origin git@github.com:renuo/[project-name].git
-</code></pre>
-<p>and push using:</p>
-<pre><code class="language-sh">git add .
-git commit -m "Initial commit"
-git push -u origin main
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="initialise-gitflow-1"><a class="header" href="#initialise-gitflow-1">Initialise Gitflow</a></h1>
-<p>You can initialise gitflow in you project with <code>git flow init -d</code></p>
-<p>Then push also your new develop branch <code>git push --set-upstream origin develop</code></p>
-<p>Once you have pushed all the two branches you can finish the <a href="ruby_on_rails/../configure_git_repository.html">configuration of Git Repository</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="continuous-integration"><a class="header" href="#continuous-integration">Continuous Integration</a></h1>
-<p>Just as for Rails apps, we're using Semaphore as CI also for React Native apps.
-Use the same <a href="react_native/../ruby_on_rails/configure_ci.html">base configuration</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="release"><a class="header" href="#release">Release</a></h1>
-<h2 id="ios"><a class="header" href="#ios">iOS</a></h2>
-<ul>
-<li>log in here and create three bundle identifiers - <code>ch.renuo.[project-name]</code>, <code>ch.renuo.[project-name].staging</code>, <code>ch.renuo.[project-name].dev</code>: <a href="https://developer.apple.com/account/resources/identifiers/list">https://developer.apple.com/account/resources/identifiers/list</a></li>
-<li>make sure to select push notifications in the capabilities if it's needed</li>
-<li>log in there with operations@renuo.ch account</li>
-<li>then as a second step, you need to create the app listing for production &amp; staging apps in <a href="https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app">https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app</a></li>
-<li>(wait a couple of minutes until the new app identifier is synchronized to all lists)</li>
-<li>click the plus button and select new app</li>
-<li>when you have this, you should be already able to publish the app.</li>
-<li>configure Fastlane (copy &amp; paste the config from another app (e.g.: <a href="https://github.com/renuo/citymessenger/tree/develop/app/fastlane">https://github.com/renuo/citymessenger/tree/develop/app/fastlane</a>),
-<ul>
-<li>change the identifier and run <code>bundle exec fastlane match development &amp;&amp; bundle exec fastlane match appstore</code>).</li>
-<li>run it also for the staging app: <code>APP_BUNDLE_ID="ch.renuo.[project-name]" bundle exec fastlane match development &amp;&amp; APP_BUNDLE_ID="ch.renuo.[project-name]" bundle exec fastlane match appstore</code></li>
-<li>This will create the certificates an push them to the repo here <a href="https://github.com/renuo/fastlane-ios-certificates">https://github.com/renuo/fastlane-ios-certificates</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="build-configuration"><a class="header" href="#build-configuration">Build configuration</a></h3>
-<p>Open the Xcode project under <code>ios/[project-name].xcworkspace</code>.</p>
-<ul>
-<li>Create a <code>Release Staging</code> build configuration.</li>
-</ul>
-<p><img src="react_native/../images/xcode_configurations.png" alt="xcode_configurations" /></p>
-<p>Click on <code>Duplicate using Release configuration</code>.</p>
-<ul>
-<li>
-<p>Go to <code>Product -&gt; Scheme -&gt; Manage schemes</code>.</p>
-</li>
-<li>
-<p>Duplicate the scheme <code>[project-name]</code>. Edit it.
-Select <code>Shared</code> and make sure you have selected only <code>Run</code>, <code>Profile</code>, and <code>Archive</code> for <code>[project-name]</code> target.
-Go through each build step and select <code>Release Staging</code> as build configuration.</p>
-</li>
-<li>
-<p>Go to the <code>Build Settings</code> and click on <code>All</code> and <code>Combined</code> filters.</p>
-<ul>
-<li>Look for <code>Product Bundle Identifiers</code> and add <code>.dev</code> for <code>Debug</code> and <code>.staging</code> for <code>Release Staging</code>.</li>
-<li>Change the <code>Provisioning Profile</code> to match the same identifiers.</li>
-<li>Add <code>BUNDLE_DISPLAY_NAME</code> under <code>User-Defined variables</code>. Set app names for each variant.</li>
-</ul>
-</li>
-</ul>
-<p>Fastlane is using the staging scheme to deploy the staging version of the app.</p>
-<h2 id="android"><a class="header" href="#android">Android</a></h2>
-<p>Prepare your repo like in this commit: <a href="https://github.com/renuo/citymessenger/pull/182/commits/5b7bdc7d2137ffd885ed8fa8f56be1aa3ee550e2">https://github.com/renuo/citymessenger/pull/182/commits/5b7bdc7d2137ffd885ed8fa8f56be1aa3ee550e2</a></p>
-<h3 id="default-configuration"><a class="header" href="#default-configuration">Default configuration</a></h3>
-<pre><code>defaultConfig {
-    applicationId "ch.renuo.[project-name]"
-    ...
-    versionCode Integer.parseInt(System.getenv("BITRISE_BUILD_NUMBER") ?: VERSION_CODE)
-    versionName System.getenv("VERSION_NUMBER") ?: VERSION_NUMBER
-    resValue "string", "build_config_package", "ch.renuo.[project-name]"
-}
-</code></pre>
-<h3 id="staging-build-type"><a class="header" href="#staging-build-type">Staging build type</a></h3>
-<p>In <code>android/app/build.gradle</code>:</p>
-<p>Define staging build type under <code>buildTypes</code>:</p>
-<pre><code>buildTypes {
-    debug {
-       applicationIdSuffix ".dev"
-    }
-    release {
-        minifyEnabled enableProguardInReleaseBuilds
-        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        signingConfig signingConfigs.release
-    }
-    releasestaging {
-        initWith release
-        applicationIdSuffix ".staging"
-        matchingFallbacks = ['release', 'debug']
-    }
-}
-</code></pre>
-<p>Set up env files mapping at the top of the file:</p>
-<pre><code>project.ext.envConfigFiles = [
-    debug: ".env",
-    release: ".env",
-    releasestaging: ".env.staging"
-]
-</code></pre>
-<h3 id="signing"><a class="header" href="#signing">Signing</a></h3>
-<p>Add the following files to <code>.gitignore</code>:</p>
-<pre><code>android/keystore.properties
-android/key.json
-</code></pre>
-<p>In <code>android/app/build.gradle</code>:</p>
-<p>Add the release signing config under <code>signingConfigs</code>:</p>
-<pre><code>release {
-    if (keystorePasswords['[PROJECT-NAME]_RELEASE_STORE_PASSWORD'] &amp;&amp;
-            keystorePasswords['[PROJECT-NAME]_RELEASE_KEY_PASSWORD']) {
-        storeFile file([PROJECT-NAME]_RELEASE_STORE_FILE)
-        storePassword keystorePasswords['[PROJECT-NAME]_RELEASE_STORE_PASSWORD']
-        keyAlias [PROJECT-NAME]_RELEASE_KEY_ALIAS
-        keyPassword keystorePasswords['[PROJECT-NAME]_RELEASE_KEY_PASSWORD']
-    }
-}
-</code></pre>
-<p>Add these variables in <code>android/gradle.properties</code>:</p>
-<pre><code>[PROJECT-NAME]_RELEASE_STORE_FILE=../keystores/[project-name].jks
-[PROJECT-NAME]_RELEASE_KEY_ALIAS=key0
-VERSION_CODE=1
-VERSION_NUMBER=0.0.1
-</code></pre>
-<p>and load the <code>keystore.properties</code> file:</p>
-<pre><code>def keystorePasswordsFile = rootProject.file("keystore.properties")
-def keystorePasswords = new Properties()
-keystorePasswords.load(new FileInputStream(keystorePasswordsFile))
-</code></pre>
-<p>Prepare three new passwords and add them to the password manager:</p>
-<ul>
-<li>App encrypted secrets password</li>
-<li>Android keystore password</li>
-<li>Android keystore key0</li>
-</ul>
-<p>Create a file <code>keystore.properties</code> and save the two passwords "Android keystore password" and "Android keystore key0"
-there in the following form:</p>
-<pre><code>APP_RELEASE_STORE_PASSWORD=&lt;Android keystore password&gt;
-APP_RELEASE_KEY_PASSWORD=&lt;Android keystore key0&gt;
-</code></pre>
-<p>Encrypt this file with the "App encrypted secrets password" to be checked into the git repo:</p>
-<pre><code>openssl enc -aes-256-cbc -salt -a -in android/keystore.properties -out android/keystore.properties.enc
-</code></pre>
-<p>Create a signing key using "Android keystore password" and "Android keystore key0" with the key tool:</p>
-<pre><code>keytool -genkey -v -keystore [project-name].jks -alias key0 -keyalg RSA -keysize 2048 -validity 10000
-</code></pre>
-<p>You need to log in to <a href="https://play.google.com/apps/publish/">https://play.google.com/apps/publish/</a> with the <code>google@renuo.ch</code> account) and create the app there.
-You will need much more information for the store listing than for iOS, they require also the screenshots,
-etc., otherwise it’s not possible to even make the internal testing build.</p>
-<ul>
-<li>
-<p>Enable App Signing by Google Play.</p>
-</li>
-<li>
-<p>Add a service account to Google and generate a <code>key.json</code> file (no other configurations), download it
-and encrypt it with the "App encrypted secrets password".</p>
-</li>
-</ul>
-<pre><code>openssl enc -aes-256-cbc -salt -a -in android/key.json -out android/key.json.enc
-</code></pre>
-<ul>
-<li>Add the service account to the app users with the role release manager.</li>
-</ul>
-<p>When it’s there, it should also just work with <code>bundle exec fastlane android deploy</code></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="jest"><a class="header" href="#jest">Jest</a></h1>
-<p>Create a <code>jest.config.js</code> file in the project root with the following contents:</p>
-<p>Install some test libraries:</p>
-<pre><code>yarn add enzyme-adapter-react-16 enzyme enzyme-to-json
-yarn add -D @types/enzyme @types/enzyme-adapter-react-16 jest-fetch-mock
-</code></pre>
-<pre><code class="language-javascript">const { defaults: tsjPreset } = require('ts-jest/presets');
-
-module.exports = {
-  ...tsjPreset,
-  preset: 'react-native',
-  testEnvironment: 'jsdom',
-  transform: {
-    ...tsjPreset.transform,
-    '\\.js$': '&lt;rootDir&gt;/node_modules/react-native/jest/preprocessor.js',
-  },
-  globals: {
-    'ts-jest': {
-      diagnostics: true,
-      babelConfig: true,
-    }
-  },
-  testPathIgnorePatterns: [
-    "&lt;rootDir&gt;/e2e/",
-    "&lt;rootDir&gt;/node_modules/"
-  ],
-  snapshotSerializers: ["enzyme-to-json/serializer"],
-  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js",
-    "jsx",
-    "json",
-    "node"
-  ],
-  resetMocks: true,
-  coverageReporters: [
-    "json",
-    "lcov",
-    "text-summary"
-  ],
-  transformIgnorePatterns: [
-    "!node_modules"
-  ],
-  modulePaths: [
-    "&lt;rootDir&gt;"
-  ],
-  setupFiles: [
-    "./tests/setup.tsx"
-  ],
-  collectCoverage: true,
-  cacheDirectory: ".jest/cache",
-  coveragePathIgnorePatterns: [
-    "&lt;rootDir&gt;/node_modules/",
-    "&lt;rootDir&gt;/locales/",
-    "&lt;rootDir&gt;/e2e",
-    "&lt;rootDir&gt;/tests",
-    "(.*)/index.ts"
-  ],
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100
-    }
-  },
-  reporters: ["default", "jest-junit"],
-};
-</code></pre>
-<p>Under <code>tests/setup.tsx</code> create the following file:</p>
-<pre><code class="language-javascript">import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import jestFetchMock from 'jest-fetch-mock';
-(global as any).fetch = jestFetchMock;
-
-configure({ adapter: new Adapter() });
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="recommended-libraries"><a class="header" href="#recommended-libraries">Recommended libraries</a></h1>
-<ul>
-<li><a href="https://github.com/react-navigation/react-navigation">React-navigation</a></li>
-<li><a href="https://github.com/luggit/react-native-config">react-native-config</a> to support .env files</li>
-<li><a href="https://github.com/infinitered/apisauce">apisauce</a> for API services</li>
-<li><a href="https://github.com/fnando/i18n-js">i18n-js</a> for internalization</li>
-<li><a href="https://nativebase.io/">Native Base</a> - collection of useful UI components.</li>
-<li><a href="https://momentjs.com/">Moment</a> for date handling utilities</li>
-<li><a href="https://lodash.com/">Lodash</a></li>
-<li><a href="https://react-redux.js.org/">Redux</a> (If the app needs more complex state management)</li>
-<li><a href="https://github.com/rgommezz/react-native-offline">React-native-offline</a> for offline mode</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="linting-and-automatic-checks--1"><a class="header" href="#linting-and-automatic-checks--1">Linting and automatic checks ✅</a></h1>
-<p>All Renuo projects contain (and your project must contain as well) the following linters.
-Every linter consists of a package (usually) and a command to add to our <code>bin/check</code> script.</p>
-<h2 id="eslint-1"><a class="header" href="#eslint-1">ESLint</a></h2>
-<p>React Native comes with ESLint by default.
-We configure the rules to add stricter checks by extending <code>.eslintrc.js</code>:</p>
-<pre><code>module.exports = {
-    "env": {
-        "es6": true
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": "tsconfig.json",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "@typescript-eslint/tslint"
-    ],
-    "rules": {
-        "@typescript-eslint/adjacent-overload-signatures": "error",
-        "@typescript-eslint/array-type": "error",
-        "@typescript-eslint/ban-types": "error",
-        "@typescript-eslint/class-name-casing": "error",
-        "@typescript-eslint/consistent-type-assertions": "off",
-        "@typescript-eslint/consistent-type-definitions": "error",
-        "@typescript-eslint/explicit-member-accessibility": [
-            "error",
-            {
-                "accessibility": "explicit"
-            }
-        ],
-        "@typescript-eslint/indent": [
-            "error",
-            4,
-            {
-                "ObjectExpression": "first",
-                "FunctionDeclaration": {
-                    "parameters": "first"
-                },
-                "FunctionExpression": {
-                    "parameters": "first"
-                }
-            }
-        ],
-        "@typescript-eslint/interface-name-prefix": "off",
-        "@typescript-eslint/member-delimiter-style": [
-            "error",
-            {
-                "multiline": {
-                    "delimiter": "semi",
-                    "requireLast": true
-                },
-                "singleline": {
-                    "delimiter": "semi",
-                    "requireLast": false
-                }
-            }
-        ],
-        "@typescript-eslint/member-ordering": "error",
-        "@typescript-eslint/no-empty-interface": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-misused-new": "error",
-        "@typescript-eslint/no-namespace": "error",
-        "@typescript-eslint/no-parameter-properties": "off",
-        "@typescript-eslint/no-this-alias": "error",
-        "@typescript-eslint/no-use-before-define": "off",
-        "@typescript-eslint/no-var-requires": "error",
-        "@typescript-eslint/prefer-for-of": "error",
-        "@typescript-eslint/prefer-function-type": "error",
-        "@typescript-eslint/prefer-namespace-keyword": "error",
-        "@typescript-eslint/quotes": [
-            "error",
-            "single",
-            {
-                "avoidEscape": true
-            }
-        ],
-        "@typescript-eslint/semi": [
-            "error",
-            "always"
-        ],
-        "@typescript-eslint/triple-slash-reference": "error",
-        "@typescript-eslint/type-annotation-spacing": "error",
-        "@typescript-eslint/unified-signatures": "error",
-        "arrow-body-style": "error",
-        "arrow-parens": [
-            "off",
-            "as-needed"
-        ],
-        "camelcase": "error",
-        "comma-dangle": [
-            "error",
-            "always-multiline"
-        ],
-        "complexity": "off",
-        "constructor-super": "error",
-        "curly": "error",
-        "dot-notation": "error",
-        "eol-last": "error",
-        "eqeqeq": [
-            "error",
-            "smart"
-        ],
-        "guard-for-in": "error",
-        "id-blacklist": "error",
-        "id-match": "error",
-        "import/no-extraneous-dependencies": "off",
-        "import/no-internal-modules": "off",
-        "import/order": "error",
-        "max-classes-per-file": [
-            "error",
-            1
-        ],
-        "max-len": [
-            "error",
-            {
-                "code": 140
-            }
-        ],
-        "new-parens": "error",
-        "no-bitwise": "error",
-        "no-caller": "error",
-        "no-cond-assign": "error",
-        "no-console": "off",
-        "no-debugger": "error",
-        "no-duplicate-case": "error",
-        "no-duplicate-imports": "error",
-        "no-empty": "error",
-        "no-eval": "error",
-        "no-extra-bind": "error",
-        "no-fallthrough": "off",
-        "no-invalid-this": "off",
-        "no-multiple-empty-lines": "error",
-        "no-new-func": "error",
-        "no-new-wrappers": "error",
-        "no-redeclare": "error",
-        "no-return-await": "error",
-        "no-sequences": "error",
-        "no-shadow": [
-            "error",
-            {
-                "hoist": "all"
-            }
-        ],
-        "no-sparse-arrays": "error",
-        "no-template-curly-in-string": "error",
-        "no-throw-literal": "error",
-        "no-trailing-spaces": "error",
-        "no-undef-init": "error",
-        "no-underscore-dangle": "error",
-        "no-unsafe-finally": "error",
-        "no-unused-expressions": "error",
-        "no-unused-labels": "error",
-        "no-var": "error",
-        "object-shorthand": "error",
-        "one-var": [
-            "error",
-            "never"
-        ],
-        "prefer-arrow/prefer-arrow-functions": "error",
-        "prefer-const": "error",
-        "prefer-object-spread": "error",
-        "quote-props": [
-            "error",
-            "consistent-as-needed"
-        ],
-        "radix": "error",
-        "space-before-function-paren": [
-            "error",
-            {
-                "anonymous": "never",
-                "asyncArrow": "always",
-                "named": "never"
-            }
-        ],
-        "space-in-parens": [
-            "error",
-            "always"
-        ],
-        "spaced-comment": "error",
-        "use-isnan": "error",
-        "valid-typeof": "off",
-        "@typescript-eslint/tslint/config": [
-            "error",
-            {
-                "rules": {
-                    "import-spacing": true,
-                    "jsdoc-format": [
-                        true,
-                        "check-multiline-start"
-                    ],
-                    "jsx-alignment": true,
-                    "jsx-boolean-value": true,
-                    "jsx-curly-spacing": [
-                        true,
-                        "never"
-                    ],
-                    "jsx-equals-spacing": [
-                        true,
-                        "never"
-                    ],
-                    "jsx-key": true,
-                    "jsx-no-bind": true,
-                    "jsx-no-string-ref": true,
-                    "jsx-self-close": true,
-                    "jsx-wrap-multiline": true,
-                    "no-reference-import": true,
-                    "object-curly-spacing": true,
-                    "one-line": [
-                        true,
-                        "check-catch",
-                        "check-else",
-                        "check-finally",
-                        "check-open-brace",
-                        "check-whitespace"
-                    ],
-                    "prefer-conditional-expression": true,
-                    "whitespace": [
-                        true,
-                        "check-module"
-                    ]
-                }
-            }
-        ]
-    }
-};
-</code></pre>
-<p>Add the following contents to the <code>bin/check</code> script:</p>
-<pre><code>yarn lint
-
-if [ ! $? -eq 0 ]; then
-  echo -e '\033[31mYou have linting errors, attempting to fix them. Please try again, commit aborted\033[0m'
-  yarn fix
-  exit 1
-fi
-
-yarn test
-if [ ! $? -eq 0 ]; then
-  echo -e '\033[31mTests failed.\033[0m'
-  exit 1
-fi
-</code></pre>
-<p>Add a script to fix ESLint issues to <code>package.json</code>:</p>
-<p><code>"fix": "eslint . --fix"</code></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sentry-2"><a class="header" href="#sentry-2">Sentry</a></h1>
-<h2 id="general-configuration-2"><a class="header" href="#general-configuration-2">General configuration</a></h2>
-<ul>
-<li>
-<p>Go to https://www.sentry.io and login as the renuo monitor user.</p>
-</li>
-<li>
-<p>Create a project named <code>[project-name]</code>.</p>
-</li>
-<li>
-<p>Add the project to the <em>#renuo</em> team if the client pays for monitoring, to the <code>#no-notifications</code> otherwise.</p>
-</li>
-<li>
-<p>Note the DSN key.</p>
-<p><img src="react_native/../images/sentry.png" alt="sentry_dsn" /></p>
-</li>
-<li>
-<p>Install the npm package: <code>yarn add @sentry/react-native</code></p>
-</li>
-</ul>
-<p>Add the Sentry initialisation code into <code>app.js</code> file:</p>
-<pre><code>Sentry.init({ dsn: env.SENTRY_DSN, environment: env.SENTRY_ENVIRONMENT });
-</code></pre>
-<p>Add the ENV variables to the <code>.env</code> files for each environment.</p>
-<h2 id="verify-the-installation-3"><a class="header" href="#verify-the-installation-3">Verify the installation</a></h2>
-<p>Open the dev console in chrome, and run</p>
-<pre><code class="language-js">try {
-    throw new Error('test raven js');
-} catch(e) {
-    Sentry.captureException(e)
-}
-</code></pre>
-<p>On <code>https://sentry.io/renuo/[project-name]</code> you should find "Uncaught Error: test raven js".</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="google-analytics"><a class="header" href="#google-analytics">Google Analytics</a></h1>
 <p>Google Analytics is only set up for the main branch (since *.renuoapp.ch domains are tracked via Cloudflare injection).</p>
 <p>To add a new project to the GA account go to <a href="https://www.google.com/analytics">https://www.google.com/analytics</a> and login as google@renuo.ch.</p>
@@ -3223,15 +2532,15 @@ using the google@renuo.ch account.</p>
 <p>As for the JS API, create two different keys for the two environments. For this API, name the keys like this: <code>geocoding-main</code> and <code>geocoding-develop</code>.</p>
 <p><strong>API key restrictions</strong></p>
 <p>Because the Geocoding API key doesn't support HTTP referrer restrictions (which isn't a problem anyway since the key won't be exposed), you only need to add an API restriction, restricting the key to the Geocoding API.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="slack-and-notifications-1"><a class="header" href="#slack-and-notifications-1">Slack and Notifications</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="slack-and-notifications"><a class="header" href="#slack-and-notifications">Slack and Notifications</a></h1>
 <p>If you want to keep your team up-to-date with some notifications about the project and to discuss project-related topics
 we suggest you to use <a href="https://renuo.slack.com/">Slack</a>.</p>
 <p>You are, for sure, already a member of slack.</p>
-<h2 id="project-channel-1"><a class="header" href="#project-channel-1">Project Channel</a></h2>
+<h2 id="project-channel"><a class="header" href="#project-channel">Project Channel</a></h2>
 <p>You can create a project-dedicated channel on slack naming it <code>#project-[project-name]</code> (e.g. <code>#project-bookshelf</code>,
 <code>#project-gifcoins</code>, etc..).</p>
 <p>Invite all team members involved in the project to the channel.</p>
-<h2 id="deploy-notifications-1"><a class="header" href="#deploy-notifications-1">Deploy Notifications</a></h2>
+<h2 id="deploy-notifications"><a class="header" href="#deploy-notifications">Deploy Notifications</a></h2>
 <p>One notification you may want to receive on this channel is about when a new deployment on main has been performed. In
 order to do that you must be an admin of the Renuo Slack Organisation. If you are not an admin, ask wg-operations to do
 it for you communicating the <code>[project-name]</code>.</p>
