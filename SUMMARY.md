@@ -40,7 +40,6 @@
 
 - [Gems]()
     - [Jest](ruby_on_rails/jest.md)
-    - [Slack and Notifications](slack_and_notifications.md)
     - [Send Emails](ruby_on_rails/send_emails.md)
     - [Sparkpost & Mailtrap](sparkpost_and_mailtrap.md)
     - [Devise](ruby_on_rails/devise.md)
