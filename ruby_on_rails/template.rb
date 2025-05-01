@@ -19,6 +19,9 @@ insert_into_file "bin/setup", before: "\n  puts \"\\n== Preparing database ==\""
   RUBY
 end
 
+# remove the block unless ARGV.include?("--skip-server"). We don't want to start the server directly during setup.
+gsub_file "bin/setup", /\n{0,2}[ \t]*unless ARGV.include\?\("--skip-server"\).*?end/m, ""
+
 # add "ruby file: ".ruby-version" to the Gemfile under the line starting with "source"
 insert_into_file "Gemfile", after: /^source.*\n/ do
   <<~RUBY
