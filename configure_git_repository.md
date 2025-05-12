@@ -1,4 +1,4 @@
-# Configure the Git Repository
+# Configure the GitHub Repository
 
 These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.
@@ -9,15 +9,26 @@ Please stick to it unless you have special needs.
     * Disable *Allow merge commits* and *Allow rebase merging*
     * Allow auto-merge
     * Automatically delete head branches
+    * Always suggest updating pull request branches
 * Manage access
   * Add *staff* team as a collaborator with Admin access
   * Add *security* team as collaborator with Write access
 * Branches
   * Default branch: either `main` or `develop` depending on whether you want one or two environments.
-  * Add these rules for the two branches `develop` and `main`:
-    * Require pull request reviews before merging
-    * Require status checks to pass before merging (after you configured the CI add it to the required checks)
-    * Always suggest updating pull request branches
+* Rules/Rulesets
+  * `develop`
+    * Enforcement status: `Active`
+    * Branch targeting criteria: `develop`
+    * Restrict deletions
+    * Require linear history
+    * Require a pull request before merging
+    * Require status checks to pass
+        * Select `ci/semaphore/push`
+    * Block force pushes
+  * `main` (same as develop but...)
+    * Branch targeting criteria: `main`
+    * ❌ Require a pull request before merging
+    * ❌ Require status checks to pass
 
 * Autolink references
   * Add a new Autolink reference with:
