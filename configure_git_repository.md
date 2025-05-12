@@ -21,7 +21,7 @@ Please stick to it unless you have special needs.
     * ✅ Require linear history
     * ✅ Require a pull request before merging
     * ✅ Require status checks to pass
-        * Select `ci/semaphore/push`
+      * Select `ci/semaphore/push`
     * ✅ Block force pushes
 
   * `main` (same as develop but...)
