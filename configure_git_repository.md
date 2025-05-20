@@ -19,6 +19,7 @@ Please stick to it unless you have special needs.
   * `develop`
     * Enforcement status: `Active`
     * Branch targeting criteria: `develop`
+    * Bypass list: add `Repository Admin` Role with *allow for pull requests only* option
     * Restrict deletions
     * Require linear history
     * Require a pull request before merging
