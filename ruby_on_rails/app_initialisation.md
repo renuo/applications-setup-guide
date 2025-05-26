@@ -15,7 +15,7 @@ You can do this with `gem update rails`. Beware of beta versions.
 
 * Start a new Rails project using
 ```
-rails new [project-name] --database=postgresql --skip-kamal --skip-ci --no-skip-test --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+rails new [project-name] --database=postgresql --skip-kamal --skip-ci --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
 ```
 where the `project-name` is exactly the one you chose before.
 
@@ -128,7 +128,6 @@ Check existing projects for an example of the usage.
   config.i18n.raise_on_missing_translations = true # uncomment
 
   config.generators do |g|
-    g.test_framework :rspec
     g.apply_rubocop_autocorrect_after_generate!
   end
   ```

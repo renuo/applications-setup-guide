@@ -1,6 +1,6 @@
 # Setup RSpec
 
-Even though Rails uses Minitest per default, RSpec is the *de-facto* standard at Renuo. We love RSpec and we strongly suggest to use it.
+Even though Rails uses Minitest per default, RSpec is the *de-facto* standard at Renuo.
 
 Add the following gems to your Gemfile:
 
@@ -8,6 +8,7 @@ Add the following gems to your Gemfile:
 group :development, :test do
   gem "factory_bot_rails"
   gem "rspec-rails"
+  gem "parallel_tests"
 end
 
 group :test do
@@ -61,51 +62,63 @@ You should know exactly why you are adding each one of them and why is necessary
   Please check the [spec_helper template](../templates/spec/spec_helper.rb)
 
 * Add the configurations:
-  ```rb
-  # spec/rails_helper.rb:
 
-    # after `require 'rspec/rails'`
-    require 'capybara/rspec'
-    require 'capybara/rails'
-    require 'selenium/webdriver'
-    require 'super_diff/rspec-rails'
+```rb
+# spec/rails_helper.rb:
 
-    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# after `require 'rspec/rails'`
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'selenium/webdriver'
+require 'super_diff/rspec-rails'
 
-    # ... (omitted configs here)
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-    RSpec.configure do |config|
-      # ... (omitted configs here)
+# ... (omitted configs here)
 
-      config.before do |example|
-        ActionMailer::Base.deliveries.clear
-        I18n.locale = I18n.default_locale
-        Rails.logger.debug { "--- #{example.location} ---" }
-      end
+RSpec.configure do |config|
+  # ... (omitted configs here)
 
-      config.after do |example|
-        Rails.logger.debug { "--- #{example.location} FINISHED ---" }
-      end
+  config.before do |example|
+    ActionMailer::Base.deliveries.clear
+    I18n.locale = I18n.default_locale
+    Rails.logger.debug { "--- #{example.location} ---" }
+  end
 
-      config.before(:each, type: :system) do
-        driven_by :rack_test
-      end
+  config.after do |example|
+    Rails.logger.debug { "--- #{example.location} FINISHED ---" }
+  end
 
-      config.before(:each, type: :system, js: true) do
-        driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
-        Capybara.page.current_window.resize_to(1280, 800)
-      end
-    end
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
 
-  # config/application.example.yml
-  test:
-    # SELENIUM_DRIVER: 'selenium_chrome'
-    SELENIUM_DRIVER: 'selenium_chrome_headless'
-  ```
+  config.before(:each, type: :system, js: true) do
+    driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+    Capybara.page.current_window.resize_to(1280, 800)
+  end
+end
+```
+
+```yml
+# config/application.example.yml
+test:
+  # SELENIUM_DRIVER: 'selenium_chrome'
+  SELENIUM_DRIVER: 'selenium_chrome_headless'
+```
+
+```rb
+# config/environments/development.rb
+
+config.generators do |g|
+  g.test_framework :rspec
+end
+
+```
 
 Please check the full [rails_helper template](../templates/spec/rails_helper.rb) to compare.
 
-* Add the line `bundle exec rspec` to `bin/check`
+* Add the line `bundle exec parallel_rspec` to `bin/check`
 
 > **Note**: If you want to debug a spec, you can simply uncomment the line `SELENIUM_DRIVER` in the application.yml to not run it headless:
 
