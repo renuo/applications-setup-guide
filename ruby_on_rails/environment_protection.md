@@ -2,7 +2,11 @@
 
 ## Configuration for Heroku
 
-Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`, then run the following command:
+Add 
+
+```bash
+# BASIC_AUTH="admin:some-memorable-password"
+``` to `.env.example`, then run the following command:
 
 ```sh
 heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop

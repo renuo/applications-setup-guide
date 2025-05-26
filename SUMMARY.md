@@ -46,7 +46,6 @@
     - [Sidekiq](ruby_on_rails/sidekiq.md)
     - [Cucumber](ruby_on_rails/cucumber.md)
     - [Amazon S3 and Cloudfront](ruby_on_rails/aws.md)
-    - [Carrierwave Upload](ruby_on_rails/carrierwave.md)
     - [Bootstrap](ruby_on_rails/bootstrap.md)
     - [FontAwesome](ruby_on_rails/font_awesome.md)
     - [Bullet](ruby_on_rails/bullet.md)
