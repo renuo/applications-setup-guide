@@ -21,7 +21,7 @@ bin/setup
 
 Configure the following:
 
-* config/application.yml
+* .env
 
 ### Run
 

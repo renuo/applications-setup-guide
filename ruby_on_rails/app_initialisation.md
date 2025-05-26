@@ -65,32 +65,29 @@ Some other adjustments must be performed manually.
 
 Please perform these adjustments manually:
 
-#### ENV variables with Figaro
+#### ENV variables
 
-* Add `figaro` to Gemfile. Check the [gem homepage](https://github.com/laserlemon/figaro) to see how to install the gem
-(usually `bundle exec figaro install` is enough). Delete the newly created file `config/application.yml`...
-* and create `config/application.example.yml` where you will specify the only environment variable you need for now:
+* Add `dotenv-rails` to Gemfile. Check the [gem homepage](https://github.com/bkeepers/dotenv) to see how to install the gem.
+* and create `.env.example` in the root folder of the project where you will specify the only environment variable you need for now:
   `SECRET_KEY_BASE`.
-* Going forward we will only push the `config/application.example.yml` file to the repository in order to protect our env variables.
-* Add application.yml to .gitignore
-* Add the following section to your `bin/setup` script so that the `application.yml` is created from the `application.example.yml` when the project is setup locally:
+* Going forward we will only push the `.env.example` file to the repository in order to protect our env variables.
+* Add .env to .gitignore
+* Add the following section to your `bin/setup` script so that the `.env` is created from the `.env` when the project is setup locally:
 
   ```ruby
   puts "\n== Copying sample files =="
-  unless File.exist?('config/application.yml')
-    system! 'cp config/application.example.yml config/application.yml'
+  unless File.exist?('.env')
+    system! 'cp .env.example .env'
   end
   ```
 
-* add one more key to application.example.yml `APP_PORT: 3000`
+* add one more key to .env.example `APP_PORT: 3000`
+* To ensure you have all the required keys from the `.env.example` in your `.env`,
+create the initializer for dotenv-rails in `config/initializers/dotenv_rails.rb`:
 
-  Make sure it comes **before** any `rails` comands.
-* To ensure you have all the required keys from the `application.example.yml` in your `application.yml`,
-create the initializer for figaro in `config/initializers/figaro.rb`:
-
-  ```ruby
-  Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
-  ```
+```ruby
+Dotenv.require_keys(Dotenv.parse(".env.example").keys)
+```
 
 * Run `bin/setup` again.
 

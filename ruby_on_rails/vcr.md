@@ -40,9 +40,7 @@ VCR.configure do |c|
   }
 
   # Filter out sensitive data from the cassettes
-  env_keys = YAML.load_file('config/application.example.yml').filter do |k, v|
-    (!k.in? %w[test production development]) && (!v.in? %w[false true])
-  end.keys
+  env_keys = Dotenv.parse(".env.example").keys
   env_keys.each { |key| c.filter_sensitive_data("<#{key}>") { ENV.fetch(key, nil) } }
 end
 ```
