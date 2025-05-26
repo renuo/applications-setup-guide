@@ -494,7 +494,7 @@ You can do this with <code>gem update rails</code>. Beware of beta versions.</p>
 <p>Start a new Rails project using</p>
 </li>
 </ul>
-<pre><code>rails new [project-name] --database=postgresql --skip-kamal --skip-ci --no-skip-test --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+<pre><code>rails new [project-name] --database=postgresql --skip-kamal --skip-ci --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
 </code></pre>
 <p>where the <code>project-name</code> is exactly the one you chose before.</p>
 <blockquote>
@@ -620,7 +620,6 @@ config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn") # change
 config.i18n.raise_on_missing_translations = true # uncomment
 
 config.generators do |g|
-  g.test_framework :rspec
   g.apply_rubocop_autocorrect_after_generate!
 end
 </code></pre>
@@ -835,11 +834,12 @@ branches in GitHub will be automatically deployed to the related server.</p>
 <p>It's time to create some first Pull Requests with some improvements.</p>
 <p><strong>Don't forget to go back to the GitHub settings and add the CI to the required checks!</strong></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="setup-rspec"><a class="header" href="#setup-rspec">Setup RSpec</a></h1>
-<p>Even though Rails uses Minitest per default, RSpec is the <em>de-facto</em> standard at Renuo. We love RSpec and we strongly suggest to use it.</p>
+<p>Even though Rails uses Minitest per default, RSpec is the <em>de-facto</em> standard at Renuo.</p>
 <p>Add the following gems to your Gemfile:</p>
 <pre><code class="language-ruby">group :development, :test do
   gem "factory_bot_rails"
   gem "rspec-rails"
+  gem "parallel_tests"
 end
 
 group :test do
@@ -893,51 +893,58 @@ end
 </li>
 <li>
 <p>Add the configurations:</p>
+</li>
+</ul>
 <pre><code class="language-rb"># spec/rails_helper.rb:
 
-  # after `require 'rspec/rails'`
-  require 'capybara/rspec'
-  require 'capybara/rails'
-  require 'selenium/webdriver'
-  require 'super_diff/rspec-rails'
+# after `require 'rspec/rails'`
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'selenium/webdriver'
+require 'super_diff/rspec-rails'
 
-  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+# ... (omitted configs here)
+
+RSpec.configure do |config|
   # ... (omitted configs here)
 
-  RSpec.configure do |config|
-    # ... (omitted configs here)
-
-    config.before do |example|
-      ActionMailer::Base.deliveries.clear
-      I18n.locale = I18n.default_locale
-      Rails.logger.debug { "--- #{example.location} ---" }
-    end
-
-    config.after do |example|
-      Rails.logger.debug { "--- #{example.location} FINISHED ---" }
-    end
-
-    config.before(:each, type: :system) do
-      driven_by :rack_test
-    end
-
-    config.before(:each, type: :system, js: true) do
-      driven_by ENV['SELENIUM_DRIVER']&amp;.to_sym || :selenium_chrome_headless
-      Capybara.page.current_window.resize_to(1280, 800)
-    end
+  config.before do |example|
+    ActionMailer::Base.deliveries.clear
+    I18n.locale = I18n.default_locale
+    Rails.logger.debug { "--- #{example.location} ---" }
   end
 
-# config/application.example.yml
+  config.after do |example|
+    Rails.logger.debug { "--- #{example.location} FINISHED ---" }
+  end
+
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by ENV['SELENIUM_DRIVER']&amp;.to_sym || :selenium_chrome_headless
+    Capybara.page.current_window.resize_to(1280, 800)
+  end
+end
+</code></pre>
+<pre><code class="language-yml"># config/application.example.yml
 test:
   # SELENIUM_DRIVER: 'selenium_chrome'
   SELENIUM_DRIVER: 'selenium_chrome_headless'
 </code></pre>
-</li>
-</ul>
+<pre><code class="language-rb"># config/environments/development.rb
+
+config.generators do |g|
+  g.test_framework :rspec
+end
+
+</code></pre>
 <p>Please check the full <a href="ruby_on_rails/../templates/spec/rails_helper.rb">rails_helper template</a> to compare.</p>
 <ul>
-<li>Add the line <code>bundle exec rspec</code> to <code>bin/check</code></li>
+<li>Add the line <code>bundle exec parallel_rspec</code> to <code>bin/check</code></li>
 </ul>
 <blockquote>
 <p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the application.yml to not run it headless:</p>
