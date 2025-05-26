@@ -35,10 +35,15 @@ The different environments will be automatically detected, and you can monitor a
   ```
 
 * Add a Sentry initializer to your project [`config/initializers/sentry.rb`](../templates/config/initializers/sentry.rb).
-* Add `# SENTRY_DSN: 'find_me_on_password_manager'` to `application.example.yml`
-* Add `# SENTRY_ENVIRONMENT: 'local'` to `application.example.yml`
-* Add `# CSP_REPORT_URI` to `application.example.yml`
-* Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
+* Add the following to your `.env.example` file:
+```bash
+# .env.example
+# SENTRY_DSN="find_me_on_password_manager"
+# SENTRY_ENVIRONMENT="local"
+# CSP_REPORT_URI=""
+```
+
+Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
 
   ```ruby
   Rails.application.config.content_security_policy do |policy|
