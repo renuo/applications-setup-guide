@@ -43,7 +43,7 @@ The different environments will be automatically detected, and you can monitor a
 # CSP_REPORT_URI=""
 ```
 
-Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
+* Enable CSP Reporting to Sentry in `config/initializers/content_security_policy.rb` and allow unsafe inline JS:
 
   ```ruby
   Rails.application.config.content_security_policy do |policy|
