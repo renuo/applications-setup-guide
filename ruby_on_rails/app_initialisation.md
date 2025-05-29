@@ -81,7 +81,7 @@ Please perform these adjustments manually:
   end
   ```
 
-* add one more key to .env.example `APP_PORT: 3000`
+* add one more key to .env.example `APP_PORT=3000`
 * To ensure you have all the required keys from the `.env.example` in your `.env`,
 create the initializer for dotenv-rails in `config/initializers/dotenv_rails.rb`:
 
