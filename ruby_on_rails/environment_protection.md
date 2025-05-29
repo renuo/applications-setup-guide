@@ -2,7 +2,7 @@
 
 ## Configuration for Heroku
 
-Add 
+Add
 
 ```bash
 # BASIC_AUTH="admin:some-memorable-password"

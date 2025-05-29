@@ -101,7 +101,7 @@ end
 ```
 
 ```yml
-# .env.example  
+# .env.example
 # SELENIUM_DRIVER="selenium_chrome"
 SELENIUM_DRIVER="selenium_chrome_headless"
 ```

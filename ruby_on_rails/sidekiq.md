@@ -1,8 +1,5 @@
 # Sidekiq
 
-> We do not recommend Sidekiq anymore. solid_queue, which comes by default, is sufficient.
-> This part of the guide is kept for reference, but we recommend using solid_queue instead.
-
 As soon as you have to do work with background jobs please follow those suggestions.
 They will help you having a proper system to do background work.
 We use [sidekiq](https://github.com/mperham/sidekiq) because it works well on Heroku and is easy to setup (suckerpunch for example causes memory issues on Heroku).
