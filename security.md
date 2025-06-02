@@ -15,7 +15,8 @@ Expires: 2050-11-11T13:37:42.000Z
 Preferred-Languages: de, en
 ```
 
-In case your repo is public it is recommended to add a `SECURITY.md` to your repository's root, docs, or .github folder:
+In case your repo is public, it is recommended to add a `SECURITY.md` to your repository's root, docs, or .github folder:
+
 ```
 # Security Policy
 
