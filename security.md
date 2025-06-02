@@ -21,6 +21,7 @@ In case your repo is public, it is recommended to add a `SECURITY.md` to your re
 # Security Policy
 
 ## Reporting a Vulnerability
+
 To report a security vulnerability, please email security@renuo.ch.
 ```
 
