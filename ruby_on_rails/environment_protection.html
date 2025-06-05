@@ -168,8 +168,12 @@
                     <main>
                         <h1 id="staging-environment-protection"><a class="header" href="#staging-environment-protection">Staging Environment Protection</a></h1>
 <h2 id="configuration-for-heroku"><a class="header" href="#configuration-for-heroku">Configuration for Heroku</a></h2>
-<p>Add <code># BASIC_AUTH: 'admin:some-memorable-password'</code> to <code>application.example.yml</code>, then run the following command:</p>
-<pre><code class="language-sh">heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+<p>Add</p>
+<pre><code class="language-bash"># BASIC_AUTH="admin:some-memorable-password"
+``` to `.env.example`, then run the following command:
+
+```sh
+heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
 </code></pre>
 <p>Finally, save the passwords in 1Password.</p>
 <h2 id="configuration-for-deploio"><a class="header" href="#configuration-for-deploio">Configuration for Deploio</a></h2>

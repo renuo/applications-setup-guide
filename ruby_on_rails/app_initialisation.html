@@ -248,43 +248,41 @@ It will be used as a hook before pushing to quickly check for linting issues.</p
 </blockquote>
 <h3 id="manual-adjustments"><a class="header" href="#manual-adjustments">Manual adjustments</a></h3>
 <p>Please perform these adjustments manually:</p>
-<h4 id="env-variables-with-figaro"><a class="header" href="#env-variables-with-figaro">ENV variables with Figaro</a></h4>
+<h4 id="env-variables"><a class="header" href="#env-variables">ENV variables</a></h4>
 <ul>
 <li>
-<p>Add <code>figaro</code> to Gemfile. Check the <a href="https://github.com/laserlemon/figaro">gem homepage</a> to see how to install the gem
-(usually <code>bundle exec figaro install</code> is enough). Delete the newly created file <code>config/application.yml</code>...</p>
+<p>Add <code>dotenv-rails</code> to Gemfile. Check the <a href="https://github.com/bkeepers/dotenv">gem homepage</a> to see how to install the gem.</p>
 </li>
 <li>
-<p>and create <code>config/application.example.yml</code> where you will specify the only environment variable you need for now:
+<p>and create <code>.env.example</code> in the root folder of the project where you will specify the only environment variable you need for now:
 <code>SECRET_KEY_BASE</code>.</p>
 </li>
 <li>
-<p>Going forward we will only push the <code>config/application.example.yml</code> file to the repository in order to protect our env variables.</p>
+<p>Going forward we will only push the <code>.env.example</code> file to the repository in order to protect our env variables.</p>
 </li>
 <li>
-<p>Add application.yml to .gitignore</p>
+<p>Add .env to .gitignore</p>
 </li>
 <li>
-<p>Add the following section to your <code>bin/setup</code> script so that the <code>application.yml</code> is created from the <code>application.example.yml</code> when the project is setup locally:</p>
+<p>Add the following section to your <code>bin/setup</code> script so that the <code>.env</code> is created from the <code>.env</code> when the project is setup locally:</p>
 <pre><code class="language-ruby">puts "\n== Copying sample files =="
-unless File.exist?('config/application.yml')
-  system! 'cp config/application.example.yml config/application.yml'
+unless File.exist?('.env')
+  system! 'cp .env.example .env'
 end
 </code></pre>
 </li>
 <li>
-<p>add one more key to application.example.yml <code>APP_PORT: 3000</code></p>
-<p>Make sure it comes <strong>before</strong> any <code>rails</code> comands.</p>
+<p>add one more key to .env.example <code>APP_PORT=3000</code></p>
 </li>
 <li>
-<p>To ensure you have all the required keys from the <code>application.example.yml</code> in your <code>application.yml</code>,
-create the initializer for figaro in <code>config/initializers/figaro.rb</code>:</p>
-<pre><code class="language-ruby">Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
+<p>To ensure you have all the required keys from the <code>.env.example</code> in your <code>.env</code>,
+create the initializer for dotenv-rails in <code>config/initializers/dotenv_rails.rb</code>:</p>
+</li>
+</ul>
+<pre><code class="language-ruby">Dotenv.require_keys(Dotenv.parse(".env.example").keys)
 </code></pre>
-</li>
-<li>
-<p>Run <code>bin/setup</code> again.</p>
-</li>
+<ul>
+<li>Run <code>bin/setup</code> again.</li>
 </ul>
 <h3 id="secrets"><a class="header" href="#secrets">Secrets</a></h3>
 <p>We store the secrets necessary to configure the project locally in a 1password Item.

@@ -178,14 +178,14 @@ They will help you having a proper system to deliver emails and development envi
 end
 </code></pre>
 <ul>
-<li>add the following to <code>config/application.example.yml</code></li>
+<li>add the following to <code>.env.example</code></li>
 </ul>
-<pre><code class="language-yml">APP_HOST: '[project-name].localhost'
-APP_PORT: '3000'
-MAIL_SENDER: 'yourname+&lt;application&gt;@example.com'
-MAIL_HOST: ''
-MAIL_USERNAME: ''
-MAIL_PASSWORD: ''
+<pre><code class="language-yml">APP_HOST="[project-name].localhost"
+APP_PORT="3000"
+MAIL_SENDER="yourname+&lt;application&gt;@example.com"
+MAIL_HOST=""
+MAIL_USERNAME=""
+MAIL_PASSWORD=""
 </code></pre>
 <ul>
 <li>update <code>app/mailers/application_mailer.rb</code></li>

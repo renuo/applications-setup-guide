@@ -182,10 +182,10 @@ config.mailer_sender = ENV['MAIL_SENDER']
 config.pepper = ENV['DEVISE_PEPPER']
 </code></pre>
 <ul>
-<li>add the two variables to the <code>application.example.yml</code></li>
+<li>add the two variables to the <code>.env.example</code></li>
 </ul>
-<pre><code class="language-yml">DEVISE_SECRET_KEY: 'rake secret'
-DEVISE_PEPPER: 'rake secret'
+<pre><code class="language-bash">DEVISE_SECRET_KEY="rake secret"
+DEVISE_PEPPER="rake secret"
 </code></pre>
 <p>Open a pull request! 🎉</p>
 

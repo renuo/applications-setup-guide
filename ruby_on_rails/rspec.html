@@ -263,10 +263,9 @@ RSpec.configure do |config|
   end
 end
 </code></pre>
-<pre><code class="language-yml"># config/application.example.yml
-test:
-  # SELENIUM_DRIVER: 'selenium_chrome'
-  SELENIUM_DRIVER: 'selenium_chrome_headless'
+<pre><code class="language-yml"># .env.example
+# SELENIUM_DRIVER="selenium_chrome"
+SELENIUM_DRIVER="selenium_chrome_headless"
 </code></pre>
 <pre><code class="language-rb"># config/environments/development.rb
 
@@ -280,7 +279,7 @@ end
 <li>Add the line <code>bundle exec parallel_rspec</code> to <code>bin/check</code></li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the application.yml to not run it headless:</p>
+<p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the .env to not run it headless:</p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/1319150/123443347-1bbcae80-d5d6-11eb-8ba5-0d2c9ae4a37c.gif" alt="CleanShot 2021-06-25 at 16 54 22" /></p>
 <h2 id="-our-first-green-test"><a class="header" href="#-our-first-green-test">✅ Our first (green) test</a></h2>

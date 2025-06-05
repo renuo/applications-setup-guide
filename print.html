@@ -558,43 +558,41 @@ It will be used as a hook before pushing to quickly check for linting issues.</p
 </blockquote>
 <h3 id="manual-adjustments"><a class="header" href="#manual-adjustments">Manual adjustments</a></h3>
 <p>Please perform these adjustments manually:</p>
-<h4 id="env-variables-with-figaro"><a class="header" href="#env-variables-with-figaro">ENV variables with Figaro</a></h4>
+<h4 id="env-variables"><a class="header" href="#env-variables">ENV variables</a></h4>
 <ul>
 <li>
-<p>Add <code>figaro</code> to Gemfile. Check the <a href="https://github.com/laserlemon/figaro">gem homepage</a> to see how to install the gem
-(usually <code>bundle exec figaro install</code> is enough). Delete the newly created file <code>config/application.yml</code>...</p>
+<p>Add <code>dotenv-rails</code> to Gemfile. Check the <a href="https://github.com/bkeepers/dotenv">gem homepage</a> to see how to install the gem.</p>
 </li>
 <li>
-<p>and create <code>config/application.example.yml</code> where you will specify the only environment variable you need for now:
+<p>and create <code>.env.example</code> in the root folder of the project where you will specify the only environment variable you need for now:
 <code>SECRET_KEY_BASE</code>.</p>
 </li>
 <li>
-<p>Going forward we will only push the <code>config/application.example.yml</code> file to the repository in order to protect our env variables.</p>
+<p>Going forward we will only push the <code>.env.example</code> file to the repository in order to protect our env variables.</p>
 </li>
 <li>
-<p>Add application.yml to .gitignore</p>
+<p>Add .env to .gitignore</p>
 </li>
 <li>
-<p>Add the following section to your <code>bin/setup</code> script so that the <code>application.yml</code> is created from the <code>application.example.yml</code> when the project is setup locally:</p>
+<p>Add the following section to your <code>bin/setup</code> script so that the <code>.env</code> is created from the <code>.env</code> when the project is setup locally:</p>
 <pre><code class="language-ruby">puts "\n== Copying sample files =="
-unless File.exist?('config/application.yml')
-  system! 'cp config/application.example.yml config/application.yml'
+unless File.exist?('.env')
+  system! 'cp .env.example .env'
 end
 </code></pre>
 </li>
 <li>
-<p>add one more key to application.example.yml <code>APP_PORT: 3000</code></p>
-<p>Make sure it comes <strong>before</strong> any <code>rails</code> comands.</p>
+<p>add one more key to .env.example <code>APP_PORT=3000</code></p>
 </li>
 <li>
-<p>To ensure you have all the required keys from the <code>application.example.yml</code> in your <code>application.yml</code>,
-create the initializer for figaro in <code>config/initializers/figaro.rb</code>:</p>
-<pre><code class="language-ruby">Figaro.require_keys(YAML.load_file('config/application.example.yml').keys - %w[test production development])
+<p>To ensure you have all the required keys from the <code>.env.example</code> in your <code>.env</code>,
+create the initializer for dotenv-rails in <code>config/initializers/dotenv_rails.rb</code>:</p>
+</li>
+</ul>
+<pre><code class="language-ruby">Dotenv.require_keys(Dotenv.parse(".env.example").keys)
 </code></pre>
-</li>
-<li>
-<p>Run <code>bin/setup</code> again.</p>
-</li>
+<ul>
+<li>Run <code>bin/setup</code> again.</li>
 </ul>
 <h3 id="secrets"><a class="header" href="#secrets">Secrets</a></h3>
 <p>We store the secrets necessary to configure the project locally in a 1password Item.
@@ -935,10 +933,9 @@ RSpec.configure do |config|
   end
 end
 </code></pre>
-<pre><code class="language-yml"># config/application.example.yml
-test:
-  # SELENIUM_DRIVER: 'selenium_chrome'
-  SELENIUM_DRIVER: 'selenium_chrome_headless'
+<pre><code class="language-yml"># .env.example
+# SELENIUM_DRIVER="selenium_chrome"
+SELENIUM_DRIVER="selenium_chrome_headless"
 </code></pre>
 <pre><code class="language-rb"># config/environments/development.rb
 
@@ -952,7 +949,7 @@ end
 <li>Add the line <code>bundle exec parallel_rspec</code> to <code>bin/check</code></li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the application.yml to not run it headless:</p>
+<p><strong>Note</strong>: If you want to debug a spec, you can simply uncomment the line <code>SELENIUM_DRIVER</code> in the .env to not run it headless:</p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/1319150/123443347-1bbcae80-d5d6-11eb-8ba5-0d2c9ae4a37c.gif" alt="CleanShot 2021-06-25 at 16 54 22" /></p>
 <h2 id="-our-first-green-test"><a class="header" href="#-our-first-green-test">✅ Our first (green) test</a></h2>
@@ -1118,14 +1115,15 @@ end
 <p>Add a Sentry initializer to your project <a href="ruby_on_rails/../templates/config/initializers/sentry.rb"><code>config/initializers/sentry.rb</code></a>.</p>
 </li>
 <li>
-<p>Add <code># SENTRY_DSN: 'find_me_on_password_manager'</code> to <code>application.example.yml</code></p>
+<p>Add the following to your <code>.env.example</code> file:</p>
 </li>
-<li>
-<p>Add <code># SENTRY_ENVIRONMENT: 'local'</code> to <code>application.example.yml</code></p>
-</li>
-<li>
-<p>Add <code># CSP_REPORT_URI</code> to <code>application.example.yml</code></p>
-</li>
+</ul>
+<pre><code class="language-bash"># .env.example
+# SENTRY_DSN="find_me_on_password_manager"
+# SENTRY_ENVIRONMENT="local"
+# CSP_REPORT_URI=""
+</code></pre>
+<ul>
 <li>
 <p>Enable CSP Reporting to Sentry in <code>config/initializers/content_security_policy.rb</code> and allow unsafe inline JS:</p>
 <pre><code class="language-ruby">Rails.application.config.content_security_policy do |policy|
@@ -1176,7 +1174,7 @@ end
 (<strong>Note:</strong> If you are not using Heroku, adjust the app name to something else than <code>HEROKU_APP_NAME</code>)</p>
 </li>
 <li>
-<p>Add the new variables to your Heroku environments and <code>config/application.yml</code>:</p>
+<p>Add the new variables to your Heroku environments and <code>.env</code>:</p>
 <pre><code class="language-yml">NEW_RELIC_LICENSE_KEY: "from newrelic"
 </code></pre>
 </li>
@@ -1234,8 +1232,12 @@ In special cases you may want to add more screenshots.</p>
 the header <code>&lt;meta charset="utf-8"&gt;</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="staging-environment-protection"><a class="header" href="#staging-environment-protection">Staging Environment Protection</a></h1>
 <h2 id="configuration-for-heroku"><a class="header" href="#configuration-for-heroku">Configuration for Heroku</a></h2>
-<p>Add <code># BASIC_AUTH: 'admin:some-memorable-password'</code> to <code>application.example.yml</code>, then run the following command:</p>
-<pre><code class="language-sh">heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+<p>Add</p>
+<pre><code class="language-bash"># BASIC_AUTH="admin:some-memorable-password"
+``` to `.env.example`, then run the following command:
+
+```sh
+heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
 </code></pre>
 <p>Finally, save the passwords in 1Password.</p>
 <h2 id="configuration-for-deploio"><a class="header" href="#configuration-for-deploio">Configuration for Deploio</a></h2>
@@ -1456,14 +1458,14 @@ They will help you having a proper system to deliver emails and development envi
 end
 </code></pre>
 <ul>
-<li>add the following to <code>config/application.example.yml</code></li>
+<li>add the following to <code>.env.example</code></li>
 </ul>
-<pre><code class="language-yml">APP_HOST: '[project-name].localhost'
-APP_PORT: '3000'
-MAIL_SENDER: 'yourname+&lt;application&gt;@example.com'
-MAIL_HOST: ''
-MAIL_USERNAME: ''
-MAIL_PASSWORD: ''
+<pre><code class="language-yml">APP_HOST="[project-name].localhost"
+APP_PORT="3000"
+MAIL_SENDER="yourname+&lt;application&gt;@example.com"
+MAIL_HOST=""
+MAIL_USERNAME=""
+MAIL_PASSWORD=""
 </code></pre>
 <ul>
 <li>update <code>app/mailers/application_mailer.rb</code></li>
@@ -1583,10 +1585,10 @@ config.mailer_sender = ENV['MAIL_SENDER']
 config.pepper = ENV['DEVISE_PEPPER']
 </code></pre>
 <ul>
-<li>add the two variables to the <code>application.example.yml</code></li>
+<li>add the two variables to the <code>.env.example</code></li>
 </ul>
-<pre><code class="language-yml">DEVISE_SECRET_KEY: 'rake secret'
-DEVISE_PEPPER: 'rake secret'
+<pre><code class="language-bash">DEVISE_SECRET_KEY="rake secret"
+DEVISE_PEPPER="rake secret"
 </code></pre>
 <p>Open a pull request! 🎉</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sidekiq"><a class="header" href="#sidekiq">Sidekiq</a></h1>
@@ -2273,7 +2275,7 @@ which then returns a score based on which it will be decided if the request (to 
 <h2 id="testing"><a class="header" href="#testing">Testing</a></h2>
 <p>In order to test it, you can add <code>localhost</code> as a domain in the
 <a href="https://www.google.com/recaptcha/admin">reCAPTCHA admin panel</a> and provide the required keys in
-the <code>application.yml</code>. If your integration worked, then you will see a small container in the bottom right
+the <code>.env</code>. If your integration worked, then you will see a small container in the bottom right
 corner of your chosen page, something like this:
 <img src="https://user-images.githubusercontent.com/31915276/55479133-ae4f8c80-561d-11e9-9df2-d94cbc5f92d3.png" alt="reCAPTCHA demonstration" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="google-analytics"><a class="header" href="#google-analytics">Google Analytics</a></h1>
@@ -2399,7 +2401,7 @@ bin/setup
 <h3 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h3>
 <p>Configure the following:</p>
 <ul>
-<li>config/application.yml</li>
+<li>.env</li>
 </ul>
 <h3 id="run"><a class="header" href="#run">Run</a></h3>
 <pre><code class="language-sh">bin/run

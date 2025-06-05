@@ -203,14 +203,15 @@ end
 <p>Add a Sentry initializer to your project <a href="../templates/config/initializers/sentry.rb"><code>config/initializers/sentry.rb</code></a>.</p>
 </li>
 <li>
-<p>Add <code># SENTRY_DSN: 'find_me_on_password_manager'</code> to <code>application.example.yml</code></p>
+<p>Add the following to your <code>.env.example</code> file:</p>
 </li>
-<li>
-<p>Add <code># SENTRY_ENVIRONMENT: 'local'</code> to <code>application.example.yml</code></p>
-</li>
-<li>
-<p>Add <code># CSP_REPORT_URI</code> to <code>application.example.yml</code></p>
-</li>
+</ul>
+<pre><code class="language-bash"># .env.example
+# SENTRY_DSN="find_me_on_password_manager"
+# SENTRY_ENVIRONMENT="local"
+# CSP_REPORT_URI=""
+</code></pre>
+<ul>
 <li>
 <p>Enable CSP Reporting to Sentry in <code>config/initializers/content_security_policy.rb</code> and allow unsafe inline JS:</p>
 <pre><code class="language-ruby">Rails.application.config.content_security_policy do |policy|
