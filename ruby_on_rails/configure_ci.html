@@ -169,7 +169,7 @@
                         <h1 id="configure-the-ci"><a class="header" href="#configure-the-ci">Configure the CI</a></h1>
 <p>At Renuo we <strong>always</strong> use a CI (Continuous Integration) system to test our applications. It's essential to guarantee
 that all the tests pass before building and releasing a new version through our CD system. Our projects use
-<a href="https://semaphoreci.com/">SemaphoreCI 2.0</a>.</p>
+<a href="https://semaphoreci.com/">SemaphoreCI</a>.</p>
 <p>Before configuring the CI, you should already have a Git Repository with the code, a <code>bin/check</code> command to execute,
 and the main branches already pushed and ready to be tested.</p>
 <ol>
@@ -182,7 +182,8 @@ and the main branches already pushed and ready to be tested.</p>
 <h2 id="rails-specific-configuration"><a class="header" href="#rails-specific-configuration">Rails specific configuration</a></h2>
 <pre><code class="language-sh">renuo configure-semaphore
 </code></pre>
-<p>The command will copy the necessary templates to <code>.semaphore</code> folder using the renuo-cli. These files need to be maintained on the <a href="https://github.com/renuo/renuo-cli/tree/main">renuo-cli repository</a>.</p>
+<p>The command will copy the necessary templates to <code>.semaphore</code> folder using the renuo-cli. These files need to be maintained on the <a href="https://github.com/renuo/renuo-cli/tree/main">renuo-cli repository</a>.
+Adapt the files and remove the <code>develop</code> related ones if you don't use the <code>develop</code> branch.</p>
 <ol>
 <li>Add a file called <code>.nvmrc</code> to the project root, where you specify the latest node version</li>
 <li>Commit the files to both branches, push and watch the CI run.</li>

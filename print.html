@@ -212,7 +212,8 @@ If that's not the case, double check the Laptop Setup Guide or ask wg-operations
 </ul>
 <p>Use the command <code>hub create -p renuo/[project-name]</code> to create the repo and add it to the origin of the current folder.</p>
 <h2 id="public-repos-need-a-license"><a class="header" href="#public-repos-need-a-license">Public repos need a license</a></h2>
-<p>If your repository is public, ensure that it contains a license. We usually use the <a href="https://choosealicense.com/licenses/mit/">MIT</a> license if possible or a <a href="https://creativecommons.org/licenses/">CreativeCommons</a> license for documentation-only repositories (such as the application setup guide 🙂).
+<p>If your repository is public, ensure that it contains a license.
+We usually use the <a href="https://choosealicense.com/licenses/mit/">MIT</a> license if possible or a <a href="https://creativecommons.org/licenses/">CreativeCommons</a> license for documentation-only repositories (such as the application setup guide 🙂).
 You can add a license directly on GitHub while initializing a repository by selecting a license template in the "Add a license" dropdown.
 However, if the repository is already initialized, you're still able to add a license using a template:</p>
 <ul>
@@ -404,17 +405,25 @@ robots.txt configured</li>
 <p>This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at <a href="https://renuo.ch">Renuo</a> and is probably also the easiest to setup.
 The application (and relative GitHub repo) will be named after the <code>[project-name]</code> you chose before.</p>
-<p>Have you chosen a <code>[project-name]</code> yet? If not, please do so now. Check our <a href="ruby_on_rails/../naming_conventions.html">Naming Conventions</a></p>
+<blockquote>
+<p>[!NOTE]
+Have you chosen a <code>[project-name]</code> yet? If not, please do so now. Check our <a href="ruby_on_rails/../naming_conventions.html">Naming Conventions</a></p>
+</blockquote>
+<blockquote>
+<p>[!NOTE]
+Have you decided if you need two environments (develop and main) or just one?
+As a rule of thumb: for customers we always use two environments, for internal projects we usually only use one.
+Why the difference? Because we can bare the risk of having a bug in an internal project, but we cannot do that for a customer.</p>
+</blockquote>
 <ol>
 <li><a href="ruby_on_rails/app_initialisation.html">Initialise the Rails Application</a></li>
 <li><a href="ruby_on_rails/first_git_push.html">Push to Git Repository</a></li>
 <li><a href="ruby_on_rails/initialise_gitflow.html">Initialise Gitflow</a></li>
 <li><a href="ruby_on_rails/../configure_git_repository.html">Configure Git Repository</a></li>
-<li><a href="ruby_on_rails/create_application_server_heroku.html">Create an Application Server for Heroku</a></li>
-<li><a href="ruby_on_rails/create_application_server_deploio.html">Create an Application Server for Deploio</a></li>
+<li><a href="ruby_on_rails/create_application_server_deploio.html">Create an Application Server for Deploio</a> or <a href="ruby_on_rails/create_application_server_heroku.html">Create an Application Server for Heroku</a></li>
 <li><a href="ruby_on_rails/configure_ci.html">Configure the CI / CD</a></li>
 </ol>
-<p>Once here, your app should be up and running on all three environments.</p>
+<p>Once here, your app should be up and running on all environments.</p>
 <p>It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.</p>
 <ol>
 <li><a href="ruby_on_rails/rspec.html">RSpec</a></li>
@@ -673,8 +682,8 @@ git push -u origin main
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="initialise-gitflow"><a class="header" href="#initialise-gitflow">Initialise Gitflow</a></h1>
 <p>You can initialise gitflow in you project with <code>git flow init -d</code></p>
-<p>Then push also your new develop branch <code>git push --set-upstream origin develop</code></p>
-<p>Once you have pushed all the two branches you can finish the <a href="ruby_on_rails/../configure_git_repository.html">configuration of Git Repository</a></p>
+<p>Then push also your new develop branch <code>git push --set-upstream origin develop</code> if you have one.</p>
+<p>Once you have pushed all the branches, you can finish the <a href="ruby_on_rails/../configure_git_repository.html">configuration of Git Repository</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="configure-the-git-repository"><a class="header" href="#configure-the-git-repository">Configure the Git Repository</a></h1>
 <p>These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.</p>
@@ -698,7 +707,7 @@ Please stick to it unless you have special needs.</p>
 <li>
 <p>Branches</p>
 <ul>
-<li>Default branch: <code>develop</code>. Click <em>update</em></li>
+<li>Default branch: either <code>main</code> or <code>develop</code> depending on whether you want one or two environments.</li>
 <li>Add these rules for the two branches <code>develop</code> and <code>main</code>:
 <ul>
 <li>Require pull request reviews before merging</li>
@@ -765,7 +774,8 @@ Thanks to this we can:</p>
 <p>Run the command to generate a script which will create and configure all Heroku apps. <code>[project-name]</code> string length is limited to 22 characters:</p>
 <pre><code class="language-sh">renuo create-heroku-app [project-name]
 </code></pre>
-<p>Please review the script before running it and execute only the commands you need and understand.</p>
+<p>Please review the script before running it and execute only the commands you need and understand.
+In particular, you might need only one of the two environments if you decided to not use <code>develop</code>.</p>
 <p><strong>If you don't know what a command does: read the documentation and then execute it.</strong></p>
 <p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
 <h4 id="setup-rails-for-heroku"><a class="header" href="#setup-rails-for-heroku">Setup Rails for Heroku</a></h4>
@@ -799,7 +809,8 @@ Thanks to this we can:</p>
 <p>Run the command to generate a script which will create and configure all Deploio apps. <code>[project-name]</code> string length is limited to 63 characters:</p>
 <pre><code class="language-sh">renuo create-deploio-app [project-name]
 </code></pre>
-<p>Please review the script before running it and execute only the commands you need and understand.</p>
+<p>Please review the script before running it and execute only the commands you need and understand.
+In particular, you might need only one of the two environments if you decided to not use <code>develop</code>.</p>
 <p><strong>If you don't know what a command does: read the documentation and then execute it.</strong></p>
 <p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
@@ -807,7 +818,7 @@ Thanks to this we can:</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="configure-the-ci"><a class="header" href="#configure-the-ci">Configure the CI</a></h1>
 <p>At Renuo we <strong>always</strong> use a CI (Continuous Integration) system to test our applications. It's essential to guarantee
 that all the tests pass before building and releasing a new version through our CD system. Our projects use
-<a href="https://semaphoreci.com/">SemaphoreCI 2.0</a>.</p>
+<a href="https://semaphoreci.com/">SemaphoreCI</a>.</p>
 <p>Before configuring the CI, you should already have a Git Repository with the code, a <code>bin/check</code> command to execute,
 and the main branches already pushed and ready to be tested.</p>
 <ol>
@@ -820,7 +831,8 @@ and the main branches already pushed and ready to be tested.</p>
 <h2 id="rails-specific-configuration"><a class="header" href="#rails-specific-configuration">Rails specific configuration</a></h2>
 <pre><code class="language-sh">renuo configure-semaphore
 </code></pre>
-<p>The command will copy the necessary templates to <code>.semaphore</code> folder using the renuo-cli. These files need to be maintained on the <a href="https://github.com/renuo/renuo-cli/tree/main">renuo-cli repository</a>.</p>
+<p>The command will copy the necessary templates to <code>.semaphore</code> folder using the renuo-cli. These files need to be maintained on the <a href="https://github.com/renuo/renuo-cli/tree/main">renuo-cli repository</a>.
+Adapt the files and remove the <code>develop</code> related ones if you don't use the <code>develop</code> branch.</p>
 <ol>
 <li>Add a file called <code>.nvmrc</code> to the project root, where you specify the latest node version</li>
 <li>Commit the files to both branches, push and watch the CI run.</li>
