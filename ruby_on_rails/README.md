@@ -4,16 +4,22 @@ This setup will cover a pure, monolithic Rails Applications.
 This is the most frequent type of application we have at [Renuo](https://renuo.ch) and is probably also the easiest to setup.
 The application (and relative GitHub repo) will be named after the `[project-name]` you chose before.
 
-Have you chosen a `[project-name]` yet? If not, please do so now. Check our [Naming Conventions](../naming_conventions.md)
+> [!NOTE]
+> Have you chosen a `[project-name]` yet? If not, please do so now. Check our [Naming Conventions](../naming_conventions.md)
+
+> [!NOTE]
+> Have you decided if you need two environments (develop and main) or just one?
+> As a rule of thumb: for customers we always use two environments, for internal projects we usually only use one.
+> Why the difference? Because we can bare the risk of having a bug in an internal project, but we cannot do that for a customer.
+
 1. [Initialise the Rails Application](app_initialisation.md)
 1. [Push to Git Repository](first_git_push.md)
 1. [Initialise Gitflow](initialise_gitflow.md)
 1. [Configure Git Repository](../configure_git_repository.md)
-1. [Create an Application Server for Heroku](create_application_server_heroku.md)
-1. [Create an Application Server for Deploio](create_application_server_deploio.md)
+1. [Create an Application Server for Deploio](create_application_server_deploio.md) or [Create an Application Server for Heroku](create_application_server_heroku.md)
 1. [Configure the CI / CD](configure_ci.md)
 
-Once here, your app should be up and running on all three environments.
+Once here, your app should be up and running on all environments.
 
 It's now time to introduce some more tools which will help you and the team to keep a high quality during the project development.
 
