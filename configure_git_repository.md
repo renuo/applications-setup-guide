@@ -12,7 +12,7 @@ Please stick to it unless you have special needs.
   * Add *staff* team as a collaborator with Admin access
   * Add *security* team as collaborator with Write access
 * Branches
-  * Default branch: either `main` or `develop` depending if you want one or two environments.
+  * Default branch: either `main` or `develop` depending on whether you want one or two environments.
   * Add these rules for the two branches `develop` and `main`:
     * Require pull request reviews before merging
     * Require status checks to pass before merging (after you configured the CI add it to the required checks)
