@@ -5,9 +5,10 @@ Please stick to it unless you have special needs.
 
 * Options
   * Features: Remove *Wikis*, *Issues* and *Projects*
-  * Merge button: Automatically delete head branches
-  * Merge button: Remove *Allow merge commits* and *Allow rebase merging*
-  * Merge button: Allow auto-merge
+  * Pull Requests:
+    * Disable *Allow merge commits* and *Allow rebase merging*
+    * Allow auto-merge
+    * Automatically delete head branches
 * Manage access
   * Add *staff* team as a collaborator with Admin access
   * Add *security* team as collaborator with Write access
