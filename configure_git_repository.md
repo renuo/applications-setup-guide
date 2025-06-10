@@ -3,9 +3,9 @@
 These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.
 
-* Options
+* Settings
   * Features: Remove *Wikis*, *Issues* and *Projects*
-  * Pull Requests:
+  * Pull Requests
     * Disable *Allow merge commits* and *Allow rebase merging*
     * Allow auto-merge
     * Automatically delete head branches
