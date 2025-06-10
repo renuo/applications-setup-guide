@@ -3,7 +3,7 @@
 These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.
 
-* Settings
+* General Settings
   * Features: Remove *Wikis*, *Issues* and *Projects*
   * Pull Requests
     * Disable *Allow merge commits* and *Allow rebase merging*
