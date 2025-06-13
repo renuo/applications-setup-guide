@@ -684,7 +684,7 @@ git push -u origin main
 <p>You can initialise gitflow in you project with <code>git flow init -d</code></p>
 <p>Then push also your new develop branch <code>git push --set-upstream origin develop</code> if you have one.</p>
 <p>Once you have pushed all the branches, you can finish the <a href="ruby_on_rails/../configure_git_repository.html">configuration of Git Repository</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="configure-the-git-repository"><a class="header" href="#configure-the-git-repository">Configure the Git Repository</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configure-the-github-repository"><a class="header" href="#configure-the-github-repository">Configure the GitHub Repository</a></h1>
 <p>These are the suggested configurations for our GitHub repositories.
 Please stick to it unless you have special needs.</p>
 <ul>
@@ -697,6 +697,7 @@ Please stick to it unless you have special needs.</p>
 <li>Disable <em>Allow merge commits</em> and <em>Allow rebase merging</em></li>
 <li>Allow auto-merge</li>
 <li>Automatically delete head branches</li>
+<li>Always suggest updating pull request branches</li>
 </ul>
 </li>
 </ul>
@@ -712,11 +713,32 @@ Please stick to it unless you have special needs.</p>
 <p>Branches</p>
 <ul>
 <li>Default branch: either <code>main</code> or <code>develop</code> depending on whether you want one or two environments.</li>
-<li>Add these rules for the two branches <code>develop</code> and <code>main</code>:
+</ul>
+</li>
+<li>
+<p>Rules/Rulesets</p>
 <ul>
-<li>Require pull request reviews before merging</li>
-<li>Require status checks to pass before merging (after you configured the CI add it to the required checks)</li>
-<li>Always suggest updating pull request branches</li>
+<li><code>develop</code>
+<ul>
+<li>Enforcement status: <code>Active</code></li>
+<li>Branch targeting criteria: <code>develop</code></li>
+<li>Bypass list: add <code>Repository Admin</code> Role with <em>allow for pull requests only</em> option</li>
+<li>Restrict deletions</li>
+<li>Require linear history</li>
+<li>Require a pull request before merging</li>
+<li>Require status checks to pass
+<ul>
+<li>Select <code>ci/semaphore/push</code></li>
+</ul>
+</li>
+<li>Block force pushes</li>
+</ul>
+</li>
+<li><code>main</code> (same as develop but...)
+<ul>
+<li>Branch targeting criteria: <code>main</code></li>
+<li>❌ Require a pull request before merging</li>
+<li>❌ Require status checks to pass</li>
 </ul>
 </li>
 </ul>
