@@ -24,8 +24,9 @@ With Deploio, configure Basic Auth in the Rails app:
 To manage Basic Auth via Rails, use the following commands:
 
 ```sh
-nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --env=BASIC_AUTH={USERNAME}:{PASSWORD}
+nctl update app {APPLICATION_NAME} --project {PROJECT_NAME} --env=BASIC_AUTH=USERNAME}:{PASSWORD}
 nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --basic-auth false
+
 ```
 
 ## ApplicationController Configuration
