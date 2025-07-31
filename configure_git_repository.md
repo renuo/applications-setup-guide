@@ -23,9 +23,6 @@ Please stick to it unless you have special needs.
     * Restrict deletions
     * Require linear history
     * Require a pull request before merging
-    * Require status checks to pass
-      * Select `ci/semaphore/push`
-      * **Note: This status check name may be outdated
     * Block force pushes
   * `main` (same as develop but...)
     * Branch targeting criteria: `main`
