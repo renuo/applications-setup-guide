@@ -1,6 +1,10 @@
 # Staging Environment Protection
 
+HTTP Basic Authentication should be configured to prevent public traffic on our development applications.
+
 ## Configuration for Heroku
+
+With Heroku, basic auth can be configured as follows:
 
 Add `# BASIC_AUTH: 'admin:some-memorable-password'` to `application.example.yml`, then run the following command:
 
@@ -11,9 +15,7 @@ Finally, save the passwords in 1Password.
 
 ## Configuration for Deploio
 
-HTTP Basic Authentication should be configured to prevent public traffic on our development applications.
-
-With Deplo.io, basic auth can be configured as follows:
+On Deploio, basic auth can be configured in the following way:
 
 ```sh
 nctl update app {APPLICATION_NAME} --project {PROJECT_NAME} --basic-auth=true
