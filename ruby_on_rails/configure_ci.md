@@ -43,3 +43,9 @@ branches in GitHub will be automatically deployed to the related server.
 It's time to create some first Pull Requests with some improvements.
 
 **Don't forget to go back to the GitHub settings and add the CI to the required checks!**
+
+## A note about contacting the Semaphore support
+
+The Semaphore Support team will use your primary Github email address for communication.
+If this is not the `renuo.c`h address, you need to tell them (`support@semaphoreci.com`)
+to change your contact email address manually.
