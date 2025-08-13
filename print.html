@@ -1282,34 +1282,19 @@ In special cases you may want to add more screenshots.</p>
 <p>For Percy to render all characters correctly, every page that has a screenshot needs to have
 the header <code>&lt;meta charset="utf-8"&gt;</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="staging-environment-protection"><a class="header" href="#staging-environment-protection">Staging Environment Protection</a></h1>
+<p>HTTP Basic Authentication should be configured to prevent public traffic on our development applications.</p>
 <h2 id="configuration-for-heroku"><a class="header" href="#configuration-for-heroku">Configuration for Heroku</a></h2>
-<p>Add</p>
-<pre><code class="language-bash"># BASIC_AUTH="admin:some-memorable-password"
-``` to `.env.example`, then run the following command:
-
-```sh
-heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
+<p>With Heroku, basic auth can be configured as follows:</p>
+<p>Add <code># BASIC_AUTH: 'admin:some-memorable-password'</code> to <code>application.example.yml</code>, then run the following command:</p>
+<pre><code class="language-sh">heroku config:set BASIC_AUTH='admin:[first-memorable-password]' --app [your-app]-develop
 </code></pre>
 <p>Finally, save the passwords in 1Password.</p>
 <h2 id="configuration-for-deploio"><a class="header" href="#configuration-for-deploio">Configuration for Deploio</a></h2>
-<p>HTTP Basic Authentication should be configured to prevent public traffic on our development applications.</p>
-<p>With Deploio, configure Basic Auth in the Rails app:</p>
-<h3 id="managing-basic-auth-via-rails"><a class="header" href="#managing-basic-auth-via-rails">Managing Basic Auth via Rails</a></h3>
-<p>To manage Basic Auth via Rails, use the following commands:</p>
-<pre><code class="language-sh">nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --env=BASIC_AUTH={USERNAME}:{PASSWORD}
-nctl config set --project {PROJECT_NAME} --application {APPLICATION_NAME} --basic-auth false
+<p>On Deploio, basic auth can be configured in the following way:</p>
+<pre><code class="language-sh">nctl update app {APPLICATION_NAME} --project {PROJECT_NAME} --basic-auth=true
 </code></pre>
-<h2 id="applicationcontroller-configuration"><a class="header" href="#applicationcontroller-configuration">ApplicationController Configuration</a></h2>
-<p>Configure the <code>ApplicationController</code> like this when managing Basic Auth via Rails:</p>
-<pre><code class="language-ruby">class ApplicationController &lt; ActionController::Base
-  # ...
-
-  ENV['BASIC_AUTH'].to_s.split(':').presence&amp;.then do |username, password|
-    http_basic_authenticate_with name: username, password: password
-  end
-
-  # ...
-end
+<p>Credentials can be changed like this:</p>
+<pre><code class="language-sh">nctl update app {APPLICATION_NAME} --project {PROJECT_NAME} --change-basic-auth-password
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uptimerobot-monitoring"><a class="header" href="#uptimerobot-monitoring">Uptimerobot Monitoring</a></h1>
 <p>To ensure that our application is always up and running, we offer a monitoring
