@@ -25,17 +25,23 @@ This is done via page rules in Cloudflare.
 1. Enter `https://www.example.com/$1`
 1. Click "Save and Deploy"
 
+## Deploio (Preferred Deployment Method)
+
+We now recommend deploying applications using [Deploio](https://deplo.io), moving away from Heroku.
+
+When preparing your app for production on Deploio, ensure the following:
+
+* Verify the machine type of the PostgreSQL database in the PostgreSQL resource view.
+* Confirm the configured application size in the application configuration tab.
+* Ensure the application replica count is correctly set in the application configuration tab.
+
+For detailed instructions and best practices, including quick start guides for a variety of frameworks, please refer to the [Deploio deployment documentation](https://docs.deplo.io/documentation/networking_and_deployment/).
+
 ## Heroku
 
 * Check the size and amount of dynos on Heroku
 * Check the database size plan on Heroku and upgrade if it is foreseeable that 10'000 rows are exceeded in a short time
 * Check additional addons and according plans on Heroku
-
-## Deploio
-
-* Verify the machine type of the PostgreSQL database in the PostgreSQL resource view
-* Confirm the configured application size in the application configuration tab
-* Ensure the application replica count is correctly set in the application configuration tab
 
 ## Other
 
