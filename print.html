@@ -208,6 +208,10 @@ This guide is the result of more than ten years of experience, so this means thr
 If you think something is wrong or simply outdated, improve this guide with a Pull Request.</strong></p>
 <p>We want you to know exactly the reason behind each single step of this guide.</p>
 <p>Thank you for your work and have fun! 🎉</p>
+<h2 id="serving-the-documentation-locally"><a class="header" href="#serving-the-documentation-locally">Serving the Documentation Locally</a></h2>
+<p>To view this documentation on your machine, run the following command:</p>
+<pre><code class="language-sh">mbook serve
+</code></pre>
 <h2 id="license"><a class="header" href="#license">License</a></h2>
 <p><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Attribution 4.0 International (CC BY 4.0)</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="create-a-git-repository"><a class="header" href="#create-a-git-repository">Create a Git Repository</a></h1>
@@ -290,17 +294,20 @@ This is done via page rules in Cloudflare.</p>
 <li>Enter <code>https://www.example.com/$1</code></li>
 <li>Click "Save and Deploy"</li>
 </ol>
+<h2 id="deploio-preferred-deployment-method"><a class="header" href="#deploio-preferred-deployment-method">Deploio (Preferred Deployment Method)</a></h2>
+<p>We now recommend deploying applications using <a href="https://deplo.io">Deploio</a>, moving away from Heroku.</p>
+<p>When preparing your app for production on Deploio, ensure the following:</p>
+<ul>
+<li>Verify the machine type of the PostgreSQL database in the PostgreSQL resource view.</li>
+<li>Confirm the configured application size in the application configuration tab.</li>
+<li>Ensure the application replica count is correctly set in the application configuration tab.</li>
+</ul>
+<p>For detailed instructions and best practices, including quick start guides for a variety of frameworks, please refer to the <a href="https://docs.deplo.io/documentation/networking_and_deployment/">Deploio deployment documentation</a>.</p>
 <h2 id="heroku"><a class="header" href="#heroku">Heroku</a></h2>
 <ul>
 <li>Check the size and amount of dynos on Heroku</li>
 <li>Check the database size plan on Heroku and upgrade if it is foreseeable that 10'000 rows are exceeded in a short time</li>
 <li>Check additional addons and according plans on Heroku</li>
-</ul>
-<h2 id="deploio"><a class="header" href="#deploio">Deploio</a></h2>
-<ul>
-<li>Verify the machine type of the PostgreSQL database in the PostgreSQL resource view</li>
-<li>Confirm the configured application size in the application configuration tab</li>
-<li>Ensure the application replica count is correctly set in the application configuration tab</li>
 </ul>
 <h2 id="other"><a class="header" href="#other">Other</a></h2>
 <ul>
@@ -848,6 +855,7 @@ In particular, you might need only one of the two environments if you decided to
 In particular, you might need only one of the two environments if you decided to not use <code>develop</code>.</p>
 <p><strong>If you don't know what a command does: read the documentation and then execute it.</strong></p>
 <p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
+<p>For further configuration and best practices, please refer to the <a href="https://docs.deplo.io">Deploio documentation</a>. You can also view a Ruby on Rails specific guide <a href="https://docs.deplo.io/quick_start/Ruby%20on%20Rails/create_app/">here</a>.</p>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p>That's it! You have now configured your application with Deploio. No more configuration is needed.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="configure-the-ci"><a class="header" href="#configure-the-ci">Configure the CI</a></h1>
@@ -1027,7 +1035,7 @@ You can find an example that also checks the database connection <a href="ruby_o
 </ul>
 </li>
 </ul>
-<h3 id="deploio-1"><a class="header" href="#deploio-1">Deploio</a></h3>
+<h3 id="deploio"><a class="header" href="#deploio">Deploio</a></h3>
 <p>The host name contains a generated hash. The name can be accessed via:</p>
 <pre><code class="language-sh">nctl get applications --project={PROJECT_NAME}
 </code></pre>
@@ -1246,7 +1254,7 @@ end
 <p>Add the environment variable <code>BLOCK_ROBOTS=true</code> in your develop environment:</p>
 <pre><code class="language-sh">heroku config:add BLOCK_ROBOTS=true --app [project-name]-develop
 </code></pre>
-<h3 id="deploio-2"><a class="header" href="#deploio-2">Deploio</a></h3>
+<h3 id="deploio-1"><a class="header" href="#deploio-1">Deploio</a></h3>
 <p>Set the environment variable using:</p>
 <pre><code class="language-sh">nctl update app [app-name] --env=BLOCK_ROBOTS=true --project=[project-name]
 </code></pre>
