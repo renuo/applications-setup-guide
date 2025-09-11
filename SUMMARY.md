@@ -43,7 +43,6 @@
     - [Send Emails](ruby_on_rails/send_emails.md)
     - [Sparkpost & Mailtrap](sparkpost_and_mailtrap.md)
     - [Devise](ruby_on_rails/devise.md)
-    - [Sidekiq](ruby_on_rails/sidekiq.md)
     - [Cucumber](ruby_on_rails/cucumber.md)
     - [Amazon S3 and Cloudfront](ruby_on_rails/aws.md)
     - [Bootstrap](ruby_on_rails/bootstrap.md)
