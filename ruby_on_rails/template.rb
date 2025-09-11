@@ -8,6 +8,12 @@ insert_into_file "Gemfile", after: /^group :development do\n/ do
   RUBY
 end
 
+insert_into_file "Gemfile", after: /^group :development, :test do\n/ do
+  <<~RUBY
+    gem "dotenv"
+  RUBY
+end
+
 # replace bin/rails db:prepare with bin/rails db:setup in bin/setup
 gsub_file "bin/setup", "bin/rails db:prepare", "bin/rails db:setup"
 
@@ -36,6 +42,9 @@ create_file ".rubocop.yml", force: true do
       renuocop: config/base.yml
   RUBOCOP
 end
+
+create_file ".env.example", force: true
+create_file ".env", force: true
 
 create_file "bin/run", force: true do
   <<~RUN
