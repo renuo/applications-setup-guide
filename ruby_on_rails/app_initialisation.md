@@ -75,32 +75,20 @@ Check existing projects for an example of the usage.
 * Update `config/application.rb` and set the default language and timezone
 
   ```ruby
-  config.time_zone = 'Zurich' # may vary
-  config.i18n.default_locale = :de # may vary
-  ```
-
-* Update your `config/environments/production.rb` settings:
-
-  ```ruby
-  config.force_ssl = true # uncomment
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn") # change
+  config.time_zone = 'Zurich'
+  config.i18n.default_locale = :de
   ```
 
 * Update `config/environments/development.rb` settings:
 
   ```ruby
-  config.action_controller.action_on_unpermitted_parameters = :raise
   config.i18n.raise_on_missing_translations = true # uncomment
-
-  config.generators do |g|
-    g.apply_rubocop_autocorrect_after_generate!
-  end
+  config.generators.apply_rubocop_autocorrect_after_generate! # uncomment
   ```
 
 * Update `config/environments/test.rb` settings:
 
   ```ruby
-  config.action_controller.action_on_unpermitted_parameters = :raise
   config.i18n.raise_on_missing_translations = true # uncomment
   config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
   config.active_record.verbose_query_logs = true # add
