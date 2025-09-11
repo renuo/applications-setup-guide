@@ -15,7 +15,7 @@ gsub_file "bin/setup", "bin/rails db:prepare", "bin/rails db:setup"
 insert_into_file "bin/setup", before: "\n  puts \"\\n== Preparing database ==\"" do
   <<-RUBY
   puts "\\n== Fetching 1password dependencies =="
-  system! 'renuo fetch-secrets'  
+  system! 'renuo fetch-secrets'
   RUBY
 end
 
@@ -35,6 +35,45 @@ create_file ".rubocop.yml", force: true do
     inherit_gem:
       renuocop: config/base.yml
   RUBOCOP
+end
+
+answer = ask("Do you want to setup dotenv? (y/n)", default: "y")
+
+if answer.downcase == "y"
+  insert_into_file "Gemfile", after: /^group :development, :test do\n/ do
+    <<~RUBY
+    gem "dotenv"
+  RUBY
+  end
+
+  create_file ".env.example", force: true do
+    <<~ENV
+      SECRET_KEY_BASE=<%= `bin/rails secret`.strip %>
+      APP_PORT=3000
+    ENV
+  end
+
+  create_file ".env", force: true do
+    <<~ENV
+      SECRET_KEY_BASE=#{SecureRandom.hex(64)}
+      APP_PORT=3000
+    ENV
+  end
+
+  create_file "config/initializers/dotenv.rb", force: true do
+    <<~DOTENV
+      Dotenv.require_keys(Dotenv.parse(".env.example").keys)
+    DOTENV
+  end
+
+  insert_into_file "bin/setup", before: "\n  puts \"\\n== Preparing database ==\"" do
+    <<-RUBY
+    puts "\n== Copying sample files =="
+    unless File.exist?('.env')
+      system! 'cp .env.example .env'
+    end
+    RUBY
+  end
 end
 
 create_file "bin/run", force: true do

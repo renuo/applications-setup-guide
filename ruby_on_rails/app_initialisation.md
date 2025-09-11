@@ -20,7 +20,6 @@ rails new [project-name] --database=postgresql --skip-kamal --skip-ci --skip-act
 where the `project-name` is exactly the one you chose before.
 
 > ⚠️ You may want to choose a different database than Postgres, but most of the time this will be your choice.\
-> If you do not need a DB you may rethink the fact that you may not need Rails at all: Take a look at [Sinatra](http://www.sinatrarb.com/) or [Angular](https://angular.io/)\
 > You might also need actionmailbox of course, so always double-check the parameters that you are using.
 
 > ⭐️ This setup does not include either js-bundling nor css-bundling by default.\
@@ -28,11 +27,10 @@ where the `project-name` is exactly the one you chose before.
 > If you need to do fancy stuff, discuss with your team the opportunity of including a js-bundling and css-bundling tool.\
 > We want to go ["no build"](https://www.youtube.com/watch?v=iqXjGiQ_D-A) whenever possible.
 
+* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
 * Run `bin/setup`
 
-* Run `bundle exec rails db:migrate` to generate an empty `schema.rb` file.
-
-* Then check your default Rails setup by running `rails s` and visiting http://localhost:3000.
+* Then check your default Rails setup by running `bin/run` and visiting http://[project-name].localhost:3000.
   You should be on Rails now, yay!
 * Finally check if http://localhost:3000/up is green.
 
@@ -61,36 +59,6 @@ Some other adjustments must be performed manually.
 
 > ⭐️bin/check, bin/fastcheck and bin/run are standardized tools for more convenience at Renuo.
 
-### Manual adjustments
-
-Please perform these adjustments manually:
-
-#### ENV variables
-
-* Add `dotenv-rails` to Gemfile. Check the [gem homepage](https://github.com/bkeepers/dotenv) to see how to install the gem.
-* and create `.env.example` in the root folder of the project where you will specify the only environment variable you need for now:
-  `SECRET_KEY_BASE`.
-* Going forward we will only push the `.env.example` file to the repository in order to protect our env variables.
-* Add .env to .gitignore
-* Add the following section to your `bin/setup` script so that the `.env` is created from the `.env` when the project is setup locally:
-
-  ```ruby
-  puts "\n== Copying sample files =="
-  unless File.exist?('.env')
-    system! 'cp .env.example .env'
-  end
-  ```
-
-* add one more key to .env.example `APP_PORT=3000`
-* To ensure you have all the required keys from the `.env.example` in your `.env`,
-create the initializer for dotenv-rails in `config/initializers/dotenv_rails.rb`:
-
-```ruby
-Dotenv.require_keys(Dotenv.parse(".env.example").keys)
-```
-
-* Run `bin/setup` again.
-
 ### Secrets
 
 We store the secrets necessary to configure the project locally in a 1password Item.
@@ -107,32 +75,20 @@ Check existing projects for an example of the usage.
 * Update `config/application.rb` and set the default language and timezone
 
   ```ruby
-  config.time_zone = 'Zurich' # may vary
-  config.i18n.default_locale = :de # may vary
-  ```
-
-* Update your `config/environments/production.rb` settings:
-
-  ```ruby
-  config.force_ssl = true # uncomment
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn") # change
+  config.time_zone = 'Zurich'
+  config.i18n.default_locale = :de
   ```
 
 * Update `config/environments/development.rb` settings:
 
   ```ruby
-  config.action_controller.action_on_unpermitted_parameters = :raise
   config.i18n.raise_on_missing_translations = true # uncomment
-
-  config.generators do |g|
-    g.apply_rubocop_autocorrect_after_generate!
-  end
+  config.generators.apply_rubocop_autocorrect_after_generate! # uncomment
   ```
 
 * Update `config/environments/test.rb` settings:
 
   ```ruby
-  config.action_controller.action_on_unpermitted_parameters = :raise
   config.i18n.raise_on_missing_translations = true # uncomment
   config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
   config.active_record.verbose_query_logs = true # add
