@@ -30,7 +30,6 @@ The different environments will be automatically detected, and you can monitor a
   group :production do
     gem "sentry-rails"
     gem "sentry-ruby"
-    gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
   end
   ```
 
