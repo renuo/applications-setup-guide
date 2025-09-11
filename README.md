@@ -39,9 +39,9 @@ We want you to know exactly the reason behind each single step of this guide.
 
 Thank you for your work and have fun! :tada:
 
-## Running the Application
+## Serving the Documentation Locally
 
-To start the application locally, use the following command:
+To view this documentation on your machine, run the following command:
 
 ```sh
 mbook serve
