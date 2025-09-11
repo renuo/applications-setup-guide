@@ -2,7 +2,7 @@
 
 At Renuo we **always** use a CI (Continuous Integration) system to test our applications. It's essential to guarantee
 that all the tests pass before building and releasing a new version through our CD system. Our projects use
-[SemaphoreCI 2.0](<https://semaphoreci.com/>).
+[SemaphoreCI](<https://semaphoreci.com/>).
 
 Before configuring the CI, you should already have a Git Repository with the code, a `bin/check` command to execute,
 and the main branches already pushed and ready to be tested.
@@ -20,6 +20,7 @@ renuo configure-semaphore
 ```
 
 The command will copy the necessary templates to `.semaphore` folder using the renuo-cli. These files need to be maintained on the [renuo-cli repository](https://github.com/renuo/renuo-cli/tree/main).
+Adapt the files and remove the `develop` related ones if you don't use the `develop` branch.
 
 1. Add a file called `.nvmrc` to the project root, where you specify the latest node version
 1. Commit the files to both branches, push and watch the CI run.
@@ -42,3 +43,9 @@ branches in GitHub will be automatically deployed to the related server.
 It's time to create some first Pull Requests with some improvements.
 
 **Don't forget to go back to the GitHub settings and add the CI to the required checks!**
+
+## A note about contacting the Semaphore support
+
+The Semaphore Support team will use your primary Github email address for communication.
+If this is not the `renuo.c`h address, you need to tell them (`support@semaphoreci.com`)
+to change your contact email address manually.

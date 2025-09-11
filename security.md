@@ -15,6 +15,16 @@ Expires: 2050-11-11T13:37:42.000Z
 Preferred-Languages: de, en
 ```
 
+In case your repo is public, it is recommended to add a `SECURITY.md` to your repository's root, docs, or .github folder:
+
+```
+# Security Policy
+
+## Reporting a Vulnerability
+
+To report a security vulnerability, please email security@renuo.ch.
+```
+
 ## Cipher suite review
 
 Review your SSL/TLS configuration periodically: <https://www.ssllabs.com/ssltest/>

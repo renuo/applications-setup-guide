@@ -39,6 +39,14 @@ We want you to know exactly the reason behind each single step of this guide.
 
 Thank you for your work and have fun! :tada:
 
+## Serving the Documentation Locally
+
+To view this documentation on your machine, run the following command:
+
+```sh
+mbook serve
+```
+
 ## License
 
 [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/legalcode)
