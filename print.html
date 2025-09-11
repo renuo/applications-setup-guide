@@ -478,7 +478,6 @@ useful services:</p>
 <li><a href="ruby_on_rails/send_emails.html">Send emails</a></li>
 <li><a href="ruby_on_rails/../sparkpost_and_mailtrap.html">Sparkpost &amp; Mailtrap</a></li>
 <li><a href="ruby_on_rails/devise.html">Devise</a></li>
-<li><a href="ruby_on_rails/sidekiq.html">Sidekiq</a></li>
 <li><a href="ruby_on_rails/cucumber.html">Cucumber</a></li>
 <li><a href="ruby_on_rails/aws.html">Amazon S3 and Cloudfront</a></li>
 <li>awesome_print <code>gem 'awesome_print'</code></li>
@@ -1166,7 +1165,6 @@ end
 <pre><code class="language-ruby">group :production do
   gem "sentry-rails"
   gem "sentry-ruby"
-  gem "sentry-sidekiq" # If the project uses Sidekiq for background jobs
 end
 </code></pre>
 </li>
@@ -1635,133 +1633,6 @@ config.pepper = ENV['DEVISE_PEPPER']
 DEVISE_PEPPER="rake secret"
 </code></pre>
 <p>Open a pull request! 🎉</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sidekiq"><a class="header" href="#sidekiq">Sidekiq</a></h1>
-<p>As soon as you have to do work with background jobs please follow those suggestions.
-They will help you having a proper system to do background work.
-We use <a href="https://github.com/mperham/sidekiq">sidekiq</a> because it works well on Heroku and is easy to setup (suckerpunch for example causes memory issues on Heroku).</p>
-<ul>
-<li>
-<p>Add the following gem <code>gem 'sidekiq'</code> to the <code>production</code> block and install it</p>
-<pre><code class="language-sh">bundle install
-</code></pre>
-</li>
-<li>
-<p>Update the <code>Procfile</code> and set the <code>worker</code> line, so it looks like this:</p>
-<pre><code class="language-rb">web: bundle exec puma -C config/puma.rb
-worker: bundle exec sidekiq -C config/sidekiq.yml
-</code></pre>
-</li>
-<li>
-<p>Configure the active job adapter in <code>config/environments/production.rb</code></p>
-<pre><code class="language-rb">config.active_job.queue_adapter = :sidekiq
-</code></pre>
-</li>
-<li>
-<p>Configure the active job adapter in <code>config/environments/development.rb</code></p>
-<pre><code class="language-rb">config.active_job.queue_adapter = :async
-</code></pre>
-</li>
-<li>
-<p>Configure the active job adapter in <code>config/environments/test.rb</code></p>
-<pre><code class="language-rb">config.active_job.queue_adapter = :test
-</code></pre>
-</li>
-<li>
-<p>Create a file <code>config/sidekiq.yml</code>, there you can setup your options for sidekiq.
-It could look something like this.
-You may need to inform yourself about what
-<a href="https://github.com/mperham/sidekiq/wiki/Advanced-Options#queues">queue configuration</a>
-is right for your project.</p>
-<pre><code class="language-yml">:concurrency: &lt;%= ENV["SIDEKIQ_CONCURRENCY"] || 5 %&gt;
-:queues:
-  - [mailers, 1]
-  - [default, 1]
-</code></pre>
-<p>Note: if you are on the free Redis plan
-you may need to limit your concurrency to not exceed the connection limit.</p>
-</li>
-<li>
-<p>On Heroku you need to:</p>
-<ul>
-<li>Add the Heroku <a href="https://elements.heroku.com/addons/heroku-redis">Redis addon</a></li>
-<li>And to start it turn on the worker</li>
-</ul>
-</li>
-<li>
-<p>To run Sidekiq locally you need to:</p>
-<ul>
-<li>Temporarily switch the adapter in <code>config/environments/development.rb</code> to
-<pre><code class="language-rb">config.active_job.queue_adapter = :sidekiq
-</code></pre>
-</li>
-<li>Install Redis if not yet installed <code>brew install redis</code></li>
-<li>Start Redis <code>redis-server</code></li>
-<li>Start Sidekiq <code>bundle exec sidekiq -C config/sidekiq.yml</code></li>
-<li>Start your server</li>
-</ul>
-</li>
-</ul>
-<h2 id="sidekiq-cron"><a class="header" href="#sidekiq-cron">Sidekiq-Cron</a></h2>
-<p>If you need finer graded control about your scheduled jobs than the Heroku scheduler
-provides you, you can use <a href="https://github.com/ondrejbartas/sidekiq-cron">Sidekiq-Cron</a>.
-This way you can for example schedule a job every minute.</p>
-<ul>
-<li>
-<p>Add the following gem <code>gem 'sidekiq-cron'</code> and install it</p>
-<pre><code class="language-sh">bundle install
-</code></pre>
-</li>
-<li>
-<p>update/create <code>config/initializers/sidekiq.rb</code> and add the following lines:</p>
-<pre><code class="language-rb">if defined? Sidekiq
-  schedule_file = 'config/schedule.yml'
-
-  if File.exist?(schedule_file) &amp;&amp; Sidekiq.server?
-    errors = Sidekiq::Cron::Job.load_from_hash!(YAML.load_file(schedule_file))
-    Rails.logger.error "Errors loading scheduled jobs: #{errors}" if errors.any?
-  end
-end
-</code></pre>
-</li>
-<li>
-<p>create file <code>config/schedule.yml</code>. There you can specify your jobs.
-A simple job which runs every 5 minutes could look something like this.
-(For more options, see the <a href="https://github.com/ondrejbartas/sidekiq-cron/blob/master/README.md">Readme</a> of the gem)</p>
-<pre><code class="language-yml">MyExampleJob:
-  cron: "*/5 * * * *"
-  class: "MyJob"
-  queue: default
-</code></pre>
-</li>
-</ul>
-<h2 id="sidekiq-monitoring"><a class="header" href="#sidekiq-monitoring">Sidekiq monitoring</a></h2>
-<p>If you want to provide a sidekiq dashboard and see which tasks failed or run through, you can use the <a href="https://github.com/mperham/sidekiq/wiki/Monitoring">Sidekiq monitoring</a>:</p>
-<ul>
-<li>
-<p>Update/Create <code>config/initializers/sidekiq.rb</code> and add the following lines:</p>
-<pre><code class="language-rb">if defined? Sidekiq
-  require 'sidekiq/web'
-
-  Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
-    [user, password] == [ENV['SIDEKIQ_USER'], ENV['SIDEKIQ_PASSWORD']]
-  end
-end
-</code></pre>
-</li>
-<li>
-<p>Add <code>SIDEKIQ_USER</code> and <code>SIDEKIQ_PASSWORD</code> as the credentials to the dashboard to your <code>application.example.yml</code>.</p>
-</li>
-<li>
-<p>Add the following line inside <code>routes.rb</code>:</p>
-<pre><code class="language-rb">Rails.application.routes.draw do
-  ...
-  mount Sidekiq::Web =&gt; '/sidekiq' if defined? Sidekiq::Web
-  ...
-</code></pre>
-</li>
-</ul>
-<h3 id="error-monitoring"><a class="header" href="#error-monitoring">Error monitoring</a></h3>
-<p>In order to report messages, exceptions or to trace events, it is recommended to install the <code>sentry-sidekiq</code> gem.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cucumber"><a class="header" href="#cucumber">Cucumber</a></h1>
 <p><a href="https://cucumber.io">Cucumber</a> is a testing framework which allows us to specify feature tests using plain language.
 We use Cucumber for e2e tests in some of our projects. We integrate it using the <code>cucumber-rails</code> gem.</p>
@@ -2224,7 +2095,7 @@ So once the project is created, the frontend API key can be found in the "Push a
 <li>Include <a href="ruby_on_rails/../templates/app/javascript/appsignal.js">appsignal.js</a> in your JS assets.</li>
 </ul>
 <h2 id="verify-the-installation-1"><a class="header" href="#verify-the-installation-1">Verify the installation</a></h2>
-<h3 id="error-monitoring-1"><a class="header" href="#error-monitoring-1">Error monitoring</a></h3>
+<h3 id="error-monitoring"><a class="header" href="#error-monitoring">Error monitoring</a></h3>
 <h4 id="ruby-1"><a class="header" href="#ruby-1">Ruby</a></h4>
 <p>For each environment of your app, connect to the <code>heroku run rails console --app [project-name]-[branch-name]</code> and raise an exception using Appsignal:</p>
 <pre><code>begin
