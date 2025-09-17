@@ -37,6 +37,7 @@ create_file ".rubocop.yml", force: true do
   RUBOCOP
 end
 
+# convenience script to run the app locally (however the developer intended, probably similar to bin/dev nowadays)
 create_file "bin/run", force: true do
   <<~RUN
     #!/usr/bin/env bash
@@ -47,6 +48,7 @@ create_file "bin/run", force: true do
 end
 run "chmod +x bin/run"
 
+# convenience script to run the complete test suite
 create_file "bin/check", force: true do
   <<~CHECK
     #!/usr/bin/env bash
@@ -57,6 +59,7 @@ create_file "bin/check", force: true do
 end
 run "chmod +x bin/check"
 
+# convenience script to run linters and maybe some few tests, must be fast
 create_file "bin/fastcheck", force: true do
   <<~FASTCHECK
     #!/usr/bin/env bash
