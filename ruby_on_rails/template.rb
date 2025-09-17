@@ -12,8 +12,8 @@ end
 gem_group :development, :test do
   gem "listen"
 end
-environment %(config.file_watcher = ActiveSupport::EventedFileUpdateChecker"), env: "development"
-environment %(config.file_watcher = ActiveSupport::EventedFileUpdateChecker"), env: "test"
+environment %(config.file_watcher = ActiveSupport::EventedFileUpdateChecker), env: "development"
+environment %(config.file_watcher = ActiveSupport::EventedFileUpdateChecker), env: "test"
 
 # replace bin/rails db:prepare with bin/rails db:setup in bin/setup
 gsub_file "bin/setup", "bin/rails db:prepare", "bin/rails db:setup"
