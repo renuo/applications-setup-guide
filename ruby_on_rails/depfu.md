@@ -5,7 +5,7 @@ dependencies. It will automatically create a pull request to the project
 if a security vulnerability has been disclosed.
 
 1. Ask wg-operations to add repository access for Depfu to you new Github
-repository.
+   repository.
 
 That's all :-)
 
@@ -21,8 +21,8 @@ Enable minor engine updates.
 be available on their platform, so you may need to delay the upgrade. Check the
 following GitHub repositories to see if Heroku added support already:
 
-* <https://github.com/heroku/heroku-buildpack-nodejs>
-* <https://github.com/heroku/heroku-buildpack-ruby>
+- <https://github.com/heroku/heroku-buildpack-nodejs>
+- <https://github.com/heroku/heroku-buildpack-ruby>
 
 ## Automatic merging
 
@@ -58,8 +58,9 @@ jobs:
 
 ## Ticket reference
 
-In order to prevent the lookup of the maintanance project after reviewing a depfu pr, we add the ticket to the PR title as per the following Depfu configuration:
+In order to avoid searching for the maintenance project after reviewing a Depfu PR,
+we add the ticket to the PR title according to the following Depfu configuration:
 
-<img width="2926" height="566" alt="CleanShot 2025-10-15 at 08 41 10@2x" src="https://github.com/user-attachments/assets/1923d0f4-d57e-4a9c-bd04-8ed6c2b94781" />
+![Depfu Redmine Ticket PR Title](../images/depfu_pr_title.png)
 
-Make sure that the ticket number matches the actual maintanance ticket.
+Make sure that the ticket number matches the actual maintenance ticket.
