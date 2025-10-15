@@ -55,6 +55,7 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
+
 ## Ticket reference
 
 In order to prevent the lookup of the maintanance project after reviewing a depfu pr, we add the ticket to the PR title as per the following Depfu configuration:
