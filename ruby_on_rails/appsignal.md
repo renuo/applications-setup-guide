@@ -16,10 +16,11 @@ redirect the multiplexed Logplex logs to AppSignal in any case.
 If you want to log errors and metrics, you need to install the AppSignal agent
 into your app. See integration instructions for [Ruby/Rails](https://docs.appsignal.com/logging/platforms/integrations/ruby.html).
 
-* Add the following gem to your Gemfile:
+* Add the following gem to your Gemfile (Our fork adds a configurable sampling rate to reduce logging costs):
   ```ruby
   gem 'appsignal', github: 'renuo/appsignal-ruby'
   ```
+  
 * Add a AppSignal configuration file [`config/initializers/appsignal.rb`](../templates/config/initializers/appsignal.rb)
 * Add the new variables to your Heroku environments:
 
