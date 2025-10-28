@@ -20,7 +20,6 @@ into your app. See integration instructions for [Ruby/Rails](https://docs.appsig
   ```ruby
   gem 'appsignal', github: 'renuo/appsignal-ruby'
   ```
-  
 * Add a AppSignal configuration file [`config/initializers/appsignal.rb`](../templates/config/initializers/appsignal.rb)
 * Add the new variables to your Heroku environments:
 
