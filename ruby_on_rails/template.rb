@@ -50,6 +50,7 @@ create_file "bin/run", force: true do
     #!/usr/bin/env bash
     set -euo pipefail
 
+    echo "Starting Rails server on http://#{app_name}.localhost:3000 (cmd-click to open)"
     rails s
   RUN
 end
