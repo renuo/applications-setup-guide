@@ -48,7 +48,7 @@ In this file you create the configuration that is necessary before running the t
 ```
 "env": {
   "test": {
-    "plugins": ["transform-es2015-modules-commonjs"]
+    "plugins": ["@babel/plugin-transform-modules-commonjs"]
   }
 }
 ```
