@@ -6,18 +6,9 @@ if defined? Sentry
   Sentry.init do |config|
     filter = ActiveSupport::ParameterFilter.new(Rails.application.config.filter_parameters)
     config.before_send = lambda do |event, _hint|
-      if event.extra
-        event.extra = filter.filter(event.extra)
-      end
-
-      if event.user
-        event.user = filter.filter(event.user)
-      end
-
-      if event.contexts
-        event.contexts = filter.filter(event.contexts)
-      end
-
+      event.extra = filter.filter(event.extra) if event.extra
+      event.user = filter.filter(event.user) if event.user    
+      event.contexts = filter.filter(event.contexts) if event.contexts
       event
     end
 
