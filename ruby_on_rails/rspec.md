@@ -27,72 +27,57 @@ You should know exactly why you are adding each one of them and why is necessary
 
 * Install rspec via `rails generate rspec:install`
 * Create a bin stub with `bundle binstubs rspec-core`
-* Replace the entire contents of `spec/spec_helper.rb` with:
+* At the top of the `spec/spec_helper.rb`
 
   ```ruby
-  # Run code coverage and exclude files with less than 5 lines of code
-  unless ENV['NO_COVERAGE']
-    require 'simplecov'
-    SimpleCov.start 'rails' do
-      add_filter 'app/channels/application_cable/channel.rb'
-      add_filter 'app/channels/application_cable/connection.rb'
-      add_filter 'app/jobs/application_job.rb'
-      add_filter 'app/mailers/application_mailer.rb'
-      add_filter 'app/models/application_record.rb'
-      add_filter '.semaphore-cache'
-      enable_coverage :branch
-      minimum_coverage line: 100, branch: 100
-    end
-  end
-
-  RSpec.configure do |config|
-    config.expect_with :rspec do |expectations|
-      expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-    end
-    config.mock_with :rspec do |mocks|
-      mocks.verify_partial_doubles = true
-    end
-
-    config.run_all_when_everything_filtered = true
-
-    # We suggest you to also keep the following enabled:
-    config.disable_monkey_patching!
-    config.default_formatter = 'doc' if config.files_to_run.one?
-    config.profile_examples = 5
-    config.order = :random
-    Kernel.srand config.seed
-
-    config.define_derived_metadata do |meta|
-      meta[:aggregate_failures] = true
-    end
+  require 'simplecov'
+  SimpleCov.start "rails" do
+    add_filter "app/channels/application_cable/channel.rb"
+    add_filter "app/channels/application_cable/connection.rb"
+    add_filter "app/jobs/application_job.rb"
+    add_filter "app/mailers/application_mailer.rb"
+    add_filter "app/models/application_record.rb"
+    add_filter ".semaphore-cache"
+    enable_coverage :branch
+    minimum_coverage line: 100, branch: 100
   end
   ```
 
-* Replace the entire contents of `spec/rails_helper.rb` with:
+  to run code coverage and exclude files with less then 5 lines of code.
+
+* Inside `spec/spec_helper.rb` we suggest you to uncomment/enable the following:
+
+  ```ruby
+  config.disable_monkey_patching!
+  config.default_formatter = 'doc' if config.files_to_run.one?
+  config.profile_examples = 5
+  config.order = :random
+  Kernel.srand config.seed
+
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+  ```
+
+  Please check the [spec_helper template](../templates/spec/spec_helper.rb)
+
+* Add the configurations:
 
 ```rb
-ENV['RAILS_ENV'] ||= 'test'
-require 'spec_helper'
-require_relative '../config/environment'
-# Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'rspec/rails'
+# spec/rails_helper.rb:
+
+# after `require 'rspec/rails'`
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
 require 'super_diff/rspec-rails'
 
-ActiveRecord::Migration.maintain_test_schema!
-
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
-  config.include ActiveSupport::Testing::TimeHelpers
-  config.include JavaScriptErrorReporter, type: :system, js: true
+# ... (omitted configs here)
 
-  config.use_transactional_fixtures = true
-  config.infer_spec_type_from_file_location!
+RSpec.configure do |config|
+  # ... (omitted configs here)
 
   config.before do |example|
     ActionMailer::Base.deliveries.clear
@@ -106,10 +91,6 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system) do
     driven_by :rack_test
-  end
-
-  config.before(:all, type: :system) do
-    Capybara.server = :puma, { Silent: true }
   end
 
   config.before(:each, type: :system, js: true) do
@@ -134,6 +115,7 @@ end
 
 ```
 
+Please check the full [rails_helper template](../templates/spec/rails_helper.rb) to compare.
 
 * Add the line `bundle exec parallel_rspec` to `bin/check`
 
@@ -176,3 +158,7 @@ nctl get applications --project={PROJECT_NAME}
 ## Javascript error reporter
 
 * Create the module [`spec/support/javascript_error_reporter.rb`](../templates/spec/support/javascript_error_reporter.rb)
+
+* Verify that `config.include JavaScriptErrorReporter, type: :system, js: true` is in your [`rails_helper.rb`](../templates/spec/rails_helper.rb)
+
+Please check the [rails_helper template](../templates/spec/rails_helper.rb) to compare.
