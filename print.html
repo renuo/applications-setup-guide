@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-7ea8ab80.js";
+            window.path_to_searchindex_js = "searchindex-d60be6af.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0836a769.js"></script>
@@ -630,7 +630,7 @@ config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "warn") # change
 <li>
 <p>Update <code>config/environments/development.rb</code> settings:</p>
 <pre><code class="language-ruby">config.action_controller.action_on_unpermitted_parameters = :raise
-config.i18n.raise_on_missing_translations = true # uncomment
+config.i18n.raise_on_missing_translations = :strict
 
 config.generators do |g|
   g.apply_rubocop_autocorrect_after_generate!
@@ -640,7 +640,7 @@ end
 <li>
 <p>Update <code>config/environments/test.rb</code> settings:</p>
 <pre><code class="language-ruby">config.action_controller.action_on_unpermitted_parameters = :raise
-config.i18n.raise_on_missing_translations = true # uncomment
+config.i18n.raise_on_missing_translations = :strict
 config.i18n.exception_handler = Proc.new { |exception| raise exception.to_exception } # add
 config.active_record.verbose_query_logs = true # add
 
