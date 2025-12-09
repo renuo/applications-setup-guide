@@ -1,4 +1,6 @@
-# Amazon Services
+# Object Storage
+
+# AWS
 
 The following Amazon services are involved in our app setups
 
@@ -94,4 +96,60 @@ amazon:
   secret_access_key: <%= ENV['AWS_S3_SECRET_ACCESS_KEY'] %>
   bucket: <%= ENV['AWS_S3_BUCKET'] %>
   region: "eu-central-1"
+```
+
+# Deploio
+
+## Setup
+
+### Preconditions
+
+#### renuo-cli
+
+You will need Renuo-CLI to be set up and at the newest version:
+
+`gem install renuo-cli` --> see [renuo-cli](https://github.com/renuo/renuo-cli)
+
+Make sure `renuo -v` shows the [newest version](https://github.com/renuo/renuo-cli/tags)
+
+### Command generation
+
+The following command will generate command-line-commands to set up object storage on Deploio.
+You'll need to run them by yourself after reviewing the output.
+
+1. Run `renuo create-deploio-object-storage`
+1. Follow the steps and answer the questions
+1. Now it will print you out a series of commands e.g.:
+
+   ```sh
+   # Deploio main
+
+       nctl create bucketuser main --project <<your-project>> --location <<location>>
+       [...]
+       nctl get bucketuser main --project <<your-project>> --print-credentials
+       [...]
+
+   # Deploio develop
+   [...]
+   ```
+1. Review the commands carefully (e.g. make sure that you enable bucket versioning for the main branch)
+
+### Rails Configuration
+
+You then can use an _ActiveStorage_ configuration like this:
+
+```yaml
+deploio:
+  service: S3
+  access_key_id: <%= ENV['DEPLOIO_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['DEPLOIO_SECRET_KEY'] %>
+  endpoint: <%= ENV['DEPLOIO_ENDPOINT'] %>
+  region: "us-east-1"
+  bucket: <%= ENV['DEPLOIO_BUCKET'] %>
+```
+
+Set the ActiveStorage service in your production environment (`config/environments/production.rb`):
+
+```ruby
+config.active_storage.service = :deploio
 ```
