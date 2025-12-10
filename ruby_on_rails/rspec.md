@@ -68,15 +68,19 @@ RSpec.configure do |config|
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true
   end
-
-  # We suggest you to also unable/uncomment the following:
-  config.disable_monkey_patching!
-  config.default_formatter = 'doc' if config.files_to_run.one?
-  config.profile_examples = 5
-  config.order = :random
-  Kernel.srand config.seed
 end
 ```
+
+We suggest you to also unable/uncomment the following:
+
+```ruby
+config.disable_monkey_patching!
+config.default_formatter = 'doc' if config.files_to_run.one?
+config.profile_examples = 5
+config.order = :random
+Kernel.srand config.seed
+```
+
 
 ### spec/rails_helper.rb
 
@@ -133,15 +137,16 @@ RSpec.configure do |config|
 end
 ```
 
+### .env.example
+
 ```yml
-# .env.example
 # SELENIUM_DRIVER="selenium_chrome"
 SELENIUM_DRIVER="selenium_chrome_headless"
 ```
 
-```rb
-# config/environments/development.rb
+### config/environments/development.rb
 
+```rb
 config.generators do |g|
   g.test_framework :rspec
 end
