@@ -27,71 +27,85 @@ You should know exactly why you are adding each one of them and why is necessary
 
 * Install rspec via `rails generate rspec:install`
 * Create a bin stub with `bundle binstubs rspec-core`
-* Replace the entire contents of `spec/spec_helper.rb` with:
 
-  ```ruby
-  # Run code coverage and exclude files with less than 5 lines of code
-  unless ENV['NO_COVERAGE']
-    require 'simplecov'
-    SimpleCov.start 'rails' do
-      add_filter 'app/channels/application_cable/channel.rb'
-      add_filter 'app/channels/application_cable/connection.rb'
-      add_filter 'app/jobs/application_job.rb'
-      add_filter 'app/mailers/application_mailer.rb'
-      add_filter 'app/models/application_record.rb'
-      add_filter '.semaphore-cache'
-      enable_coverage :branch
-      minimum_coverage line: 100, branch: 100
-    end
+### spec/spec_helper.rb
+
+Add SimpleCov configuration at the top of the file (before `RSpec.configure`):
+
+```ruby
+# Run code coverage and exclude files with less than 5 lines of code
+unless ENV['NO_COVERAGE']
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_filter 'app/channels/application_cable/channel.rb'
+    add_filter 'app/channels/application_cable/connection.rb'
+    add_filter 'app/jobs/application_job.rb'
+    add_filter 'app/mailers/application_mailer.rb'
+    add_filter 'app/models/application_record.rb'
+    add_filter '.semaphore-cache'
+    enable_coverage :branch
+    minimum_coverage line: 100, branch: 100
+  end
+end
+```
+
+Add the following configuration options inside the `RSpec.configure` block:
+
+```ruby
+RSpec.configure do |config|
+  # ... existing configuration ...
+
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  RSpec.configure do |config|
-    config.expect_with :rspec do |expectations|
-      expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-    end
-    config.mock_with :rspec do |mocks|
-      mocks.verify_partial_doubles = true
-    end
-
-    config.run_all_when_everything_filtered = true
-
-    # We suggest you to also keep the following enabled:
-    config.disable_monkey_patching!
-    config.default_formatter = 'doc' if config.files_to_run.one?
-    config.profile_examples = 5
-    config.order = :random
-    Kernel.srand config.seed
-
-    config.define_derived_metadata do |meta|
-      meta[:aggregate_failures] = true
-    end
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
   end
-  ```
 
-* Replace the entire contents of `spec/rails_helper.rb` with:
+  config.run_all_when_everything_filtered = true
 
-```rb
-ENV['RAILS_ENV'] ||= 'test'
-require 'spec_helper'
-require_relative '../config/environment'
-# Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'rspec/rails'
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
+  # We suggest you to also unable/uncomment the following:
+  config.disable_monkey_patching!
+  config.default_formatter = 'doc' if config.files_to_run.one?
+  config.profile_examples = 5
+  config.order = :random
+  Kernel.srand config.seed
+end
+```
+
+### spec/rails_helper.rb
+
+Add the following requires:
+
+```ruby
+# after `require 'rspec/rails'`
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
 require 'super_diff/rspec-rails'
+```
 
-ActiveRecord::Migration.maintain_test_schema!
+Add the following after the requires (before `RSpec.configure`):
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+```ruby
+Rails.root.glob("spec/support/**/*.rb").each { |f| require f }
+```
 
+Add the following configuration inside the `RSpec.configure` block:
+
+```ruby
 RSpec.configure do |config|
+  # ... existing configuration ...
+
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
   config.include JavaScriptErrorReporter, type: :system, js: true
 
-  config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 
   config.before do |example|
