@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Amazon S3 and Cloudfront - Renuo - Application Setup Guide</title>
+        <title>Object Storage - Renuo - Application Setup Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d60be6af.js";
+            window.path_to_searchindex_js = "../searchindex-06534f22.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-0836a769.js"></script>
+        <script src="../toc-f26f0187.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -174,7 +174,38 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="amazon-services"><a class="header" href="#amazon-services">Amazon Services</a></h1>
+                        <h1 id="object-storage"><a class="header" href="#object-storage">Object Storage</a></h1>
+<h2 id="deploio"><a class="header" href="#deploio">Deploio</a></h2>
+<h3 id="command-generation"><a class="header" href="#command-generation">Command generation</a></h3>
+<p>The following command will generate command-line-commands to set up object storage on Deploio.
+You’ll need to run them by yourself after reviewing the output.</p>
+<ol>
+<li>
+<p>Run <code>renuo create-deploio-object-storage</code></p>
+</li>
+<li>
+<p>Follow the steps and answer the questions</p>
+</li>
+<li>
+<p>Now it will print you out a series of commands e.g.:</p>
+<pre><code class="language-sh"># Deploio main
+
+    nctl create bucketuser main --project &lt;&lt;your-project&gt;&gt; --location &lt;&lt;location&gt;&gt;
+    [...]
+    nctl get bucketuser main --project &lt;&lt;your-project&gt;&gt; --print-credentials
+    [...]
+
+# Deploio develop
+[...]
+</code></pre>
+</li>
+<li>
+<p>Review the commands carefully (e.g. make sure that you enable bucket versioning for the main branch)</p>
+</li>
+</ol>
+<p>If you think that the script is outdated, please open a Pull Request on the <a href="https://github.com/renuo/renuo-cli">renuo-cli</a> project.</p>
+<p>For further configuration and best practices, please refer to the <a href="https://docs.deplo.io/ruby/object-storage.html#setup-object-storage">Deploio documentation</a>.</p>
+<h2 id="aws"><a class="header" href="#aws">AWS</a></h2>
 <p>The following Amazon services are involved in our app setups</p>
 <ul>
 <li>Amazon <strong>S3</strong> is Amazon’s Simple Cloud Storage Service,
@@ -206,7 +237,7 @@ aws configure --profile renuo-app-setup
 </code></pre>
 <p>If you want to check your config, run <code>aws configure --profile renuo-app-setup list</code>.</p>
 <p>We would recommend setting default region name to <code>eu-central-1</code>. The default output format is json and should not be changed.</p>
-<h3 id="command-generation"><a class="header" href="#command-generation">Command generation</a></h3>
+<h3 id="aws-command-generation"><a class="header" href="#aws-command-generation">AWS Command generation</a></h3>
 <p>The following command will generate command-line-commands to set up S3 and CloudFront.
 You’ll need to run them by yourself after reviewing the output.</p>
 <ol>
