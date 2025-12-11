@@ -1,6 +1,6 @@
 # Object Storage
 
-# Deploio
+## Deploio
 
 ### Command generation
 
@@ -28,7 +28,7 @@ If you think that the script is outdated, please open a Pull Request on the [ren
 
 For further configuration and best practices, please refer to the [Deploio documentation](https://docs.deplo.io/ruby/object-storage.html#setup-object-storage).
 
-# AWS
+## AWS
 
 The following Amazon services are involved in our app setups
 
@@ -71,7 +71,7 @@ If you want to check your config, run `aws configure --profile renuo-app-setup l
 
 We would recommend setting default region name to `eu-central-1`. The default output format is json and should not be changed.
 
-### Command generation
+### AWS Command generation
 
 The following command will generate command-line-commands to set up S3 and CloudFront.
 You'll need to run them by yourself after reviewing the output.
