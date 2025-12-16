@@ -34,15 +34,15 @@ Add SimpleCov configuration at the top of the file (before `RSpec.configure`):
 
 ```ruby
 # Run code coverage and exclude files with less than 5 lines of code
-unless ENV['NO_COVERAGE']
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_filter 'app/channels/application_cable/channel.rb'
-    add_filter 'app/channels/application_cable/connection.rb'
-    add_filter 'app/jobs/application_job.rb'
-    add_filter 'app/mailers/application_mailer.rb'
-    add_filter 'app/models/application_record.rb'
-    add_filter '.semaphore-cache'
+unless ENV["NO_COVERAGE"]
+  require "simplecov"
+  SimpleCov.start "rails" do
+    add_filter "app/channels/application_cable/channel.rb"
+    add_filter "app/channels/application_cable/connection.rb"
+    add_filter "app/jobs/application_job.rb"
+    add_filter "app/mailers/application_mailer.rb"
+    add_filter "app/models/application_record.rb"
+    add_filter ".semaphore-cache"
     enable_coverage :branch
     minimum_coverage line: 100, branch: 100
   end
@@ -75,7 +75,7 @@ We suggest you to also unable/uncomment the following:
 
 ```ruby
 config.disable_monkey_patching!
-config.default_formatter = 'doc' if config.files_to_run.one?
+config.default_formatter = "doc" if config.files_to_run.one?
 config.profile_examples = 5
 config.order = :random
 Kernel.srand config.seed
@@ -87,11 +87,11 @@ Kernel.srand config.seed
 Add the following requires:
 
 ```ruby
-# after `require 'rspec/rails'`
-require 'capybara/rspec'
-require 'capybara/rails'
-require 'selenium/webdriver'
-require 'super_diff/rspec-rails'
+# after `require "rspec/rails"`
+require "capybara/rspec"
+require "capybara/rails"
+require "selenium/webdriver"
+require "super_diff/rspec-rails"
 ```
 
 Add the following after the requires (before `RSpec.configure`):
@@ -131,7 +131,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+    driven_by ENV["SELENIUM_DRIVER"]&.to_sym || :selenium_chrome_headless
     Capybara.page.current_window.resize_to(1280, 800)
   end
 end
