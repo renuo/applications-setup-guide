@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-d596a157.js";
+            window.path_to_searchindex_js = "searchindex-259795f7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a495be96.js"></script>
@@ -1052,7 +1052,7 @@ It’s already included in your Gemfile by default.</p>
 <p><code>bundle exec rubocop -A</code> will fix <del>most</del> all of them automatically.</p>
 <h2 id="brakeman"><a class="header" href="#brakeman">Brakeman</a></h2>
 <p>Brakeman comes by default with Rails. Add it to the <code>bin/fastcheck</code> script.</p>
-<pre><code>bundle exec brakeman -q -z --no-summary --no-pager
+<pre><code class="language-sh">bundle exec brakeman -q -z --no-summary --no-pager
 </code></pre>
 <h2 id="mdl"><a class="header" href="#mdl">Mdl</a></h2>
 <p>An optional check for markdown files. You can include it or not. Discuss within your team.</p>
@@ -1075,7 +1075,8 @@ This can be done using the <code>browserslist</code> package and linter plugins.
 <p>This plugin can either be configured directly (shown here) or use a global <code>browserslist</code> config (less flexible).</p>
 <pre><code class="language-sh">npm add -D browserslist stylelint stylelint-config-standard stylelint-no-unsupported-browser-features
 </code></pre>
-<pre><code class="language-js title=&quot;stylelint.config.mjs&quot;">export default {
+<pre><code class="language-js title=&quot;stylelint.config.mjs&quot;">// stylelint.config.mjs
+export default {
   extends: ["stylelint-config-standard"],
   "plugins": [
     "stylelint-no-unsupported-browser-features"
@@ -1097,7 +1098,8 @@ This can be done using the <code>browserslist</code> package and linter plugins.
 };
 </code></pre>
 <p>Assume the following CSS:</p>
-<pre><code class="language-css title=&quot;app/assets/stylesheets/application.css&quot;">.layout {
+<pre><code class="language-css title=&quot;app/assets/stylesheets/application.css&quot;">/* app/assets/stylesheets/application.css */
+.layout {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 12px;
@@ -1121,7 +1123,8 @@ app/assets/stylesheets/application.css
 <p>This plugin can only be configured using a global <code>browserslist</code> as it seems.</p>
 <pre><code class="language-sh">npm add -D eslint @eslint/js eslint-plugin-compat
 </code></pre>
-<pre><code class="language-js title=&quot;eslint.config.mjs&quot;">import js from "@eslint/js";
+<pre><code class="language-js title=&quot;eslint.config.mjs&quot;">// eslint.config.mjs
+import js from "@eslint/js";
 import compat from "eslint-plugin-compat";
 
 export default [
