@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-06534f22.js";
+            window.path_to_searchindex_js = "searchindex-d596a157.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-f26f0187.js"></script>
+        <script src="toc-a495be96.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1068,6 +1068,70 @@ end
 <p><code>npm install stylelint stylelint-config-standard-scss</code></p>
 <p>Add to the project the <a href="templates/.stylelintrc.yml">linter configuration file</a> and check the <a href="templates/bin/fastcheck"><code>bin/fastcheck</code>
 template</a> to see the command to execute the SCSS linting.</p>
+<h2 id="linting-against-caniuse"><a class="header" href="#linting-against-caniuse">Linting against <a href="https://caniuse.com/">caniuse</a></a></h2>
+<p>You might want to check whether the JS/CSS you produce is working in your target browsers.
+This can be done using the <code>browserslist</code> package and linter plugins.</p>
+<h3 id="css-stylelint-no-unsupported-browser-features"><a class="header" href="#css-stylelint-no-unsupported-browser-features">CSS (stylelint-no-unsupported-browser-features)</a></h3>
+<p>This plugin can either be configured directly (shown here) or use a global <code>browserslist</code> config (less flexible).</p>
+<pre><code class="language-sh">npm add -D browserslist stylelint stylelint-config-standard stylelint-no-unsupported-browser-features
+</code></pre>
+<pre><code class="language-js title=&quot;stylelint.config.mjs&quot;">export default {
+  extends: ["stylelint-config-standard"],
+  "plugins": [
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "rules": {
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "browsers": [
+          "chrome &gt;= 112"
+        ],
+        "ignore": [
+          "rem"
+        ],
+        "ignorePartialSupport": true
+      }
+    ]
+  }
+};
+</code></pre>
+<p>Assume the following CSS:</p>
+<pre><code class="language-css title=&quot;app/assets/stylesheets/application.css&quot;">.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: subgrid;
+  gap: 6px;
+}
+</code></pre>
+<p>This would lead to the following linting error</p>
+<pre><code class="language-sh">$ node_modules/stylelint/bin/stylelint.mjs "**/*.css" -c /Users/josua/p/tmp/eslint/stylelint.config.mjs
+
+app/assets/stylesheets/application.css
+  20:3  ✖  Unexpected browser feature "css-subgrid" is not supported by Chrome 112-116  plugin/no-unsupported-browser-features
+
+✖ 1 problem (1 error, 0 warnings)
+</code></pre>
+<h3 id="js-eslint-plugin-compat"><a class="header" href="#js-eslint-plugin-compat">JS (eslint-plugin-compat)</a></h3>
+<p>This plugin can only be configured using a global <code>browserslist</code> as it seems.</p>
+<pre><code class="language-sh">npm add -D eslint @eslint/js eslint-plugin-compat
+</code></pre>
+<pre><code class="language-js title=&quot;eslint.config.mjs&quot;">import js from "@eslint/js";
+import compat from "eslint-plugin-compat";
+
+export default [
+  {
+    files: ["**/*.js"],
+    ...js.configs.recommended,
+  },
+  compat.configs["flat/recommended"],
+];
+</code></pre>
 <h2 id="erb-lint"><a class="header" href="#erb-lint">Erb lint</a></h2>
 <pre><code class="language-ruby">group :development, :test do
   gem 'erb_lint', require: false
