@@ -18,7 +18,7 @@ You can execute it and correct the issues you'll find.
 
 Brakeman comes by default with Rails. Add it to the `bin/fastcheck` script.
 
-```
+```sh
 bundle exec brakeman -q -z --no-summary --no-pager
 ```
 
@@ -57,6 +57,7 @@ npm add -D browserslist stylelint stylelint-config-standard stylelint-no-unsuppo
 ```
 
 ```js title="stylelint.config.mjs"
+// stylelint.config.mjs
 export default {
   extends: ["stylelint-config-standard"],
   "plugins": [
@@ -82,6 +83,7 @@ export default {
 Assume the following CSS:
 
 ```css title="app/assets/stylesheets/application.css"
+/* app/assets/stylesheets/application.css */
 .layout {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -115,6 +117,7 @@ npm add -D eslint @eslint/js eslint-plugin-compat
 ```
 
 ```js title="eslint.config.mjs"
+// eslint.config.mjs
 import js from "@eslint/js";
 import compat from "eslint-plugin-compat";
 
