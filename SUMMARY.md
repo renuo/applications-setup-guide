@@ -44,7 +44,7 @@
     - [Sparkpost & Mailtrap](sparkpost_and_mailtrap.md)
     - [Devise](ruby_on_rails/devise.md)
     - [Cucumber](ruby_on_rails/cucumber.md)
-    - [Amazon S3 and Cloudfront](ruby_on_rails/aws.md)
+    - [Object Storage](ruby_on_rails/object_storage.md)
     - [Bootstrap](ruby_on_rails/bootstrap.md)
     - [FontAwesome](ruby_on_rails/font_awesome.md)
     - [Bullet](ruby_on_rails/bullet.md)

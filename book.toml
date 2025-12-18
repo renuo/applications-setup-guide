@@ -1,7 +1,6 @@
 [book]
 authors = ["devs@Renuo"]
 language = "en"
-multilingual = false
 src = ""
 title = "Renuo - Application Setup Guide"
 

@@ -1,4 +1,34 @@
-# Amazon Services
+# Object Storage
+
+## Deploio
+
+### Command generation
+
+The following command will generate command-line-commands to set up object storage on Deploio.
+You'll need to run them by yourself after reviewing the output.
+
+1. Run `renuo create-deploio-object-storage`
+1. Follow the steps and answer the questions
+1. Now it will print you out a series of commands e.g.:
+
+   ```sh
+   # Deploio main
+
+       nctl create bucketuser main --project <<your-project>> --location <<location>>
+       [...]
+       nctl get bucketuser main --project <<your-project>> --print-credentials
+       [...]
+
+   # Deploio develop
+   [...]
+   ```
+1. Review the commands carefully (e.g. make sure that you enable bucket versioning for the main branch)
+
+If you think that the script is outdated, please open a Pull Request on the [renuo-cli](https://github.com/renuo/renuo-cli) project.
+
+For further configuration and best practices, please refer to the [Deploio documentation](https://docs.deplo.io/ruby/object-storage.html#setup-object-storage).
+
+## AWS
 
 The following Amazon services are involved in our app setups
 
@@ -41,7 +71,7 @@ If you want to check your config, run `aws configure --profile renuo-app-setup l
 
 We would recommend setting default region name to `eu-central-1`. The default output format is json and should not be changed.
 
-### Command generation
+### AWS Command generation
 
 The following command will generate command-line-commands to set up S3 and CloudFront.
 You'll need to run them by yourself after reviewing the output.

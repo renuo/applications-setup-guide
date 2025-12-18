@@ -61,7 +61,7 @@ useful services:
 1. [Sparkpost & Mailtrap](../sparkpost_and_mailtrap.md)
 1. [Devise](devise.md)
 1. [Cucumber](cucumber.md)
-1. [Amazon S3 and Cloudfront](aws.md)
+1. [Object storage](object_storage.md)
 1. awesome_print `gem 'awesome_print'`
 1. [bootstrap](bootstrap.md)
 1. [font-awesome](font_awesome.md)
