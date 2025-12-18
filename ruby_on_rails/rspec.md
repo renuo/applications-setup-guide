@@ -27,10 +27,15 @@ You should know exactly why you are adding each one of them and why is necessary
 
 * Install rspec via `rails generate rspec:install`
 * Create a bin stub with `bundle binstubs rspec-core`
-* At the top of the `spec/spec_helper.rb`
 
-  ```ruby
-  require 'simplecov'
+### spec/spec_helper.rb
+
+Add SimpleCov configuration at the top of the file (before `RSpec.configure`):
+
+```ruby
+# Run code coverage and exclude files with less than 5 lines of code
+unless ENV["NO_COVERAGE"]
+  require "simplecov"
   SimpleCov.start "rails" do
     add_filter "app/channels/application_cable/channel.rb"
     add_filter "app/channels/application_cable/connection.rb"
@@ -41,43 +46,70 @@ You should know exactly why you are adding each one of them and why is necessary
     enable_coverage :branch
     minimum_coverage line: 100, branch: 100
   end
-  ```
+end
+```
 
-  to run code coverage and exclude files with less then 5 lines of code.
+Add the following configuration options inside the `RSpec.configure` block:
 
-* Inside `spec/spec_helper.rb` we suggest you to uncomment/enable the following:
+```ruby
+RSpec.configure do |config|
+  # ... existing configuration ...
 
-  ```ruby
-  config.disable_monkey_patching!
-  config.default_formatter = 'doc' if config.files_to_run.one?
-  config.profile_examples = 5
-  config.order = :random
-  Kernel.srand config.seed
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+
+  config.run_all_when_everything_filtered = true
 
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true
   end
-  ```
+end
+```
 
-  Please check the [spec_helper template](../templates/spec/spec_helper.rb)
+We suggest you to also unable/uncomment the following:
 
-* Add the configurations:
+```ruby
+config.disable_monkey_patching!
+config.default_formatter = "doc" if config.files_to_run.one?
+config.profile_examples = 5
+config.order = :random
+Kernel.srand config.seed
+```
 
-```rb
-# spec/rails_helper.rb:
+### spec/rails_helper.rb
 
-# after `require 'rspec/rails'`
-require 'capybara/rspec'
-require 'capybara/rails'
-require 'selenium/webdriver'
-require 'super_diff/rspec-rails'
+Add the following requires:
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+```ruby
+# after `require "rspec/rails"`
+require "capybara/rspec"
+require "capybara/rails"
+require "selenium/webdriver"
+require "super_diff/rspec-rails"
+```
 
-# ... (omitted configs here)
+Add the following after the requires (before `RSpec.configure`):
 
+```ruby
+Rails.root.glob("spec/support/**/*.rb").each { |f| require f }
+```
+
+Add the following configuration inside the `RSpec.configure` block:
+
+```ruby
 RSpec.configure do |config|
-  # ... (omitted configs here)
+  # ... existing configuration ...
+
+  config.include FactoryBot::Syntax::Methods
+  config.include ActiveSupport::Testing::TimeHelpers
+  config.include JavaScriptErrorReporter, type: :system, js: true
+
+  config.infer_spec_type_from_file_location!
 
   config.before do |example|
     ActionMailer::Base.deliveries.clear
@@ -93,29 +125,32 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
 
+  config.before(:all, type: :system) do
+    Capybara.server = :puma, { Silent: true }
+  end
+
   config.before(:each, type: :system, js: true) do
-    driven_by ENV['SELENIUM_DRIVER']&.to_sym || :selenium_chrome_headless
+    driven_by ENV["SELENIUM_DRIVER"]&.to_sym || :selenium_chrome_headless
     Capybara.page.current_window.resize_to(1280, 800)
   end
 end
 ```
 
+### .env.example
+
 ```yml
-# .env.example
 # SELENIUM_DRIVER="selenium_chrome"
 SELENIUM_DRIVER="selenium_chrome_headless"
 ```
 
-```rb
-# config/environments/development.rb
+### config/environments/development.rb
 
+```rb
 config.generators do |g|
   g.test_framework :rspec
 end
 
 ```
-
-Please check the full [rails_helper template](../templates/spec/rails_helper.rb) to compare.
 
 * Add the line `bundle exec parallel_rspec` to `bin/check`
 
@@ -158,7 +193,3 @@ nctl get applications --project={PROJECT_NAME}
 ## Javascript error reporter
 
 * Create the module [`spec/support/javascript_error_reporter.rb`](../templates/spec/support/javascript_error_reporter.rb)
-
-* Verify that `config.include JavaScriptErrorReporter, type: :system, js: true` is in your [`rails_helper.rb`](../templates/spec/rails_helper.rb)
-
-Please check the [rails_helper template](../templates/spec/rails_helper.rb) to compare.
