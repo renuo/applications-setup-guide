@@ -81,7 +81,6 @@ config.order = :random
 Kernel.srand config.seed
 ```
 
-
 ### spec/rails_helper.rb
 
 Add the following requires:
@@ -152,7 +151,6 @@ config.generators do |g|
 end
 
 ```
-
 
 * Add the line `bundle exec parallel_rspec` to `bin/check`
 
