@@ -108,6 +108,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
   config.include JavaScriptErrorReporter, type: :system, js: true
+  config.include Capybara::RSpecMatchers, type: :request
 
   config.infer_spec_type_from_file_location!
 
