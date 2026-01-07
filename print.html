@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-bdde5272.js";
+            window.path_to_searchindex_js = "searchindex-2aae50bf.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a495be96.js"></script>
@@ -974,6 +974,7 @@ require "super_diff/rspec-rails"
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
   config.include JavaScriptErrorReporter, type: :system, js: true
+  config.include Capybara::RSpecMatchers, type: :request
 
   config.infer_spec_type_from_file_location!
 
