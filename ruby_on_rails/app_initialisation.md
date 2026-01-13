@@ -4,7 +4,8 @@
 
 * Ensure that your mise plugins are up to date with `mise plugin update`.
 
-* Ensure you are using the latest Ruby version globally `mise use -g ruby@latest` (Check if it's [supported by Heroku](https://devcenter.heroku.com/articles/ruby-support#ruby-versions)).
+* Ensure you are using the latest Ruby version globally (`mise use -g ruby@latest`) and that it is
+  supported by Deploio.
 
 * Run `gem update --system` to update Ruby's default gems (e.g. `bundler`).
 
