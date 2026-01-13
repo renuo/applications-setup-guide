@@ -2,11 +2,9 @@
 
 ## Default Rails setup
 
-* Ensure that your asdf plugins are up to date with `asdf plugin update --all`.
+* Ensure that your mise plugins are up to date with `mise plugin update`.
 
-* Install the latest Ruby version with `asdf install ruby latest` (Check if it's [supported by Heroku](https://devcenter.heroku.com/articles/ruby-support#ruby-versions)).
-
-* Switch your global Ruby to the fresh one: `asdf global ruby latest`.
+* Ensure you are using the latest Ruby version globally `mise use -g ruby@latest` (Check if it's [supported by Heroku](https://devcenter.heroku.com/articles/ruby-support#ruby-versions)).
 
 * Run `gem update --system` to update Ruby's default gems (e.g. `bundler`).
 
