@@ -18,7 +18,7 @@ Before setting up your application, ensure you have completed the following for 
 
 #### Remote Configuration
 
-Run the command to generate a script which will create and configure all Deploio apps. `[project-name]` string length is limited to 63 characters:
+Run [the command to generate a script](https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/commands/create_deploio_app.rb) which will create and configure all Deploio apps. `[project-name]` string length is limited to 63 characters:
 
 ```sh
 renuo create-deploio-app [project-name]
