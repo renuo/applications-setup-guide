@@ -15,7 +15,7 @@ You can do this with `gem update rails`. Beware of beta versions.
 
 * Start a new Rails project using
 ```
-rails new [project-name] --database=postgresql --skip-kamal --skip-ci --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/applications-setup-guide/main/ruby_on_rails/template.rb
+rails new [project-name] --database=postgresql --skip-kamal --skip-ci --skip-action-mailbox --template https://raw.githubusercontent.com/renuo/application-setup-guide/main/ruby_on_rails/template.rb
 ```
 where the `project-name` is exactly the one you chose before.
 
@@ -145,7 +145,7 @@ Check existing projects for an example of the usage.
   end
   ```
 
-* The default [Content Security Policies](https://github.com/renuo/applications-setup-guide/blob/master/ruby_on_rails/content_security_policy.md) should not always be activated, but rather only where there are platform secrets that need to be secured. This rule can be overwritten by a customer, if he opted into CSP when selecting his maintenance plans.
+* The default [Content Security Policies](./content_security_policy.md) should not always be activated, but rather only where there are platform secrets that need to be secured. This rule can be overwritten by a customer, if he opted into CSP when selecting his maintenance plans.
 
 * If you're using a js-bundling tool, let's clean up after asset precompilation
   to reduce the size of your deployment. Although deplo.io doesn't have Heroku slugs, it is still good to set up. Add this to the `Rakefile`:

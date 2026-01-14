@@ -26,7 +26,7 @@ You'll need to run them by yourself after reviewing the output.
 
 If you think that the script is outdated, please open a Pull Request on the [renuo-cli](https://github.com/renuo/renuo-cli) project.
 
-For further configuration and best practices, please refer to the [Deploio documentation](https://docs.deplo.io/ruby/object-storage.html#setup-object-storage).
+For further configuration and best practices, please refer to the [Deploio documentation](https://guides.deplo.io/ruby/object-storage.html#setup-object-storage).
 
 ## AWS
 

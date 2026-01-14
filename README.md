@@ -1,4 +1,4 @@
-# Renuo Applications Setup Guide
+# Renuo Application Setup Guide
 
 This repo is the [Renuo](https://www.renuo.ch) collection of best-practices to set-up apps.
 We are a [Rails company](https://rubyonrails.org/foundation), so the most value probably

@@ -35,7 +35,7 @@ When preparing your app for production on Deploio, ensure the following:
 * Confirm the configured application size in the application configuration tab.
 * Ensure the application replica count is correctly set in the application configuration tab.
 
-For detailed instructions and best practices, including quick start guides for a variety of frameworks, please refer to the [Deploio deployment documentation](https://docs.deploio.com/user-guide/network-and-deployment.html#network-deployment).
+For detailed instructions and best practices, including quick start guides for a variety of frameworks, please refer to the [Deploio deployment documentation](https://guides.deplo.io/user-guide/network-and-deployment.html#network-deployment).
 
 ## Heroku
 

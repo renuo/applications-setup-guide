@@ -16,5 +16,5 @@ To install the template copy this file into a `.github` folder in your project o
 simply run the following command from the root folder of the project:
 
 ```bash
-mkdir -p .github && curl https://raw.githubusercontent.com/renuo/applications-setup-guide/master/templates/PULL_REQUEST_TEMPLATE.md > .github/PULL_REQUEST_TEMPLATE.md
+mkdir -p .github && curl https://raw.githubusercontent.com/renuo/application-setup-guide/main/templates/PULL_REQUEST_TEMPLATE.md > .github/PULL_REQUEST_TEMPLATE.md
 ```

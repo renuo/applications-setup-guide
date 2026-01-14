@@ -8,7 +8,7 @@ Since we follow gitflow, we have two main branches connected, via CD, to two ser
 
 ```mermaid
 graph LR
-A[master] --> CI1(CI) --> CD1(CD)
+A[main] --> CI1(CI) --> CD1(CD)
 CD1(CD) --> S11(server)
 CD1(CD) --> S12(server)
 
@@ -28,7 +28,7 @@ sequenceDiagram
 
     rect rgb(191, 223, 255)
 
-    Developer->>G: git push origin develop or master
+    Developer->>G: git push origin develop or main
     G->>CI: notify about code change
     CI->>G: checkout code
     CI->>CI: run tests
