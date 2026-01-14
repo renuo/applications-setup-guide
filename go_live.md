@@ -37,6 +37,23 @@ When preparing your app for production on Deploio, ensure the following:
 
 For detailed instructions and best practices, including quick start guides for a variety of frameworks, please refer to the [Deploio deployment documentation](https://guides.deplo.io/user-guide/network-and-deployment.html#network-deployment).
 
+### URL rewriting in Rails
+
+To prevent the default host (e.g. `main.a1b2c3d.deploio.app`) from being indexed by search engines,
+add the following to the `config/routes.rb` file:
+
+```rb
+Rails.application.routes.draw do
+  if (app_host = ENV["APP_HOST"]).present?
+    match "*path", constraints: ->(req) { req.host != app_host && !req.path.start_with?("/.well-known/") },
+                   to: redirect { |_params, req| "https://#{app_host}#{req.fullpath}" }, via: :all
+  end
+end
+```
+
+Ensure that all custom hostnames are configured on Deploio.
+For example, if the app host is `example.com`, configure `example.com`, `www.example.com`, and `example-main.renuoapp.ch`.
+
 ## Heroku
 
 * Check the size and amount of dynos on Heroku
