@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-2aae50bf.js";
+            window.path_to_searchindex_js = "../searchindex-8f2c20f7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-a495be96.js"></script>
@@ -189,8 +189,9 @@
 <h3 id="setup-deploio-application"><a class="header" href="#setup-deploio-application">Setup Deploio Application</a></h3>
 <h4 id="remote-configuration"><a class="header" href="#remote-configuration">Remote Configuration</a></h4>
 <p>Run <a href="https://github.com/renuo/renuo-cli/blob/main/lib/renuo/cli/commands/create_deploio_app.rb">the command to generate a script</a> which will create and configure all Deploio apps. <code>[project-name]</code> string length is limited to 63 characters:</p>
-<pre><code class="language-sh">renuo create-deploio-app [project-name]
+<pre><code class="language-sh">renuo create-deploio-app [project-name] [git-url]
 </code></pre>
+<p>e.g. <code>renuo create-deploio-app my-app git@github.com:renuo/my-app.git</code></p>
 <p>Please review the script before running it and execute only the commands you need and understand.
 In particular, you might need only one of the two environments if you decided to not use <code>develop</code>.</p>
 <p><strong>If you don’t know what a command does: read the documentation and then execute it.</strong></p>
