@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8f2c20f7.js";
+            window.path_to_searchindex_js = "searchindex-7a4acf39.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a495be96.js"></script>
@@ -180,7 +180,7 @@ Please check it out and read how it works if you don’t know it yet.
 It’s very important that you know how gitflow works to work at Renuo.</p>
 <p>Since we follow gitflow, we have two main branches connected, via CD, to two servers, we call “main” and “develop”.</p>
 <pre><code class="language-mermaid">graph LR
-A[master] --&gt; CI1(CI) --&gt; CD1(CD)
+A[main] --&gt; CI1(CI) --&gt; CD1(CD)
 CD1(CD) --&gt; S11(server)
 CD1(CD) --&gt; S12(server)
 
@@ -198,7 +198,7 @@ CD1(CD) --&gt; S12(server)
 
     rect rgb(191, 223, 255)
 
-    Developer-&gt;&gt;G: git push origin develop or master
+    Developer-&gt;&gt;G: git push origin develop or main
     G-&gt;&gt;CI: notify about code change
     CI-&gt;&gt;G: checkout code
     CI-&gt;&gt;CI: run tests
