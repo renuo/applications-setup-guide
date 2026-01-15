@@ -39,8 +39,10 @@ For detailed instructions and best practices, including quick start guides for a
 
 ### URL rewriting in Rails
 
-To prevent the default host (e.g. `main.a1b2c3d.deploio.app`) from being indexed by search engines,
-add the following to the `config/routes.rb` file:
+Ensure that all custom hostnames are configured on Deploio. For example, if the app host
+is `example.com`, configure `example.com`, `www.example.com`, and `example-main.renuoapp.ch`.
+
+Then, redirect everything to the main hostname by adding the following to your `config/routes.rb` file:
 
 ```rb
 Rails.application.routes.draw do
@@ -50,9 +52,6 @@ Rails.application.routes.draw do
   end
 end
 ```
-
-Ensure that all custom hostnames are configured on Deploio.
-For example, if the app host is `example.com`, configure `example.com`, `www.example.com`, and `example-main.renuoapp.ch`.
 
 ## Heroku
 
