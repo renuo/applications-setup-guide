@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-7a4acf39.js";
+            window.path_to_searchindex_js = "../searchindex-71e6b70d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-a495be96.js"></script>
@@ -178,13 +178,11 @@
 <h2 id="default-rails-setup"><a class="header" href="#default-rails-setup">Default Rails setup</a></h2>
 <ul>
 <li>
-<p>Ensure that your asdf plugins are up to date with <code>asdf plugin update --all</code>.</p>
+<p>Ensure that your mise plugins are up to date with <code>mise plugin update</code>.</p>
 </li>
 <li>
-<p>Install the latest Ruby version with <code>asdf install ruby latest</code> (Check if it’s <a href="https://devcenter.heroku.com/articles/ruby-support#ruby-versions">supported by Heroku</a>).</p>
-</li>
-<li>
-<p>Switch your global Ruby to the fresh one: <code>asdf global ruby latest</code>.</p>
+<p>Ensure you are using the latest Ruby version globally (<code>mise use -g ruby@latest</code>) and that it is
+supported by Deploio.</p>
 </li>
 <li>
 <p>Run <code>gem update --system</code> to update Ruby’s default gems (e.g. <code>bundler</code>).</p>
