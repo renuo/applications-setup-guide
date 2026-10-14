@@ -181,7 +181,7 @@ raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 File.write 'config/appsignal.rb', <<~RUBY
   if defined?(Appsignal)
     Appsignal.configure do |config|
-      %w[HTTP_REFERER HTTP_USER_AGENT HTTP_AUTHORIZATION REQUEST_URI].each do |header|
+      %w[HTTP_REFERER HTTP_USER_AGENT REQUEST_URI].each do |header|
         config.request_headers << header
       end
       config.revision = ENV.fetch("DEPLOIO_GIT_REVISION")
