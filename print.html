@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-86c556ca.js";
+            window.path_to_searchindex_js = "searchindex-add182f8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-170943b7.js"></script>
@@ -1287,7 +1287,7 @@ raise OptionParser::MissingArgument if options[:env].nil? || options[:name].nil?
 File.write 'config/appsignal.rb', &lt;&lt;~RUBY
   if defined?(Appsignal)
     Appsignal.configure do |config|
-      %w[HTTP_REFERER HTTP_USER_AGENT HTTP_AUTHORIZATION REQUEST_URI].each do |header|
+      %w[HTTP_REFERER HTTP_USER_AGENT REQUEST_URI].each do |header|
         config.request_headers &lt;&lt; header
       end
       config.revision = ENV.fetch("DEPLOIO_GIT_REVISION")
