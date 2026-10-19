@@ -56,4 +56,3 @@ config.middleware.use(Rack::Tracker) do
   end
 end
 ```
-
