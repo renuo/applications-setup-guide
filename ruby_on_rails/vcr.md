@@ -51,4 +51,3 @@ Some considerations:
 * Does your project have special needs for tweaks: <https://blog.arkency.com/3-tips-to-tune-your-vcr-in-tests/>
 * How often do you want to re-record your cassettes? Out-of-date replays may give you a false sense of safety.
 * Where do you want to re-record your cassettes? Maybe nightly on the CI?
-
