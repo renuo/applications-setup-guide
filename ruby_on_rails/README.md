@@ -27,7 +27,7 @@ The application (and its GitHub repo) will be named after the `[project-name]` y
 
 ## Step 2: Deploy the App
 
-1. [Create an Application Server for Deploio](create_application_server_deploio.md) or [Create an Application Server for Heroku](create_application_server_heroku.md)
+1. [Create an Application Server for Deploio](create_application_server_deploio.md) or [Create an Application Server for Heroku](create_application_server_heroku.md) or (if there is no other way) [Set up a VPS](https://github.com/renuo/vps-setup-guide/blob/main/README.md)
 1. [Configure the CI/CD](configure_ci.md)
 
 Your app should now be up and running on all environments.
