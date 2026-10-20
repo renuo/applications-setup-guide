@@ -14,17 +14,17 @@ development:
         migrations_paths: db/migrate
 ```
 
-Then run `db:prepare` and `bin/rails solid_queue:install` 
+Then run `db:prepare` and `bin/rails solid_queue:install`
 
 ```rb
-# config/environments/production.rb && develoment.rb 
+# config/environments/production.rb && develoment.rb
 
 # Use Solid Queue in Development.
 config.active_job.queue_adapter = :solid_queue
 # config.solid_queue.connects_to = { database: { writing: :queue } }
 ```
 ```rb
-# config/puma.rb 
+# config/puma.rb
 
 plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"] || Rails.env.development?
 ```
