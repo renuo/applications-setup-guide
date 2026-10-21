@@ -8,10 +8,7 @@ development:
     primary:
         <<: *default
         database: [application_name]_development
-    queue:
-        <<: *default
-        database: [application_name]_development
-        migrations_paths: db/migrate
+
 ```
 
 Then run `db:prepare` and `bin/rails solid_queue:install`
@@ -21,7 +18,7 @@ Then run `db:prepare` and `bin/rails solid_queue:install`
 
 # Use Solid Queue in Development.
 config.active_job.queue_adapter = :solid_queue
-# config.solid_queue.connects_to = { database: { writing: :queue } }
+config.solid_queue.connects_to = { database: { writing: :primary } }
 ```
 ```rb
 # config/puma.rb
